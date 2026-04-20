@@ -48,47 +48,32 @@ const metadata = {
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
+ <Features
+    id="servicos-home"
+    tagline="Nossas Especialidades"
+    title="O que oferecemos para sua empresa"
+    subtitle="Soluções integradas em engenharia para garantir conformidade legal e eficiência operacional."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Engenharia Ambiental',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+          'Consultoria completa para licenciamentos, gestão de resíduos e sustentabilidade, transformando obrigações em valor para o seu negócio.',
+        icon: 'tabler:leaf',
+        callToAction: { text: 'Saiba mais', href: getPermalink('/services#ambiental') },
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'Engenharia de Produção',
         description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+          'Otimização de processos, redução de custos e aumento de produtividade através de metodologias modernas de gestão industrial.',
+        icon: 'tabler:settings',
+        callToAction: { text: 'Saiba mais', href: getPermalink('/services#producao') },
       },
       {
-        title: 'Best Practices',
+        title: 'Segurança do Trabalho',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'Gestão de normas regulamentadoras (NRs), prevenção de riscos e treinamentos para garantir a proteção total dos seus colaboradores.',
+        icon: 'tabler:shield-check',
+        callToAction: { text: 'Saiba mais', href: getPermalink('/services#seguranca') },
       },
     ]}
   />
