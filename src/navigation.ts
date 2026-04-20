@@ -27,5 +27,18 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Login', type: 'button', href: getPermalink('/login') }],
+  actions: [{ text: 'Login', href: getPermalink('/login'), variant: 'primary' }],
+};
+
+export const footerData = {
+  links: [],
+  secondaryLinks: [
+    { text: 'Termos', href: getPermalink('/terms') },
+    { text: 'Privacidade', href: getPermalink('/privacy') },
+  ],
+  socialLinks: [
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+  ],
+  footNote: `© ${new Date().getFullYear()} Triaxis Consultoria · Todos os direitos reservados.`,
 };
