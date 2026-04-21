@@ -9,13 +9,12 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança',
-  description: 'Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que precisam de conformidade legal e eficiência operacional.',
+  description: 'Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho.',
 };
 ---
 
 <Layout metadata={metadata}>
 
-  <!-- HERO -->
   <Hero
     tagline="Consultoria Especializada"
     title="Transformamos exigências legais em oportunidades de crescimento sustentável"
@@ -27,7 +26,6 @@ const metadata = {
     image={{ src: '~/assets/images/hero-image.png', alt: 'Triaxis Consultoria' }}
   />
 
-  <!-- SERVIÇOS -->
   <Features
     id="servicos-home"
     tagline="Nossas Especialidades"
@@ -38,24 +36,20 @@ const metadata = {
         title: 'Engenharia Ambiental',
         description: 'Consultoria completa para licenciamentos, gestão de resíduos e sustentabilidade, transformando obrigações em valor para o seu negócio.',
         icon: 'tabler:leaf',
-        callToAction: { text: 'Saiba mais', href: '/services#ambiental' },
       },
       {
         title: 'Engenharia de Produção',
         description: 'Otimização de processos, redução de custos e aumento de produtividade através de metodologias modernas de gestão industrial.',
         icon: 'tabler:settings',
-        callToAction: { text: 'Saiba mais', href: '/services#producao' },
       },
       {
         title: 'Segurança do Trabalho',
         description: 'Gestão de normas regulamentadoras (NRs), prevenção de riscos e treinamentos para garantir a proteção total dos seus colaboradores.',
         icon: 'tabler:shield-check',
-        callToAction: { text: 'Saiba mais', href: '/services#seguranca' },
       },
     ]}
   />
 
-  <!-- COMO TRABALHAMOS -->
   <Steps
     title="Como trabalhamos com a sua empresa"
     tagline="Nosso processo"
@@ -83,7 +77,6 @@ const metadata = {
     image={{ src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=987&q=80', alt: 'Equipe Triaxis em campo' }}
   />
 
-  <!-- NÚMEROS -->
   <Stats
     title="Triaxis em números"
     stats={[
@@ -94,7 +87,6 @@ const metadata = {
     ]}
   />
 
-  <!-- FAQs -->
   <FAQs
     title="Perguntas Frequentes"
     tagline="FAQ"
@@ -114,7 +106,7 @@ const metadata = {
       },
       {
         title: 'Como a consultoria de Produção pode reduzir meus custos?',
-        description: 'Identificamos desperdícios, gargalos e ineficiências nos processos produtivos e aplicamos metodologias como Lean Manufacturing e análise de fluxo para aumentar a produtividade com os recursos que você já possui.',
+        description: 'Identificamos desperdícios, gargalos e ineficiências nos processos produtivos e aplicamos metodologias como Lean Manufacturing para aumentar a produtividade com os recursos que você já possui.',
       },
       {
         title: 'Como inicio um projeto com a Triaxis?',
@@ -123,10 +115,9 @@ const metadata = {
     ]}
   />
 
-  <!-- CTA FINAL -->
   <CallToAction
     title="Pronto para colocar sua empresa em conformidade?"
-    subtitle="Entre em contato e descubra como a Triaxis pode transformar as exigências legais em vantagem competitiva para o seu negócio."
+    subtitle="Entre em contato e descubra como a Triaxis pode transformar exigências legais em vantagem competitiva."
     actions={[
       { variant: 'primary', text: 'Fale com um especialista', href: '/contact' },
     ]}
