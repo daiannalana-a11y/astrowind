@@ -1,9 +1,13 @@
 ---
-import { SITE } from 'astrowind:config';
+import { Image } from 'astro:assets';
+import logoTriaxis from '~/assets/images/Triaxis_22-04.png';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 TRIAXIS
-</span>
+<a href="/" class="flex items-center">
+  <Image
+    src={logoTriaxis}
+    alt="Triaxis Desenvolvimento, Consultoria e Assessoria"
+    height={50}
+    class="h-10 w-auto"
+  />
+</a>
