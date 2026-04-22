@@ -5,6 +5,7 @@ import Features from '~/components/widgets/Features.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks'; // Adicionamos esta linha para os links funcionarem 100%
 
 const metadata = {
   title: 'Quem Somos — Triaxis Consultoria',
@@ -22,8 +23,8 @@ const metadata = {
 
   <Features
     id="missao-visao-valores"
-    tagline="Missão, Visão e Valores"
-    title="Nossa Essência"
+    tagline="Nossa Essência"
+    title="Pilares Estratégicos"
     items={[
       {
         title: 'Missão',
@@ -69,7 +70,7 @@ const metadata = {
   />
 
   <Steps2
-    title="Nosso Time"
+    title="Nossa Equipe"
     tagline="Profissionais"
     subtitle="Engenheiros com formação sólida, experiência de campo e atualização constante nas legislações e normas vigentes."
     items={[
@@ -95,7 +96,7 @@ const metadata = {
     title="Vamos trabalhar juntos?"
     subtitle="Entre em contato e conte para nós o desafio da sua empresa. Teremos prazer em ajudar."
     actions={[
-      { variant: 'primary', text: 'Fale com a Triaxis', href: '/contact' },
+      { variant: 'primary', text: 'Fale com a Triaxis', href: getPermalink('/contact') },
     ]}
   />
 
