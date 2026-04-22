@@ -7,35 +7,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
-        default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
+        primary: {
+          DEFAULT: '#1F3647',
+          50: '#e8edf1',
+          100: '#c5d1da',
+          200: '#9fb3c1',
+          300: '#7994a8',
+          400: '#5a7d95',
+          500: '#3b6782',
+          600: '#2e5570',
+          700: '#1F3647',
+          800: '#172a39',
+          900: '#0e1d27',
+        },
+        secondary: {
+          DEFAULT: '#527912',
+          400: '#6a9a18',
+          500: '#527912',
+          600: '#3d5b0d',
+        },
+        accent: {
+          DEFAULT: '#FF8A42',
+          400: '#ffA166',
+          500: '#FF8A42',
+          600: '#e6722a',
+        },
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
-      },
-
-      animation: {
-        fade: 'fadeInUp 1s both',
-      },
-
-      keyframes: {
-        fadeInUp: {
-          '0%': { opacity: 0, transform: 'translateY(2rem)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
-        },
+        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+        heading: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [
-    typographyPlugin,
-    plugin(({ addVariant }) => {
-      addVariant('intersect', '&:not([no-intersect])');
-    }),
-  ],
-  darkMode: 'class',
+  plugins: [typographyPlugin, plugin(({ addVariant }) => {
+    addVariant('intersect', '&:not([no-intersect])');
+  })],
 };
