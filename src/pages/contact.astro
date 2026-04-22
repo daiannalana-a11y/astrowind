@@ -1,79 +1,119 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Fale Conosco — Triaxis Consultoria',
+  description: 'Entre em contato com a Triaxis. Estamos prontos para ajudar sua empresa com Engenharia Ambiental, Produção e Segurança do Trabalho.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
+  <Hero
+    tagline="Fale Conosco"
+    title="Vamos conversar sobre o seu desafio?"
+    subtitle="Entre em contato com a nossa equipe. Respondemos rapidamente e a primeira conversa é sem compromisso."
+    actions={[
       {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
+        variant: 'primary',
+        text: 'Chamar no WhatsApp',
+        href: 'https://wa.me/5531994915126?text=Olá! Gostaria de saber mais sobre os serviços da Triaxis.',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
       },
     ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
+  <!-- CANAIS DE CONTATO -->
+  <Features
+    tagline="Como nos encontrar"
+    title="Nossos canais de atendimento"
+    columns={3}
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: 'WhatsApp',
+        description: 'Fale diretamente com um especialista pelo WhatsApp. Atendimento ágil e personalizado para sua demanda.',
+        icon: 'tabler:brand-whatsapp',
+        callToAction: {
+          text: '(31) 99491-5126',
+          href: 'https://wa.me/5531994915126?text=Olá! Gostaria de saber mais sobre os serviços da Triaxis.',
+          target: '_blank',
+        },
       },
       {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
+        title: 'E-mail',
+        description: 'Prefere enviar uma mensagem por e-mail? Nossa equipe retorna em até 1 dia útil.',
         icon: 'tabler:mail',
+        callToAction: {
+          text: 'daiannalana@triaxisdesenvolvimento.com.br',
+          href: 'mailto:daiannalana@triaxisdesenvolvimento.com.br',
+        },
       },
       {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        title: 'Localização',
+        description: 'Atendemos empresas em Mariana, Ouro Preto, Belo Horizonte e região, com possibilidade de atendimento remoto.',
         icon: 'tabler:map-pin',
+        callToAction: {
+          text: 'Mariana / Ouro Preto / BH — MG',
+          href: '#',
+        },
       },
     ]}
   />
+
+  <!-- ÁREAS DE ATUAÇÃO -->
+  <Features
+    tagline="Como podemos ajudar"
+    title="Escolha a área que mais se encaixa na sua necessidade"
+    columns={3}
+    items={[
+      {
+        title: 'Engenharia Ambiental',
+        description: 'Licenciamentos, PGRS, diagnósticos, monitoramentos, PRAD, inventário de GEE e assessoria ambiental contínua.',
+        icon: 'tabler:leaf',
+        callToAction: {
+          text: 'Falar sobre Ambiental',
+          href: 'https://wa.me/5531994915126?text=Olá! Tenho uma demanda de Engenharia Ambiental e gostaria de conversar com um especialista.',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Engenharia de Produção',
+        description: 'Diagnóstico Lean, 5S, VSM, KPIs, redesenho de layout, gestão de custos, qualidade e treinamentos.',
+        icon: 'tabler:settings',
+        callToAction: {
+          text: 'Falar sobre Produção',
+          href: 'https://wa.me/5531994915126?text=Olá! Tenho uma demanda de Engenharia de Produção e gostaria de conversar com um especialista.',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Segurança do Trabalho',
+        description: 'PGR, laudos técnicos, treinamentos de NRs, gestão de EPIs, AET, auditorias e consultoria contínua em SST.',
+        icon: 'tabler:shield-check',
+        callToAction: {
+          text: 'Falar sobre Segurança',
+          href: 'https://wa.me/5531994915126?text=Olá! Tenho uma demanda de Segurança do Trabalho e gostaria de conversar com um especialista.',
+          target: '_blank',
+        },
+      },
+    ]}
+  />
+
+  <CallToAction
+    title="Não sabe por onde começar?"
+    subtitle="Sem problema! Entre em contato e nossa equipe vai entender sua situação e indicar o melhor caminho."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Falar com a Triaxis agora',
+        href: 'https://wa.me/5531994915126?text=Olá! Gostaria de saber mais sobre os serviços da Triaxis.',
+        target: '_blank',
+      },
+    ]}
+  />
+
 </Layout>
