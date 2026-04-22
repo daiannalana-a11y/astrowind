@@ -1,224 +1,201 @@
 ---
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Serviços — Triaxis Consultoria',
+  description: 'Conheça todos os serviços da Triaxis em Engenharia Ambiental, Engenharia de Produção e Segurança do Trabalho.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
-    }}
+    tagline="Nossos Serviços"
+    title="Soluções técnicas completas para a sua empresa"
+    subtitle="Atuamos nas três frentes que mais impactam a conformidade, a eficiência e a segurança das operações industriais e empresariais."
+    actions={[
+      { variant: 'primary', text: 'Fale com um especialista', href: '/contact' },
+    ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
-    columns={3}
+  <!-- ENGENHARIA AMBIENTAL -->
+  <Features
+    id="ambiental"
+    tagline="Engenharia Ambiental"
+    title="Transformamos exigências legais em oportunidades"
+    subtitle="Nossa equipe atua com foco em conformidade regulatória e melhoria contínua, ajudando sua empresa a atender às normas ambientais e fortalecer sua imagem institucional."
+    columns={2}
     items={[
       {
-        title: 'Educational',
-        description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
+        title: 'Assessoria Ambiental Contínua',
+        description: 'Acompanhamento ambiental recorrente para manter sua empresa em conformidade ao longo do ano, com controle de prazos, licenças, condicionantes e resíduos, evitando multas e surpresas de última hora.',
+        icon: 'tabler:calendar-check',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
+        title: 'Diagnóstico de Conformidade Ambiental',
+        description: 'Avaliação técnica da situação ambiental da empresa para identificar riscos, não conformidades e prioridades, com plano de ação claro e aplicável para regularizar com previsibilidade.',
+        icon: 'tabler:clipboard-check',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
+        title: 'Licenciamento Ambiental',
+        description: 'Conduzimos processos de licenciamento, regularização e renovação de licenças ambientais, com organização documental e suporte técnico junto aos órgãos competentes.',
+        icon: 'tabler:license',
       },
       {
-        title: 'E-commerce',
-        description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
+        title: 'Gerenciamento de Resíduos Sólidos (PGRS)',
+        description: 'Elaboração e implantação do PGRS para organizar a rotina de resíduos, desde a segregação até a destinação, com registros e evidências prontas para fiscalização e auditoria.',
+        icon: 'tabler:recycle',
       },
       {
-        title: 'Blog',
-        description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
+        title: 'Resíduos da Construção Civil (PGRCC)',
+        description: 'Desenvolvemos o PGRCC para obras e atividades da construção civil, garantindo controle dos resíduos, atendimento às exigências legais e organização documental para órgãos e contratantes.',
+        icon: 'tabler:building-factory',
       },
       {
-        title: 'Business',
-        description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
+        title: 'Monitoramento e Relatórios Técnicos Ambientais',
+        description: 'Executamos monitoramentos ambientais e elaboramos relatórios técnicos confiáveis para atender licenças, condicionantes, auditorias e fiscalizações, com dados organizados e prazos controlados.',
+        icon: 'tabler:chart-line',
       },
       {
-        title: 'Branding',
-        description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
+        title: 'Recuperação de Áreas Degradadas (PRAD/RAD)',
+        description: 'Elaboramos PRAD/RAD com diagnóstico de campo, soluções técnicas e cronograma executável para recuperação de áreas degradadas, atendendo exigências de licenciamento e mineração.',
+        icon: 'tabler:trees',
       },
       {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
+        title: 'Emissões e Mudanças Climáticas (Inventário de GEE)',
+        description: 'Elaboração de inventários de emissões de GEE e planos de redução, com dados rastreáveis e ações realistas para atender demandas ESG, auditorias e exigências de clientes e contratantes.',
+        icon: 'tabler:wind',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'High-Quality Designs',
-        description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
-      },
-      {
-        title: 'Customization Tools',
-        description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Pre-Designed Elements',
-        description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
-      },
-      {
-        title: 'Preview and Mockup Views',
-        description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
-      },
+  <CallToAction
+    title="Precisa de apoio ambiental?"
+    subtitle="Entre em contato e veja como podemos regularizar e proteger sua empresa."
+    actions={[
+      { variant: 'primary', text: 'Falar com especialista ambiental', href: '/contact' },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
-    </Fragment>
-  </Content>
+  />
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
+  <!-- ENGENHARIA DE PRODUÇÃO -->
+  <Features
+    id="producao"
+    tagline="Engenharia de Produção"
+    title="Transformamos processos desorganizados em operações eficientes"
+    subtitle="Ajudamos sua empresa a identificar gargalos, eliminar desperdícios e aumentar a produtividade com metodologias modernas e aplicáveis à sua realidade."
+    columns={2}
     items={[
       {
-        title: 'Time Savings',
-        description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
+        title: 'Diagnóstico Lean e Plano de Melhoria Contínua',
+        description: 'Realizamos o diagnóstico da operação identificando gargalos, desperdícios e oportunidades de melhoria, estruturando um plano de ação para aumentar a eficiência e a previsibilidade dos processos.',
+        icon: 'tabler:search',
       },
       {
-        title: 'Professional Appearance',
-        description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
+        title: 'Implementação 5S e Padronização Operacional',
+        description: 'Implantamos o programa 5S estruturando organização, limpeza e disciplina para transformar o ambiente de trabalho, reduzir desperdícios e elevar o padrão de qualidade da operação.',
+        icon: 'tabler:layout-grid',
       },
       {
-        title: 'Cost-Efficiency',
-        description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
+        title: 'Mapeamento de Processos e Eliminação de Desperdícios (VSM)',
+        description: 'Realizamos o mapeamento dos processos e do fluxo de valor, identificando perdas e ineficiências ao longo da operação para tornar os processos mais fluidos e eficientes.',
+        icon: 'tabler:git-branch',
+      },
+      {
+        title: 'Gestão de Indicadores e Performance (KPIs e OEE)',
+        description: 'Estruturamos sistemas de gestão por indicadores, transformando dados operacionais em informações claras para tomada de decisão e melhoria contínua da performance.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Redesenho de Layout e Balanceamento de Produção',
+        description: 'Realizamos estudos técnicos para reorganizar o fluxo produtivo, otimizando espaço, movimentação e ritmo de trabalho para uma produção mais fluida, segura e equilibrada.',
+        icon: 'tabler:layout',
+      },
+      {
+        title: 'Gestão de Custos e Eficiência de Recursos',
+        description: 'Analisamos os custos da operação identificando onde os recursos são consumidos e onde existem oportunidades de economia e ganho de eficiência sem comprometer qualidade ou prazo.',
         icon: 'tabler:coin',
       },
       {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+        title: 'Auditoria e Certificação da Qualidade (ISO, FMEA, 8D)',
+        description: 'Avaliamos e estruturamos sistemas de qualidade para adequar processos aos padrões ISO 9001, ISO 14001 e IATF 16949, criando um sistema sólido e aplicável à rotina real da operação.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Treinamentos em Lean Manufacturing',
+        description: 'Desenvolvemos e aplicamos programas de capacitação voltados à formação de equipes mais autônomas, produtivas e alinhadas à filosofia Lean, com foco em ganhos reais e sustentáveis.',
+        icon: 'tabler:school',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
-    </Fragment>
-  </Content>
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from real customers"
-    testimonials={[
-      {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
-      },
-      {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-      {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
-      },
-    ]}
-    callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/arthelokyo/astrowind',
-      icon: 'tabler:chevron-right',
-    }}
   />
-
-  <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    title="Quer aumentar a eficiência da sua operação?"
+    subtitle="Converse com nosso time de Engenharia de Produção e descubra onde estão seus maiores ganhos."
     actions={[
+      { variant: 'primary', text: 'Falar com especialista em produção', href: '/contact' },
+    ]}
+  />
+
+  <!-- SEGURANÇA DO TRABALHO -->
+  <Features
+    id="seguranca"
+    tagline="Segurança do Trabalho"
+    title="Transformamos riscos ocupacionais em ambientes mais seguros"
+    subtitle="Atuamos com foco na identificação, controle e prevenção de riscos ocupacionais, ajudando sua empresa a atender às exigências legais de SST e reduzir acidentes."
+    columns={2}
+    items={[
       {
-        variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        title: 'Diagnóstico de Segurança do Trabalho',
+        description: 'Avaliação técnica das condições de trabalho com identificação de riscos físicos, químicos, biológicos, ergonômicos e de acidentes, servindo como base para adequação legal e decisões estratégicas.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Elaboração e Gestão do PGR (NR-01)',
+        description: 'Desenvolvimento e acompanhamento do PGR conforme a NR-01, incluindo inventário de riscos, avaliação de perigos, definição de medidas de controle e monitoramento das ações.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: 'Laudos Técnicos (LTCAT, Insalubridade e Periculosidade)',
+        description: 'Elaboração de laudos técnicos com análises criteriosas e fundamentadas, subsidiando decisões legais, previdenciárias e trabalhistas com segurança jurídica para a empresa.',
+        icon: 'tabler:file-description',
+      },
+      {
+        title: 'Treinamentos Normativos (NRs)',
+        description: 'Planejamento e aplicação de treinamentos obrigatórios conforme NR-01, NR-05, NR-06, NR-10, NR-12, NR-17, NR-23, NR-33, NR-35 e outras, de forma prática e acessível.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Implantação e Gestão do Uso de EPIs',
+        description: 'Avaliação dos riscos, definição dos EPIs adequados, elaboração de fichas de entrega e acompanhamento da correta utilização, contribuindo para redução de acidentes e afastamentos.',
+        icon: 'tabler:shield',
+      },
+      {
+        title: 'Análise Ergonômica do Trabalho (AET)',
+        description: 'Avaliação das condições ergonômicas dos postos de trabalho com foco na prevenção de doenças ocupacionais, propondo melhorias práticas que promovem saúde e aumentam produtividade.',
+        icon: 'tabler:armchair',
+      },
+      {
+        title: 'Auditoria de Segurança do Trabalho',
+        description: 'Avaliação sistemática da conformidade com as NRs e requisitos legais, analisando documentos, práticas e condições reais de trabalho, identificando falhas e oportunidades de melhoria.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Consultoria Contínua em Segurança do Trabalho',
+        description: 'Acompanhamento técnico periódico com suporte, atualização normativa, apoio em fiscalizações, monitoramento de indicadores e orientação à gestão para evolução contínua do sistema de SST.',
+        icon: 'tabler:headset',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
   />
+
+  <CallToAction
+    title="Sua empresa está em conformidade com as NRs?"
+    subtitle="Fale com nosso time de Segurança do Trabalho e proteja seus colaboradores e sua empresa."
+    actions={[
+      { variant: 'primary', text: 'Falar com especialista em segurança', href: '/contact' },
+    ]}
+  />
+
 </Layout>
