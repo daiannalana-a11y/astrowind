@@ -1,14 +1,17 @@
 ---
 import { Image } from 'astro:assets';
-import logoTriaxis from '~/assets/images/Triaxis_22-04.png';
+import iconeTriaxis from '~/assets/images/4.png';
 ---
 
-<a href="/" class="flex items-center">
+<a href="/" class="flex items-center gap-3 mr-6">
   <Image
-    src={logoTriaxis}
-    alt="Triaxis Desenvolvimento, Consultoria e Assessoria"
-    height={55}
-    width={220}
-    class="h-14 w-auto object-contain"
+    src={iconeTriaxis}
+    alt="Triaxis"
+    height={40}
+    width={40}
+    class="h-10 w-10 object-contain"
   />
+  <span class="font-bold text-xl" style="color: #1F3647; font-family: 'Poppins', sans-serif;">
+    Triaxis
+  </span>
 </a>
