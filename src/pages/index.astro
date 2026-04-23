@@ -29,34 +29,34 @@ const metadata = {
 
   <Features
     id="features"
-    tagline="Por que a Triaxis?"
-    title="Nossos Diferenciais"
+    tagline="Diferenciais"
+    title="Por que a Triaxis?"
     columns={3}
     items={[
       {
         title: 'Expertise Técnica',
-        description: 'Equipe altamente qualificada com experiência sólida em consultoria ambiental, segurança e processos industriais.',
+        description: 'Equipe altamente qualificada com experiência sólida em consultoria ambiental e segurança.',
         icon: 'tabler:shield-check',
       },
       {
         title: 'Soluções Personalizadas',
-        description: 'Abordagem sob medida para cada cliente, fugindo de relatórios de gaveta e garantindo resultados aplicáveis à rotina.',
+        description: 'Abordagem sob medida para cada cliente, garantindo resultados aplicáveis à rotina.',
         icon: 'tabler:trending-up',
       },
       {
         title: 'Visão Sustentável',
-        description: 'Foco no equilíbrio entre eficiência operacional, desenvolvimento humano e conformidade socioambiental (ESG).',
+        description: 'Foco no equilíbrio entre eficiência operacional e conformidade socioambiental (ESG).',
         icon: 'tabler:world',
       },
     ]}
     classes={{
       container: 'max-w-7xl mx-auto py-12 md:py-20',
-      title: 'text-center text-3xl md:text-5xl font-bold tracking-tight mb-12 font-heading',
+      title: 'text-center text-3xl md:text-4xl font-bold tracking-tight mb-12 font-heading',
       items: {
-        container: 'bg-slate-50 dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md',
-        title: 'text-2xl font-bold mt-6',
-        description: 'text-muted mt-3 leading-relaxed',
-        icon: 'w-16 h-16 rounded-2xl bg-slate-900 text-white p-4 shadow-md', 
+        container: 'flex flex-col items-center text-center px-4', // Centraliza tudo horizontalmente
+        title: 'text-xl font-bold mt-4 mb-2',
+        description: 'text-muted leading-relaxed text-sm',
+        icon: 'w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 p-4 shadow-sm', // Ícone Circular e Colorido
       },
     }}
   />
@@ -75,16 +75,9 @@ const metadata = {
       <p class="mb-4 text-muted dark:text-slate-400 text-lg leading-relaxed">
         A Triaxis nasceu da união de profissionais com experiência sólida e complementar em Engenharia Ambiental, Engenharia de Produção e Segurança do Trabalho.
       </p>
-      <p class="mb-8 text-muted dark:text-slate-400 text-lg leading-relaxed">
-        Nosso foco é garantir conformidade, eficiência operacional e crescimento em equilíbrio para os nossos clientes.
-      </p>
-      
-      <div class="flex flex-wrap gap-6 items-center">
+      <div class="flex flex-wrap gap-6 items-center mt-6">
         <a href="/contact" class="text-primary font-bold hover:underline flex items-center text-lg">
           Falar com nossa Equipe <span class="ml-2">→</span>
-        </a>
-        <a href="/about" class="text-gray-500 dark:text-slate-400 font-semibold hover:underline border-l border-gray-300 dark:border-slate-700 pl-6 text-lg">
-          Saiba mais sobre nós
         </a>
       </div>
     </Fragment>
@@ -97,71 +90,41 @@ const metadata = {
       </h2>
 
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border-t-[6px] border-t-green-700 transition-all hover:shadow-lg">
-          <div class="p-6 flex-grow text-center">
-            <h3 class="text-lg font-bold mb-4">Consultoria Ambiental</h3>
-            <ul class="space-y-2 text-left inline-block">
-              {['Licenciamento e Outorgas', 'Gestão de Resíduos', 'Recuperação de Áreas', 'Inventários ESG'].map(i => (
-                <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                  <span class="text-green-700 mr-2 font-bold">✓</span> {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div class="p-6 pt-0"><a href="/services#ambiental" class="block w-full py-2 border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all">VER DETALHES</a></div>
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-green-700 p-6">
+          <h3 class="text-lg font-bold mb-4">Consultoria Ambiental</h3>
+          <ul class="space-y-2 text-left mb-6 flex-grow">
+            {['Licenciamento Ambiental', 'Gestão de Resíduos', 'Outorgas'].map(i => (
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-green-700 mr-2 font-bold">✓</span> {i}
+              </li>
+            ))}
+          </ul>
+          <a href="/services#ambiental" class="block w-full py-2 border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all text-center">VER DETALHES</a>
         </div>
 
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border-t-[6px] border-t-blue-700 transition-all hover:shadow-lg">
-          <div class="p-6 flex-grow text-center">
-            <h3 class="text-lg font-bold mb-4">Engenharia de Produção</h3>
-            <ul class="space-y-2 text-left inline-block">
-              {['Diagnóstico Lean', 'Mapeamento VSM', '5S e Layout', 'Gestão de KPIs'].map(i => (
-                <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                  <span class="text-blue-700 mr-2 font-bold">✓</span> {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div class="p-6 pt-0"><a href="/services#producao" class="block w-full py-2 border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all">VER DETALHES</a></div>
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-blue-700 p-6">
+          <h3 class="text-lg font-bold mb-4">Engenharia de Produção</h3>
+          <ul class="space-y-2 text-left mb-6 flex-grow">
+            {['Diagnóstico Lean', 'Mapeamento VSM', 'Kpis e Layout'].map(i => (
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-blue-700 mr-2 font-bold">✓</span> {i}
+              </li>
+            ))}
+          </ul>
+          <a href="/services#producao" class="block w-full py-2 border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all text-center">VER DETALHES</a>
         </div>
 
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border-t-[6px] border-t-orange-600 transition-all hover:shadow-lg">
-          <div class="p-6 flex-grow text-center">
-            <h3 class="text-lg font-bold mb-4">Segurança do Trabalho</h3>
-            <ul class="space-y-2 text-left inline-block">
-              {['PGR e LTCAT', 'Treinamentos NRs', 'Laudos de Insalubridade', 'Gestão CIPA'].map(i => (
-                <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                  <span class="text-orange-600 mr-2 font-bold">✓</span> {i}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div class="p-6 pt-0"><a href="/services#seguranca" class="block w-full py-2 border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all">VER DETALHES</a></div>
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-orange-600 p-6">
+          <h3 class="text-lg font-bold mb-4">Segurança do Trabalho</h3>
+          <ul class="space-y-2 text-left mb-6 flex-grow">
+            {['PGR e LTCAT', 'Treinamentos NRs', 'Laudos Técnicos'].map(i => (
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-orange-600 mr-2 font-bold">✓</span> {i}
+              </li>
+            ))}
+          </ul>
+          <a href="/services#seguranca" class="block w-full py-2 border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all text-center">VER DETALHES</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 md:py-24 bg-white dark:bg-slate-900 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="mb-16 text-center">
-        <p class="text-sm text-green-700 font-bold tracking-widest uppercase mb-2 font-heading">Como Trabalhamos</p>
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading"> Nossa Metodologia </h2>
-      </div>
-      <div class="relative flex flex-wrap md:flex-nowrap justify-between gap-12 md:gap-4">
-        {[
-          { n: '1', t: 'Diagnóstico', c: 'border-green-700', d: 'Análise técnica detalhada da situação atual.' },
-          { n: '2', t: 'Planejamento', c: 'border-blue-700', d: 'Desenvolvimento de matriz de obrigações.' },
-          { n: '3', t: 'Implantação', c: 'border-green-700', d: 'Execução das soluções e treinamentos.' },
-          { n: '4', t: 'Sustentação', c: 'border-blue-700', d: 'Monitoramento contínuo de resultados.' }
-        ].map((step, index) => (
-          <div class="relative flex flex-col items-center text-center flex-1 min-w-[200px]">
-            <div class={`w-16 h-16 rounded-full border-4 ${step.c} flex items-center justify-center text-2xl font-bold shadow-xl mb-6 bg-white dark:bg-slate-800 z-10`}> {step.n} </div>
-            <h3 class="text-xl font-bold mb-3 tracking-tight">{step.t}</h3>
-            <p class="text-sm text-muted dark:text-slate-400 px-4 leading-relaxed">{step.d}</p>
-            {index < 3 && <div class="hidden md:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-0.5 bg-gray-100 dark:bg-slate-700" />}
-          </div>
-        ))}
       </div>
     </div>
   </section>
