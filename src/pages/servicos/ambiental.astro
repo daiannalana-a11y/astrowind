@@ -1,1 +1,87 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
+const metadata = {
+  title: 'Engenharia Ambiental — Triaxis Consultoria',
+  description: 'Detalhamento dos serviços de consultoria ambiental, licenciamento e gestão de resíduos.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Nível Especialista"
+    title="Engenharia Ambiental Integrativa"
+    subtitle="Nossa abordagem vai além do papel. Atuamos na gestão real dos seus passivos e ativos ambientais, garantindo que sua operação seja um exemplo de conformidade e sustentabilidade."
+    image={{ src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2070&q=80', alt: 'Meio Ambiente Engenharia' }}
+  />
+
+  <Features2
+    title="Nossas frentes de atuação ambiental"
+    subtitle="Clique nos serviços para entender o impacto em sua operação"
+    items={[
+      {
+        title: 'Licenciamento e Outorgas',
+        description: 'LP, LI e LO. Gestão completa de processos junto aos órgãos ambientais estaduais e federais.',
+        icon: 'tabler:file-certificate',
+      },
+      {
+        title: 'Gestão de Resíduos',
+        description: 'PGRS e PGRCC. Redução de custos através da destinação correta e inteligência logística.',
+        icon: 'tabler:recycle',
+      },
+      {
+        title: 'Laudos e Projetos (PRAD)',
+        description: 'Recuperação de áreas e monitoramento de fauna/flora com rigor técnico e científico.',
+        icon: 'tabler:plant',
+      },
+      {
+        title: 'Estratégia ESG e Clima',
+        description: 'Inventários de GEE e adequação às novas exigências de mercado e investidores.',
+        icon: 'tabler:world-latitude',
+      },
+    ]}
+  />
+
+  <Steps
+    title="Como trabalhamos sua regularidade ambiental"
+    items={[
+      {
+        title: 'Passo 1: Diagnóstico',
+        description: 'Visitamos sua operação para identificar riscos imediatos e oportunidades de regularização.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Passo 2: Plano de Ação',
+        description: 'Criamos um cronograma técnico priorizando o que impede sua empresa de operar ou crescer.',
+        icon: 'tabler:list-numbers',
+      },
+      {
+        title: 'Passo 3: Execução e Protocolo',
+        description: 'Nossa equipe técnica elabora os estudos e faz o acompanhamento direto com os órgãos públicos.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Passo 4: Gestão Contínua',
+        description: 'Não entregamos e sumimos. Monitoramos suas condicionantes para que você nunca perca um prazo.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Passo a passo ambiental',
+    }}
+  />
+
+  <CallToAction
+    title="Sua licença está vencendo ou precisa de um novo projeto?"
+    subtitle="Nossos engenheiros ambientais estão prontos para realizar um diagnóstico prévio da sua situação."
+    actions={[
+      { variant: 'primary', text: 'Solicitar Diagnóstico Ambiental', href: getPermalink('/contact') },
+    ]}
+  />
+</Layout>
