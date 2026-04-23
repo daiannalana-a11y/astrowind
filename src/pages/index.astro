@@ -3,8 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
@@ -18,128 +16,111 @@ const metadata = {
   <Hero
     tagline="Consultoria Especializada"
     title="Transformamos exigências legais em oportunidades de crescimento sustentável"
-    subtitle="Somos uma Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que precisam estar em conformidade e querem crescer de forma segura e eficiente."
+    subtitle="Somos uma consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que buscam conformidade e eficiência."
     actions={[
       { variant: 'primary', text: 'Agende uma conversa', href: '/contact' },
       { text: 'Nossos Serviços', href: '#servicos-home' },
     ]}
-    image={{ src: 'https://images.unsplash.com/photo-1454165833467-1359a33a7fd5?auto=format&fit=crop&w=2070&q=80', alt: 'Triaxis Consultoria' }}
+    image={{ 
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2070&q=80', 
+      alt: 'Triaxis Consultoria' 
+    }}
   />
 
- <Features
+  <Features
+    id="features"
     tagline="Por que a Triaxis?"
     title="Nossos Diferenciais"
     columns={3}
-    defaultIcon="tabler:check"
-    classes={{
-      container: 'py-12 md:py-16',
-      title: 'text-3xl md:text-4xl font-bold tracking-tight mb-8',
-      items: {
-        container: 'gap-8 md:gap-12',
-        title: 'text-xl font-bold mb-2',
-        description: 'text-muted dark:text-slate-400 leading-relaxed',
-        icon: 'w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 dark:bg-slate-700 text-white p-2.5 mr-4 shadow-lg',
-      },
-    }}
     items={[
       {
         title: 'Expertise Técnica',
-        description: 'Equipe altamente qualificada com experiência sólida em consultoria ambiental, segurança e processos industriais.',
+        description: 'Equipe altamente qualificada com experiência sólida em consultoria e processos industriais.',
         icon: 'tabler:shield-check',
       },
       {
         title: 'Soluções Personalizadas',
-        description: 'Abordagem sob medida para cada cliente, fugindo de relatórios de gaveta e garantindo resultados aplicáveis à rotina.',
+        description: 'Abordagem sob medida para cada cliente, garantindo resultados aplicáveis à rotina.',
         icon: 'tabler:trending-up',
       },
       {
         title: 'Visão Sustentável',
-        description: 'Foco no equilíbrio entre eficiência operacional, desenvolvimento humano e conformidade socioambiental (ESG).',
+        description: 'Foco no equilíbrio entre eficiência operacional e conformidade socioambiental (ESG).',
         icon: 'tabler:world',
       },
     ]}
+    classes={{
+      container: 'max-w-7xl mx-auto py-12 md:py-20',
+      items: {
+        container: 'flex flex-row md:flex-row items-start text-left', // Garante ícone ao lado
+        icon: 'w-12 h-12 rounded-full bg-slate-900 text-white p-2.5 flex-shrink-0 mr-4 shadow-lg', // Ícone circular preto
+        title: 'text-xl font-bold font-heading',
+        description: 'text-muted mt-2 leading-relaxed',
+      },
+    }}
   />
 
-  <section id="servicos-home" class="bg-slate-50 dark:bg-slate-800 py-12">
-    <div class="max-w-5xl mx-auto px-4">
+  <section id="servicos-home" class="relative bg-slate-50 dark:bg-slate-800 py-12 md:py-20 scroll-mt-[72px]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
       
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 uppercase tracking-tight">
-        Nossos Serviços
-      </h2>
+      <div class="mb-10 text-center uppercase tracking-wider">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          Nossos Serviços
+        </h2>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         
-        <div class="bg-white dark:bg-slate-900 rounded-lg shadow-md border-t-4 border-green-700 flex flex-col h-full">
-          <div class="p-5 flex-grow">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 border-t-[6px] border-t-green-700">
+          <div class="p-6 flex-grow">
             <h3 class="text-lg font-bold text-center mb-4">Consultoria Ambiental</h3>
-            <ul class="space-y-2">
-              <li class="flex items-start text-sm">
-                <span class="text-green-700 mr-2">✓</span> Licenciamento e Outorgas
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-green-700 mr-2">✓</span> Gestão de Resíduos
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-green-700 mr-2">✓</span> Recuperação de Áreas (PRAD)
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-green-700 mr-2">✓</span> Inventários de GEE e ESG
-              </li>
+            <ul class="space-y-2 mb-4">
+              {['Licenciamento Ambiental e Outorgas', 'Gestão de Resíduos (PGRS/PGRCC)', 'Recuperação de Áreas (PRAD)', 'Inventários de GEE e ESG'].map((item) => (
+                <li class="flex items-center text-[13px] text-gray-600 dark:text-gray-400">
+                  <span class="text-green-700 mr-2 font-bold">✓</span> {item}
+                </li>
+              ))}
             </ul>
           </div>
-          <div class="p-5 pt-0">
-            <a href="/services#ambiental" class="block w-full py-2 text-center border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all">
-              VER DETALHES
+          <div class="p-6 pt-0">
+            <a href="/services#ambiental" class="block w-full py-2 text-center border border-green-700 text-green-700 text-[13px] font-bold rounded-md hover:bg-green-700 hover:text-white transition-all">
+              Ver Detalhes
             </a>
           </div>
         </div>
 
-        <div class="bg-white dark:bg-slate-900 rounded-lg shadow-md border-t-4 border-blue-700 flex flex-col h-full">
-          <div class="p-5 flex-grow">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 border-t-[6px] border-t-blue-700">
+          <div class="p-6 flex-grow">
             <h3 class="text-lg font-bold text-center mb-4">Engenharia de Produção</h3>
-            <ul class="space-y-2">
-              <li class="flex items-start text-sm">
-                <span class="text-blue-700 mr-2">✓</span> Diagnóstico Lean e Eficiência
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-blue-700 mr-2">✓</span> Mapeamento de Processos
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-blue-700 mr-2">✓</span> Implementação 5S e Layout
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-blue-700 mr-2">✓</span> Gestão de Indicadores
-              </li>
+            <ul class="space-y-2 mb-4">
+              {['Diagnóstico Lean e Eficiência', 'Mapeamento de Processos (VSM)', 'Implementação 5S e Layout', 'Gestão de Indicadores (KPIs)'].map((item) => (
+                <li class="flex items-center text-[13px] text-gray-600 dark:text-gray-400">
+                  <span class="text-blue-700 mr-2 font-bold">✓</span> {item}
+                </li>
+              ))}
             </ul>
           </div>
-          <div class="p-5 pt-0">
-            <a href="/services#producao" class="block w-full py-2 text-center border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all">
-              VER DETALHES
+          <div class="p-6 pt-0">
+            <a href="/services#producao" class="block w-full py-2 text-center border border-blue-700 text-blue-700 text-[13px] font-bold rounded-md hover:bg-blue-700 hover:text-white transition-all">
+              Ver Detalhes
             </a>
           </div>
         </div>
 
-        <div class="bg-white dark:bg-slate-900 rounded-lg shadow-md border-t-4 border-orange-600 flex flex-col h-full">
-          <div class="p-5 flex-grow">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 border-t-[6px] border-t-orange-600">
+          <div class="p-6 flex-grow">
             <h3 class="text-lg font-bold text-center mb-4">Segurança do Trabalho</h3>
-            <ul class="space-y-2">
-              <li class="flex items-start text-sm">
-                <span class="text-orange-600 mr-2">✓</span> Elaboração de PGR e LTCAT
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-orange-600 mr-2">✓</span> Treinamentos (NRs)
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-orange-600 mr-2">✓</span> Laudos de Insalubridade
-              </li>
-              <li class="flex items-start text-sm">
-                <span class="text-orange-600 mr-2">✓</span> Gestão de EPIs e CIPA
-              </li>
+            <ul class="space-y-2 mb-4">
+              {['Elaboração de PGR e LTCAT', 'Treinamentos Normativos (NRs)', 'Laudos de Insalubridade', 'Gestão de EPIs e CIPA'].map((item) => (
+                <li class="flex items-center text-[13px] text-gray-600 dark:text-gray-400">
+                  <span class="text-orange-600 mr-2 font-bold">✓</span> {item}
+                </li>
+              ))}
             </ul>
           </div>
-          <div class="p-5 pt-0">
-            <a href="/services#seguranca" class="block w-full py-2 text-center border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all">
-              VER DETALHES
+          <div class="p-6 pt-0">
+            <a href="/services#seguranca" class="block w-full py-2 text-center border border-orange-600 text-orange-600 text-[13px] font-bold rounded-md hover:bg-orange-600 hover:text-white transition-all">
+              Ver Detalhes
             </a>
           </div>
         </div>
@@ -152,60 +133,16 @@ const metadata = {
     title="Como trabalhamos com a sua empresa"
     tagline="Nosso processo"
     items={[
-      {
-        title: '1. Diagnóstico',
-        description: 'Realizamos um levantamento completo da situação atual da sua empresa.',
-        icon: 'tabler:search',
-      },
-      {
-        title: '2. Planejamento',
-        description: 'Desenvolvemos um plano de ação personalizado com metas claras.',
-        icon: 'tabler:clipboard-list',
-      },
-      {
-        title: '3. Execução',
-        description: 'Nossa equipe técnica conduz as atividades com rigor e qualidade.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Resultado: sua empresa em conformidade',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{ src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=987&q=80', alt: 'Equipe Triaxis em campo' }}
-  />
-
-  <Stats
-    title="Triaxis em números"
-    stats={[
-      { title: 'Empresas atendidas', amount: '80+' },
-      { title: 'Projetos entregues', amount: '200+' },
-      { title: 'Anos de experiência', amount: '10+' },
-      { title: 'Especialistas', amount: '5' },
-    ]}
-  />
-
-  <FAQs
-    title="Perguntas Frequentes"
-    tagline="FAQ"
-    items={[
-      {
-        title: 'Quais tipos de empresa podem contratar a Triaxis?',
-        description: 'Atendemos empresas de todos os portes que precisam de conformidade e eficiência.',
-      },
-      {
-        title: 'Como inicio um projeto?',
-        description: 'Basta entrar em contato pelo nosso formulário para uma conversa inicial sem compromisso.',
-      },
+      { title: '1. Diagnóstico', description: 'Levantamento da situação atual e riscos.', icon: 'tabler:search' },
+      { title: '2. Planejamento', description: 'Plano de ação com metas claras.', icon: 'tabler:clipboard-list' },
+      { title: '3. Execução', description: 'Atividades com rigor técnico e qualidade.', icon: 'tabler:rocket' },
+      { title: 'Resultado: Conformidade', icon: 'tabler:check' },
     ]}
   />
 
   <CallToAction
-    title="Pronto para colocar sua empresa em conformidade?"
-    subtitle="Entre em contato e descubra como a Triaxis pode ajudar."
-    actions={[
-      { variant: 'primary', text: 'Fale com um especialista', href: '/contact' },
-    ]}
+    title="Pronto para crescer com segurança?"
+    actions={[{ variant: 'primary', text: 'Fale com um especialista', href: '/contact' }]}
   />
 
 </Layout>
