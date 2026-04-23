@@ -1,119 +1,74 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Fale Conosco — Triaxis Consultoria',
-  description: 'Entre em contato com a Triaxis. Estamos prontos para ajudar sua empresa com Engenharia Ambiental, Produção e Segurança do Trabalho.',
+  description: 'Inicie sua transformação conosco. Entre em contato para diagnósticos, dúvidas ou projetos.',
 };
 ---
 
 <Layout metadata={metadata}>
-
   <Hero
     tagline="Fale Conosco"
-    title="Vamos conversar sobre o seu desafio?"
-    subtitle="Entre em contato com a nossa equipe. Respondemos rapidamente e a primeira conversa é sem compromisso."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Chamar no WhatsApp',
-        href: 'https://wa.me/5531994915126?text=Olá! Gostaria de saber mais sobre os serviços da Triaxis.',
-        target: '_blank',
-        icon: 'tabler:brand-whatsapp',
-      },
-    ]}
+    title="Vamos iniciar a transformação juntos."
+    subtitle="Seja para um diagnóstico inicial, dúvidas sobre conformidade legal ou para otimizar os processos da sua indústria, nossa equipe está pronta para apresentar soluções práticas e mensuráveis."
   />
 
-  <!-- CANAIS DE CONTATO -->
-  <Features
-    tagline="Como nos encontrar"
-    title="Nossos canais de atendimento"
-    columns={3}
-    items={[
+  <ContactUs
+    id="form"
+    title="Envie uma mensagem"
+    subtitle="Retornaremos o contato em até 24 horas úteis."
+    inputs={[
       {
-        title: 'WhatsApp',
-        description: 'Fale diretamente com um especialista pelo WhatsApp. Atendimento ágil e personalizado para sua demanda.',
-        icon: 'tabler:brand-whatsapp',
-        callToAction: {
-          text: '(31) 99491-5126',
-          href: 'https://wa.me/5531994915126?text=Olá! Gostaria de saber mais sobre os serviços da Triaxis.',
-          target: '_blank',
-        },
+        type: 'text',
+        name: 'name',
+        label: 'Nome Completo *',
+        placeholder: 'Ex: João Silva',
       },
       {
-        title: 'E-mail',
-        description: 'Prefere enviar uma mensagem por e-mail? Nossa equipe retorna em até 1 dia útil.',
+        type: 'text',
+        name: 'empresa',
+        label: 'Empresa / Indústria',
+        placeholder: 'Ex: Vale S.A.',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'E-mail Corporativo *',
+        placeholder: 'joao@empresa.com.br',
+      },
+    ]}
+    textarea={{
+      label: 'Como podemos ajudar? *',
+      placeholder: 'Descreva brevemente sua necessidade ou desafio atual...',
+    }}
+    disclaimer={{
+      label: 'Ao enviar este formulário, você concorda com o processamento dos seus dados pessoais conforme nossa Política de Privacidade.',
+    }}
+    button="Enviar Mensagem"
+  />
+
+  <Features2
+    title="Canais Diretos"
+    items={[
+      {
+        title: 'WhatsApp / Telefone',
+        description: '(31) 99491-5126',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        title: 'E-mail Corporativo',
+        description: 'contato@triaxis.com.br',
         icon: 'tabler:mail',
-        callToAction: {
-          text: 'daiannalana@triaxisdesenvolvimento.com.br',
-          href: 'mailto:daiannalana@triaxisdesenvolvimento.com.br',
-        },
       },
       {
-        title: 'Localização',
-        description: 'Atendemos empresas em Mariana, Ouro Preto, Belo Horizonte e região, com possibilidade de atendimento remoto.',
+        title: 'Onde Estamos',
+        description: 'Belo Horizonte, MG e Região',
         icon: 'tabler:map-pin',
-        callToAction: {
-          text: 'Mariana / Ouro Preto / BH — MG',
-          href: '#',
-        },
       },
     ]}
   />
-
-  <!-- ÁREAS DE ATUAÇÃO -->
-  <Features
-    tagline="Como podemos ajudar"
-    title="Escolha a área que mais se encaixa na sua necessidade"
-    columns={3}
-    items={[
-      {
-        title: 'Engenharia Ambiental',
-        description: 'Licenciamentos, PGRS, diagnósticos, monitoramentos, PRAD, inventário de GEE e assessoria ambiental contínua.',
-        icon: 'tabler:leaf',
-        callToAction: {
-          text: 'Falar sobre Ambiental',
-          href: 'https://wa.me/5531994915126?text=Olá! Tenho uma demanda de Engenharia Ambiental e gostaria de conversar com um especialista.',
-          target: '_blank',
-        },
-      },
-      {
-        title: 'Engenharia de Produção',
-        description: 'Diagnóstico Lean, 5S, VSM, KPIs, redesenho de layout, gestão de custos, qualidade e treinamentos.',
-        icon: 'tabler:settings',
-        callToAction: {
-          text: 'Falar sobre Produção',
-          href: 'https://wa.me/5531994915126?text=Olá! Tenho uma demanda de Engenharia de Produção e gostaria de conversar com um especialista.',
-          target: '_blank',
-        },
-      },
-      {
-        title: 'Segurança do Trabalho',
-        description: 'PGR, laudos técnicos, treinamentos de NRs, gestão de EPIs, AET, auditorias e consultoria contínua em SST.',
-        icon: 'tabler:shield-check',
-        callToAction: {
-          text: 'Falar sobre Segurança',
-          href: 'https://wa.me/5531994915126?text=Olá! Tenho uma demanda de Segurança do Trabalho e gostaria de conversar com um especialista.',
-          target: '_blank',
-        },
-      },
-    ]}
-  />
-
-  <CallToAction
-    title="Não sabe por onde começar?"
-    subtitle="Sem problema! Entre em contato e nossa equipe vai entender sua situação e indicar o melhor caminho."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Falar com a Triaxis agora',
-        href: 'https://wa.me/5531994915126?text=Olá! Gostaria de saber mais sobre os serviços da Triaxis.',
-        target: '_blank',
-      },
-    ]}
-  />
-
 </Layout>
