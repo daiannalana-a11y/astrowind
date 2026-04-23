@@ -2,12 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança',
-  description: 'Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho.',
+  description: 'Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que buscam conformidade e crescimento.',
 };
 ---
 
@@ -16,14 +17,14 @@ const metadata = {
   <Hero
     tagline="Consultoria Especializada"
     title="Transformamos exigências legais em oportunidades de crescimento sustentável"
-    subtitle="Somos uma consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que buscam conformidade e eficiência."
+    subtitle="Somos uma consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que precisam estar em conformidade e querem crescer de forma segura e eficiente."
     actions={[
       { variant: 'primary', text: 'Agende uma conversa', href: '/contact' },
       { text: 'Nossos Serviços', href: '#servicos-home' },
     ]}
     image={{ 
       src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2070&q=80', 
-      alt: 'Triaxis Consultoria' 
+      alt: 'Triaxis Consultoria Escritório' 
     }}
   />
 
@@ -32,6 +33,16 @@ const metadata = {
     tagline="Por que a Triaxis?"
     title="Nossos Diferenciais"
     columns={3}
+    classes={{
+      container: 'max-w-7xl mx-auto py-12 md:py-16',
+      title: 'text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center',
+      items: {
+        container: 'relative flex flex-row items-start p-4',
+        title: 'text-xl font-bold ml-4 text-gray-900 dark:text-white',
+        description: 'text-muted mt-2 ml-4 leading-relaxed text-sm',
+        icon: 'flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 dark:bg-slate-700 text-white p-3 shadow-md',
+      },
+    }}
     items={[
       {
         title: 'Expertise Técnica',
@@ -49,82 +60,118 @@ const metadata = {
         icon: 'tabler:world',
       },
     ]}
-    classes={{
-      container: 'max-w-7xl mx-auto py-12 md:py-20',
-      items: {
-        container: 'flex flex-row md:flex-row items-start text-left', // Garante ícone ao lado
-        icon: 'w-12 h-12 rounded-full bg-slate-900 text-white p-2.5 flex-shrink-0 mr-4 shadow-lg', // Ícone circular preto
-        title: 'text-xl font-bold font-heading',
-        description: 'text-muted mt-2 leading-relaxed',
-      },
-    }}
   />
 
-  <section id="servicos-home" class="relative bg-slate-50 dark:bg-slate-800 py-12 md:py-20 scroll-mt-[72px]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+  <Content
+    id="quem-somos-home"
+    isReversed
+    tagline="Quem Somos"
+    title="Muito além da teoria. Entregamos prática."
+    image={{
+      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80',
+      alt: 'Equipe Triaxis trabalhando',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="mb-4 text-muted dark:text-slate-400 text-lg leading-relaxed">
+        A Triaxis nasceu da união de profissionais com experiência sólida e complementar em Engenharia Ambiental, Engenharia de Produção e Segurança do Trabalho. Identificamos uma lacuna clara no mercado: empresas precisavam de uma consultoria capaz de unir excelência técnica, visão estratégica e desenvolvimento humano em um único lugar.
+      </p>
+      <p class="mb-8 text-muted dark:text-slate-400 text-lg leading-relaxed">
+        Com uma equipe multidisciplinar e bagagem em projetos de alta complexidade, transformamos demandas técnicas rigorosas em ações claras. Nosso foco é garantir conformidade, eficiência operacional e crescimento em equilíbrio para os nossos clientes.
+      </p>
       
-      <div class="mb-10 text-center uppercase tracking-wider">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-          Nossos Serviços
-        </h2>
+      <div class="flex flex-wrap gap-6 items-center">
+        <a href="/contact" class="text-primary font-bold hover:underline flex items-center text-lg">
+          Falar com nossa Equipe <span class="ml-2">→</span>
+        </a>
+        <a href="/about" class="text-gray-500 dark:text-slate-400 font-semibold hover:underline border-l border-gray-300 dark:border-slate-700 pl-6 text-lg">
+          Saiba mais sobre nós
+        </a>
       </div>
+    </Fragment>
+  </Content>
+
+  <section id="servicos-home" class="bg-slate-50 dark:bg-slate-800 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white uppercase font-heading mb-12">
+        Nossas Especialidades
+      </h2>
 
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 border-t-[6px] border-t-green-700">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 dark:border-slate-700 border-t-[6px] border-t-green-700 transition-all hover:shadow-lg">
           <div class="p-6 flex-grow">
-            <h3 class="text-lg font-bold text-center mb-4">Consultoria Ambiental</h3>
-            <ul class="space-y-2 mb-4">
-              {['Licenciamento Ambiental e Outorgas', 'Gestão de Resíduos (PGRS/PGRCC)', 'Recuperação de Áreas (PRAD)', 'Inventários de GEE e ESG'].map((item) => (
-                <li class="flex items-center text-[13px] text-gray-600 dark:text-gray-400">
-                  <span class="text-green-700 mr-2 font-bold">✓</span> {item}
-                </li>
-              ))}
+            <h3 class="text-lg font-bold mb-4">Consultoria Ambiental</h3>
+            <ul class="space-y-2 text-left inline-block">
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-green-700 mr-2 font-bold">✓</span> Licenciamento e Outorgas
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-green-700 mr-2 font-bold">✓</span> Gestão de Resíduos
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-green-700 mr-2 font-bold">✓</span> Recuperação de Áreas (PRAD)
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-green-700 mr-2 font-bold">✓</span> Inventários de GEE e ESG
+              </li>
             </ul>
           </div>
           <div class="p-6 pt-0">
-            <a href="/services#ambiental" class="block w-full py-2 text-center border border-green-700 text-green-700 text-[13px] font-bold rounded-md hover:bg-green-700 hover:text-white transition-all">
-              Ver Detalhes
+            <a href="/services#ambiental" class="block w-full py-2 text-center border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all">
+              VER DETALHES
             </a>
           </div>
         </div>
 
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 border-t-[6px] border-t-blue-700">
-          <div class="p-6 flex-grow">
-            <h3 class="text-lg font-bold text-center mb-4">Engenharia de Produção</h3>
-            <ul class="space-y-2 mb-4">
-              {['Diagnóstico Lean e Eficiência', 'Mapeamento de Processos (VSM)', 'Implementação 5S e Layout', 'Gestão de Indicadores (KPIs)'].map((item) => (
-                <li class="flex items-center text-[13px] text-gray-600 dark:text-gray-400">
-                  <span class="text-blue-700 mr-2 font-bold">✓</span> {item}
-                </li>
-              ))}
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 dark:border-slate-700 border-t-[6px] border-t-blue-700 transition-all hover:shadow-lg">
+          <div class="p-6 flex-grow text-center">
+            <h3 class="text-lg font-bold mb-4">Engenharia de Produção</h3>
+            <ul class="space-y-2 text-left inline-block">
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-blue-700 mr-2 font-bold">✓</span> Diagnóstico Lean e Eficiência
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-blue-700 mr-2 font-bold">✓</span> Mapeamento de Processos
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-blue-700 mr-2 font-bold">✓</span> Implementação 5S e Layout
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-blue-700 mr-2 font-bold">✓</span> Gestão de Indicadores
+              </li>
             </ul>
           </div>
           <div class="p-6 pt-0">
-            <a href="/services#producao" class="block w-full py-2 text-center border border-blue-700 text-blue-700 text-[13px] font-bold rounded-md hover:bg-blue-700 hover:text-white transition-all">
-              Ver Detalhes
+            <a href="/services#producao" class="block w-full py-2 text-center border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all">
+              VER DETALHES
             </a>
           </div>
         </div>
 
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 border-t-[6px] border-t-orange-600">
-          <div class="p-6 flex-grow">
-            <h3 class="text-lg font-bold text-center mb-4">Segurança do Trabalho</h3>
-            <ul class="space-y-2 mb-4">
-              {['Elaboração de PGR e LTCAT', 'Treinamentos Normativos (NRs)', 'Laudos de Insalubridade', 'Gestão de EPIs e CIPA'].map((item) => (
-                <li class="flex items-center text-[13px] text-gray-600 dark:text-gray-400">
-                  <span class="text-orange-600 mr-2 font-bold">✓</span> {item}
-                </li>
-              ))}
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-md border border-gray-100 dark:border-slate-700 border-t-[6px] border-t-orange-600 transition-all hover:shadow-lg">
+          <div class="p-6 flex-grow text-center">
+            <h3 class="text-lg font-bold mb-4">Segurança do Trabalho</h3>
+            <ul class="space-y-2 text-left inline-block">
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-orange-600 mr-2 font-bold">✓</span> Elaboração de PGR e LTCAT
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-orange-600 mr-2 font-bold">✓</span> Treinamentos (NRs)
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-orange-600 mr-2 font-bold">✓</span> Laudos de Insalubridade
+              </li>
+              <li class="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                <span class="text-orange-600 mr-2 font-bold">✓</span> Gestão de EPIs e CIPA
+              </li>
             </ul>
           </div>
           <div class="p-6 pt-0">
-            <a href="/services#seguranca" class="block w-full py-2 text-center border border-orange-600 text-orange-600 text-[13px] font-bold rounded-md hover:bg-orange-600 hover:text-white transition-all">
-              Ver Detalhes
+            <a href="/services#seguranca" class="block w-full py-2 text-center border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all">
+              VER DETALHES
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -141,7 +188,8 @@ const metadata = {
   />
 
   <CallToAction
-    title="Pronto para crescer com segurança?"
+    title="Pronto para colocar sua empresa em conformidade?"
+    subtitle="Entre em contato e descubra como a Triaxis pode ajudar sua operação a atingir um novo patamar."
     actions={[{ variant: 'primary', text: 'Fale com um especialista', href: '/contact' }]}
   />
 
