@@ -49,29 +49,134 @@ const metadata = {
     ]}
   />
 
-  <Features
-    id="servicos-home"
-    tagline="Nossas Especialidades"
-    title="O que oferecemos para sua empresa"
-    subtitle="Soluções integradas em engenharia para garantir conformidade legal e eficiência operacional."
-    items={[
-      {
-        title: 'Engenharia Ambiental',
-        description: 'Consultoria completa para licenciamentos, gestão de resíduos e sustentabilidade, transformando obrigações em valor para o seu negócio.',
-        icon: 'tabler:leaf',
-      },
-      {
-        title: 'Engenharia de Produção',
-        description: 'Otimização de processos, redução de custos e aumento de produtividade através de metodologias modernas de gestão industrial.',
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Segurança do Trabalho',
-        description: 'Gestão de normas regulamentadoras (NRs), prevenção de riscos e treinamentos para garantir a proteção total dos seus colaboradores.',
-        icon: 'tabler:shield-check',
-      },
-    ]}
-  />
+  <section id="servicos-home" class="relative not-prose scroll-mt-[72px] py-12 md:py-20 bg-slate-50 dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-10 md:mx-auto text-center max-w-3xl">
+        <p class="text-base text-secondary font-semibold tracking-wide uppercase">Nossas Especialidades</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-heading">
+          O que oferecemos para sua empresa
+        </h2>
+        <p class="max-w-3xl mx-auto text-xl text-muted dark:text-slate-400">
+          Soluções integradas em engenharia para garantir conformidade legal e eficiência operacional.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden border-t-8 border-green-600 transition-transform hover:scale-105">
+          <div class="p-8 flex-grow">
+            <h3 class="text-2xl font-bold text-center mb-6">Engenharia Ambiental</h3>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <span class="text-green-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Licenciamento Ambiental e Outorgas</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Gestão de Resíduos (PGRS/PGRCC)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Recuperação de Áreas (PRAD)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Inventários de GEE e ESG</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <a href="/services#ambiental" class="flex justify-center py-3 px-6 border-2 border-green-600 text-green-600 font-bold rounded-lg hover:bg-green-600 hover:text-white transition-colors duration-300">
+              Ver Detalhes
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden border-t-8 border-blue-700 transition-transform hover:scale-105">
+          <div class="p-8 flex-grow">
+            <h3 class="text-2xl font-bold text-center mb-6">Engenharia de Produção</h3>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <span class="text-blue-700 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Diagnóstico Lean e Eficiência</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-700 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Mapeamento de Processos (VSM)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-700 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Implementação 5S e Layout</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-700 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Gestão de Indicadores (KPIs)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <a href="/services#producao" class="flex justify-center py-3 px-6 border-2 border-blue-700 text-blue-700 font-bold rounded-lg hover:bg-blue-700 hover:text-white transition-colors duration-300">
+              Ver Detalhes
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-lg shadow-xl overflow-hidden border-t-8 border-orange-600 transition-transform hover:scale-105">
+          <div class="p-8 flex-grow">
+            <h3 class="text-2xl font-bold text-center mb-6">Segurança do Trabalho</h3>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Elaboração de PGR e LTCAT</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Treinamentos Normativos (NRs)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Laudos de Insalubridade</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-3 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                </span>
+                <span class="text-gray-700 dark:text-gray-300">Gestão de EPIs e CIPA</span>
+              </li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <a href="/services#seguranca" class="flex justify-center py-3 px-6 border-2 border-orange-600 text-orange-600 font-bold rounded-lg hover:bg-orange-600 hover:text-white transition-colors duration-300">
+              Ver Detalhes
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <Steps
     title="Como trabalhamos com a sua empresa"
