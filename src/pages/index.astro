@@ -1,7 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -27,40 +26,51 @@ const metadata = {
     }}
   />
 
-  <Features
-    id="features"
-    tagline="Por que a Triaxis?"
-    title="Nossos Diferenciais"
-    columns={3}
-    items={[
-      {
-        title: 'Expertise Técnica',
-        description: 'Equipe altamente qualificada com experiência sólida em consultoria ambiental, segurança e processos industriais.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Soluções Personalizadas',
-        description: 'Abordagem sob medida para cada cliente, fugindo de relatórios de gaveta e garantindo resultados aplicáveis à rotina.',
-        icon: 'tabler:trending-up',
-      },
-      {
-        title: 'Visão Sustentável',
-        description: 'Foco no equilíbrio entre eficiência operacional, desenvolvimento humano e conformidade socioambiental (ESG).',
-        icon: 'tabler:world',
-      },
-    ]}
-    classes={{
-      container: 'max-w-7xl mx-auto py-12 md:py-20',
-      title: 'text-center text-3xl md:text-4xl font-bold tracking-tight mb-12 font-heading',
-      items: {
-        container: 'bg-slate-50/50 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md hover:bg-white dark:hover:bg-slate-800',
-        panel: 'flex flex-col items-center', 
-        title: 'text-xl font-bold mt-4 mb-2',
-        description: 'text-muted leading-relaxed text-sm',
-        icon: 'w-14 h-14 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 p-3', 
-      },
-    }}
-  />
+  <section class="py-16 md:py-24 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="mb-16 text-center max-w-3xl mx-auto">
+        <p class="text-sm text-green-700 font-bold tracking-widest uppercase mb-2 font-heading">Por que a Triaxis?</p>
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 font-heading text-slate-900 dark:text-white">
+          Nossos Diferenciais
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-slate-50/80 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md hover:bg-white dark:hover:bg-slate-800">
+          <div class="w-16 h-16 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Expertise Técnica</h3>
+          <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">
+            Equipe altamente qualificada com experiência sólida em consultoria ambiental, segurança e processos industriais.
+          </p>
+        </div>
+
+        <div class="bg-slate-50/80 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md hover:bg-white dark:hover:bg-slate-800">
+          <div class="w-16 h-16 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 flex items-center justify-center mb-6">
+             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Soluções Personalizadas</h3>
+          <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">
+            Abordagem sob medida para cada cliente, fugindo de relatórios de gaveta e garantindo resultados aplicáveis à rotina.
+          </p>
+        </div>
+
+        <div class="bg-slate-50/80 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md hover:bg-white dark:hover:bg-slate-800">
+          <div class="w-16 h-16 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Visão Sustentável</h3>
+          <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">
+            Foco no equilíbrio entre eficiência operacional, desenvolvimento humano e conformidade socioambiental (ESG).
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <Content
     id="quem-somos-home"
@@ -134,7 +144,7 @@ const metadata = {
     <div class="max-w-7xl mx-auto px-4">
       <div class="mb-16 text-center">
         <p class="text-sm text-green-700 font-bold tracking-widest uppercase mb-2 font-heading">Como Trabalhamos</p>
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading"> Nossa Metodologia </h2>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading text-slate-900 dark:text-white"> Nossa Metodologia </h2>
       </div>
       <div class="relative flex flex-wrap md:flex-nowrap justify-between gap-12 md:gap-4">
         {[
@@ -144,8 +154,8 @@ const metadata = {
           { n: '4', t: 'Sustentação', c: 'border-blue-700', d: 'Monitoramento contínuo de resultados.' }
         ].map((step, index) => (
           <div class="relative flex flex-col items-center text-center flex-1 min-w-[200px]">
-            <div class={`w-16 h-16 rounded-full border-4 ${step.c} flex items-center justify-center text-2xl font-bold shadow-xl mb-6 bg-white dark:bg-slate-800 z-10`}> {step.n} </div>
-            <h3 class="text-xl font-bold mb-3 tracking-tight">{step.t}</h3>
+            <div class={`w-16 h-16 rounded-full border-4 ${step.c} flex items-center justify-center text-2xl font-bold shadow-xl mb-6 bg-white dark:bg-slate-800 z-10 text-slate-900 dark:text-white`}> {step.n} </div>
+            <h3 class="text-xl font-bold mb-3 tracking-tight text-slate-900 dark:text-white">{step.t}</h3>
             <p class="text-sm text-muted dark:text-slate-400 px-4 leading-relaxed">{step.d}</p>
             {index < 3 && <div class="hidden md:block absolute top-8 left-[calc(50%+32px)] w-[calc(100%-64px)] h-0.5 bg-gray-100 dark:bg-slate-700" />}
           </div>
