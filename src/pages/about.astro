@@ -2,10 +2,10 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks'; // Adicionamos esta linha para os links funcionarem 100%
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Quem Somos — Triaxis Consultoria',
@@ -18,44 +18,33 @@ const metadata = {
     tagline="Quem Somos"
     title="Especialistas que unem técnica, responsabilidade e resultado"
     subtitle="A Triaxis nasceu da convicção de que conformidade legal e crescimento sustentável andam juntos. Somos engenheiros comprometidos com o desenvolvimento seguro e eficiente das empresas brasileiras."
-    image={{ src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2070&q=80', alt: 'Equipe Triaxis' }}
+    image={{ 
+      src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2070&q=80', 
+      alt: 'Equipe Triaxis' 
+    }}
   />
 
   <Features
     id="missao-visao-valores"
     tagline="Nossa Essência"
     title="Pilares Estratégicos"
+    columns={3}
+    classes={{
+      container: 'max-w-7xl mx-auto py-12 md:py-20',
+      items: {
+        container: 'bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm transition-all hover:shadow-md',
+        icon: 'text-blue-700 dark:text-blue-400 mb-4',
+        title: 'text-xl font-bold mb-2',
+        description: 'text-muted text-sm leading-relaxed',
+      },
+    }}
     items={[
-      {
-        title: 'Missão',
-        description: 'Oferecer soluções técnicas de excelência em engenharia ambiental, de produção e segurança do trabalho, contribuindo para que as empresas operem com segurança, eficiência e responsabilidade.',
-        icon: 'tabler:target',
-      },
-      {
-        title: 'Visão',
-        description: 'Ser referência regional em consultoria integrada de engenharia, reconhecida pela qualidade técnica, agilidade e pelo impacto positivo gerado nos negócios de nossos clientes.',
-        icon: 'tabler:eye',
-      },
-      {
-        title: 'Excelência Técnica',
-        description: 'Cada entrega é baseada em rigor metodológico, legislação atualizada e domínio profundo das normas técnicas aplicáveis.',
-        icon: 'tabler:medal',
-      },
-      {
-        title: 'Ética e Transparência',
-        description: 'Atuamos com integridade em todas as etapas, mantendo o cliente informado e alinhado com cada decisão tomada.',
-        icon: 'tabler:shield',
-      },
-      {
-        title: 'Comprometimento com Resultados',
-        description: 'Não entregamos apenas relatórios — entregamos soluções que funcionam na prática e geram valor real para o negócio.',
-        icon: 'tabler:chart-bar',
-      },
-      {
-        title: 'Sustentabilidade',
-        description: 'Acreditamos que desenvolvimento econômico e responsabilidade ambiental e social não são opostos — são complementares.',
-        icon: 'tabler:leaf',
-      },
+      { title: 'Missão', description: 'Soluções técnicas de excelência para empresas operarem com segurança e eficiência.', icon: 'tabler:target' },
+      { title: 'Visão', description: 'Ser referência regional reconhecida pela qualidade técnica e impacto positivo nos negócios.', icon: 'tabler:eye' },
+      { title: 'Excelência Técnica', description: 'Entrega baseada em rigor metodológico e domínio profundo das normas aplicáveis.', icon: 'tabler:medal' },
+      { title: 'Ética e Transparência', description: 'Atuamos com integridade, mantendo o cliente informado em cada decisão.', icon: 'tabler:shield' },
+      { title: 'Resultado Real', description: 'Entregamos soluções que funcionam na prática e geram valor real para o negócio.', icon: 'tabler:chart-bar' },
+      { title: 'Sustentabilidade', description: 'Desenvolvimento econômico e responsabilidade ambiental como complementares.', icon: 'tabler:leaf' },
     ]}
   />
 
@@ -67,37 +56,67 @@ const metadata = {
       { title: 'Anos de experiência', amount: '10+' },
       { title: 'Especialistas', amount: '5' },
     ]}
+    classes={{
+      container: 'max-w-7xl mx-auto py-16 md:py-24 bg-white dark:bg-slate-900',
+      items: {
+        amount: 'text-5xl md:text-6xl font-extrabold text-blue-700 dark:text-blue-500 tracking-tighter',
+        title: 'text-sm font-bold uppercase tracking-widest text-muted mt-2',
+      },
+    }}
   />
 
-  <Steps2
-    title="Nossa Equipe"
+  <Content
+    isReversed
     tagline="Profissionais"
-    subtitle="Engenheiros com formação sólida, experiência de campo e atualização constante nas legislações e normas vigentes."
-    items={[
-      {
-        title: 'Engenharia Ambiental',
-        description: 'Especialistas em licenciamento, gestão de resíduos, monitoramento ambiental e conformidade com a legislação federal e estadual.',
-        icon: 'tabler:leaf',
-      },
-      {
-        title: 'Engenharia de Produção',
-        description: 'Profissionais com experiência em otimização de processos, gestão industrial e implantação de metodologias de melhoria contínua.',
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Segurança do Trabalho',
-        description: 'Técnicos e engenheiros especializados em NRs, PCMSO, PGR, laudos e treinamentos obrigatórios.',
-        icon: 'tabler:shield-check',
-      },
-    ]}
-  />
+    title="Nossa Equipe"
+    image={{
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Engenheiros Triaxis',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="text-lg text-muted mb-8 leading-relaxed">
+        Engenheiros com formação sólida, experiência de campo e atualização constante nas legislações e normas vigentes.
+      </p>
+
+      <div class="space-y-8">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+          </div>
+          <div class="ml-4">
+            <h4 class="text-xl font-bold">Engenharia Ambiental</h4>
+            <p class="text-muted text-sm mt-1">Especialistas em licenciamento, gestão de resíduos e conformidade federal e estadual.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
+          </div>
+          <div class="ml-4">
+            <h4 class="text-xl font-bold">Engenharia de Produção</h4>
+            <p class="text-muted text-sm mt-1">Otimização de processos, gestão industrial e metodologias de melhoria contínua.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+          </div>
+          <div class="ml-4">
+            <h4 class="text-xl font-bold">Segurança do Trabalho</h4>
+            <p class="text-muted text-sm mt-1">Engenheiros focados em NRs, PGR, laudos técnicos e treinamentos obrigatórios.</p>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
 
   <CallToAction
     title="Vamos trabalhar juntos?"
     subtitle="Entre em contato e conte para nós o desafio da sua empresa. Teremos prazer em ajudar."
-    actions={[
-      { variant: 'primary', text: 'Fale com a Triaxis', href: getPermalink('/contact') },
-    ]}
+    actions={[{ variant: 'primary', text: 'Fale com a Triaxis', href: getPermalink('/contact') }]}
   />
 
 </Layout>
