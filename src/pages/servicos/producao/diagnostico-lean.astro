@@ -1,1 +1,15 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
+const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+---
+
+<Layout metadata={metadata}>
+  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
+  <CallToAction 
+    title="Quer saber mais agora?" 
+    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
+  />
+</Layout>
