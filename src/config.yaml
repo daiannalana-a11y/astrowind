@@ -1,5 +1,5 @@
 site:
-  name: 'Triaxis'
+  name: 'Triaxis Desenvolvimento, Consultoria e Assessoria'
   site: 'https://astrowind-olive-two.vercel.app'
   base: '/'
   trailingSlash: false
@@ -14,7 +14,7 @@ metadata:
     index: true
     follow: true
   openGraph:
-    site_name: 'Triaxis Consultoria'
+    site_name: 'Triaxis Desenvolvimento, Consultoria e Assessoria'
     images:
       - url: '~/assets/images/default.png'
         width: 1200
