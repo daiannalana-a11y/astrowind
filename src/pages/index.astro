@@ -6,7 +6,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança do Trabalho',
-  description: 'Somos uma Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que precisam estar em conformidade e querem crescer de forma segura e eficiente.',
+  description: 'Consultoria multidisciplinar especializada em Meio Ambiente, Produção e Segurança do Trabalho para indústrias que buscam conformidade e crescimento eficiente.',
 };
 ---
 
@@ -17,8 +17,8 @@ const metadata = {
     title="Transformamos Exigências Legais em Oportunidades de Crescimento Sustentável"
     subtitle="Consultoria Multidisciplinar Especializada em Engenharia Ambiental, Engenharia de Produção e Segurança do Trabalho."
     actions={[
-      { variant: 'primary', text: 'Agende uma conversa', href: '/contact' },
-      { text: 'Nossos Serviços', href: '#servicos-home' },
+      { variant: 'primary', text: 'Agende uma conversa', href: '/contact', class: 'bg-blue-700 hover:bg-blue-800 border-orange-500 border-b-4' },
+      { text: 'Nossos Serviços', href: '#servicos-home', class: 'text-green-700 hover:text-green-800 font-bold' },
     ]}
     image={{ 
       src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2070&q=80', 
@@ -28,37 +28,41 @@ const metadata = {
 
   <section class="py-16 md:py-24 bg-white dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
       <div class="mb-16 text-center max-w-3xl mx-auto">
         <p class="text-sm text-green-700 font-bold tracking-widest uppercase mb-2 font-heading">Por que a Triaxis?</p>
-        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 font-heading text-slate-900 dark:text-white">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 font-heading text-blue-800 dark:text-blue-400">
           Nossos Diferenciais
         </h2>
+        <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-50/80 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md">
-          <div class="w-16 h-16 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 flex items-center justify-center mb-6">
+        
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-[32px] border-b-4 border-green-600 shadow-sm flex flex-col items-center text-center transition-all hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-2xl bg-green-100 text-green-700 flex items-center justify-center mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Equilíbrio entre Técnica e Gestão</h3>
-          <p class="text-sm text-muted leading-relaxed">Resultados sustentáveis surgem quando processos e pessoas trabalham em conjunto.</p>
+          <h3 class="text-xl font-bold mb-3 font-heading text-blue-800 dark:text-blue-300">Equilíbrio entre Técnica e Gestão</h3>
+          <p class="text-sm text-muted italic font-sans">Processos eficientes e pessoas equilibradas trabalhando em conjunto.</p>
         </div>
 
-        <div class="bg-slate-50/80 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md">
-          <div class="w-16 h-16 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 flex items-center justify-center mb-6">
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-[32px] border-b-4 border-blue-700 shadow-sm flex flex-col items-center text-center transition-all hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6">
              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Soluções Personalizadas</h3>
-          <p class="text-sm text-muted leading-relaxed">Entendemos a realidade de cada cliente, oferecendo planos de ação sob medida.</p>
+          <h3 class="text-xl font-bold mb-3 font-heading text-blue-800 dark:text-blue-300">Soluções Personalizadas</h3>
+          <p class="text-sm text-muted italic font-sans">Entendemos sua realidade e oferecemos planos de ação sob medida.</p>
         </div>
 
-        <div class="bg-slate-50/80 dark:bg-slate-800/50 p-8 rounded-[32px] border border-slate-100 dark:border-slate-700 shadow-sm flex flex-col items-center text-center transition-all hover:shadow-md">
-          <div class="w-16 h-16 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 flex items-center justify-center mb-6">
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-[32px] border-b-4 border-orange-500 shadow-sm flex flex-col items-center text-center transition-all hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /></svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Atuação Multidisciplinar</h3>
-          <p class="text-sm text-muted leading-relaxed">Integração entre Ambiental, Produção e Segurança com foco em excelência técnica.</p>
+          <h3 class="text-xl font-bold mb-3 font-heading text-blue-800 dark:text-blue-300">Atuação Multidisciplinar</h3>
+          <p class="text-sm text-muted italic font-sans">Integração entre Engenharia Ambiental, Produção e Segurança.</p>
         </div>
+
       </div>
     </div>
   </section>
@@ -66,25 +70,31 @@ const metadata = {
   <Content
     id="quem-somos-home"
     isReversed
-    tagline="Quem Somos"
+    tagline="Conheça a Triaxis"
     image={{
       src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80',
       alt: 'Equipe Triaxis trabalhando',
     }}
   >
     <Fragment slot="content">
-      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading leading-[1.1] mb-6">
+      <h3 class="text-orange-600 dark:text-orange-400 font-bold uppercase tracking-widest text-sm mb-4 font-heading">
+        Engenharia • Consultoria • Assessoria
+      </h3>
+
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-800 dark:text-blue-300 font-heading leading-[1.1] mb-6">
         Na Triaxis, os melhores resultados surgem da integração entre diferentes áreas do conhecimento.
       </h2>
-      <p class="text-lg text-muted dark:text-slate-400 leading-relaxed mb-8">
+      
+      <p class="text-lg text-muted dark:text-slate-400 leading-relaxed mb-8 font-sans border-l-4 border-green-600 pl-4">
         A Triaxis nasceu da união de profissionais com sólida experiência técnica que perceberam a necessidade de uma consultoria capaz de unir rigor normativo e visão estratégica de negócio.
       </p>
+      
       <div class="flex flex-wrap gap-4 items-center">
-        <a href="/about" class="btn btn-primary px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
+        <a href="/about" class="btn btn-primary bg-blue-700 border-orange-500 border-b-4 hover:bg-blue-800 px-8 py-3 rounded-full font-bold shadow-lg transition-all text-white">
           Saiba mais
         </a>
-        <a href="/contact" class="btn btn-ghost px-6 py-3 font-semibold hover:text-primary transition-colors">
-          Falar com nossa Equipe →
+        <a href="/contact" class="font-bold text-green-700 hover:text-green-900 transition-colors flex items-center">
+          Falar com nossa Equipe <span class="ml-2">→</span>
         </a>
       </div>
     </Fragment>
@@ -92,37 +102,37 @@ const metadata = {
 
   <section id="servicos-home" class="bg-slate-50 dark:bg-slate-800 py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest font-heading mb-12">Nossas Especialidades</h2>
+      <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest font-heading mb-12 text-blue-800 dark:text-blue-400">Nossas Especialidades</h2>
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-green-700 p-8">
-          <h3 class="text-xl font-bold mb-6">Consultoria Ambiental</h3>
-          <ul class="space-y-3 text-left mb-8 flex-grow">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-green-700 p-8 transition-all hover:shadow-md">
+          <h3 class="text-xl font-bold mb-6 font-heading text-blue-800 dark:text-blue-300">Consultoria Ambiental</h3>
+          <ul class="space-y-3 text-left mb-8 flex-grow font-sans">
             {['Licenciamento Ambiental', 'Gestão de Resíduos', 'Outorgas'].map(i => (
-              <li class="flex items-center text-sm text-gray-600"><span class="text-green-700 mr-2 font-bold">✓</span> {i}</li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="text-green-700 mr-2 font-bold">✓</span> {i}</li>
             ))}
           </ul>
-          <a href="/services#ambiental" class="btn-secondary block w-full py-2 border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
+          <a href="/services#ambiental" class="py-2 border-2 border-green-700 text-green-700 text-xs font-bold rounded-full hover:bg-green-700 hover:text-white transition-all text-center uppercase tracking-widest font-heading">VER DETALHES</a>
         </div>
 
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-blue-700 p-8">
-          <h3 class="text-xl font-bold mb-6">Engenharia de Produção</h3>
-          <ul class="space-y-3 text-left mb-8 flex-grow">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-blue-700 p-8 transition-all hover:shadow-md">
+          <h3 class="text-xl font-bold mb-6 font-heading text-blue-800 dark:text-blue-300">Engenharia de Produção</h3>
+          <ul class="space-y-3 text-left mb-8 flex-grow font-sans">
             {['Diagnóstico Lean', 'Mapeamento VSM', 'Layout'].map(i => (
-              <li class="flex items-center text-sm text-gray-600"><span class="text-blue-700 mr-2 font-bold">✓</span> {i}</li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="text-blue-700 mr-2 font-bold">✓</span> {i}</li>
             ))}
           </ul>
-          <a href="/services#producao" class="btn-secondary block w-full py-2 border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
+          <a href="/services#producao" class="py-2 border-2 border-blue-700 text-blue-700 text-xs font-bold rounded-full hover:bg-blue-700 hover:text-white transition-all text-center uppercase tracking-widest font-heading">VER DETALHES</a>
         </div>
 
-        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-orange-600 p-8">
-          <h3 class="text-xl font-bold mb-6">Segurança do Trabalho</h3>
-          <ul class="space-y-3 text-left mb-8 flex-grow">
+        <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-orange-500 p-8 transition-all hover:shadow-md">
+          <h3 class="text-xl font-bold mb-6 font-heading text-blue-800 dark:text-blue-300">Segurança do Trabalho</h3>
+          <ul class="space-y-3 text-left mb-8 flex-grow font-sans">
             {['PGR e LTCAT', 'Treinamentos NRs', 'Laudos'].map(i => (
-              <li class="flex items-center text-sm text-gray-600"><span class="text-orange-600 mr-2 font-bold">✓</span> {i}</li>
+              <li class="flex items-center text-sm text-gray-600 dark:text-gray-400"><span class="text-orange-600 mr-2 font-bold">✓</span> {i}</li>
             ))}
           </ul>
-          <a href="/services#seguranca" class="btn-secondary block w-full py-2 border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
+          <a href="/services#seguranca" class="py-2 border-2 border-orange-500 text-orange-600 text-xs font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all text-center uppercase tracking-widest font-heading">VER DETALHES</a>
         </div>
 
       </div>
@@ -132,7 +142,7 @@ const metadata = {
   <CallToAction
     title="Pronto para colocar sua empresa em conformidade?"
     subtitle="Fale com nossa equipe técnica e receba um diagnóstico especializado."
-    actions={[{ variant: 'primary', text: 'Agende uma conversa', href: '/contact' }]}
+    actions={[{ variant: 'primary', text: 'Agende uma conversa', href: '/contact', class: 'bg-blue-700 border-orange-500 border-b-4' }]}
   />
 
 </Layout>
