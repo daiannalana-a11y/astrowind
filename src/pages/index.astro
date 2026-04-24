@@ -6,8 +6,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança do Trabalho',
-  description: 'Somos uma Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que precisam estar em conformidade e querem crescer de forma segura e eficiente.
-',
+  description: 'Somos uma Consultoria especializada em Meio Ambiente, Produção e Segurança do Trabalho para empresas que precisam estar em conformidade e querem crescer de forma segura e eficiente.',
 };
 ---
 
@@ -16,7 +15,9 @@ const metadata = {
   <Hero
     tagline="Consultoria Especializada"
     title="Transformamos Exigências Legais em Oportunidades de Crescimento Sustentável"
-    subtitle="Consultoria Multidisciplinar Especializada em Engenharia Ambiental, Engenharia de Produção e Segurança do Trabalho      { variant: 'primary', text: 'Agende uma conversa', href: '/contact' },
+    subtitle="Consultoria Multidisciplinar Especializada em Engenharia Ambiental, Engenharia de Produção e Segurança do Trabalho."
+    actions={[
+      { variant: 'primary', text: 'Agende uma conversa', href: '/contact' },
       { text: 'Nossos Serviços', href: '#servicos-home' },
     ]}
     image={{ 
@@ -43,7 +44,7 @@ const metadata = {
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Equilíbrio entre Técnica e Gestão de Pessoas</h3>
           <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">
-          Acreditamos que resultados sustentáveis surgem quando processos eficientes e equipes equilibradas trabalham em conjunto.
+            Acreditamos que resultados sustentáveis surgem quando processos eficientes e equipes equilibradas trabalham em conjunto.
           </p>
         </div>
 
@@ -53,7 +54,7 @@ const metadata = {
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Soluções Personalizadas</h3>
           <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">
-          Entendemos a realidade e as necessidades específicas de cada cliente, oferecendo planos de ação sob medida.
+            Entendemos a realidade e as necessidades específicas de cada cliente, oferecendo planos de ação sob medida.
           </p>
         </div>
 
@@ -63,7 +64,7 @@ const metadata = {
           </div>
           <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Atuação Multidisciplinar</h3>
           <p class="text-sm text-muted dark:text-slate-400 leading-relaxed">
-          Integração entre Engenharia Ambiental, de Produção e de Segurança do Trabalho, com apoio de especialistas de áreas complementares.
+            Integração entre Engenharia Ambiental, de Produção e de Segurança do Trabalho, com apoio de especialistas de áreas complementares.
           </p>
         </div>
 
@@ -75,8 +76,7 @@ const metadata = {
     id="quem-somos-home"
     isReversed
     tagline="Quem Somos"
-    title="Na Triaxis, os melhores resultados surgem da integração entre diferentes áreas do conhecimento.
-"
+    title="Na Triaxis, os melhores resultados surgem da integração entre diferentes áreas do conhecimento."
     image={{
       src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80',
       alt: 'Equipe Triaxis trabalhando',
