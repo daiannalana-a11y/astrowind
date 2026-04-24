@@ -76,12 +76,15 @@ const metadata = {
       <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading leading-[1.1] mb-6">
         Na Triaxis, os melhores resultados surgem da integração entre diferentes áreas do conhecimento.
       </h2>
-      <p class="text-lg text-muted dark:text-slate-400 leading-relaxed mb-6">
+      <p class="text-lg text-muted dark:text-slate-400 leading-relaxed mb-8">
         A Triaxis nasceu da união de profissionais com sólida experiência técnica que perceberam a necessidade de uma consultoria capaz de unir rigor normativo e visão estratégica de negócio.
       </p>
-      <div class="flex flex-wrap gap-6 items-center">
-        <a href="/contact" class="text-primary font-bold hover:underline flex items-center text-lg">
-          Falar com nossa Equipe <span class="ml-2">→</span>
+      <div class="flex flex-wrap gap-4 items-center">
+        <a href="/about" class="btn btn-primary px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
+          Saiba mais
+        </a>
+        <a href="/contact" class="btn btn-ghost px-6 py-3 font-semibold hover:text-primary transition-colors">
+          Falar com nossa Equipe →
         </a>
       </div>
     </Fragment>
@@ -91,6 +94,7 @@ const metadata = {
     <div class="max-w-6xl mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest font-heading mb-12">Nossas Especialidades</h2>
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        
         <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-green-700 p-8">
           <h3 class="text-xl font-bold mb-6">Consultoria Ambiental</h3>
           <ul class="space-y-3 text-left mb-8 flex-grow">
@@ -98,7 +102,7 @@ const metadata = {
               <li class="flex items-center text-sm text-gray-600"><span class="text-green-700 mr-2 font-bold">✓</span> {i}</li>
             ))}
           </ul>
-          <a href="/services#ambiental" class="block w-full py-2 border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all text-center">VER DETALHES</a>
+          <a href="/services#ambiental" class="btn-secondary block w-full py-2 border border-green-700 text-green-700 text-xs font-bold rounded hover:bg-green-700 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
         </div>
 
         <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-blue-700 p-8">
@@ -108,7 +112,7 @@ const metadata = {
               <li class="flex items-center text-sm text-gray-600"><span class="text-blue-700 mr-2 font-bold">✓</span> {i}</li>
             ))}
           </ul>
-          <a href="/services#producao" class="block w-full py-2 border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all text-center">VER DETALHES</a>
+          <a href="/services#producao" class="btn-secondary block w-full py-2 border border-blue-700 text-blue-700 text-xs font-bold rounded hover:bg-blue-700 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
         </div>
 
         <div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl shadow-sm border-t-[6px] border-t-orange-600 p-8">
@@ -118,8 +122,9 @@ const metadata = {
               <li class="flex items-center text-sm text-gray-600"><span class="text-orange-600 mr-2 font-bold">✓</span> {i}</li>
             ))}
           </ul>
-          <a href="/services#seguranca" class="block w-full py-2 border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all text-center">VER DETALHES</a>
+          <a href="/services#seguranca" class="btn-secondary block w-full py-2 border border-orange-600 text-orange-600 text-xs font-bold rounded hover:bg-orange-600 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
         </div>
+
       </div>
     </div>
   </section>
