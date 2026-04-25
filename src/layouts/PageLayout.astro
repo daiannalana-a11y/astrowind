@@ -2,10 +2,12 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
+
 import { headerData, footerData } from '~/navigation';
+
 import type { MetaData } from '~/types';
 
-export interface Props {
+interface Props {
   metadata?: MetaData;
 }
 
@@ -16,11 +18,9 @@ const { metadata } = Astro.props;
   <slot name="header">
     <Header {...headerData} isSticky class="header-custom" />
   </slot>
-
   <main>
     <slot />
   </main>
-
   <slot name="footer">
     <Footer {...footerData} />
   </slot>
@@ -33,16 +33,21 @@ const { metadata } = Astro.props;
     border-bottom: 1px solid #e2e8f0 !important;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05) !important;
   }
+
   #header.header-custom a {
     color: #1a3044 !important;
     font-weight: 600;
   }
+
+  /* BOTÃO FALE CONOSCO NO MENU */
   #header.header-custom a[href*="contact"], 
   #header.header-custom .btn-primary {
     background-color: #ea580c !important;
     color: white !important;
+    border: none !important;
     border-radius: 9999px !important;
     padding: 0.4rem 1.2rem !important;
     font-size: 0.8rem !important;
+    font-weight: 700 !important;
   }
 </style>
