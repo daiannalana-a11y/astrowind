@@ -1,7 +1,6 @@
 ---
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Footer from '~/components/widgets/Footer.astro';
@@ -9,6 +8,7 @@ import { headerData, footerData } from '~/navigation';
 
 const metadata = {
   title: 'Triaxis — Engenharia e Consultoria',
+  description: 'Consultoria multidisciplinar especializada em Meio Ambiente, Produção e Segurança do Trabalho.',
 };
 ---
 
@@ -16,123 +16,157 @@ const metadata = {
   <Header {...headerData} isSticky class="header-custom" />
 
   <main>
-    <Hero>
-      <Fragment slot="title">
-        <div class="triaxis-hero-scope">
-          <p class="triaxis-tagline">DESENVOLVIMENTO, CONSULTORIA E ASSESSORIA ESPECIALIZADA</p>
-          
-          <h1 class="triaxis-title">
-            Transformamos Exigências Legais<br/>
-            em Oportunidades de<br/>
-            <span class="triaxis-green">Crescimento Sustentável</span>
-          </h1>
-          
-          <p class="triaxis-description">
-            Consultoria Multidisciplinar Especializada em Engenharia Ambiental, 
-            Engenharia de Produção e Segurança do Trabalho.
-          </p>
+    <section class="tx-hero-section">
+      <div class="tx-container">
+        <p class="tx-tagline">DESENVOLVIMENTO, CONSULTORIA E ASSESSORIA ESPECIALIZADA</p>
+        
+        <h1 class="tx-title">
+          Transformamos Exigências Legais<br/>
+          em Oportunidades de<br/>
+          <span class="tx-green">Crescimento Sustentável</span>
+        </h1>
+        
+        <p class="tx-description">
+          Consultoria Multidisciplinar Especializada em Engenharia Ambiental, 
+          Engenharia de Produção e Segurança do Trabalho.
+        </p>
 
-          <div class="triaxis-button-group">
-            <a href="/contact" class="tx-btn tx-btn-orange">
-              Agende uma conversa
-            </a>
-            <a href="#servicos-home" class="tx-btn tx-btn-white">
-              Nossos Serviços
-            </a>
-          </div>
+        <div class="tx-btn-group">
+          <a href="/contact" class="tx-btn-main tx-orange">Agende uma conversa</a>
+          <a href="#servicos" class="tx-btn-main tx-outline">Nossos Serviços</a>
         </div>
-      </Fragment>
-    </Hero>
-
-    <section style="padding: 60px 0; background: white; text-align: center; border-top: 1px solid #eee;">
-       <h2 style="color: #1a3044; font-weight: 800; font-size: 32px;">Nossos Diferenciais</h2>
-       <p style="color: #3a8d44; font-weight: 700;">Excelência técnica em cada etapa</p>
+      </div>
     </section>
 
+    <section id="servicos" class="tx-section">
+      <div class="tx-container">
+        <div style="text-align: center; margin-bottom: 50px;">
+          <p style="color: #3a8d44; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 1px;">Por que a Triaxis?</p>
+          <h2 style="font-size: 36px; font-weight: 800; color: #1a3044; margin-top: 5px;">Nossos Diferenciais</h2>
+          <div style="width: 60px; h-1; background: #ea580c; height: 4px; margin: 15px auto; border-radius: 10px;"></div>
+        </div>
+        
+        <div class="tx-grid">
+          <div class="tx-card border-green">
+            <h3>Técnica e Gestão</h3>
+            <p>Processos eficientes e pessoas equilibradas trabalhando em conjunto.</p>
+          </div>
+          <div class="tx-card border-blue">
+            <h3>Soluções Personalizadas</h3>
+            <p>Entendemos sua realidade e oferecemos planos de ação sob medida.</p>
+          </div>
+          <div class="tx-card border-orange">
+            <h3>Atuação Multidisciplinar</h3>
+            <p>Integração total entre Engenharia Ambiental, Produção e Segurança.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Content
+      isReversed
+      image={{ src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80', alt: 'Equipe Triaxis' }}
+    >
+      <Fragment slot="content">
+        <h3 style="color: #ea580c; font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px;">Conheça a Triaxis</h3>
+        <h2 style="font-size: 28px; font-weight: 800; color: #1a3044; margin-bottom: 20px; line-height: 1.2;">Resultados que surgem da integração técnica.</h2>
+        <p style="color: #64748b; border-left: 4px solid #3a8d44; padding-left: 20px; line-height: 1.6;">
+          Unimos rigor normativo e visão estratégica de negócio para oferecer consultoria capaz de transformar a realidade operacional das indústrias.
+        </p>
+      </Fragment>
+    </Content>
+
+    <CallToAction
+      title="Pronto para crescer com segurança?"
+      subtitle="Agende um diagnóstico com nossos especialistas."
+      actions={[{ variant: 'primary', text: 'Agendar Conversa', href: '/contact', class: 'tx-btn-main tx-orange', style: 'margin: 0 auto; border:none;' }]}
+    />
   </main>
 
   <Footer {...footerData} />
 </Layout>
 
 <style is:global>
-  /* 1. CORREÇÃO DO MENU */
+  /* 1. HEADER / MENU */
   header#header.header-custom {
     background-color: #f8fafc !important;
-    border-bottom: 2px solid #e2e8f0 !important;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.06) !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 999;
   }
   header#header.header-custom a { color: #1a3044 !important; font-weight: 600; text-decoration: none; }
 
-  /* 2. O "DESCOLADOR" DE LETRAS (TRI-AXIS SCOPE) */
-  .triaxis-hero-scope { 
-    margin-top: -60px; 
-    text-align: center; 
-    display: block !important;
+  /* 2. HERO SECTION */
+  .tx-hero-section {
+    padding: 100px 20px 80px 20px;
+    background: white;
+    text-align: center;
   }
 
-  .triaxis-tagline {
+  .tx-container { max-width: 1100px; margin: 0 auto; }
+
+  .tx-tagline {
     color: #3a8d44 !important;
     font-weight: 800 !important;
-    letter-spacing: 2px !important; /* Força espaço entre letras */
     font-size: 12px !important;
+    letter-spacing: 1.5px !important;
     margin-bottom: 20px !important;
+    text-transform: uppercase;
   }
 
-  .triaxis-title {
+  .tx-title {
     color: #1a3044 !important;
-    font-weight: 800 !important;
-    font-size: 48px !important;
-    line-height: 1.1 !important; /* Dá altura para a linha */
-    letter-spacing: -0.5px !important; /* Evita que grude */
-    margin-bottom: 25px !important;
+    font-size: clamp(32px, 5vw, 52px) !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 30px !important;
   }
 
-  .triaxis-green { color: #3a8d44 !important; }
+  .tx-green { color: #3a8d44 !important; }
 
-  .triaxis-description {
+  .tx-description {
     color: #64748b !important;
     font-size: 18px !important;
-    line-height: 1.6 !important; /* Espaço entre linhas do subtítulo */
-    letter-spacing: normal !important; /* Reseta o erro do tema */
-    max-width: 750px !important;
-    margin: 0 auto 40px auto !important;
+    line-height: 1.6 !important; /* Espaçamento entre linhas corrigido */
+    letter-spacing: 0px !important;
+    max-width: 800px;
+    margin: 0 auto 45px auto !important;
   }
 
-  /* 3. BOTÕES IMUNES AO TEMA */
-  .triaxis-button-group {
+  /* 3. BOTÕES */
+  .tx-btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+  .tx-btn-main {
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    gap: 20px !important;
-    padding-top: 10px !important;
-  }
-
-  .tx-btn {
-    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    height: 56px !important;
-    padding: 0 35px !important;
+    height: 54px !important;
+    padding: 0 40px !important;
     border-radius: 50px !important;
     font-weight: 700 !important;
-    font-size: 15px !important;
     text-decoration: none !important;
-    letter-spacing: 0.5px !important; /* ESPAÇO ENTRE LETRAS DO BOTÃO */
-    white-space: nowrap !important; /* Impede quebra de linha */
-    transition: all 0.2s ease;
+    font-size: 15px !important;
+    letter-spacing: 0.2px !important;
+    transition: 0.3s;
+    min-width: 240px;
+    border: none !important;
   }
 
-  .tx-btn-orange {
-    background-color: #ea580c !important;
-    color: white !important;
-    box-shadow: 0 10px 20px rgba(234, 88, 12, 0.3) !important;
-  }
+  .tx-orange { background: #ea580c !important; color: white !important; box-shadow: 0 10px 20px rgba(234, 88, 12, 0.2) !important; }
+  .tx-outline { border: 2px solid #e2e8f0 !important; color: #1a3044 !important; background: white !important; }
+  .tx-btn-main:hover { transform: translateY(-3px); }
 
-  .tx-btn-white {
-    background-color: white !important;
-    color: #1a3044 !important;
-    border: 2px solid #e2e8f0 !important;
-  }
-
-  .tx-btn:hover { transform: translateY(-3px); }
+  /* 4. SEÇÕES E CARDS */
+  .tx-section { padding: 80px 20px; background: #fdfdfd; }
+  .tx-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .tx-card { background: white; padding: 40px; border-radius: 30px; border-bottom: 6px solid; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; }
+  .tx-card h3 { font-weight: 800; color: #1a3044; margin-bottom: 15px; font-size: 20px; }
+  .tx-card p { color: #64748b; font-size: 15px; line-height: 1.5; }
+  
+  .border-green { border-color: #3a8d44; }
+  .border-blue { border-color: #1a3044; }
+  .border-orange { border-color: #ea580c; }
 </style>
