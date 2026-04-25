@@ -29,11 +29,11 @@ const metadata = {
             Engenharia de Produção e Segurança do Trabalho.
           </p>
 
-          <div class="flex flex-row items-center justify-center gap-4 mt-8">
-            <a href="/contact" class="bg-orange-600 hover:bg-orange-700 text-white px-7 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all no-underline">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+            <a href="/contact" class="inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-sm shadow-lg transition-all no-underline min-w-[220px] h-12 leading-none">
               Agende uma conversa
             </a>
-            <a href="#servicos-home" class="border border-slate-300 hover:border-[#1a3044] text-[#1a3044] px-7 py-2.5 rounded-full font-bold text-xs transition-all no-underline">
+            <a href="#servicos-home" class="inline-flex items-center justify-center border-2 border-slate-200 hover:border-[#1a3044] text-[#1a3044] px-8 py-4 rounded-full font-bold text-sm transition-all no-underline min-w-[220px] h-12 leading-none">
               Nossos Serviços
             </a>
           </div>
@@ -47,27 +47,35 @@ const metadata = {
 </Layout>
 
 <style is:global>
-  /* Menu Cinza Claro com Sombra - Forçando via CSS global */
-  #header.header-custom {
+  /* Menu Cinza Claro com Sombra e Divisão Forte */
+  header#header.header-custom {
     background-color: #f8fafc !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.1) !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08) !important;
   }
   
-  #header.header-custom a { 
+  header#header.header-custom a { 
     color: #1a3044 !important; 
     font-weight: 600; 
     text-decoration: none !important;
   }
 
   /* Botão do Menu (Fale Conosco) */
-  #header.header-custom a[href*="contact"], 
-  #header.header-custom .btn-primary {
-    background-color: #1a3044 !important; /* Azul marinho no menu para elegância */
+  header#header.header-custom a[href*="contact"], 
+  header#header.header-custom .btn-primary {
+    background-color: #1a3044 !important;
     color: white !important;
     border-radius: 9999px !important;
-    padding: 0.5rem 1.5rem !important;
+    padding: 0.6rem 1.5rem !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Correção para os botões do Hero não esmagarem o texto */
+  .inline-flex.leading-none {
+    line-height: 1 !important;
   }
 </style>
