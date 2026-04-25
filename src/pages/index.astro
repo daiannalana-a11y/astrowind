@@ -8,7 +8,8 @@ import Footer from '~/components/widgets/Footer.astro';
 import { headerData, footerData } from '~/navigation';
 
 const metadata = {
-  title: 'Triaxis — Engenharia e Consultoria',
+  title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança do Trabalho',
+  description: 'Consultoria multidisciplinar especializada em Meio Ambiente, Produção e Segurança do Trabalho.',
 };
 ---
 
@@ -19,25 +20,25 @@ const metadata = {
     <Hero>
       <Fragment slot="title">
         <div class="pt-2 md:pt-4 -mt-14 max-w-5xl mx-auto tracking-tighter text-[#1a3044] font-bold text-3xl md:text-5xl text-center">
-          <p class="text-[10px] md:text-xs text-[#3a8d44] font-bold uppercase tracking-[0.2em] mb-2 leading-none">
+          <p class="text-[10px] md:text-xs text-[#3a8d44] font-bold uppercase tracking-[0.2em] mb-4 leading-none">
             DESENVOLVIMENTO, CONSULTORIA E ASSESSORIA ESPECIALIZADA
           </p>
           <div class="leading-[0.95]">
             <span class="block">Transformamos Exigências Legais</span>
             <span class="block">em Oportunidades de</span>
-            <span class="text-[#3a8d44] block">Crescimento Sustentável</span>
+            <span class="text-[#3a8d44] block mt-1">Crescimento Sustentável</span>
           </div>
           
-          <p class="text-sm md:text-base text-slate-600 font-normal tracking-normal mt-6 leading-relaxed max-w-2xl mx-auto">
-            Consultoria Multidisciplinar Especializada em Engenharia Ambiental, 
+          <p class="text-sm md:text-base text-slate-600 font-normal tracking-normal mt-8 leading-relaxed max-w-2xl mx-auto">
+            Consultoria Multidisciplinar Especializada em Engenharia Ambiental, <br class="hidden md:block" />
             Engenharia de Produção e Segurança do Trabalho.
           </p>
 
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <a href="/contact" class="btn-triaxis-primary">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+            <a href="/contact" class="triaxis-btn triaxis-btn-primary">
               Agende uma conversa
             </a>
-            <a href="#servicos-home" class="btn-triaxis-secondary">
+            <a href="#servicos-home" class="triaxis-btn triaxis-btn-secondary">
               Nossos Serviços
             </a>
           </div>
@@ -45,46 +46,61 @@ const metadata = {
       </Fragment>
     </Hero>
 
-    <section class="py-12 md:py-16 bg-white border-t border-slate-100">
+    <section class="py-12 md:py-20 bg-white border-t border-slate-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="mb-10 text-center max-w-3xl mx-auto">
           <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Por que a Triaxis?</p>
           <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 text-[#1a3044]">Nossos Diferenciais</h2>
           <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
         </div>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="card-diferencial border-[#3a8d44]">
-             <h3 class="font-bold text-[#1a3044]">Equilíbrio Técnica e Gestão</h3>
-             <p class="text-sm text-slate-600 italic">Processos eficientes e pessoas equilibradas.</p>
+          <div class="triaxis-card border-[#3a8d44]">
+            <div class="w-12 h-12 rounded-xl bg-green-50 text-[#3a8d44] flex items-center justify-center mb-5 mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-[#1a3044]">Técnica e Gestão</h3>
+            <p class="text-sm text-slate-600 italic leading-snug">Processos eficientes e pessoas equilibradas trabalhando em harmonia.</p>
           </div>
-          <div class="card-diferencial border-[#1a3044]">
-             <h3 class="font-bold text-[#1a3044]">Soluções Personalizadas</h3>
-             <p class="text-sm text-slate-600 italic">Entendemos sua realidade e oferecemos planos sob medida.</p>
+
+          <div class="triaxis-card border-[#1a3044]">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-[#1a3044] flex items-center justify-center mb-5 mx-auto">
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-[#1a3044]">Soluções Personalizadas</h3>
+            <p class="text-sm text-slate-600 italic leading-snug">Entendemos sua realidade e oferecemos planos de ação sob medida.</p>
           </div>
-          <div class="card-diferencial border-orange-500">
-             <h3 class="font-bold text-[#1a3044]">Atuação Multidisciplinar</h3>
-             <p class="text-sm text-slate-600 italic">Ambiental, Produção e Segurança integrada.</p>
+
+          <div class="triaxis-card border-orange-500">
+            <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-5 mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /></svg>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-[#1a3044]">Atuação Multidisciplinar</h3>
+            <p class="text-sm text-slate-600 italic leading-snug">Integração entre Engenharia Ambiental, Produção e Segurança.</p>
           </div>
         </div>
       </div>
     </section>
 
     <Content
+      id="quem-somos-home"
       isReversed
       image={{ src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80', alt: 'Equipe Triaxis' }}
     >
       <Fragment slot="content">
-        <h3 class="text-orange-600 font-bold uppercase tracking-widest text-xs mb-3">CONHEÇA A TRIAXIS</h3>
+        <h3 class="text-orange-600 font-bold uppercase tracking-widest text-xs mb-3">Conheça a Triaxis</h3>
         <h2 class="text-2xl md:text-3xl font-extrabold text-[#1a3044] mb-4">Resultados que surgem da integração.</h2>
-        <p class="text-base text-slate-600 border-l-4 border-[#3a8d44] pl-4 mb-6">Unimos rigor normativo e visão estratégica para transformar conformidade legal em diferencial competitivo.</p>
-        <a href="/about" class="bg-[#1a3044] text-white px-6 py-2.5 rounded-full font-bold text-sm">Saiba mais</a>
+        <p class="text-base text-slate-600 border-l-4 border-[#3a8d44] pl-4 mb-6 leading-relaxed">
+          Unimos rigor normativo e visão estratégica de negócio para transformar a realidade operacional das indústrias.
+        </p>
+        <a href="/about" class="bg-[#1a3044] text-white px-8 py-3 rounded-full font-bold text-sm shadow-md transition-all hover:bg-[#25425d]">Saiba mais sobre nós</a>
       </Fragment>
     </Content>
 
     <CallToAction
-      title="Pronto para crescer?"
+      title="Pronto para crescer com segurança?"
       subtitle="Agende um diagnóstico com nossos especialistas."
-      actions={[{ variant: 'primary', text: 'Agendar Conversa', href: '/contact', class: 'bg-orange-600' }]}
+      actions={[{ variant: 'primary', text: 'Agendar Conversa', href: '/contact', class: 'bg-orange-600 border-none px-8 py-3 rounded-full font-bold' }]}
     />
   </main>
 
@@ -92,55 +108,71 @@ const metadata = {
 </Layout>
 
 <style is:global>
-  /* MENU COM SOMBRA E SEPARAÇÃO */
+  /* 1. ESTILO DO MENU (BARRA SUPERIOR) */
   header#header.header-custom {
-    background-color: #f8fafc !important;
+    background-color: #f8fafc !important; /* Cinza ultra claro */
     border-bottom: 2px solid #e2e8f0 !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 100;
   }
-  
-  header#header.header-custom a { color: #1a3044 !important; font-weight: 600; text-decoration: none !important; }
+  header#header.header-custom a { 
+    color: #1a3044 !important; 
+    font-weight: 600; 
+    text-decoration: none !important;
+  }
 
-  /* BOTÕES DO HERO */
-  .btn-triaxis-primary {
+  /* 2. BASE DOS BOTÕES (CORREÇÃO DE TEXTO ESMAGADO) */
+  .triaxis-btn {
     display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    background-color: #ea580c !important; /* Laranja */
-    color: white !important;
-    padding: 0.8rem 2rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 32px !important; /* Padding lateral */
+    height: 52px !important;    /* Altura fixa para centralizar o texto */
     border-radius: 9999px !important;
     font-weight: 700 !important;
-    font-size: 0.875rem !important;
+    font-size: 14px !important;
     text-decoration: none !important;
-    min-width: 200px;
-    line-height: 1.2 !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    min-width: 230px !important;
+    letter-spacing: 0.3px !important; /* Garante que as letras não fiquem coladas */
+    line-height: 1 !important;        /* Força o centro vertical */
+    transition: all 0.3s ease;
   }
 
-  .btn-triaxis-secondary {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
+  /* BOTÃO LARANJA */
+  .triaxis-btn-primary {
+    background-color: #ea580c !important;
+    color: white !important;
+    box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.3) !important;
+  }
+  .triaxis-btn-primary:hover {
+    background-color: #c2410c !important;
+    transform: translateY(-2px);
+  }
+
+  /* BOTÃO BRANCO/CINZA */
+  .triaxis-btn-secondary {
+    background-color: white !important;
     border: 2px solid #e2e8f0 !important;
     color: #1a3044 !important;
-    padding: 0.8rem 2rem !important;
-    border-radius: 9999px !important;
-    font-weight: 700 !important;
-    font-size: 0.875rem !important;
-    text-decoration: none !important;
-    min-width: 200px;
-    line-height: 1.2 !important;
+  }
+  .triaxis-btn-secondary:hover {
+    border-color: #1a3044 !important;
+    transform: translateY(-2px);
   }
 
-  /* CARDS DIFERENCIAIS */
-  .card-diferencial {
+  /* 3. CARDS DE DIFERENCIAIS */
+  .triaxis-card {
     background-color: #f8fafc;
-    padding: 2rem;
-    border-radius: 24px;
-    border-bottom: 4px solid;
+    padding: 2.5rem 1.5rem;
+    border-radius: 28px;
+    border-bottom: 5px solid;
     text-align: center;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
   }
-  .card-diferencial:hover { transform: translateY(-5px); }
+  .triaxis-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  }
 </style>
