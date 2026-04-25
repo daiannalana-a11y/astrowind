@@ -2,6 +2,8 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import { headerData, footerData } from '~/navigation';
 
@@ -23,14 +25,18 @@ const metadata = {
           <span class="block">Transformamos Exigências Legais</span>
           <span class="block">em Oportunidades de</span>
           <span class="text-[#3a8d44] block">Crescimento Sustentável</span>
-          
-          <p class="text-sm md:text-base text-slate-600 font-normal tracking-normal mt-4 leading-relaxed max-w-2xl mx-auto">
+        </div>
+      </Fragment>
+
+      <Fragment slot="subtitle">
+        <div class="max-w-2xl mx-auto">
+          <p class="text-sm md:text-base text-slate-600 font-normal tracking-normal mt-4 leading-relaxed text-center">
             Consultoria Multidisciplinar Especializada em Engenharia Ambiental, 
             Engenharia de Produção e Segurança do Trabalho.
           </p>
-
+          
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <a href="/contact" class="inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-sm shadow-lg transition-all no-underline min-w-[220px] h-12 leading-none">
+            <a href="/contact" class="inline-flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-full font-bold text-sm shadow-lg transition-all no-underline min-w-[220px] h-12 leading-none border-none">
               Agende uma conversa
             </a>
             <a href="#servicos-home" class="inline-flex items-center justify-center border-2 border-slate-200 hover:border-[#1a3044] text-[#1a3044] px-8 py-4 rounded-full font-bold text-sm transition-all no-underline min-w-[220px] h-12 leading-none">
@@ -41,13 +47,23 @@ const metadata = {
       </Fragment>
     </Hero>
 
+    <Features
+      id="servicos-home"
+      title="Nossas Especialidades"
+      items={[
+        { title: 'Engenharia Ambiental', description: 'Licenciamento e gestão de resíduos.', icon: 'tabler:leaf' },
+        { title: 'Segurança do Trabalho', description: 'PPRA, PCMSO e treinamentos.', icon: 'tabler:shield-check' },
+        { title: 'Engenharia de Produção', description: 'Otimização de processos e eficiência.', icon: 'tabler:settings' },
+      ]}
+    />
+
     </main>
 
   <Footer {...footerData} />
 </Layout>
 
 <style is:global>
-  /* Menu Cinza Claro com Sombra e Divisão Forte */
+  /* Menu com Sombra e Separação */
   header#header.header-custom {
     background-color: #f8fafc !important;
     border-bottom: 2px solid #e2e8f0 !important;
@@ -57,25 +73,21 @@ const metadata = {
   header#header.header-custom a { 
     color: #1a3044 !important; 
     font-weight: 600; 
-    text-decoration: none !important;
   }
 
-  /* Botão do Menu (Fale Conosco) */
-  header#header.header-custom a[href*="contact"], 
-  header#header.header-custom .btn-primary {
+  /* Botão do Menu */
+  header#header.header-custom a[href*="contact"] {
     background-color: #1a3044 !important;
     color: white !important;
     border-radius: 9999px !important;
     padding: 0.6rem 1.5rem !important;
     font-size: 0.75rem !important;
-    font-weight: 700 !important;
     display: inline-flex !important;
     align-items: center;
-    justify-content: center;
   }
 
-  /* Correção para os botões do Hero não esmagarem o texto */
-  .inline-flex.leading-none {
+  /* Fix para o texto dos botões do Hero */
+  .leading-none {
     line-height: 1 !important;
   }
 </style>
