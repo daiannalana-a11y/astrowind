@@ -1,155 +1,73 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
 
 const metadata = {
-  title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança do Trabalho',
-  description: 'Consultoria multidisciplinar especializada em Meio Ambiente, Produção e Segurança do Trabalho.',
+  title: 'Triaxis — Engenharia e Consultoria',
 };
 ---
 
 <Layout metadata={metadata}>
+  <Header {...headerData} isSticky class="header-custom" />
 
-  <Hero
-    tagline="DESENVOLVIMENTO, CONSULTORIA E ASSESSORIA ESPECIALIZADA"
-    actions={[
-      { 
-        variant: 'primary', 
-        text: 'Agende uma conversa', 
-        href: '/contact', 
-        class: 'bg-orange-600 hover:bg-orange-700 text-white px-7 py-4.0 rounded-full font-bold text-sm shadow-md transition-all border-none' 
-      },
-      { 
-        text: 'Conheça Nossos Serviços', 
-        href: '#servicos-home', 
-        class: 'border border-slate-300 hover:border-[#1a3044] text-[#1a3044] px-7 py-2.0 rounded-full font-bold text-sm transition-all' 
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      <div class="pt-3 md:pt-6 -mt-5 pb-0 max-w-5xl mx-auto leading-[0.95] tracking-tighter text-[#1a3044] dark:text-white font-bold text-3xl md:text-5xl">
-        <span class="block">Transformamos Exigências Legais</span>
-        <span class="block">em Oportunidades de</span>
-        <span class="text-[#3a8d44] block mt-1">Crescimento Sustentável</span>
-      </div>
-    </Fragment>
-    
-    <Fragment slot="subtitle">
-      <div class="max-w-3xl mx-auto text-base md:text-lg text-slate-600 dark:text-slate-400 leading-snug font-sans mt-1 mb-8">
-        Consultoria Multidisciplinar Especializada em Engenharia Ambiental, <br class="hidden md:block" />
-        Engenharia de Produção e Segurança do Trabalho.
-      </div>
-    </Fragment>
-  </Hero>
+  <main>
+    <Hero>
+      <Fragment slot="title">
+        <div class="pt-2 md:pt-4 -mt-14 max-w-5xl mx-auto leading-[0.95] tracking-tighter text-[#1a3044] font-bold text-3xl md:text-5xl text-center">
+          <p class="text-[10px] md:text-xs text-[#3a8d44] font-bold uppercase tracking-[0.2em] mb-2">
+            DESENVOLVIMENTO, CONSULTORIA E ASSESSORIA ESPECIALIZADA
+          </p>
+          <span class="block">Transformamos Exigências Legais</span>
+          <span class="block">em Oportunidades de</span>
+          <span class="text-[#3a8d44] block">Crescimento Sustentável</span>
+          
+          <p class="text-sm md:text-base text-slate-600 font-normal tracking-normal mt-4 leading-relaxed max-w-2xl mx-auto">
+            Consultoria Multidisciplinar Especializada em Engenharia Ambiental, 
+            Engenharia de Produção e Segurança do Trabalho.
+          </p>
 
-  <section class="py-12 md:py-4 bg-white dark:bg-slate-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mb-10 text-center max-w-3xl mx-auto">
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2 font-heading">Por que a Triaxis?</p>
-        <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 font-heading text-[#1a3044]">
-          Nossos Diferenciais
-        </h2>
-        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-50 p-8 rounded-[32px] border-b-4 border-[#3a8d44] shadow-sm flex flex-col items-center text-center transition-all hover:-translate-y-1">
-          <div class="w-14 h-14 rounded-2xl bg-green-50 text-[#3a8d44] flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+          <div class="flex flex-row items-center justify-center gap-4 mt-8">
+            <a href="/contact" class="bg-orange-600 hover:bg-orange-700 text-white px-7 py-2.5 rounded-full font-bold text-xs shadow-lg transition-all no-underline">
+              Agende uma conversa
+            </a>
+            <a href="#servicos-home" class="border border-slate-300 hover:border-[#1a3044] text-[#1a3044] px-7 py-2.5 rounded-full font-bold text-xs transition-all no-underline">
+              Nossos Serviços
+            </a>
           </div>
-          <h3 class="text-lg font-bold mb-2 font-heading text-[#1a3044]">Equilíbrio Técnica e Gestão</h3>
-          <p class="text-sm text-slate-600 italic">Processos eficientes e pessoas equilibradas trabalhando em conjunto.</p>
         </div>
+      </Fragment>
+    </Hero>
 
-        <div class="bg-slate-50 p-8 rounded-[32px] border-b-4 border-[#1a3044] shadow-sm flex flex-col items-center text-center transition-all hover:-translate-y-1">
-          <div class="w-14 h-14 rounded-2xl bg-blue-50 text-[#1a3044] flex items-center justify-center mb-5">
-             <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2 font-heading text-[#1a3044]">Soluções Personalizadas</h3>
-          <p class="text-sm text-slate-600 italic">Entendemos sua realidade e oferecemos planos de ação sob medida.</p>
-        </div>
+    </main>
 
-        <div class="bg-slate-50 p-8 rounded-[32px] border-b-4 border-orange-500 shadow-sm flex flex-col items-center text-center transition-all hover:-translate-y-1">
-          <div class="w-14 h-14 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center mb-5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2 font-heading text-[#1a3044]">Atuação Multidisciplinar</h3>
-          <p class="text-sm text-slate-600 italic">Integração entre Engenharia Ambiental, Produção e Segurança.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <Content
-    id="quem-somos-home"
-    isReversed
-    tagline="Conheça a Triaxis"
-    image={{
-      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80',
-      alt: 'Equipe Triaxis trabalhando',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-orange-600 font-bold uppercase tracking-widest text-sm mb-3 font-heading">
-        Engenharia • Consultoria • Assessoria
-      </h3>
-      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1a3044] font-heading leading-tight mb-4">
-        Resultados que surgem da integração entre áreas do conhecimento.
-      </h2>
-      <p class="text-base text-slate-600 leading-relaxed mb-6 font-sans border-l-4 border-[#3a8d44] pl-4">
-        A Triaxis une rigor normativo e visão estratégica de negócio para oferecer consultoria capaz de transformar a realidade operacional das indústrias.
-      </p>
-      <div class="flex flex-wrap gap-4 items-center">
-        <a href="/about" class="bg-[#1a3044] text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:bg-[#25425d] transition-all">Saiba mais</a>
-        <a href="/contact" class="font-bold text-[#3a8d44] hover:text-green-900 transition-colors flex items-center text-sm">Falar com nossa Equipe <span class="ml-2">→</span></a>
-      </div>
-    </Fragment>
-  </Content>
-
-  <section id="servicos-home" class="bg-slate-50 dark:bg-slate-800 py-16">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest font-heading mb-10 text-[#1a3044]">Nossas Especialidades</h2>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        
-        <div class="flex flex-col bg-white rounded-xl shadow-sm border-t-[6px] border-t-[#3a8d44] p-8">
-          <h3 class="text-lg font-bold mb-4 font-heading text-[#1a3044]">Consultoria Ambiental</h3>
-          <ul class="space-y-2 text-left mb-6 flex-grow font-sans text-sm">
-            {['Licenciamento Ambiental', 'Gestão de Resíduos', 'Outorgas'].map(i => (
-              <li class="flex items-center text-slate-600"><span class="text-[#3a8d44] mr-2 font-bold">✓</span> {i}</li>
-            ))}
-          </ul>
-          <a href="/services#ambiental" class="py-2 border border-[#3a8d44] text-[#3a8d44] text-xs font-bold rounded-full hover:bg-[#3a8d44] hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
-        </div>
-
-        <div class="flex flex-col bg-white rounded-xl shadow-sm border-t-[6px] border-t-[#1a3044] p-8">
-          <h3 class="text-lg font-bold mb-4 font-heading text-[#1a3044]">Engenharia de Produção</h3>
-          <ul class="space-y-2 text-left mb-6 flex-grow font-sans text-sm">
-            {['Diagnóstico Lean', 'Mapeamento VSM', 'Layout'].map(i => (
-              <li class="flex items-center text-slate-600"><span class="text-blue-700 mr-2 font-bold">✓</span> {i}</li>
-            ))}
-          </ul>
-          <a href="/services#producao" class="py-2 border border-[#1a3044] text-[#1a3044] text-xs font-bold rounded-full hover:bg-[#1a3044] hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
-        </div>
-
-        <div class="flex flex-col bg-white rounded-xl shadow-sm border-t-[6px] border-t-orange-500 p-8">
-          <h3 class="text-lg font-bold mb-4 font-heading text-[#1a3044]">Segurança do Trabalho</h3>
-          <ul class="space-y-2 text-left mb-6 flex-grow font-sans text-sm">
-            {['PGR e LTCAT', 'Treinamentos NRs', 'Laudos'].map(i => (
-              <li class="flex items-center text-slate-600"><span class="text-orange-600 mr-2 font-bold">✓</span> {i}</li>
-            ))}
-          </ul>
-          <a href="/services#seguranca" class="py-2 border border-orange-500 text-orange-600 text-xs font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all text-center uppercase tracking-widest">VER DETALHES</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <CallToAction
-    title="Pronto para crescer com segurança?"
-    subtitle="Agende um diagnóstico com nossos especialistas."
-    actions={[{ variant: 'primary', text: 'Agendar Conversa', href: '/contact', class: 'bg-orange-600 border-none' }]}
-  />
-
+  <Footer {...footerData} />
 </Layout>
+
+<style is:global>
+  /* Menu Cinza Claro com Sombra - Forçando via CSS global */
+  #header.header-custom {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  #header.header-custom a { 
+    color: #1a3044 !important; 
+    font-weight: 600; 
+    text-decoration: none !important;
+  }
+
+  /* Botão do Menu (Fale Conosco) */
+  #header.header-custom a[href*="contact"], 
+  #header.header-custom .btn-primary {
+    background-color: #1a3044 !important; /* Azul marinho no menu para elegância */
+    color: white !important;
+    border-radius: 9999px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+  }
+</style>
