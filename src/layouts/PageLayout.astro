@@ -2,9 +2,7 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
-
 import { headerData, footerData } from '~/navigation';
-
 import type { MetaData } from '~/types';
 
 export interface Props {
@@ -15,13 +13,8 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
-  
   <slot name="header">
-    <Header 
-      {...headerData} 
-      isSticky 
-      class="header-custom" 
-    />
+    <Header {...headerData} isSticky class="header-custom" />
   </slot>
 
   <main>
@@ -34,27 +27,22 @@ const { metadata } = Astro.props;
 </Layout>
 
 <style is:global>
-  /* Estilização do Menu Cinza Claro com Sombra */
-  header#header.header-custom {
-    background-color: #f8fafc !important; /* Cinza ultra claro (slate-50) */
-    border-bottom: 1px solid #e2e8f0 !important; /* Divisão sutil */
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05) !important; /* Sombra delicada */
+  /* CONFIGURAÇÃO DO MENU CINZA CLARO COM SOMBRA */
+  #header.header-custom {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05) !important;
   }
-
-  /* Deixando os links do menu em Azul Triaxis para legibilidade */
-  header#header.header-custom a {
+  #header.header-custom a {
     color: #1a3044 !important;
     font-weight: 600;
   }
-
-  /* O Botão "Fale Conosco" no Menu agora em Laranja para destaque */
-  header#header.header-custom .btn-primary, 
-  header#header.header-custom a[href*="contact"] {
-    background-color: #ea580c !important; /* Laranja */
+  #header.header-custom a[href*="contact"], 
+  #header.header-custom .btn-primary {
+    background-color: #ea580c !important;
     color: white !important;
-    border: none !important;
     border-radius: 9999px !important;
-    padding: 0.5rem 1.5rem !important;
-    box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.2) !important;
+    padding: 0.4rem 1.2rem !important;
+    font-size: 0.8rem !important;
   }
 </style>
