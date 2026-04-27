@@ -1,1 +1,366 @@
---
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Engenharia de Produção — Triaxis Consultoria',
+  description: 'Consultoria em Engenharia de Produção: Lean Manufacturing, VSM, 5S, gestão de KPIs, layout industrial e melhoria contínua. Triaxis Consultoria.',
+};
+
+const servicos = [
+  {
+    numero: '01',
+    titulo: 'Diagnóstico Lean e Plano de Melhoria Contínua',
+    descricao: 'Um raio-X completo da operação para identificar gargalos, desperdícios e oportunidades de melhoria, com plano de ação Lean focado em previsibilidade e eficiência.',
+    cta: 'Solicitar diagnóstico',
+    link: '/servicos/producao/diagnostico-lean',
+    img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Diagnóstico Lean de produção',
+  },
+  {
+    numero: '02',
+    titulo: 'Implementação 5S e Padronização Operacional',
+    descricao: 'Estruturamos o programa 5S para transformar o ambiente de trabalho em um espaço mais limpo, organizado e disciplinado, base essencial para alta performance e cultura de melhoria.',
+    cta: 'Solicitar implementação',
+    link: '/servicos/producao/5s',
+    img: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Implementação 5S e padronização',
+  },
+  {
+    numero: '03',
+    titulo: 'Mapeamento de Processos e Eliminação de Desperdícios (VSM)',
+    descricao: 'Identificamos perdas e ineficiências ao longo de toda a operação, trazendo clareza sobre onde atuar para aumentar o fluxo e reduzir gargalos com mapeamento do fluxo de valor.',
+    cta: 'Solicitar mapeamento',
+    link: '/servicos/producao/vsm',
+    img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Mapeamento de fluxo de valor VSM',
+  },
+  {
+    numero: '04',
+    titulo: 'Gestão de Indicadores e Painéis de Performance (KPIs e OEE)',
+    descricao: 'Transformamos dados dispersos em informações de gestão claras, visuais e úteis, com definição de KPIs, dashboards de performance e acompanhamento de OEE.',
+    cta: 'Criar painel de indicadores',
+    link: '/servicos/producao/kpis',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Gestão de KPIs e OEE',
+  },
+  {
+    numero: '05',
+    titulo: 'Redesenho de Layout e Balanceamento de Produção',
+    descricao: 'Organizamos o fluxo produtivo para que espaço, pessoas e equipamentos trabalhem de forma integrada, reduzindo deslocamentos, gargalos e tempos improdutivos.',
+    cta: 'Solicitar estudo de layout',
+    link: '/servicos/producao/layout',
+    img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Redesenho de layout industrial',
+  },
+  {
+    numero: '06',
+    titulo: 'Gestão de Custos Operacionais',
+    descricao: 'Analisamos onde os recursos são consumidos e onde existem oportunidades reais de economia, sem comprometer qualidade ou prazos, com levantamento detalhado por área e processo.',
+    cta: 'Solicitar análise de custos',
+    link: '/servicos/producao/gestao-custos',
+    img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Gestão de custos operacionais',
+  },
+  {
+    numero: '07',
+    titulo: 'Auditoria e Certificação da Qualidade (ISO, FMEA, 8D)',
+    descricao: 'Preparamos sua empresa para atender padrões internacionais e fortalecer a confiabilidade operacional, com adequação aos requisitos ISO 9001, ISO 14001 e IATF 16949.',
+    cta: 'Solicitar auditoria',
+    link: '/servicos/producao/qualidade',
+    img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Auditoria e certificação da qualidade',
+  },
+  {
+    numero: '08',
+    titulo: 'Treinamentos em Lean Manufacturing e Melhoria Contínua',
+    descricao: 'Capacitamos equipes para operar com eficiência, autonomia e foco em melhoria contínua, com formação prática em Lean, 5S, VSM e ferramentas da qualidade aplicadas à rotina.',
+    cta: 'Solicitar treinamento',
+    link: '/servicos/producao/treinamentos-lean',
+    img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Treinamentos em Lean Manufacturing',
+  },
+];
+
+const passos = [
+  { n: '1', icon: 'tabler:search', titulo: 'Diagnóstico inicial', desc: 'Análise completa da operação atual' },
+  { n: '2', icon: 'tabler:map-pin', titulo: 'Mapeamento', desc: 'Processos, indicadores e fluxos' },
+  { n: '3', icon: 'tabler:clipboard-list', titulo: 'Plano de ação Lean', desc: 'Construção e priorização das melhorias' },
+  { n: '4', icon: 'tabler:rocket', titulo: 'Implementação', desc: 'Melhorias e padronizações na prática' },
+  { n: '5', icon: 'tabler:refresh', titulo: 'Evolução contínua', desc: 'Auditorias e acompanhamento permanente' },
+];
+---
+
+<Layout metadata={metadata}>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 text-center px-4">
+    <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia de Produção</p>
+    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5 max-w-4xl mx-auto">
+      Transformamos processos desorganizados em operações eficientes
+    </h1>
+    <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+    <p class="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      Na Triaxis, ajudamos empresas a reduzirem desperdícios, aumentarem produtividade e conquistarem operações mais organizadas, previsíveis e rentáveis. Nossa abordagem integra Lean Manufacturing, gestão de processos e melhoria contínua para gerar resultados reais e mensuráveis.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20Engenharia%20de%20Produção%20da%20Triaxis."
+        target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+        <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+        Falar com especialista
+      </a>
+      <a href="#solucoes"
+        class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+        Ver nossas soluções
+        <Icon name="tabler:arrow-down" class="w-4 h-4" />
+      </a>
+    </div>
+  </section>
+
+  <!-- DESAFIOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-10 text-center tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Você se identifica?</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Desafios Comuns da Produção que sua Empresa Pode Estar Enfrentando</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 tx-fade tx-fade-delay-1">
+        {[
+          { icon: 'tabler:alert-circle', texto: 'Processos desorganizados e pouco padronizados' },
+          { icon: 'tabler:clock-pause', texto: 'Falta de previsibilidade e atrasos recorrentes' },
+          { icon: 'tabler:arrows-exchange', texto: 'Excesso de movimentações, retrabalhos e desperdícios' },
+          { icon: 'tabler:trending-down', texto: 'Indicadores que não refletem a realidade operacional' },
+          { icon: 'tabler:layout-grid-remove', texto: 'Layout pouco eficiente e gargalos constantes' },
+          { icon: 'tabler:coin-off', texto: 'Custos elevados sem clareza das causas' },
+          { icon: 'tabler:certificate-off', texto: 'Dificuldade para manter qualidade e atender certificações' },
+        ].map(item => (
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm border-l-4 border-orange-400">
+            <div class="w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={item.icon} class="w-4 h-4 text-orange-500" />
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed font-medium">{item.texto}</p>
+          </div>
+        ))}
+        <div class="flex items-center bg-[#1a3044] rounded-xl p-4 shadow-sm">
+          <p class="text-white text-xs leading-relaxed font-semibold">
+            A Triaxis ajuda sua operação a sair do modo apagar incêndios para um modelo sólido, organizado e orientado à eficiência.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section id="solucoes" class="bg-white py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Portfólio completo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Nossas Soluções em Engenharia de Produção</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {servicos.map((s, i) => (
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col prod-card tx-fade" style={`transition-delay: ${(i % 4) * 0.08}s`}>
+            <div class="relative h-36 overflow-hidden">
+              <img src={s.img} alt={s.imgAlt} class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <span class="absolute top-2 left-2 bg-white/90 text-[#1a3044] text-xs font-black px-2 py-0.5 rounded-md">{s.numero}</span>
+            </div>
+            <div class="p-5 flex flex-col flex-1 border-t-4 border-[#1a3044]">
+              <a href={s.link} class="text-sm font-bold text-[#1a3044] hover:text-[#3a8d44] transition-colors mb-2 leading-snug block">
+                {s.titulo}
+              </a>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">
+                {s.descricao}{' '}
+                <a href={s.link} class="text-[#1a3044] font-semibold hover:underline whitespace-nowrap">Saiba mais →</a>
+              </p>
+              <a href="/contact"
+                class="inline-flex items-center justify-center gap-1 border border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors mt-auto">
+                {s.cta}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE TRIAXIS + BENEFÍCIOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <div class="tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Nossos diferenciais</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Por que escolher a Triaxis?</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <ul class="space-y-4">
+          {[
+            { icon: 'tabler:tool', texto: 'Abordagem prática e aplicável: foco em soluções que funcionam no dia a dia' },
+            { icon: 'tabler:users', texto: 'Equipe experiente: engenheiros, especialistas Lean e consultores de operação' },
+            { icon: 'tabler:clipboard-check', texto: 'Metodologia testada: ferramentas reconhecidas adaptadas à realidade da empresa' },
+            { icon: 'tabler:chart-bar', texto: 'Entrega clara e mensurável: indicadores, planos, ganhos e evidências' },
+            { icon: 'tabler:refresh', texto: 'Acompanhamento contínuo: suporte durante e após a implementação' },
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name={item.icon} class="w-4 h-4 text-[#1a3044]" />
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed">{item.texto}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-sm text-[#1a3044] font-semibold border-l-4 border-[#1a3044] pl-3">
+          A Triaxis transforma operações, não apenas documentos.
+        </p>
+      </div>
+
+      <div class="tx-fade tx-fade-delay-1">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">O que sua empresa ganha</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Benefícios para sua Empresa</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <ul class="space-y-3">
+          {[
+            'Mais eficiência e produtividade',
+            'Redução de desperdícios e retrabalhos',
+            'Operações mais seguras, estáveis e padronizadas',
+            'Processos organizados e fáceis de treinar',
+            'Indicadores claros para tomada de decisão',
+            'Equipes mais engajadas e capacitadas',
+          ].map(b => (
+            <li class="flex items-center gap-3 bg-white rounded-xl px-5 py-3 shadow-sm">
+              <div class="w-6 h-6 rounded-full bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+                <Icon name="tabler:check" class="w-3.5 h-3.5 text-white" />
+              </div>
+              <p class="text-sm text-slate-700 font-medium">{b}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12 text-center tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Nosso processo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Como Atuamos</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Fluxograma desktop -->
+      <div class="hidden md:flex items-start justify-center gap-0 tx-fade tx-fade-delay-1">
+        {passos.map((passo, i) => (
+          <Fragment>
+            <div class="flex flex-col items-center text-center w-32 flex-shrink-0">
+              <div class="w-14 h-14 rounded-2xl bg-blue-50 border-2 border-[#1a3044] flex items-center justify-center mb-3">
+                <Icon name={passo.icon} class="w-6 h-6 text-[#1a3044]" />
+              </div>
+              <span class="text-xs font-black text-[#1a3044] mb-1">PASSO {passo.n}</span>
+              <h3 class="text-xs font-bold text-[#1a3044] mb-1 leading-snug">{passo.titulo}</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">{passo.desc}</p>
+            </div>
+            {i < passos.length - 1 && (
+              <div class="flex items-start pt-5 px-1 flex-shrink-0">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="#1a3044" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+
+      <!-- Fluxograma mobile -->
+      <div class="flex md:hidden flex-col items-center gap-0 tx-fade tx-fade-delay-1">
+        {passos.map((passo, i) => (
+          <Fragment>
+            <div class="flex items-start gap-4 w-full max-w-sm">
+              <div class="w-12 h-12 rounded-xl bg-blue-50 border-2 border-[#1a3044] flex items-center justify-center flex-shrink-0">
+                <Icon name={passo.icon} class="w-5 h-5 text-[#1a3044]" />
+              </div>
+              <div>
+                <span class="text-xs font-black text-[#1a3044]">PASSO {passo.n}</span>
+                <h3 class="text-sm font-bold text-[#1a3044] leading-snug">{passo.titulo}</h3>
+                <p class="text-xs text-slate-500 leading-relaxed mt-0.5">{passo.desc}</p>
+              </div>
+            </div>
+            {i < passos.length - 1 && (
+              <div class="flex justify-start w-full max-w-sm pl-6 py-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19M12 19L6 13M12 19L18 13" stroke="#1a3044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-[#1a3044] font-semibold mt-10">
+        Trabalhamos lado a lado com sua equipe para tornar a operação mais eficiente e previsível.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMPROMISSO -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Nosso Compromisso</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">
+        Sua parceira para transformar processos desorganizados em sistemas sólidos e orientados a resultados.
+      </h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-3xl mx-auto">
+        A Triaxis atua com foco em produtividade, qualidade e competitividade, entregando soluções práticas que geram ganhos reais e duradouros para sua operação.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dê o próximo passo</p>
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">
+        Pronto para tornar sua operação mais eficiente?
+      </h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-600 mb-10">
+        Fale com nossos especialistas e descubra como a Triaxis pode transformar a realidade produtiva da sua empresa.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20Engenharia%20de%20Produção%20com%20a%20Triaxis."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Agendar conversa
+        </a>
+        <a href="/services"
+          class="inline-flex items-center gap-2 border-2 border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Ver todos os serviços
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style is:global>
+  .prod-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .prod-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.10);
+  }
+  .prod-card p,
+  .prod-card h3,
+  .prod-card a {
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+</style>
