@@ -23,6 +23,10 @@ links: [
       text: 'Blog',
       href: getBlogPermalink(),
     },
+    {
+      text: 'Fale Conosco',
+      href: getPermalink('/contact'),
+    },
   ],
   actions: [
     {
