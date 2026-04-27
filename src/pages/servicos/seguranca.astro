@@ -370,15 +370,3 @@ const passos = [
   .tx-fade-delay-1 { transition-delay: 0.15s; }
 </style>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('tx-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.10 });
-
-  document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
-</script>

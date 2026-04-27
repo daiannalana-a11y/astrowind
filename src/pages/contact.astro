@@ -273,17 +273,6 @@ const metadata = {
 </style>
 
 <script>
-  // Animações de entrada
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('tx-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.10 });
-  document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
-
   // Feedback do formulário Formspree (fetch assíncrono)
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const success = document.getElementById('form-success');

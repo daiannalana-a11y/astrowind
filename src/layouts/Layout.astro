@@ -152,6 +152,21 @@ const { metadata = {} } = Astro.props;
         else btn?.classList.remove('visible');
       });
       btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Animações tx-fade — roda em toda navegação (View Transitions)
+      function initFadeObserver() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('tx-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
+      }
+
+      document.addEventListener('astro:page-load', initFadeObserver);
     </script>
   </body>
 </html>
