@@ -39,8 +39,8 @@ const metadata = {
       </Fragment>
     </Hero>
 
-    <section class="py-12 md:py-4 bg-white dark:bg-slate-900">
-      <div class="max-w-7xl mx-auto px-1 sm:px-6">
+    <section class="py-16 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="mb-10 text-center max-w-3xl mx-auto">
           <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2 font-heading">Por que a Triaxis?</p>
           <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 font-heading text-[#1a3044]">Nossos Diferenciais</h2>
@@ -67,12 +67,12 @@ const metadata = {
     <Content
       id="quem-somos-home"
       isReversed
-      tagline="Conheça a Triaxis"
+      tagline="Quem Somos"
       image={{ src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80', alt: 'Equipe Triaxis' }}
     >
       <Fragment slot="content">
-        <h3 class="text-orange-600 font-bold uppercase tracking-widest text-sm mb-3">Engenharia • Consultoria • Assessoria</h3>
-        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1a3044] mb-4">Resultados que surgem da integração técnica.</h2>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1a3044] mb-2">Conheça a Triaxis</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-5"></div>
         <p class="text-base text-slate-600 border-l-4 border-[#3a8d44] pl-4 mb-6">A Triaxis une rigor normativo e visão estratégica para transformar a realidade operacional das indústrias.</p>
         <div class="flex flex-wrap gap-4 items-center">
           <a href="/about" class="bg-[#1a3044] text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md">Saiba mais</a>
@@ -83,7 +83,11 @@ const metadata = {
 
     <section id="servicos-home" class="bg-slate-50 dark:bg-slate-800 py-16">
       <div class="max-w-6xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-10 text-[#1a3044]">Nossas Especialidades</h2>
+        <div class="mb-10 max-w-3xl mx-auto">
+          <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2 font-heading">O que fazemos</p>
+          <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-4 font-heading text-[#1a3044]">Nossas Especialidades</h2>
+          <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+        </div>
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-[#3a8d44] p-8 text-left">
             <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-5">
@@ -127,22 +131,25 @@ const metadata = {
       </div>
     </section>
 
-    <CallToAction
-       title="Pronto para colocar sua empresa em conformidade?"
-    subtitle="Entre em contato e descubra como a Triaxis pode transformar exigências legais em vantagem competitiva."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Fale com um especialista',
-        href: '/contact',
-        icon: 'tabler:brand-whatsapp',
-      },
-      {
-        text: 'Conhecer os serviços',
-        href: '/services',
-      },
-    ]}
-    />
+    <section class="py-16 bg-white dark:bg-slate-900">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dê o próximo passo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Pronto para colocar sua empresa em conformidade?</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+        <p class="text-lg text-slate-600 mb-10">Entre em contato e descubra como a Triaxis pode transformar exigências legais em vantagem competitiva.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="https://wa.me/5531994915126" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+            <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+            Fale com um especialista
+          </a>
+          <a href="/services"
+            class="inline-flex items-center gap-2 border-2 border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+            Conhecer os serviços
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer {...footerData} />
