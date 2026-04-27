@@ -1,1 +1,384 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
+const metadata = {
+  title: 'Saúde e Segurança do Trabalho — Triaxis Consultoria',
+  description: 'Consultoria em Saúde e Segurança do Trabalho: PGR, PCMSO, treinamentos em NRs, análise de riscos, eSocial e cultura de prevenção. Triaxis Consultoria.',
+};
+
+const servicos = [
+  {
+    numero: '01',
+    titulo: 'Programa de Gerenciamento de Riscos (PGR)',
+    descricao: 'Elaboramos o PGR completo, identificando, avaliando e controlando os riscos ocupacionais presentes no ambiente de trabalho, em conformidade com a NR-1 e as exigências do eSocial.',
+    cta: 'Solicitar PGR',
+    link: '/servicos/seguranca/pgr',
+    img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Programa de Gerenciamento de Riscos',
+  },
+  {
+    numero: '02',
+    titulo: 'Programa de Controle Médico de Saúde Ocupacional (PCMSO)',
+    descricao: 'Desenvolvemos o PCMSO para monitorar a saúde dos trabalhadores, orientar a realização de exames periódicos e garantir a conformidade com a NR-7 e os requisitos do eSocial.',
+    cta: 'Solicitar PCMSO',
+    link: '/servicos/seguranca/pcmso',
+    img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Programa de Controle Médico de Saúde Ocupacional',
+  },
+  {
+    numero: '03',
+    titulo: 'Análise de Risco e Mapeamento de Perigos (APR / HAZOP)',
+    descricao: 'Realizamos análises sistemáticas de riscos e perigos nos processos e atividades da empresa, mapeando causas, consequências e controles para reduzir a probabilidade de acidentes.',
+    cta: 'Solicitar análise de risco',
+    link: '/servicos/seguranca/analise-risco',
+    img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Análise de risco e mapeamento de perigos',
+  },
+  {
+    numero: '04',
+    titulo: 'Treinamentos em Normas Regulamentadoras (NRs)',
+    descricao: 'Capacitamos colaboradores e gestores nas principais NRs aplicáveis à atividade da empresa, com treinamentos práticos, dinâmicos e alinhados às exigências legais vigentes.',
+    cta: 'Solicitar treinamento',
+    link: '/servicos/seguranca/treinamentos-nr',
+    img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Treinamentos em Normas Regulamentadoras',
+  },
+  {
+    numero: '05',
+    titulo: 'SIPAT — Semana Interna de Prevenção de Acidentes',
+    descricao: 'Organizamos e apoiamos a realização da SIPAT, promovendo uma semana de atividades educativas, palestras e dinâmicas voltadas à cultura de prevenção e qualidade de vida no trabalho.',
+    cta: 'Planejar SIPAT',
+    link: '/servicos/seguranca/sipat',
+    img: 'https://images.unsplash.com/photo-1560523159-4a9692d222ef?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'SIPAT Semana Interna de Prevenção de Acidentes',
+  },
+  {
+    numero: '06',
+    titulo: 'Investigação e Análise de Acidentes de Trabalho',
+    descricao: 'Conduzimos processos estruturados de investigação de acidentes e quase-acidentes, identificando causas raízes e definindo ações corretivas para evitar recorrências e reduzir passivos.',
+    cta: 'Solicitar investigação',
+    link: '/servicos/seguranca/investigacao-acidentes',
+    img: 'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Investigação e análise de acidentes de trabalho',
+  },
+  {
+    numero: '07',
+    titulo: 'Elaboração e Implantação de Planos de Emergência',
+    descricao: 'Desenvolvemos planos de resposta a emergências, realizamos simulações e capacitamos brigadas de incêndio e primeiros socorros para que sua empresa esteja preparada para qualquer situação.',
+    cta: 'Solicitar plano de emergência',
+    link: '/servicos/seguranca/plano-emergencia',
+    img: 'https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Planos de emergência e brigada de incêndio',
+  },
+  {
+    numero: '08',
+    titulo: 'Adequação ao eSocial e Conformidade Legal em SST',
+    descricao: 'Auxiliamos empresas a se adequarem às obrigações do eSocial relacionadas à SST, garantindo o envio correto de eventos de saúde e segurança e reduzindo o risco de autuações fiscais.',
+    cta: 'Solicitar adequação',
+    link: '/servicos/seguranca/esocial',
+    img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Adequação ao eSocial e conformidade em SST',
+  },
+];
+
+const passos = [
+  { n: '1', icon: 'tabler:clipboard-list', titulo: 'Diagnóstico de conformidade', desc: 'Avaliação da situação legal e documental da empresa' },
+  { n: '2', icon: 'tabler:map-pin', titulo: 'Mapeamento de riscos', desc: 'Identificação de perigos e exposições nos ambientes' },
+  { n: '3', icon: 'tabler:file-description', titulo: 'Elaboração dos programas', desc: 'PGR, PCMSO, planos e documentação obrigatória' },
+  { n: '4', icon: 'tabler:school', titulo: 'Treinamentos e implantação', desc: 'Capacitação das equipes e implementação dos controles' },
+  { n: '5', icon: 'tabler:refresh', titulo: 'Manutenção e evolução', desc: 'Monitoramento, auditorias e atualização contínua' },
+];
+---
+
+<Layout metadata={metadata}>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 text-center px-4">
+    <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Saúde e Segurança do Trabalho</p>
+    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5 max-w-4xl mx-auto">
+      Protegemos pessoas e garantimos conformidade legal para sua empresa
+    </h1>
+    <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+    <p class="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      Na Triaxis, ajudamos empresas a construírem ambientes de trabalho mais seguros, saudáveis e em conformidade com a legislação. Nossa abordagem integra gestão de riscos, programas obrigatórios, treinamentos e cultura de prevenção para proteger pessoas e reduzir passivos.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20Saúde%20e%20Segurança%20do%20Trabalho%20da%20Triaxis."
+        target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+        <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+        Falar com especialista
+      </a>
+      <a href="#solucoes"
+        class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+        Ver nossas soluções
+        <Icon name="tabler:arrow-down" class="w-4 h-4" />
+      </a>
+    </div>
+  </section>
+
+  <!-- DESAFIOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-10 text-center tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Você se identifica?</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Desafios Comuns de SST que sua Empresa Pode Estar Enfrentando</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 tx-fade tx-fade-delay-1">
+        {[
+          { icon: 'tabler:alert-triangle', texto: 'Acidentes e quase-acidentes frequentes no ambiente de trabalho' },
+          { icon: 'tabler:file-x', texto: 'Documentação obrigatória desatualizada ou inexistente (PGR, PCMSO)' },
+          { icon: 'tabler:coin-off', texto: 'Autuações fiscais e passivos trabalhistas por descumprimento de NRs' },
+          { icon: 'tabler:user', texto: 'Colaboradores sem treinamentos adequados para atividades de risco' },
+          { icon: 'tabler:mood-sad', texto: 'Ausência de cultura de segurança e prevenção entre as equipes' },
+          { icon: 'tabler:alert-circle', texto: 'Dificuldade para atender às exigências do eSocial em SST' },
+          { icon: 'tabler:ban', texto: 'Planos de emergência inexistentes ou desatualizados' },
+        ].map(item => (
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm border-l-4 border-orange-400">
+            <div class="w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={item.icon} class="w-4 h-4 text-orange-500" />
+            </div>
+            <p class="text-xs text-slate-700 leading-relaxed font-medium">{item.texto}</p>
+          </div>
+        ))}
+        <div class="flex items-center bg-[#1a3044] rounded-xl p-4 shadow-sm">
+          <p class="text-white text-xs leading-relaxed font-semibold">
+            A Triaxis ajuda sua empresa a sair da reatividade para um modelo preventivo, seguro e em plena conformidade legal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section id="solucoes" class="bg-white py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Portfólio completo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Nossas Soluções em Saúde e Segurança do Trabalho</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {servicos.map((s, i) => (
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col seg-card tx-fade" style={`transition-delay: ${(i % 4) * 0.08}s`}>
+            <div class="relative h-36 overflow-hidden">
+              <img src={s.img} alt={s.imgAlt} class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <span class="absolute top-2 left-2 bg-white/90 text-[#1a3044] text-xs font-black px-2 py-0.5 rounded-md">{s.numero}</span>
+            </div>
+            <div class="p-5 flex flex-col flex-1 border-t-4 border-orange-500">
+              <a href={s.link} class="text-sm font-bold text-[#1a3044] hover:text-orange-600 transition-colors mb-2 leading-snug block">
+                {s.titulo}
+              </a>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4 flex-1">
+                {s.descricao}{' '}
+                <a href={s.link} class="text-orange-600 font-semibold hover:underline whitespace-nowrap">Saiba mais →</a>
+              </p>
+              <a href="/contact"
+                class="inline-flex items-center justify-center gap-1 border border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors mt-auto">
+                {s.cta}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE TRIAXIS + BENEFÍCIOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <div class="tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Nossos diferenciais</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Por que escolher a Triaxis?</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <ul class="space-y-4">
+          {[
+            { icon: 'tabler:shield-check', texto: 'Abordagem preventiva e sistêmica: foco em eliminar causas, não apenas tratar consequências' },
+            { icon: 'tabler:users', texto: 'Equipe especializada: profissionais de SST, engenheiros e técnicos de segurança experientes' },
+            { icon: 'tabler:clipboard-check', texto: 'Conformidade legal garantida: documentos e programas alinhados às NRs e ao eSocial' },
+            { icon: 'tabler:school', texto: 'Treinamentos práticos: capacitações dinâmicas e aplicadas à realidade do trabalho' },
+            { icon: 'tabler:refresh', texto: 'Acompanhamento contínuo: suporte permanente para manutenção dos programas' },
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name={item.icon} class="w-4 h-4 text-orange-600" />
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed">{item.texto}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-sm text-[#1a3044] font-semibold border-l-4 border-orange-500 pl-3">
+          A Triaxis constrói culturas de segurança, não apenas documenta exigências.
+        </p>
+      </div>
+
+      <div class="tx-fade tx-fade-delay-1">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">O que sua empresa ganha</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Benefícios para sua Empresa</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <ul class="space-y-3">
+          {[
+            'Redução de acidentes, afastamentos e custos previdenciários',
+            'Documentação legal atualizada e em conformidade',
+            'Adequação ao eSocial sem erros e sem autuações',
+            'Colaboradores mais seguros, treinados e engajados',
+            'Ambiente de trabalho mais saudável e produtivo',
+            'Proteção da empresa contra passivos trabalhistas e fiscais',
+          ].map(b => (
+            <li class="flex items-center gap-3 bg-white rounded-xl px-5 py-3 shadow-sm">
+              <div class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
+                <Icon name="tabler:check" class="w-3.5 h-3.5 text-white" />
+              </div>
+              <p class="text-sm text-slate-700 font-medium">{b}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS (fluxograma) -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12 text-center tx-fade">
+        <p class="text-sm text-[#1a3044] font-bold tracking-widest uppercase mb-2">Nosso processo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Como Atuamos</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+
+      <!-- Fluxograma desktop -->
+      <div class="hidden md:flex items-start justify-center gap-0 tx-fade tx-fade-delay-1">
+        {passos.map((passo, i) => (
+          <Fragment>
+            <div class="flex flex-col items-center text-center w-32 flex-shrink-0">
+              <div class="w-14 h-14 rounded-2xl bg-orange-50 border-2 border-orange-500 flex items-center justify-center mb-3">
+                <Icon name={passo.icon} class="w-6 h-6 text-orange-600" />
+              </div>
+              <span class="text-xs font-black text-[#1a3044] mb-1">PASSO {passo.n}</span>
+              <h3 class="text-xs font-bold text-[#1a3044] mb-1 leading-snug">{passo.titulo}</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">{passo.desc}</p>
+            </div>
+            {i < passos.length - 1 && (
+              <div class="flex items-start pt-5 px-1 flex-shrink-0">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+
+      <!-- Fluxograma mobile (vertical) -->
+      <div class="flex md:hidden flex-col items-center gap-0 tx-fade tx-fade-delay-1">
+        {passos.map((passo, i) => (
+          <Fragment>
+            <div class="flex items-start gap-4 w-full max-w-sm">
+              <div class="w-12 h-12 rounded-xl bg-orange-50 border-2 border-orange-500 flex items-center justify-center flex-shrink-0">
+                <Icon name={passo.icon} class="w-5 h-5 text-orange-600" />
+              </div>
+              <div>
+                <span class="text-xs font-black text-[#1a3044]">PASSO {passo.n}</span>
+                <h3 class="text-sm font-bold text-[#1a3044] leading-snug">{passo.titulo}</h3>
+                <p class="text-xs text-slate-500 leading-relaxed mt-0.5">{passo.desc}</p>
+              </div>
+            </div>
+            {i < passos.length - 1 && (
+              <div class="flex justify-start w-full max-w-sm pl-6 py-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19M12 19L6 13M12 19L18 13" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-[#1a3044] font-semibold mt-10">
+        Trabalhamos lado a lado com sua equipe para construir ambientes mais seguros e conformes.
+      </p>
+    </div>
+  </section>
+
+  <!-- NOSSO COMPROMISSO -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Nosso Compromisso</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">
+        Sua parceira para transformar a segurança em vantagem competitiva e proteção real para sua equipe.
+      </h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-3xl mx-auto">
+        A Triaxis atua com foco em prevenção, conformidade e cultura de segurança, entregando soluções práticas que protegem pessoas, reduzem passivos e fortalecem a empresa.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-orange-600 font-bold tracking-widest uppercase mb-2">Dê o próximo passo</p>
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">
+        Pronto para proteger sua equipe e sua empresa?
+      </h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-600 mb-10">
+        Fale com nossos especialistas e descubra como a Triaxis pode transformar a segurança do trabalho na sua empresa em um diferencial real.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20Saúde%20e%20Segurança%20do%20Trabalho%20com%20a%20Triaxis."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Agendar conversa
+        </a>
+        <a href="/services"
+          class="inline-flex items-center gap-2 border-2 border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Ver todos os serviços
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style is:global>
+  .seg-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .seg-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.10);
+  }
+
+  .seg-card p,
+  .seg-card h3,
+  .seg-card a {
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .tx-fade { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .tx-fade.tx-visible { opacity: 1; transform: translateY(0); }
+  .tx-fade-delay-1 { transition-delay: 0.15s; }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tx-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10 });
+
+  document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
+</script>
