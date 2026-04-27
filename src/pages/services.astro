@@ -1,70 +1,243 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviços — Triaxis Consultoria' };
+const metadata = {
+  title: 'Serviços — Triaxis Consultoria',
+  description: 'Soluções completas em Engenharia Ambiental, Produção, Segurança do Trabalho e muito mais. Conheça nossa equipe multidisciplinar.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline="Nossas Soluções"
-    title="Engenharia integrada para resultados sustentáveis"
-    subtitle="Confira nosso portfólio completo de serviços em Meio Ambiente, Produção e Segurança do Trabalho."
-  />
 
-  <Features2
-    id="ambiental"
-    title="Engenharia Ambiental"
-    subtitle="Conformidade legal e gestão estratégica de recursos naturais."
-    items={[
-      { title: 'Licenciamento Ambiental', description: 'LP, LI e LO para diversos setores industriais.', icon: 'tabler:file-certificate' },
-      { title: 'Gestão de Resíduos', description: 'PGRS, PGRCC e implementação de logística reversa.', icon: 'tabler:trash' },
-      { title: 'Inventário de GEE', description: 'Cálculo de emissões e estratégias de descarbonização.', icon: 'tabler:cloud-fog' },
-      { title: 'Assessoria Contínua', description: 'Monitoramento mensal de condicionantes e obrigações.', icon: 'tabler:calendar-check' },
-    ]}
-    classes={{ 
-        container: 'bg-green-50/30 dark:bg-slate-900',
-        items: { icon: 'text-green-700 bg-green-100 rounded-full p-2' } 
-    }}
-  />
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 text-center px-4">
+    <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">O que fazemos</p>
+    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5 max-w-3xl mx-auto">
+      Engenharia integrada para<br/>resultados sustentáveis
+    </h1>
+    <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+    <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+      Da conformidade legal à eficiência produtiva — nossa equipe multidisciplinar oferece soluções completas e sob medida para a realidade da sua empresa.
+    </p>
+  </section>
 
-  <Features2
-    id="producao"
-    title="Engenharia de Produção"
-    subtitle="Otimização de processos para aumentar a lucratividade."
-    items={[
-      { title: 'Diagnóstico Lean', description: 'Identificação de desperdícios e oportunidades de melhoria.', icon: 'tabler:chart-line' },
-      { title: 'Mapeamento VSM', description: 'Visualização completa do fluxo de valor e gargalos.', icon: 'tabler:map-2' },
-      { title: 'Layout Industrial', description: 'Otimização do espaço físico e fluxo de materiais.', icon: 'tabler:arrows-maximize' },
-      { title: 'Gestão de KPIs', description: 'Criação de indicadores de performance em tempo real.', icon: 'tabler:dashboard' },
-    ]}
-    classes={{ 
-        container: 'bg-white dark:bg-slate-800',
-        items: { icon: 'text-blue-700 bg-blue-100 rounded-full p-2' } 
-    }}
-  />
+  <!-- ESPECIALIDADES PRINCIPAIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Especialidades</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Nossas Três Áreas Principais</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+        <p class="text-slate-600 mt-4">Cada área conta com engenheiros dedicados e páginas completas com todos os serviços disponíveis.</p>
+      </div>
 
-  <Features2
-    id="seguranca"
-    title="Segurança do Trabalho"
-    subtitle="Proteção do capital humano e redução de passivos trabalhistas."
-    items={[
-      { title: 'PGR e LTCAT', description: 'Documentações fundamentais para o eSocial.', icon: 'tabler:shield-lock' },
-      { title: 'Treinamentos NRs', description: 'Capacitações obrigatórias (NR-10, 12, 35, etc).', icon: 'tabler:users' },
-      { title: 'Laudos Técnicos', description: 'Insalubridade e Periculosidade com rigor técnico.', icon: 'tabler:report-analytics' },
-      { title: 'Gestão de EPIs', description: 'Controle de entrega e validade de equipamentos.', icon: 'tabler:user-check' },
-    ]}
-    classes={{ 
-        container: 'bg-orange-50/30 dark:bg-slate-900',
-        items: { icon: 'text-orange-600 bg-orange-100 rounded-full p-2' } 
-    }}
-  />
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 tx-fade tx-fade-delay-1">
 
-  <CallToAction
-    title="Precisa de uma solução específica?"
-    subtitle="Nossa equipe está pronta para desenhar um projeto sob medida para sua empresa."
-    actions={[{ variant: 'primary', text: 'Solicitar Orçamento', href: '/contact' }]}
-  />
+        <!-- Ambiental -->
+        <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-[#3a8d44] p-8 text-left srv-card">
+          <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-5">
+            <Icon name="tabler:leaf" class="w-8 h-8 text-[#3a8d44]" />
+          </div>
+          <h3 class="text-lg font-bold mb-3 text-[#1a3044]">Engenharia Ambiental</h3>
+          <ul class="space-y-2 text-sm text-slate-600 mb-6">
+            <li><span class="text-[#3a8d44] mr-2">✓</span> Licenciamento Ambiental (LP, LI, LO)</li>
+            <li><span class="text-[#3a8d44] mr-2">✓</span> Gestão de Resíduos — PGRS e PGRCC</li>
+            <li><span class="text-[#3a8d44] mr-2">✓</span> Inventário de GEE</li>
+            <li><span class="text-[#3a8d44] mr-2">✓</span> Monitoramento e Assessoria Contínua</li>
+            <li><span class="text-[#3a8d44] mr-2">✓</span> Outorgas e PRAD</li>
+          </ul>
+          <a href="/servicos/ambiental" class="block py-2 border border-[#3a8d44] text-[#3a8d44] text-xs font-bold rounded-full text-center uppercase tracking-wider hover:bg-[#3a8d44] hover:text-white transition-colors">Ver todos os serviços</a>
+        </div>
+
+        <!-- Produção -->
+        <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-[#1a3044] p-8 text-left srv-card">
+          <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-5">
+            <Icon name="tabler:settings-2" class="w-8 h-8 text-[#1a3044]" />
+          </div>
+          <h3 class="text-lg font-bold mb-3 text-[#1a3044]">Engenharia de Produção</h3>
+          <ul class="space-y-2 text-sm text-slate-600 mb-6">
+            <li><span class="text-[#1a3044] mr-2">✓</span> Diagnóstico Lean</li>
+            <li><span class="text-[#1a3044] mr-2">✓</span> Mapeamento de Fluxo de Valor (VSM)</li>
+            <li><span class="text-[#1a3044] mr-2">✓</span> Layout Industrial</li>
+            <li><span class="text-[#1a3044] mr-2">✓</span> Gestão de KPIs</li>
+            <li><span class="text-[#1a3044] mr-2">✓</span> Programa 5S e Qualidade</li>
+          </ul>
+          <a href="/servicos/producao" class="block py-2 border border-[#1a3044] text-[#1a3044] text-xs font-bold rounded-full text-center uppercase tracking-wider hover:bg-[#1a3044] hover:text-white transition-colors">Ver todos os serviços</a>
+        </div>
+
+        <!-- Segurança -->
+        <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-orange-500 p-8 text-left srv-card">
+          <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-5">
+            <Icon name="tabler:shield-check" class="w-8 h-8 text-orange-500" />
+          </div>
+          <h3 class="text-lg font-bold mb-3 text-[#1a3044]">Segurança do Trabalho</h3>
+          <ul class="space-y-2 text-sm text-slate-600 mb-6">
+            <li><span class="text-orange-500 mr-2">✓</span> PGR e LTCAT</li>
+            <li><span class="text-orange-500 mr-2">✓</span> Treinamentos obrigatórios (NRs)</li>
+            <li><span class="text-orange-500 mr-2">✓</span> Laudos de Insalubridade e Periculosidade</li>
+            <li><span class="text-orange-500 mr-2">✓</span> Gestão de EPIs</li>
+            <li><span class="text-orange-500 mr-2">✓</span> Ergonomia</li>
+          </ul>
+          <a href="/servicos/seguranca" class="block py-2 border border-orange-500 text-orange-600 text-xs font-bold rounded-full text-center uppercase tracking-wider hover:bg-orange-500 hover:text-white transition-colors">Ver todos os serviços</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPE MULTIDISCIPLINAR -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-4 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Capacidade ampliada</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Nossa Equipe Multidisciplinar</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed">
+          Na Triaxis, os melhores resultados surgem da integração entre diferentes áreas do conhecimento. Por isso, além de nossos engenheiros especialistas, contamos com uma rede de profissionais parceiros que ampliam nossa capacidade de atuação em projetos técnicos, organizacionais e comportamentais.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 tx-fade tx-fade-delay-1">
+
+        <!-- Engenharias -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm srv-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+              <Icon name="tabler:building-factory-2" class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="font-bold text-[#1a3044]">Engenharias</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Engenharia Ambiental</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Engenharia de Produção</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Engenharia de Segurança do Trabalho</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Engenharia Civil</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Engenharia de Automação</li>
+          </ul>
+        </div>
+
+        <!-- Saúde e Bem-estar -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm srv-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+              <Icon name="tabler:heart-handshake" class="w-5 h-5 text-[#1a3044]" />
+            </div>
+            <h3 class="font-bold text-[#1a3044]">Saúde e Bem-estar Corporativo</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Enfermeira do Trabalho</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Psicólogo</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Profissional de Educação Física</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Assistente Social</li>
+          </ul>
+        </div>
+
+        <!-- Gestão e Administração -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm srv-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name="tabler:briefcase" class="w-5 h-5 text-orange-500" />
+            </div>
+            <h3 class="font-bold text-[#1a3044]">Gestão e Administração</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0"></span>Administrador de Empresas</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0"></span>Recursos Humanos</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0"></span>Departamento Pessoal</li>
+          </ul>
+        </div>
+
+        <!-- Qualidade e Alimentação -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm srv-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+              <Icon name="tabler:apple" class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="font-bold text-[#1a3044]">Qualidade e Alimentação</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Cientista de Alimentos</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] flex-shrink-0"></span>Nutricionista especializada em Cozinha Industrial</li>
+          </ul>
+        </div>
+
+        <!-- Comunicação e Estratégia -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm srv-card">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+              <Icon name="tabler:speakerphone" class="w-5 h-5 text-[#1a3044]" />
+            </div>
+            <h3 class="font-bold text-[#1a3044]">Comunicação e Estratégia</h3>
+          </div>
+          <ul class="space-y-1.5 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Marketing Corporativo</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Cultura Organizacional</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#1a3044] flex-shrink-0"></span>Gestão de Reputação</li>
+          </ul>
+        </div>
+
+        <!-- Card de fechamento -->
+        <div class="bg-[#1a3044] rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            Essa diversidade técnica e humana nos permite entregar soluções completas, integradas e sob medida — unindo conformidade legal, eficiência produtiva, bem-estar das equipes e crescimento sustentável.
+          </p>
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full text-sm transition-colors">
+            Fale com nossa equipe
+            <Icon name="tabler:arrow-right" class="w-4 h-4" />
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-white px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Pronto para começar?</p>
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Precisa de uma solução específica?</h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-600 mb-10">Nossa equipe está pronta para desenhar um projeto sob medida para a realidade da sua empresa.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5531994915126" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar orçamento
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Fale com a Triaxis
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style is:global>
+  .srv-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .srv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+  }
+
+  .tx-fade { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .tx-fade.tx-visible { opacity: 1; transform: translateY(0); }
+  .tx-fade-delay-1 { transition-delay: 0.15s; }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tx-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
+</script>
