@@ -156,6 +156,18 @@ button.btn-whatsapp:hover {
   color: #ffffff !important;
 }
 
+/* Animações de entrada globais */
+.tx-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.tx-fade.tx-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tx-fade-delay-1 { transition-delay: 0.15s; }
+
 /* To deprecated */
 
 .dd *:first-child {
