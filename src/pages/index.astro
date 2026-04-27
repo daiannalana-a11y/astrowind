@@ -6,6 +6,7 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Triaxis — Consultoria em Engenharia Ambiental, Produção e Segurança do Trabalho',
@@ -85,6 +86,9 @@ const metadata = {
         <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-10 text-[#1a3044]">Nossas Especialidades</h2>
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-[#3a8d44] p-8 text-left">
+            <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-5">
+              <Icon name="tabler:leaf" class="w-8 h-8 text-[#3a8d44]" />
+            </div>
             <h3 class="text-lg font-bold mb-4 text-[#1a3044]">Consultoria Ambiental</h3>
             <ul class="space-y-2 text-sm text-slate-600 mb-6">
               <li><span class="text-[#3a8d44] mr-2">✓</span> Licenciamento Ambiental</li>
@@ -95,6 +99,9 @@ const metadata = {
           </div>
 
           <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-[#1a3044] p-8 text-left">
+            <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-5">
+              <Icon name="tabler:settings-2" class="w-8 h-8 text-[#1a3044]" />
+            </div>
             <h3 class="text-lg font-bold mb-4 text-[#1a3044]">Engenharia de Produção</h3>
             <ul class="space-y-2 text-sm text-slate-600 mb-6">
               <li><span class="text-blue-700 mr-2">✓</span> Diagnóstico Lean</li>
@@ -105,6 +112,9 @@ const metadata = {
           </div>
 
           <div class="bg-white rounded-xl shadow-sm border-t-[6px] border-orange-500 p-8 text-left">
+            <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-5">
+              <Icon name="tabler:shield-check" class="w-8 h-8 text-orange-500" />
+            </div>
             <h3 class="text-lg font-bold mb-4 text-[#1a3044]">Segurança do Trabalho</h3>
             <ul class="space-y-2 text-sm text-slate-600 mb-6">
               <li><span class="text-orange-600 mr-2">✓</span> PGR e LTCAT</li>
