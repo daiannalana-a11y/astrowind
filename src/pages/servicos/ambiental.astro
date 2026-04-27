@@ -255,7 +255,7 @@ const passos = [
       <!-- Fluxograma desktop -->
       <div class="hidden md:flex items-start justify-center gap-0 tx-fade tx-fade-delay-1">
         {passos.map((passo, i) => (
-          <>
+          <Fragment>
             <div class="flex flex-col items-center text-center w-32 flex-shrink-0">
               <div class="w-14 h-14 rounded-2xl bg-green-50 border-2 border-[#3a8d44] flex items-center justify-center mb-3">
                 <Icon name={passo.icon} class="w-6 h-6 text-[#3a8d44]" />
@@ -271,14 +271,14 @@ const passos = [
                 </svg>
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
 
       <!-- Fluxograma mobile (vertical) -->
       <div class="flex md:hidden flex-col items-center gap-0 tx-fade tx-fade-delay-1">
         {passos.map((passo, i) => (
-          <>
+          <Fragment>
             <div class="flex items-start gap-4 w-full max-w-sm">
               <div class="w-12 h-12 rounded-xl bg-green-50 border-2 border-[#3a8d44] flex items-center justify-center flex-shrink-0">
                 <Icon name={passo.icon} class="w-5 h-5 text-[#3a8d44]" />
@@ -296,7 +296,7 @@ const passos = [
                 </svg>
               </div>
             )}
-          </>
+          </Fragment>
         ))}
       </div>
 
