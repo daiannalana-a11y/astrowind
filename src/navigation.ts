@@ -58,9 +58,9 @@ export const footerData = {
     { text: 'Termos de Uso', href: getPermalink('/terms') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: '#' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/triaxis-engenharia/' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/triaxisdesenvolvimento/' },
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/5531994915126' },
   ],
   footNote: `© ${new Date().getFullYear()} <strong>Triaxis</strong> Consultoria · Todos os direitos reservados.`,
 };
