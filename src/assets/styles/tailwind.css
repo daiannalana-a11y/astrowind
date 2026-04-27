@@ -85,6 +85,18 @@
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
+/* HEADER TRIAXIS — estilo padrão em todas as páginas */
+header#header.header-triaxis-custom {
+  background-color: #f1f5f9 !important;
+  border-bottom: 3px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+header#header.header-triaxis-custom a {
+  color: #1a3044 !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 /* BOTÃO WHATSAPP NO HEADER */
 a.btn-whatsapp,
 button.btn-whatsapp {

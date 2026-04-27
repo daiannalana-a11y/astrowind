@@ -16,10 +16,10 @@ const { metadata } = Astro.props;
 
 <Layout metadata={metadata}>
   <slot name="header">
-    <Header 
-      {...headerData} 
-      isSticky 
-      class="bg-[#1a3044] text-white" 
+    <Header
+      {...headerData}
+      isSticky
+      class="header-triaxis-custom"
     />
   </slot>
 
@@ -31,16 +31,3 @@ const { metadata } = Astro.props;
     <Footer {...footerData} />
   </slot>
 </Layout>
-
-<style is:global>
-  /* Isso garante que os links do menu fiquem brancos, já que o fundo agora é escuro */
-  header#header.text-white a {
-    color: white !important;
-  }
-  /* Ajuste delicado para o botão do menu se necessário */
-  header#header.text-white .btn-primary {
-    background-color: #ea580c !important; /* Laranja no botão do menu também */
-    border: none;
-    color: white !important;
-  }
-</style>

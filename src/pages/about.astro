@@ -1,122 +1,235 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Content from '~/components/widgets/Content.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Quem Somos — Triaxis Consultoria',
+  description: 'Conheça a Triaxis: especialistas em Engenharia Ambiental, Produção e Segurança do Trabalho.',
 };
 ---
 
 <Layout metadata={metadata}>
 
-  <Hero
-    tagline="Quem Somos"
-    title="Especialistas que unem técnica, responsabilidade e resultado"
-    subtitle="A Triaxis nasceu da convicção de que conformidade legal e crescimento sustentável andam juntos. Somos engenheiros comprometidos com o desenvolvimento seguro e eficiente das empresas brasileiras."
-    image={{ 
-      src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2070&q=80', 
-      alt: 'Equipe Triaxis' 
-    }}
-  />
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 text-center px-4">
+    <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Quem Somos</p>
+    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5 max-w-3xl mx-auto">
+      Especialistas que unem técnica,<br/>responsabilidade e resultado
+    </h1>
+    <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+    <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+      A Triaxis nasceu da convicção de que conformidade legal e crescimento sustentável andam juntos. Somos engenheiros comprometidos com o desenvolvimento seguro e eficiente das empresas brasileiras.
+    </p>
+  </section>
 
-  <Features
-    id="missao-visao-valores"
-    tagline="Nossa Essência"
-    title="Pilares Estratégicos"
-    columns={3}
-    classes={{
-      container: 'max-w-7xl mx-auto py-12 md:py-20',
-      items: {
-        container: 'bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm transition-all hover:shadow-md',
-        icon: 'text-blue-700 dark:text-blue-400 mb-4',
-        title: 'text-xl font-bold mb-2',
-        description: 'text-muted text-sm leading-relaxed',
-      },
-    }}
-    items={[
-      { title: 'Missão', description: 'Soluções técnicas de excelência para empresas operarem com segurança e eficiência.', icon: 'tabler:target' },
-      { title: 'Visão', description: 'Ser referência regional reconhecida pela qualidade técnica e impacto positivo nos negócios.', icon: 'tabler:eye' },
-      { title: 'Excelência Técnica', description: 'Entrega baseada em rigor metodológico e domínio profundo das normas aplicáveis.', icon: 'tabler:medal' },
-      { title: 'Ética e Transparência', description: 'Atuamos com integridade, mantendo o cliente informado em cada decisão.', icon: 'tabler:shield' },
-      { title: 'Resultado Real', description: 'Entregamos soluções que funcionam na prática e geram valor real para o negócio.', icon: 'tabler:chart-bar' },
-      { title: 'Sustentabilidade', description: 'Desenvolvimento econômico e responsabilidade ambiental como complementares.', icon: 'tabler:leaf' },
-    ]}
-  />
+  <!-- MISSÃO / VISÃO / VALORES -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Nossa Essência</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Pilares Estratégicos</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
 
-  <Stats
-    title="Triaxis em números"
-    stats={[
-      { title: 'Empresas atendidas', amount: '80+' },
-      { title: 'Projetos entregues', amount: '200+' },
-      { title: 'Anos de experiência', amount: '10+' },
-      { title: 'Especialistas', amount: '5' },
-    ]}
-    classes={{
-      container: 'max-w-7xl mx-auto py-16 md:py-24 bg-white dark:bg-slate-900',
-      items: {
-        amount: 'text-5xl md:text-6xl font-extrabold text-blue-700 dark:text-blue-500 tracking-tighter',
-        title: 'text-sm font-bold uppercase tracking-widest text-muted mt-2',
-      },
-    }}
-  />
-
-  <Content
-    isReversed
-    tagline="Profissionais"
-    title="Nossa Equipe"
-    image={{
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Engenheiros Triaxis',
-    }}
-  >
-    <Fragment slot="content">
-      <p class="text-lg text-muted mb-8 leading-relaxed">
-        Engenheiros com formação sólida, experiência de campo e atualização constante nas legislações e normas vigentes.
-      </p>
-
-      <div class="space-y-8">
-        <div class="flex items-start">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center p-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 tx-fade tx-fade-delay-1">
+        <!-- Missão -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border-t-4 border-[#3a8d44] text-center about-card">
+          <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:target" class="w-7 h-7 text-[#3a8d44]" />
           </div>
-          <div class="ml-4">
-            <h4 class="text-xl font-bold">Engenharia Ambiental</h4>
-            <p class="text-muted text-sm mt-1">Especialistas em licenciamento, gestão de resíduos e conformidade federal e estadual.</p>
-          </div>
+          <h3 class="text-lg font-bold text-[#1a3044] mb-2">Missão</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Soluções técnicas de excelência para empresas operarem com segurança, conformidade e eficiência.</p>
         </div>
 
-        <div class="flex items-start">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center p-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
+        <!-- Visão -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border-t-4 border-[#1a3044] text-center about-card">
+          <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:eye" class="w-7 h-7 text-[#1a3044]" />
           </div>
-          <div class="ml-4">
-            <h4 class="text-xl font-bold">Engenharia de Produção</h4>
-            <p class="text-muted text-sm mt-1">Otimização de processos, gestão industrial e metodologias de melhoria contínua.</p>
-          </div>
+          <h3 class="text-lg font-bold text-[#1a3044] mb-2">Visão</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Ser referência regional reconhecida pela qualidade técnica e pelo impacto positivo nos negócios dos nossos clientes.</p>
         </div>
 
-        <div class="flex items-start">
-          <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full flex items-center justify-center p-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M12 3v12" /><path d="M12 18h.01" /><path d="M12 21a9 9 0 0 1 0 -18" /></svg>
+        <!-- Valores -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border-t-4 border-orange-500 text-center about-card">
+          <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:shield-check" class="w-7 h-7 text-orange-500" />
           </div>
-          <div class="ml-4">
-            <h4 class="text-xl font-bold">Segurança do Trabalho</h4>
-            <p class="text-muted text-sm mt-1">Engenheiros focados em NRs, PGR, laudos técnicos e treinamentos obrigatórios.</p>
+          <h3 class="text-lg font-bold text-[#1a3044] mb-2">Valores</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Ética, transparência e resultado real. Atuamos com integridade, mantendo o cliente informado em cada etapa.</p>
+        </div>
+      </div>
+
+      <!-- Valores detalhados -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 tx-fade tx-fade-delay-1">
+        <div class="flex items-center gap-3 bg-white rounded-xl px-5 py-4 shadow-sm">
+          <Icon name="tabler:medal" class="w-6 h-6 text-[#3a8d44] flex-shrink-0" />
+          <div>
+            <p class="font-bold text-sm text-[#1a3044]">Excelência Técnica</p>
+            <p class="text-xs text-slate-500">Rigor metodológico em cada entrega</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-white rounded-xl px-5 py-4 shadow-sm">
+          <Icon name="tabler:chart-bar" class="w-6 h-6 text-[#1a3044] flex-shrink-0" />
+          <div>
+            <p class="font-bold text-sm text-[#1a3044]">Resultado Real</p>
+            <p class="text-xs text-slate-500">Soluções que funcionam na prática</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-white rounded-xl px-5 py-4 shadow-sm">
+          <Icon name="tabler:leaf" class="w-6 h-6 text-orange-500 flex-shrink-0" />
+          <div>
+            <p class="font-bold text-sm text-[#1a3044]">Sustentabilidade</p>
+            <p class="text-xs text-slate-500">Desenvolvimento com responsabilidade</p>
           </div>
         </div>
       </div>
-    </Fragment>
-  </Content>
+    </div>
+  </section>
 
-  <CallToAction
-    title="Vamos trabalhar juntos?"
-    subtitle="Entre em contato e conte para nós o desafio da sua empresa. Teremos prazer em ajudar."
-    actions={[{ variant: 'primary', text: 'Fale com a Triaxis', href: getPermalink('/contact') }]}
-  />
+  <!-- NOSSA HISTÓRIA -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Nossa História</p>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#1a3044] mb-4">Conheça a Triaxis</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          A Triaxis surgiu da percepção de que muitas empresas enfrentam as mesmas dificuldades: legislação ambiental complexa, processos produtivos ineficientes e riscos de segurança que comprometem pessoas e resultados.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Nossa equipe de engenheiros especializados une rigor técnico e visão estratégica para transformar exigências legais em oportunidades de crescimento sustentável.
+        </p>
+        <p class="text-slate-600 leading-relaxed border-l-4 border-[#3a8d44] pl-4">
+          Acreditamos que conformidade e competitividade andam juntas — e nossa missão é provar isso na prática, projeto após projeto.
+        </p>
+      </div>
+      <div class="tx-fade tx-fade-delay-1">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2071&q=80"
+          alt="Equipe Triaxis em reunião"
+          class="rounded-2xl shadow-lg w-full object-cover"
+          style="max-height: 400px;"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIAXIS EM NÚMEROS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 text-center tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Triaxis em números</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Resultados que falam por si</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 tx-fade tx-fade-delay-1">
+        <div class="text-center p-6 bg-white rounded-2xl shadow-sm">
+          <p class="text-4xl md:text-5xl font-black text-[#3a8d44] mb-1">5+</p>
+          <p class="text-sm font-semibold text-[#1a3044] uppercase tracking-wide">Anos de<br/>Experiência</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-2xl shadow-sm">
+          <p class="text-4xl md:text-5xl font-black text-[#1a3044] mb-1">50+</p>
+          <p class="text-sm font-semibold text-[#1a3044] uppercase tracking-wide">Projetos<br/>Entregues</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-2xl shadow-sm">
+          <p class="text-4xl md:text-5xl font-black text-orange-500 mb-1">30+</p>
+          <p class="text-sm font-semibold text-[#1a3044] uppercase tracking-wide">Clientes<br/>Atendidos</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-2xl shadow-sm">
+          <p class="text-4xl md:text-5xl font-black text-[#3a8d44] mb-1">3</p>
+          <p class="text-sm font-semibold text-[#1a3044] uppercase tracking-wide">Estados<br/>Atendidos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSSA EQUIPE -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Profissionais</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Nossa Equipe</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+        <p class="text-slate-600 mt-4">Engenheiros com formação sólida, experiência de campo e atualização constante nas legislações e normas vigentes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 tx-fade tx-fade-delay-1">
+        <div class="bg-slate-50 rounded-2xl p-8 about-card">
+          <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-5">
+            <Icon name="tabler:leaf" class="w-7 h-7 text-[#3a8d44]" />
+          </div>
+          <h3 class="text-lg font-bold text-[#1a3044] mb-2">Engenharia Ambiental</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Especialistas em licenciamento, gestão de resíduos e conformidade com legislação federal e estadual.</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-8 about-card">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center mb-5">
+            <Icon name="tabler:settings-2" class="w-7 h-7 text-[#1a3044]" />
+          </div>
+          <h3 class="text-lg font-bold text-[#1a3044] mb-2">Engenharia de Produção</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Otimização de processos, gestão industrial e aplicação de metodologias de melhoria contínua.</p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-8 about-card">
+          <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center mb-5">
+            <Icon name="tabler:shield-check" class="w-7 h-7 text-orange-500" />
+          </div>
+          <h3 class="text-lg font-bold text-[#1a3044] mb-2">Segurança do Trabalho</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Engenheiros focados em NRs, PGR, LTCAT, laudos técnicos e treinamentos obrigatórios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-slate-50 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dê o próximo passo</p>
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Vamos trabalhar juntos?</h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-600 mb-10">Entre em contato e conte para nós o desafio da sua empresa. Teremos prazer em ajudar.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5531994915126" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Fale com um especialista
+        </a>
+        <a href="/services"
+          class="inline-flex items-center gap-2 border-2 border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Conhecer os serviços
+        </a>
+      </div>
+    </div>
+  </section>
 
 </Layout>
+
+<style is:global>
+  /* HOVER NOS CARDS DO ABOUT */
+  .about-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+  }
+
+  /* FADE IN AO ROLAR */
+  .tx-fade { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .tx-fade.tx-visible { opacity: 1; transform: translateY(0); }
+  .tx-fade-delay-1 { transition-delay: 0.15s; }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tx-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
+</script>
