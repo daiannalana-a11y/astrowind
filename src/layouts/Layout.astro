@@ -1,6 +1,7 @@
 ---
 import '~/assets/styles/tailwind.css';
 import { ViewTransitions } from 'astro:transitions';
+import BasicScripts from '~/components/common/BasicScripts.astro';
 import type { MetaData } from '~/types';
 
 export interface Props {
@@ -21,6 +22,7 @@ const { metadata = {} } = Astro.props;
   </head>
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
+    <BasicScripts />
 
     <!-- Barra social lateral esquerda -->
     <div class="social-sidebar">

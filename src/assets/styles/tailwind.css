@@ -90,21 +90,21 @@
 /* HEADER TRIAXIS — estilo padrão em todas as páginas */
 header#header.header-triaxis-custom {
   border-bottom: 2px solid #e2e8f0;
-  transition: box-shadow 0.3s ease;
 }
 
-/* Fundo no overlay interno (camada de background real do AstroWind) */
+/* Fundo sólido sempre visível (camada de background real do AstroWind) */
 header#header.header-triaxis-custom > div:first-child {
-  background-color: #f1f5f9 !important;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f8fafc;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Quando rola: fundo branco sólido com blur e sombra */
+/* Quando rola: fundo branco com blur e sombra mais forte */
 header#header.header-triaxis-custom.scroll > div:first-child {
-  background-color: rgba(255, 255, 255, 0.96) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10) !important;
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+  border-bottom: none;
 }
 
 /* Cor dos links */
@@ -112,10 +112,9 @@ header#header.header-triaxis-custom a:not(.btn-whatsapp) {
   color: #1a3044 !important;
   font-weight: 700;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-/* Efeito hover: cor verde + sublinhado animado */
+/* Efeito hover nos itens do menu: verde + sublinhado animado */
 header#header.header-triaxis-custom nav > ul > li > a,
 header#header.header-triaxis-custom nav > ul > li > button {
   position: relative;
