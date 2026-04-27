@@ -22,16 +22,14 @@ links: [
       text: 'Blog',
       href: getBlogPermalink(),
     },
-    {
-      text: 'Fale Conosco',
-      href: getPermalink('/contact'),
-    },
   ],
   actions: [
     {
-      text: 'Fale Conosco',
-      href: getPermalink('/contact'),
+      text: 'WhatsApp',
+      href: 'https://wa.me/5531994915126',
       variant: 'primary',
+      icon: 'tabler:brand-whatsapp',
+      class: 'btn-whatsapp',
     },
   ],
 };

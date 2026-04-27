@@ -85,6 +85,20 @@
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
+/* BOTÃO WHATSAPP NO HEADER */
+a.btn-whatsapp,
+button.btn-whatsapp {
+  background-color: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #ffffff !important;
+}
+a.btn-whatsapp:hover,
+button.btn-whatsapp:hover {
+  background-color: #1ebe5a !important;
+  border-color: #1ebe5a !important;
+  color: #ffffff !important;
+}
+
 /* To deprecated */
 
 .dd *:first-child {
