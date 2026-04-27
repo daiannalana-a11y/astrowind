@@ -1,87 +1,360 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Engenharia Ambiental — Triaxis Consultoria',
-  description: 'Detalhamento dos serviços de consultoria ambiental, licenciamento e gestão de resíduos.',
+  description: 'Consultoria ambiental completa: licenciamento ambiental, gestão de resíduos, sustentabilidade corporativa, conformidade ambiental e projetos ESG. Triaxis Engenharia Ambiental.',
 };
+
+const servicos = [
+  {
+    numero: '01',
+    titulo: 'Assessoria Ambiental Contínua',
+    descricao: 'Acompanhamento ambiental recorrente para manter sua empresa em conformidade ao longo do ano, com controle de prazos, licenças, condicionantes, resíduos e organização de evidências, evitando surpresas, multas e correria de última hora.',
+    cta: 'Solicitar proposta de assessoria',
+    ctaMsg: 'Olá! Gostaria de solicitar uma proposta de Assessoria Ambiental Contínua.',
+    link: '/servicos/ambiental/assessoria-continua',
+    img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Assessoria ambiental contínua',
+    cor: '#3a8d44',
+  },
+  {
+    numero: '02',
+    titulo: 'Diagnóstico de Conformidade Ambiental',
+    descricao: 'Avaliação técnica da situação ambiental da empresa para identificar riscos, não conformidades e prioridades, com plano de ação claro e aplicável para regularizar com previsibilidade.',
+    cta: 'Agendar diagnóstico',
+    ctaMsg: 'Olá! Gostaria de agendar um Diagnóstico de Conformidade Ambiental.',
+    link: '/servicos/ambiental/diagnostico-conformidade',
+    img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Diagnóstico ambiental',
+    cor: '#3a8d44',
+  },
+  {
+    numero: '03',
+    titulo: 'Licenciamento Ambiental',
+    descricao: 'Conduzimos processos de licenciamento, regularização e renovação de licenças ambientais, com organização documental, atendimento às exigências legais e suporte técnico junto aos órgãos competentes.',
+    cta: 'Pedir orçamento de licenciamento',
+    ctaMsg: 'Olá! Gostaria de um orçamento para Licenciamento Ambiental.',
+    link: '/servicos/ambiental/licenciamento',
+    img: 'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Licenciamento ambiental',
+    cor: '#1a3044',
+  },
+  {
+    numero: '04',
+    titulo: 'Gerenciamento de Resíduos Sólidos (PGRS)',
+    descricao: 'Elaboração e implantação do PGRS para organizar a rotina de resíduos, desde a segregação até a destinação, com controles simples, registros e evidências prontas para fiscalização e auditoria.',
+    cta: 'Pedir orçamento de PGRS',
+    ctaMsg: 'Olá! Gostaria de um orçamento para elaboração e implantação do PGRS.',
+    link: '/servicos/ambiental/pgrs',
+    img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Gestão de resíduos sólidos',
+    cor: '#3a8d44',
+  },
+  {
+    numero: '05',
+    titulo: 'Resíduos da Construção Civil (PGRCC)',
+    descricao: 'Desenvolvemos o PGRCC para obras e atividades da construção civil, garantindo controle dos resíduos, atendimento às exigências legais e organização documental para órgãos e contratantes.',
+    cta: 'Pedir orçamento de PGRCC',
+    ctaMsg: 'Olá! Gostaria de um orçamento para elaboração do PGRCC.',
+    link: '/servicos/ambiental/pgrcc',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Resíduos da construção civil',
+    cor: '#1a3044',
+  },
+  {
+    numero: '06',
+    titulo: 'Monitoramento e Relatórios Técnicos',
+    descricao: 'Executamos monitoramentos ambientais e elaboramos relatórios técnicos confiáveis para atender licenças, condicionantes, auditorias e fiscalizações, com dados organizados e prazos controlados.',
+    cta: 'Solicitar plano de monitoramento',
+    ctaMsg: 'Olá! Gostaria de solicitar um plano de Monitoramento Ambiental.',
+    link: '/servicos/ambiental/monitoramento',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Monitoramento ambiental',
+    cor: '#3a8d44',
+  },
+  {
+    numero: '07',
+    titulo: 'Recuperação de Áreas Degradadas (PRAD/RAD)',
+    descricao: 'Elaboramos PRAD/RAD com diagnóstico de campo, soluções técnicas e cronograma executável para recuperação de áreas degradadas, atendendo exigências de licenciamento, obras e mineração.',
+    cta: 'Solicitar avaliação técnica',
+    ctaMsg: 'Olá! Gostaria de uma avaliação técnica para elaboração de PRAD/RAD.',
+    link: '/servicos/ambiental/prad',
+    img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Recuperação de áreas degradadas',
+    cor: '#1a3044',
+  },
+  {
+    numero: '08',
+    titulo: 'Emissões e Mudanças Climáticas (GEE)',
+    descricao: 'Elaboração de inventários de emissões de GEE e planos de redução, com dados rastreáveis e ações realistas para atender demandas ESG, auditorias e exigências de clientes e contratantes.',
+    cta: 'Agendar conversa sobre inventário',
+    ctaMsg: 'Olá! Gostaria de agendar uma conversa sobre Inventário de GEE e plano de redução de emissões.',
+    link: '/servicos/ambiental/gee',
+    img: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=80',
+    imgAlt: 'Inventário de emissões GEE',
+    cor: '#3a8d44',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline="Nível Especialista"
-    title="Engenharia Ambiental Integrativa"
-    subtitle="Nossa abordagem vai além do papel. Atuamos na gestão real dos seus passivos e ativos ambientais, garantindo que sua operação seja um exemplo de conformidade e sustentabilidade."
-    image={{ src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2070&q=80', alt: 'Meio Ambiente Engenharia' }}
-  />
 
-  <Features2
-    title="Nossas frentes de atuação ambiental"
-    subtitle="Clique nos serviços para entender o impacto em sua operação"
-    items={[
-      {
-        title: 'Licenciamento e Outorgas',
-        description: 'LP, LI e LO. Gestão completa de processos junto aos órgãos ambientais estaduais e federais.',
-        icon: 'tabler:file-certificate',
-      },
-      {
-        title: 'Gestão de Resíduos',
-        description: 'PGRS e PGRCC. Redução de custos através da destinação correta e inteligência logística.',
-        icon: 'tabler:recycle',
-      },
-      {
-        title: 'Laudos e Projetos (PRAD)',
-        description: 'Recuperação de áreas e monitoramento de fauna/flora com rigor técnico e científico.',
-        icon: 'tabler:plant',
-      },
-      {
-        title: 'Estratégia ESG e Clima',
-        description: 'Inventários de GEE e adequação às novas exigências de mercado e investidores.',
-        icon: 'tabler:world-latitude',
-      },
-    ]}
-  />
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 text-center px-4">
+    <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5 max-w-4xl mx-auto">
+      Transformamos exigências legais em<br/>oportunidades de sustentabilidade e eficiência
+    </h1>
+    <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+    <p class="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      A equipe de Engenharia Ambiental da Triaxis atua com foco em conformidade regulatória, gestão sustentável e melhoria contínua, ajudando sua empresa a atender às normas ambientais, reduzir riscos e fortalecer sua imagem institucional.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20falar%20com%20um%20especialista%20em%20Engenharia%20Ambiental."
+        target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+        <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+        Falar com especialista
+      </a>
+      <a href="#solucoes"
+        class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+        Ver nossas soluções
+        <Icon name="tabler:arrow-down" class="w-4 h-4" />
+      </a>
+    </div>
+  </section>
 
-  <Steps
-    title="Como trabalhamos sua regularidade ambiental"
-    items={[
-      {
-        title: 'Passo 1: Diagnóstico',
-        description: 'Visitamos sua operação para identificar riscos imediatos e oportunidades de regularização.',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Passo 2: Plano de Ação',
-        description: 'Criamos um cronograma técnico priorizando o que impede sua empresa de operar ou crescer.',
-        icon: 'tabler:list-numbers',
-      },
-      {
-        title: 'Passo 3: Execução e Protocolo',
-        description: 'Nossa equipe técnica elabora os estudos e faz o acompanhamento direto com os órgãos públicos.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Passo 4: Gestão Contínua',
-        description: 'Não entregamos e sumimos. Monitoramos suas condicionantes para que você nunca perca um prazo.',
-        icon: 'tabler:refresh',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Passo a passo ambiental',
-    }}
-  />
+  <!-- DESAFIOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 text-center tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Você se identifica?</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Desafios Ambientais que sua Empresa Pode Estar Enfrentando</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 tx-fade tx-fade-delay-1">
+        {[
+          { icon: 'tabler:file-x', texto: 'Dificuldade para obter ou renovar licenças ambientais' },
+          { icon: 'tabler:trash-x', texto: 'Falta de controle sobre resíduos, efluentes e emissões' },
+          { icon: 'tabler:building-community', texto: 'Processos complexos junto aos órgãos reguladores' },
+          { icon: 'tabler:alert-triangle', texto: 'Riscos de multas, autuações ou interdições' },
+          { icon: 'tabler:leaf-off', texto: 'Necessidade de adequação a práticas sustentáveis e padrões ESG' },
+        ].map(item => (
+          <div class="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border-l-4 border-orange-400">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={item.icon} class="w-5 h-5 text-orange-500" />
+            </div>
+            <p class="text-sm text-slate-700 leading-relaxed font-medium">{item.texto}</p>
+          </div>
+        ))}
+        <div class="flex items-center gap-4 bg-[#3a8d44] rounded-xl p-5 shadow-sm sm:col-span-2 lg:col-span-1">
+          <p class="text-white text-sm leading-relaxed font-semibold">
+            A Triaxis entende esses desafios e oferece soluções técnicas completas, sob medida para cada realidade empresarial — com clareza, eficiência e responsabilidade técnica.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <CallToAction
-    title="Sua licença está vencendo ou precisa de um novo projeto?"
-    subtitle="Nossos engenheiros ambientais estão prontos para realizar um diagnóstico prévio da sua situação."
-    actions={[
-      { variant: 'primary', text: 'Solicitar Diagnóstico Ambiental', href: getPermalink('/contact') },
-    ]}
-  />
+  <!-- SOLUÇÕES -->
+  <section id="solucoes" class="bg-white py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12 text-center max-w-3xl mx-auto tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Portfólio completo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Nossas Soluções em Engenharia Ambiental</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {servicos.map((s, i) => (
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col amb-card tx-fade" style={`transition-delay: ${(i % 3) * 0.1}s`}>
+            <div class="relative h-44 overflow-hidden">
+              <img src={s.img} alt={s.imgAlt} class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-white/90 text-[#1a3044] text-xs font-black px-2 py-1 rounded-lg">{s.numero}</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1" style={`border-top: 4px solid ${s.cor}`}>
+              <h3 class="text-base font-bold text-[#1a3044] mb-3">{s.titulo}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-5 flex-1">{s.descricao}</p>
+              <div class="flex flex-col gap-2 mt-auto">
+                <a
+                  href={`https://wa.me/5531994915126?text=${encodeURIComponent(s.ctaMsg)}`}
+                  target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white text-xs font-bold px-4 py-2.5 rounded-full transition-colors">
+                  <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+                  {s.cta}
+                </a>
+                <a href={s.link}
+                  class="inline-flex items-center justify-center gap-1 text-[#3a8d44] hover:text-[#1a3044] text-xs font-bold transition-colors">
+                  Saiba mais
+                  <Icon name="tabler:arrow-right" class="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE TRIAXIS + BENEFÍCIOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- Por que escolher -->
+      <div class="tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Nossos diferenciais</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Por que escolher a Triaxis?</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <ul class="space-y-4">
+          {[
+            { icon: 'tabler:affiliate', texto: 'Atuação integrada: engenharia, gestão e sustentabilidade lado a lado' },
+            { icon: 'tabler:target', texto: 'Diagnóstico preciso: ações práticas, econômicas e mensuráveis' },
+            { icon: 'tabler:users', texto: 'Equipe multidisciplinar: engenheiros, biólogos, técnicos e gestores' },
+            { icon: 'tabler:chart-bar', texto: 'Foco em resultado: eficiência, segurança e reputação ambiental' },
+            { icon: 'tabler:refresh', texto: 'Acompanhamento contínuo: suporte técnico permanente' },
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name={item.icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed">{item.texto}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-sm text-[#3a8d44] font-semibold border-l-4 border-[#3a8d44] pl-3">
+          A Triaxis é sua parceira estratégica para unir compliance, eficiência e sustentabilidade.
+        </p>
+      </div>
+
+      <!-- Benefícios -->
+      <div class="tx-fade tx-fade-delay-1">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">O que sua empresa ganha</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1a3044] mb-4">Benefícios para sua Empresa</h2>
+        <div class="w-16 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <ul class="space-y-4">
+          {[
+            'Regularização ambiental sem complicações',
+            'Redução de custos e passivos ambientais',
+            'Operação mais segura e sustentável',
+            'Reforço da imagem institucional',
+            'Contribuição direta para metas ESG',
+          ].map(b => (
+            <li class="flex items-center gap-3 bg-white rounded-xl px-5 py-3.5 shadow-sm">
+              <div class="w-6 h-6 rounded-full bg-[#3a8d44] flex items-center justify-center flex-shrink-0">
+                <Icon name="tabler:check" class="w-3.5 h-3.5 text-white" />
+              </div>
+              <p class="text-sm text-slate-700 font-medium">{b}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-sm text-slate-500 italic leading-relaxed">
+          Empresas que cuidam do meio ambiente constroem negócios mais fortes e valorizados.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12 text-center tx-fade">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Nosso processo</p>
+        <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">Como Atuamos</h2>
+        <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 tx-fade tx-fade-delay-1">
+        {[
+          { n: '1', icon: 'tabler:search', titulo: 'Diagnóstico técnico', desc: 'Levantamento completo das necessidades e situação atual' },
+          { n: '2', icon: 'tabler:list-check', titulo: 'Plano de ação', desc: 'Elaboração de plano personalizado e aplicável' },
+          { n: '3', icon: 'tabler:rocket', titulo: 'Execução', desc: 'Acompanhamento junto aos órgãos competentes' },
+          { n: '4', icon: 'tabler:chart-line', titulo: 'Monitoramento', desc: 'Auditoria e acompanhamento de resultados' },
+          { n: '5', icon: 'tabler:school', titulo: 'Suporte contínuo', desc: 'Treinamento de equipes e apoio permanente' },
+        ].map((passo, i) => (
+          <div class="flex flex-col items-center text-center relative">
+            <div class="w-14 h-14 rounded-2xl bg-green-50 border-2 border-[#3a8d44] flex items-center justify-center mb-3 z-10">
+              <Icon name={passo.icon} class="w-6 h-6 text-[#3a8d44]" />
+            </div>
+            <span class="text-xs font-black text-[#3a8d44] mb-1">PASSO {passo.n}</span>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{passo.titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{passo.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-sm text-[#3a8d44] font-semibold mt-10">
+        A Triaxis atua lado a lado com a sua empresa — da regularização à gestão sustentável.
+      </p>
+    </div>
+  </section>
+
+  <!-- NOSSO COMPROMISSO -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Nosso Compromisso</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">
+        Somos mais do que consultoria: somos parceiros no desenvolvimento sustentável.
+      </h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-slate-300 text-lg leading-relaxed max-w-3xl mx-auto">
+        Com responsabilidade técnica e visão estratégica, ajudamos empresas a crescerem de forma regularizada, eficiente e alinhada às melhores práticas ambientais — garantindo conformidade hoje e competitividade amanhã.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dê o próximo passo</p>
+      <h2 class="text-2xl md:text-4xl font-bold tracking-tight text-[#1a3044] mb-4">
+        Quer regularizar sua empresa e avançar com segurança ambiental?
+      </h2>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-600 mb-10">
+        Agende uma conversa com nossos especialistas e descubra como a Triaxis pode apoiar o seu negócio.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20agendar%20uma%20conversa%20com%20especialistas%20em%20Engenharia%20Ambiental%20da%20Triaxis."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Agendar conversa
+        </a>
+        <a href="/services"
+          class="inline-flex items-center gap-2 border-2 border-[#1a3044] text-[#1a3044] hover:bg-[#1a3044] hover:text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Ver todos os serviços
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style is:global>
+  .amb-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .amb-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.10);
+  }
+
+  .tx-fade { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .tx-fade.tx-visible { opacity: 1; transform: translateY(0); }
+  .tx-fade-delay-1 { transition-delay: 0.15s; }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tx-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10 });
+
+  document.querySelectorAll('.tx-fade').forEach(el => observer.observe(el));
+</script>
