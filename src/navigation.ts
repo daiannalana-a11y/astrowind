@@ -12,10 +12,11 @@ links: [
     },
     {
       text: 'Serviços',
+      href: getPermalink('/services'),
       links: [
-        { text: '🌿 Engenharia Ambiental', href: getPermalink('/services#ambiental') },
-        { text: '⚙️ Engenharia de Produção', href: getPermalink('/services#producao') },
-        { text: '🦺 Segurança do Trabalho', href: getPermalink('/services#seguranca') },
+        { text: '🌿 Engenharia Ambiental', href: getPermalink('/servicos/ambiental') },
+        { text: '⚙️ Engenharia de Produção', href: getPermalink('/servicos/producao') },
+        { text: '🦺 Segurança do Trabalho', href: getPermalink('/servicos/seguranca') },
       ],
     },
     {
@@ -39,9 +40,10 @@ export const footerData = {
     {
       title: 'Serviços',
       links: [
-        { text: 'Engenharia Ambiental', href: '/services#ambiental' },
-        { text: 'Engenharia de Produção', href: '/services#producao' },
-        { text: 'Segurança do Trabalho', href: '/services#seguranca' },
+        { text: 'Todos os Serviços', href: '/services' },
+        { text: 'Engenharia Ambiental', href: '/servicos/ambiental' },
+        { text: 'Engenharia de Produção', href: '/servicos/producao' },
+        { text: 'Segurança do Trabalho', href: '/servicos/seguranca' },
       ],
     },
     {
