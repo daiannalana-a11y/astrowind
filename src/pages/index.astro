@@ -238,11 +238,19 @@ const metadata = {
 </Layout>
 
 <style is:global>
-  /* MENU: Cinza Claro com Sombra Estilo Botão */
-  header#header.header-triaxis-custom {
-    background-color: #f1f5f9 !important;
-    border-bottom: 3px solid #e2e8f0 !important;
+  /* MENU: Fundo branco/cinza claro sólido — garante visibilidade sobre o hero com imagem escura */
+  header#header.header-triaxis-custom,
+  header#header.header-triaxis-custom > div:first-child {
+    background-color: #f8fafc !important;
+    border-bottom: 2px solid #e2e8f0 !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  header#header.header-triaxis-custom.scroll > div:first-child {
+    background-color: rgba(248, 250, 252, 0.97) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
   }
   header#header.header-triaxis-custom a { color: #1a3044 !important; font-weight: 700; text-decoration: none; }
 
