@@ -254,15 +254,15 @@ const metadata = {
   }
   header#header.header-triaxis-custom a { color: #1a3044 !important; font-weight: 700; text-decoration: none; }
 
-  /* HERO: IMAGEM DE FUNDO */
-  main > section.not-prose {
+  /* HERO: IMAGEM DE FUNDO — apenas a primeira seção (o Hero) */
+  main > section:first-child {
     background-image: url('/hero-home.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     min-height: 92vh;
   }
-  main > section.not-prose > div:first-child {
+  main > section:first-child > div:first-child {
     background: linear-gradient(135deg, rgba(26, 48, 68, 0.90) 0%, rgba(26, 48, 68, 0.75) 55%, rgba(26, 48, 68, 0.60) 100%);
   }
 
