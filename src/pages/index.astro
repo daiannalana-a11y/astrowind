@@ -246,11 +246,24 @@ const metadata = {
   }
   header#header.header-triaxis-custom a { color: #1a3044 !important; font-weight: 700; text-decoration: none; }
 
+  /* HERO: IMAGEM DE FUNDO */
+  main > section.not-prose {
+    background-image: url('/hero-home.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 92vh;
+  }
+  main > section.not-prose > div:first-child {
+    background: linear-gradient(135deg, rgba(26, 48, 68, 0.90) 0%, rgba(26, 48, 68, 0.75) 55%, rgba(26, 48, 68, 0.60) 100%);
+  }
+
   /* HERO E BOTÕES: Correção do Texto Esmagado */
   .hero-wrapper { text-align: center; margin-top: -40px; }
-  .tag-verde { color: #3a8d44; font-weight: 800; font-size: 12px; letter-spacing: 1.5px; margin-bottom: 15px; }
-  .titulo-hero { color: #1a3044; font-size: 46px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.5px; }
-  .sub-hero { color: #64748b; font-size: 18px; line-height: 1.6; max-width: 750px; margin: 0 auto 35px auto; letter-spacing: 0px !important; }
+  .tag-verde { color: #6fcf7f; font-weight: 800; font-size: 12px; letter-spacing: 1.5px; margin-bottom: 15px; }
+  .titulo-hero { color: #ffffff; font-size: 46px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.5px; }
+  .titulo-hero span.text-green-600 { color: #6fcf7f !important; }
+  .sub-hero { color: #cbd5e1; font-size: 18px; line-height: 1.6; max-width: 750px; margin: 0 auto 35px auto; letter-spacing: 0px !important; }
 
   .btn-group-hero { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
   .tx-btn {
@@ -267,8 +280,9 @@ const metadata = {
     letter-spacing: 0.3px !important;
     line-height: 1 !important;
   }
-  .btn-orange { background: #ea580c !important; color: white !important; box-shadow: 0 8px 15px rgba(234, 88, 12, 0.2); }
-  .btn-outline { border: 2px solid #e2e8f0 !important; color: #1a3044 !important; background: white !important; }
+  .btn-orange { background: #ea580c !important; color: white !important; box-shadow: 0 8px 15px rgba(234, 88, 12, 0.3); }
+  .btn-outline { border: 2px solid rgba(255,255,255,0.7) !important; color: white !important; background: rgba(255,255,255,0.08) !important; }
+  .btn-outline:hover { background: rgba(255,255,255,0.18) !important; border-color: white !important; }
 
   /* DIFERENCIAIS */
   .card-triaxis { background: white; padding: 40px; border-radius: 32px; border-bottom: 8px solid; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: transform 0.25s ease, box-shadow 0.25s ease; }
