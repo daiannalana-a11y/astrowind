@@ -1,0 +1,265 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Treinamentos e Capacitação Ambiental | Triaxis Consultoria',
+  description: 'Treinamentos técnicos em meio ambiente para empresas em Minas Gerais. Legislação ambiental, gestão de resíduos, emergências ambientais e capacitação de equipes. Triaxis Consultoria.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Treinamentos Ambientais</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Treinamentos e Capacitação Ambiental
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Capacitação técnica de equipes em legislação ambiental, gestão de resíduos, atendimento a emergências e boas práticas operacionais. Treinamentos presenciais ou online, com conteúdo adaptado à realidade da empresa.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20Treinamentos%20Ambientais."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar proposta
+        </a>
+        <a href="#treinamentos"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Ver treinamentos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUÇÃO -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">Por que a capacitação ambiental é necessária</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Grande parte dos passivos ambientais nas empresas tem origem em falhas operacionais cometidas por equipes sem capacitação adequada: segregação incorreta de resíduos, descarte irregular de efluentes, manuseio inadequado de produtos químicos e desconhecimento das obrigações legais aplicáveis à atividade.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          A Triaxis desenvolve treinamentos técnicos com conteúdo estruturado e linguagem adaptada ao público-alvo — operadores, técnicos, supervisores ou gestores — com foco em aplicação prática e atendimento às exigências de condicionantes de licença que preveem capacitação periódica de equipes.
+        </p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Formatos disponíveis</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:users', label: 'Presencial in company', desc: 'Treinamento realizado nas instalações da empresa, com exemplos da própria operação' },
+            { icon: 'tabler:screen-share', label: 'Online ao vivo', desc: 'Capacitação via videoconferência com interação em tempo real e material de apoio' },
+            { icon: 'tabler:certificate', label: 'Com emissão de certificado', desc: 'Certificado individual emitido para cada participante ao final da capacitação' },
+            { icon: 'tabler:refresh', label: 'Reciclagem periódica', desc: 'Programa de atualização anual para manutenção da conformidade com condicionantes de licença' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREINAMENTOS -->
+  <section id="treinamentos" class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Portfólio</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Treinamentos disponíveis</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Conteúdos adaptados ao setor, ao porte da empresa e ao público participante.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'tabler:scale',
+            titulo: 'Legislação Ambiental Aplicada',
+            desc: 'Panorama da legislação federal, estadual e municipal aplicável à atividade da empresa: licenças, obrigações acessórias, infrações e penalidades.',
+          },
+          {
+            icon: 'tabler:trash',
+            titulo: 'Gestão de Resíduos Sólidos',
+            desc: 'Classificação de resíduos conforme ABNT NBR 10.004, procedimentos de segregação, acondicionamento, identificação e controle via MTR.',
+          },
+          {
+            icon: 'tabler:droplet',
+            titulo: 'Gestão de Efluentes e Recursos Hídricos',
+            desc: 'Boas práticas no manuseio de efluentes líquidos, prevenção de lançamentos irregulares e procedimentos de monitoramento da qualidade da água.',
+          },
+          {
+            icon: 'tabler:alert-triangle',
+            titulo: 'Atendimento a Emergências Ambientais',
+            desc: 'Procedimentos para controle de vazamentos, derramamentos e incidentes com produtos químicos, incluindo acionamento de órgãos competentes.',
+          },
+          {
+            icon: 'tabler:wind',
+            titulo: 'Emissões Atmosféricas e Qualidade do Ar',
+            desc: 'Fontes de emissão, padrões legais, procedimentos de controle e monitoramento de emissões em processos industriais.',
+          },
+          {
+            icon: 'tabler:leaf',
+            titulo: 'Sustentabilidade e Indicadores ESG',
+            desc: 'Conceitos de ESG, indicadores ambientais corporativos, boas práticas operacionais e contribuição individual para metas de sustentabilidade.',
+          },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-2">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis conduz os treinamentos</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Da elaboração do conteúdo à emissão dos certificados, cada etapa é conduzida com rigor técnico e foco na aplicação prática.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            num: '01',
+            titulo: 'Diagnóstico das necessidades',
+            desc: 'Levantamento das obrigações de capacitação previstas nas condicionantes de licença, das falhas operacionais identificadas e do perfil do público a ser treinado.',
+          },
+          {
+            num: '02',
+            titulo: 'Desenvolvimento do conteúdo',
+            desc: 'Elaboração do material didático com conteúdo técnico adaptado à linguagem do público-alvo, aos processos da empresa e à legislação aplicável.',
+          },
+          {
+            num: '03',
+            titulo: 'Aplicação do treinamento',
+            desc: 'Realização da capacitação no formato definido (presencial ou online), com registro de presença, dinâmicas práticas e avaliação de aprendizagem quando aplicável.',
+          },
+          {
+            num: '04',
+            titulo: 'Documentação e certificação',
+            desc: 'Emissão de lista de presença, certificados individuais e registro fotográfico para comprovação junto ao órgão ambiental e arquivamento interno.',
+          },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
+            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
+            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:shield-check', text: 'Atendimento às condicionantes de licença que exigem capacitação periódica das equipes operacionais' },
+            { icon: 'tabler:zoom-money', text: 'Redução de incidentes ambientais por falha operacional, com impacto direto em multas e passivos' },
+            { icon: 'tabler:certificate', text: 'Documentação comprobatória das capacitações para apresentação em fiscalizações e auditorias' },
+            { icon: 'tabler:users', text: 'Equipes mais conscientes e comprometidas com as boas práticas ambientais da empresa' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:certificate', text: 'Instrutores com formação técnica em engenharia ambiental e biologia, com experiência em campo' },
+            { icon: 'tabler:settings', text: 'Conteúdo desenvolvido sob medida para a realidade operacional e o setor de cada empresa' },
+            { icon: 'tabler:map-pin', text: 'Atendimento presencial em toda a região de Minas Gerais, sem necessidade de deslocamento da equipe' },
+            { icon: 'tabler:refresh', text: 'Programas de reciclagem anual para manutenção da conformidade ao longo do tempo' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Capacite sua equipe</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite o treinamento ambiental para a sua empresa.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        A Triaxis elabora o conteúdo, realiza o treinamento e entrega a documentação comprobatória para atendimento às condicionantes de licença e às exigências de auditorias.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20Treinamentos%20Ambientais."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com especialista
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
+</Layout>
