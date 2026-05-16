@@ -1,15 +1,292 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Projeto de Recuperação de Áreas Degradadas (PRAD) | Triaxis Consultoria',
+  description: 'Elaboração e acompanhamento de PRAD para empresas em Minas Gerais. Diagnóstico ambiental, plano de recuperação, espécies nativas e monitoramento de resultados. Triaxis Consultoria.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">PRAD</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Projeto de Recuperação de Áreas Degradadas
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Elaboração técnica do PRAD com diagnóstico ambiental da área, definição de metodologia de recuperação, seleção de espécies nativas e programa de monitoramento. Atendimento a condicionantes de licença e exigências do Código Florestal.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20elaboração%20de%20PRAD."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar proposta
+        </a>
+        <a href="#como-atuamos"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUÇÃO -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o PRAD e quando é exigido</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O Projeto de Recuperação de Áreas Degradadas é o documento técnico que define as ações necessárias para restabelecer as condições ambientais de uma área que sofreu impacto por atividades antrópicas. É exigido como condicionante de licenças ambientais, em processos de regularização fundiária, como medida compensatória por supressão de vegetação e em programas de recuperação de Áreas de Preservação Permanente e Reserva Legal.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          A Triaxis elabora o PRAD com diagnóstico técnico da área, definição da metodologia de recuperação mais adequada ao grau de degradação e ao bioma local, e acompanhamento das etapas de implantação e monitoramento exigidas pelo órgão ambiental.
+        </p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Situações que exigem o PRAD</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:license', label: 'Condicionante de licença', desc: 'Exigência expressa em licença ambiental para recuperação de área impactada pela atividade' },
+            { icon: 'tabler:tree', label: 'Supressão de vegetação', desc: 'Compensação obrigatória por supressão de APP, Reserva Legal ou vegetação nativa' },
+            { icon: 'tabler:building-factory', label: 'Passivo de mineração', desc: 'Recuperação de áreas de extração mineral conforme DNPM e legislação ambiental' },
+            { icon: 'tabler:droplet-off', label: 'Proteção de recursos hídricos', desc: 'Recuperação de matas ciliares e áreas de recarga hídrica em APPs' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISCOS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Atenção</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Consequências do não atendimento</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Riscos concretos para empresas com passivo de área degradada sem PRAD elaborado ou em execução.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { icon: 'tabler:license-off', text: 'Não renovação ou cancelamento de licença ambiental por descumprimento de condicionante de recuperação' },
+          { icon: 'tabler:receipt-tax', text: 'Multas e autuações por manutenção de área degradada em desconformidade com o Código Florestal' },
+          { icon: 'tabler:ban', text: 'Embargo ou interdição de atividades produtivas vinculadas à área com passivo ambiental não regularizado' },
+          { icon: 'tabler:alert-circle', text: 'Responsabilidade civil por danos a recursos hídricos, fauna e flora decorrentes da degradação' },
+          { icon: 'tabler:building-bank', text: 'Restrição a crédito rural, financiamentos e certificações agropecuárias por irregularidade de APP ou Reserva Legal' },
+        ].map(({ icon, text }) => (
+          <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={icon} class="w-5 h-5 text-orange-500" />
+            </div>
+            <p class="text-sm text-slate-600 leading-snug">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis elabora e acompanha o PRAD</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Do diagnóstico de campo à aprovação pelo órgão ambiental, cada etapa é conduzida com base técnica e conhecimento do bioma local.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            num: '01',
+            titulo: 'Diagnóstico ambiental da área',
+            desc: 'Levantamento em campo do grau de degradação, caracterização do solo, levantamento florístico da vegetação remanescente e identificação de condicionantes físicas e bióticas para a recuperação.',
+          },
+          {
+            num: '02',
+            titulo: 'Definição da metodologia e espécies',
+            desc: 'Seleção das técnicas de recuperação mais adequadas (plantio de mudas, semeadura direta, nucleação ou condução da regeneração natural) e escolha das espécies nativas regionais conforme o bioma e o estágio sucessional.',
+          },
+          {
+            num: '03',
+            titulo: 'Elaboração do projeto técnico',
+            desc: 'Redação do PRAD com cronograma de implantação, mapa da área, memorial descritivo, quantitativo de mudas, indicadores de sucesso e programa de monitoramento, conforme exigências do órgão licenciador.',
+          },
+          {
+            num: '04',
+            titulo: 'Acompanhamento e monitoramento',
+            desc: 'Visitas periódicas à área para avaliação do desenvolvimento da vegetação, elaboração de relatórios de monitoramento e ajustes no manejo quando necessário, até o atingimento dos indicadores exigidos.',
+          },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
+            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
+            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'tabler:clipboard-list',
+            titulo: 'PRAD completo',
+            desc: 'Projeto técnico com diagnóstico, metodologia, cronograma, espécies, indicadores e programa de monitoramento.',
+          },
+          {
+            icon: 'tabler:map-2',
+            titulo: 'Mapa da área de recuperação',
+            desc: 'Delimitação cartográfica da área com zoneamento das intervenções previstas e pontos de referência para monitoramento.',
+          },
+          {
+            icon: 'tabler:file-report',
+            titulo: 'Relatórios de monitoramento',
+            desc: 'Documentos periódicos com avaliação do desenvolvimento da vegetação e conformidade com os indicadores estabelecidos.',
+          },
+          {
+            icon: 'tabler:list-check',
+            titulo: 'Cronograma de implantação',
+            desc: 'Planejamento detalhado das etapas de preparo do solo, plantio, replantio e manutenção ao longo do período de recuperação.',
+          },
+          {
+            icon: 'tabler:id',
+            titulo: 'ART do responsável técnico',
+            desc: 'Anotação de Responsabilidade Técnica do biólogo ou engenheiro ambiental responsável pela elaboração e acompanhamento.',
+          },
+          {
+            icon: 'tabler:headset',
+            titulo: 'Suporte junto ao órgão ambiental',
+            desc: 'Acompanhamento do processo de aprovação do PRAD e atendimento a eventuais exigências complementares do órgão licenciador.',
+          },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:shield-check', text: 'Regularização do passivo ambiental com atendimento formal às condicionantes de licença ou ao Código Florestal' },
+            { icon: 'tabler:scale', text: 'Eliminação de riscos jurídicos e administrativos associados à manutenção de áreas degradadas sem plano de recuperação' },
+            { icon: 'tabler:certificate', text: 'Habilitação para acesso a crédito rural, financiamentos e certificações que exigem regularidade ambiental da propriedade' },
+            { icon: 'tabler:leaf', text: 'Contribuição mensurável para metas de biodiversidade e serviços ecossistêmicos da empresa' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:users', text: 'Equipe com biólogos e engenheiros ambientais especializados em flora nativa do Cerrado e Mata Atlântica' },
+            { icon: 'tabler:map-pin', text: 'Conhecimento das exigências específicas de SUPRAM, IEF, SEMAD e municípios em Minas Gerais' },
+            { icon: 'tabler:plant', text: 'Indicação de espécies nativas regionais adequadas ao bioma, ao estágio sucessional e às condições edafoclimáticas da área' },
+            { icon: 'tabler:refresh', text: 'Acompanhamento técnico contínuo do desenvolvimento da vegetação até o atingimento dos indicadores de sucesso' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Regularize o passivo ambiental</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite a elaboração do PRAD para a sua área.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        A Triaxis realiza o diagnóstico em campo, elabora o projeto técnico e acompanha a execução até o cumprimento das exigências do órgão ambiental.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20elaboração%20de%20PRAD."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com especialista
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>
