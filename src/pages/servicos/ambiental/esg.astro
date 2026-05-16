@@ -1,0 +1,292 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Sustentabilidade Corporativa e ESG | Triaxis Consultoria',
+  description: 'Estruturação de estratégias ESG para empresas em Minas Gerais. Levantamento de indicadores, relatórios de sustentabilidade, metas ambientais e apoio ao reporte externo. Triaxis Consultoria.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Sustentabilidade e ESG</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Sustentabilidade Corporativa e ESG
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Estruturação de estratégias ESG com base técnica. Levantamento de indicadores ambientais, sociais e de governança, elaboração de relatórios de sustentabilidade e definição de metas alinhadas às exigências de mercado, financiadores e cadeias de fornecimento.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20Sustentabilidade%20e%20ESG."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar proposta
+        </a>
+        <a href="#como-atuamos"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUÇÃO -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é ESG e por que sua empresa precisa estruturar</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          ESG (Environmental, Social and Governance) é o conjunto de critérios que investidores, clientes corporativos, financiadores e certificadoras utilizam para avaliar o desempenho socioambiental e de governança das empresas. A ausência de dados estruturados e de um relato transparente limita o acesso a capital, mercados e parcerias estratégicas.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          A Triaxis apoia empresas na estruturação da base ESG com foco técnico e aplicabilidade real: levantamento de indicadores, identificação de lacunas, elaboração de relatórios e definição de metas mensuráveis alinhadas ao porte e ao setor da empresa.
+        </p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Os três pilares do ESG</p>
+        <div class="space-y-4">
+          {[
+            { sigla: 'E', nome: 'Ambiental', desc: 'Gestão de emissões, resíduos, uso de recursos naturais, biodiversidade e conformidade legal ambiental' },
+            { sigla: 'S', nome: 'Social', desc: 'Saúde e segurança dos trabalhadores, relação com comunidades, diversidade e práticas trabalhistas' },
+            { sigla: 'G', nome: 'Governança', desc: 'Transparência, ética, conformidade regulatória, gestão de riscos e estruturas de controle interno' },
+          ].map(({ sigla, nome, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                <span class="text-sm font-black text-[#3a8d44]">{sigla}</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044]">{nome}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANDO É NECESSÁRIO -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Aplicações</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Quando a estruturação ESG é necessária</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Situações em que a ausência de uma base ESG estruturada representa risco ou limitação para a empresa.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { icon: 'tabler:building-bank', text: 'Acesso a linhas de financiamento com critérios de desempenho socioambiental e sustentabilidade' },
+          { icon: 'tabler:users', text: 'Exigência de clientes corporativos e redes de fornecimento com políticas de cadeia responsável' },
+          { icon: 'tabler:transfer', text: 'Processos de fusão, aquisição ou due diligence com avaliação de riscos ESG' },
+          { icon: 'tabler:award', text: 'Certificações, selos e participação em rankings de sustentabilidade do setor' },
+          { icon: 'tabler:file-certificate', text: 'Elaboração de relatórios de sustentabilidade para stakeholders, investidores ou publicação institucional' },
+          { icon: 'tabler:chart-arrows-vertical', text: 'Estruturação interna de metas e indicadores de desempenho ambiental, social e de governança' },
+        ].map(({ icon, text }) => (
+          <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={icon} class="w-5 h-5 text-orange-500" />
+            </div>
+            <p class="text-sm text-slate-600 leading-snug">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis estrutura o ESG da sua empresa</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Processo estruturado em etapas, com diagnóstico da situação atual, levantamento de indicadores e entrega de relatório técnico.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            num: '01',
+            titulo: 'Diagnóstico da maturidade ESG',
+            desc: 'Avaliação da situação atual da empresa nos três pilares: identificação de práticas existentes, lacunas de dados e exposições a riscos socioambientais e de governança.',
+          },
+          {
+            num: '02',
+            titulo: 'Levantamento e estruturação de indicadores',
+            desc: 'Definição dos indicadores relevantes para o porte, setor e objetivos da empresa, com base em frameworks reconhecidos como GRI, SASB e ODS.',
+          },
+          {
+            num: '03',
+            titulo: 'Elaboração do relatório de sustentabilidade',
+            desc: 'Redação do relatório com dados estruturados, narrativa técnica e apresentação dos resultados por pilar, adequado ao público-alvo e ao propósito de reporte.',
+          },
+          {
+            num: '04',
+            titulo: 'Definição de metas e plano de melhoria',
+            desc: 'Estabelecimento de metas mensuráveis por indicador, com plano de ação para melhoria do desempenho ESG ao longo do tempo e base para relatórios futuros.',
+          },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
+            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
+            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'tabler:clipboard-list',
+            titulo: 'Diagnóstico de maturidade ESG',
+            desc: 'Avaliação estruturada da situação atual da empresa nos três pilares, com identificação de lacunas e prioridades.',
+          },
+          {
+            icon: 'tabler:table',
+            titulo: 'Matriz de indicadores',
+            desc: 'Planilha com indicadores selecionados, metodologia de coleta, linha de base e metas definidas por pilar.',
+          },
+          {
+            icon: 'tabler:file-report',
+            titulo: 'Relatório de sustentabilidade',
+            desc: 'Documento técnico com desempenho ESG da empresa, estruturado conforme o framework adotado (GRI, SASB ou personalizado).',
+          },
+          {
+            icon: 'tabler:trending-up',
+            titulo: 'Plano de melhoria ESG',
+            desc: 'Cronograma com ações prioritárias por pilar, responsabilidades definidas e indicadores de acompanhamento.',
+          },
+          {
+            icon: 'tabler:presentation',
+            titulo: 'Apresentação executiva',
+            desc: 'Material de apresentação dos resultados para a liderança da empresa, investidores ou stakeholders externos.',
+          },
+          {
+            icon: 'tabler:headset',
+            titulo: 'Suporte ao reporte externo',
+            desc: 'Orientação para publicação do relatório, preenchimento de plataformas externas e atendimento a questionários de clientes.',
+          },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:building-bank', text: 'Acesso ampliado a financiamentos, investidores e mercados que exigem desempenho ESG comprovado' },
+            { icon: 'tabler:star', text: 'Fortalecimento da reputação institucional perante clientes, parceiros e comunidades' },
+            { icon: 'tabler:shield-check', text: 'Identificação e gestão proativa de riscos socioambientais antes que se tornem passivos' },
+            { icon: 'tabler:chart-arrows-vertical', text: 'Base de dados estruturada para evolução consistente do desempenho ESG ao longo do tempo' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:certificate', text: 'Abordagem técnica com profissionais de engenharia ambiental, segurança do trabalho e gestão da produção' },
+            { icon: 'tabler:settings', text: 'Estruturação ESG adaptada ao porte e ao setor da empresa, sem replicar modelos genéricos de grandes corporações' },
+            { icon: 'tabler:file-analytics', text: 'Relatórios elaborados com rigor técnico e linguagem adequada ao público-alvo de cada empresa' },
+            { icon: 'tabler:refresh', text: 'Suporte para atualização anual dos indicadores e evolução contínua da estratégia ESG' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Estruture a base ESG da sua empresa</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite a consultoria em Sustentabilidade e ESG.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        A Triaxis avalia a situação atual da empresa, levanta os indicadores relevantes e entrega um relatório de sustentabilidade com metas e plano de melhoria estruturados.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20Sustentabilidade%20e%20ESG."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com especialista
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
+</Layout>
