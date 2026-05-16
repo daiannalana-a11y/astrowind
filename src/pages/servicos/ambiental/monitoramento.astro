@@ -1,15 +1,292 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Monitoramento Ambiental | Triaxis Consultoria',
+  description: 'Programas de monitoramento ambiental para empresas em Minas Gerais. Qualidade da água, ar, solo, ruído e efluentes. Relatórios técnicos e atendimento a condicionantes de licença. Triaxis Consultoria.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Monitoramento Ambiental</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Monitoramento Ambiental
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Programas de monitoramento periódico de qualidade da água, ar, solo, ruído e efluentes. Atendimento a condicionantes de licença ambiental, com coleta, análise laboratorial e elaboração de relatórios técnicos.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20Monitoramento%20Ambiental."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar proposta
+        </a>
+        <a href="#como-atuamos"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUÇÃO -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">Por que o monitoramento ambiental é obrigatório</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          A maioria das licenças ambientais emitidas por SUPRAM, SEMAD e prefeituras inclui condicionantes que exigem o monitoramento periódico de parâmetros ambientais específicos. O não atendimento dessas exigências compromete a renovação da licença e expõe a empresa a autuações e paralisações.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          A Triaxis planeja e executa os programas de monitoramento exigidos pelas condicionantes licenciatórias, com coleta técnica em campo, envio a laboratórios credenciados e elaboração dos relatórios periódicos a serem protocolados junto ao órgão ambiental.
+        </p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Parâmetros que monitoramos</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:droplet', label: 'Qualidade da água', desc: 'Superficial, subterrânea e de abastecimento conforme parâmetros da CONAMA 357/396' },
+            { icon: 'tabler:wind', label: 'Qualidade do ar', desc: 'Material particulado, gases e emissões atmosféricas por fontes fixas e difusas' },
+            { icon: 'tabler:wave-sine', label: 'Nível de ruído', desc: 'Monitoramento acústico conforme ABNT NBR 10.151 e condicionantes de licença' },
+            { icon: 'tabler:flask', label: 'Efluentes líquidos', desc: 'Caracterização físico-química e biológica conforme CONAMA 430 e normas estaduais' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANDO É NECESSÁRIO -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Atenção</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Consequências do não atendimento</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Riscos para empresas que não executam os programas de monitoramento previstos nas licenças.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { icon: 'tabler:license-off', text: 'Não renovação da licença ambiental por descumprimento de condicionante de monitoramento' },
+          { icon: 'tabler:receipt-tax', text: 'Multas administrativas por ausência de relatórios periódicos exigidos pelo órgão licenciador' },
+          { icon: 'tabler:ban', text: 'Embargo ou paralisação das atividades por irregularidade no cumprimento das condicionantes' },
+          { icon: 'tabler:alert-circle', text: 'Responsabilidade civil em caso de dano ambiental não identificado por falta de monitoramento' },
+          { icon: 'tabler:building-bank', text: 'Restrição em financiamentos, certificações e processos de due diligence ambiental' },
+        ].map(({ icon, text }) => (
+          <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={icon} class="w-5 h-5 text-orange-500" />
+            </div>
+            <p class="text-sm text-slate-600 leading-snug">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis conduz o monitoramento</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Da leitura das condicionantes ao protocolo do relatório, cada etapa é executada com rigor técnico e rastreabilidade.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            num: '01',
+            titulo: 'Leitura e interpretação das condicionantes',
+            desc: 'Análise detalhada da licença ambiental para identificar todos os parâmetros, frequências, pontos de coleta e formatos de relatório exigidos pelo órgão.',
+          },
+          {
+            num: '02',
+            titulo: 'Planejamento do programa de monitoramento',
+            desc: 'Definição do cronograma de campanhas, metodologias de coleta, laboratórios credenciados e responsabilidades técnicas para cada parâmetro monitorado.',
+          },
+          {
+            num: '03',
+            titulo: 'Coleta técnica em campo',
+            desc: 'Execução das campanhas de monitoramento com equipe técnica habilitada, seguindo procedimentos normatizados de amostragem, preservação e cadeia de custódia.',
+          },
+          {
+            num: '04',
+            titulo: 'Elaboração e protocolo do relatório',
+            desc: 'Compilação dos resultados laboratoriais, análise de conformidade com os padrões legais e elaboração do relatório técnico para protocolo junto ao órgão ambiental.',
+          },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
+            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
+            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'tabler:calendar-stats',
+            titulo: 'Programa de monitoramento',
+            desc: 'Cronograma anual de campanhas com parâmetros, frequências, pontos de coleta e responsáveis definidos.',
+          },
+          {
+            icon: 'tabler:test-pipe',
+            titulo: 'Laudos laboratoriais',
+            desc: 'Resultados das análises emitidos por laboratório credenciado, com cadeia de custódia documentada.',
+          },
+          {
+            icon: 'tabler:file-report',
+            titulo: 'Relatório técnico periódico',
+            desc: 'Documento técnico com análise de conformidade dos resultados frente aos padrões legais e às condicionantes.',
+          },
+          {
+            icon: 'tabler:send',
+            titulo: 'Protocolo junto ao órgão',
+            desc: 'Encaminhamento do relatório ao órgão ambiental competente dentro dos prazos estabelecidos na licença.',
+          },
+          {
+            icon: 'tabler:chart-line',
+            titulo: 'Análise de tendências',
+            desc: 'Comparativo histórico dos resultados ao longo dos ciclos de monitoramento para identificação de desvios.',
+          },
+          {
+            icon: 'tabler:headset',
+            titulo: 'Suporte técnico contínuo',
+            desc: 'Atendimento para esclarecimento de resultados, exigências complementares e orientação em eventuais não conformidades.',
+          },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:shield-check', text: 'Conformidade contínua com as condicionantes da licença ambiental, sem risco de autuação por omissão' },
+            { icon: 'tabler:clock', text: 'Relatórios entregues dentro dos prazos exigidos, sem necessidade de gestão interna das campanhas' },
+            { icon: 'tabler:zoom-money', text: 'Identificação precoce de desvios nos parâmetros monitorados, antes que se tornem passivos ambientais' },
+            { icon: 'tabler:certificate', text: 'Histórico documentado de monitoramento para apresentação em auditorias, due diligence e renovações de licença' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:users', text: 'Equipe técnica com biólogos e engenheiros ambientais experientes em campanhas de monitoramento' },
+            { icon: 'tabler:map-pin', text: 'Atuação em campo em toda a região de Minas Gerais com logística própria para coletas' },
+            { icon: 'tabler:file-analytics', text: 'Relatórios elaborados com linguagem técnica precisa e adequados ao formato exigido pelo órgão licenciador' },
+            { icon: 'tabler:refresh', text: 'Gestão do calendário de monitoramento com alertas de vencimento e controle de prazos de protocolo' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Condicionantes em dia</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite o programa de monitoramento ambiental da sua empresa.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        A Triaxis analisa as condicionantes da sua licença, planeja as campanhas e entrega os relatórios dentro dos prazos exigidos pelo órgão ambiental.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20Monitoramento%20Ambiental."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com especialista
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>
