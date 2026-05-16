@@ -1,15 +1,292 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Inventário de Gases de Efeito Estufa (GEE) | Triaxis Consultoria',
+  description: 'Inventário corporativo de emissões de gases de efeito estufa para empresas em Minas Gerais. Metodologia GHG Protocol, identificação de fontes, cálculo de emissões e relatório de carbono. Triaxis Consultoria.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Inventário de GEE</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Inventário de Gases de Efeito Estufa
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Quantificação das emissões corporativas de GEE conforme a metodologia GHG Protocol. Identificação de fontes, cálculo por escopo, relatório de carbono e base para estratégias de redução e compensação.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20Inventário%20de%20GEE."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar proposta
+        </a>
+        <a href="#como-atuamos"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUÇÃO -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o inventário de GEE e por que realizá-lo</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O inventário de gases de efeito estufa é o levantamento sistemático das emissões de CO₂, CH₄, N₂O e outros gases gerados pelas operações da empresa. É o ponto de partida para qualquer estratégia de descarbonização, reporte de sustentabilidade ou atendimento a exigências de clientes, financiadores e certificadoras.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          A Triaxis elabora o inventário conforme o GHG Protocol Corporativo, padrão internacional adotado pelo Programa Brasileiro GHG Protocol e aceito pelas principais iniciativas de reporte climático, incluindo CDP, GRI e relatórios de sustentabilidade.
+        </p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Os três escopos de emissão</p>
+        <div class="space-y-4">
+          {[
+            { sigla: 'E1', nome: 'Escopo 1', desc: 'Emissões diretas: combustão em caldeiras, fornos, veículos e processos produtivos próprios' },
+            { sigla: 'E2', nome: 'Escopo 2', desc: 'Emissões indiretas de energia: consumo de energia elétrica adquirida da rede' },
+            { sigla: 'E3', nome: 'Escopo 3', desc: 'Outras emissões indiretas: cadeia de fornecedores, transporte, resíduos e viagens corporativas' },
+          ].map(({ sigla, nome, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                <span class="text-xs font-black text-[#3a8d44]">{sigla}</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044]">{nome}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANDO É NECESSÁRIO -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Aplicações</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Quando o inventário de GEE é necessário</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Situações em que a quantificação das emissões corporativas é exigida ou estrategicamente relevante.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { icon: 'tabler:building-bank', text: 'Acesso a linhas de crédito e financiamentos com critérios de desempenho ambiental e climático' },
+          { icon: 'tabler:file-certificate', text: 'Elaboração de relatórios de sustentabilidade (GRI, CDP, TCFD) ou obrigações ESG com investidores' },
+          { icon: 'tabler:transfer', text: 'Processos de due diligence, fusões ou aquisições com avaliação de passivos climáticos' },
+          { icon: 'tabler:award', text: 'Certificações e selos de sustentabilidade que exigem mensuração e reporte de emissões' },
+          { icon: 'tabler:users', text: 'Exigência de clientes corporativos e redes de fornecimento com metas de descarbonização na cadeia' },
+          { icon: 'tabler:leaf', text: 'Estruturação de programas internos de neutralização ou redução de emissões com base em dados reais' },
+        ].map(({ icon, text }) => (
+          <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+              <Icon name={icon} class="w-5 h-5 text-orange-500" />
+            </div>
+            <p class="text-sm text-slate-600 leading-snug">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ATUAMOS -->
+  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis elabora o inventário</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Processo estruturado conforme o GHG Protocol Corporativo, com rastreabilidade e transparência em cada etapa.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            num: '01',
+            titulo: 'Definição do escopo e limites organizacionais',
+            desc: 'Identificação das unidades, processos e atividades incluídos no inventário, com definição do ano-base e do período de reporte.',
+          },
+          {
+            num: '02',
+            titulo: 'Levantamento de dados de atividade',
+            desc: 'Coleta sistemática de dados de consumo de combustível, energia elétrica, processos industriais, frota, resíduos e demais fontes emissoras por escopo.',
+          },
+          {
+            num: '03',
+            titulo: 'Cálculo das emissões por escopo',
+            desc: 'Aplicação dos fatores de emissão adequados a cada fonte, conforme o GHG Protocol e os fatores publicados pelo MCTI e pela rede elétrica nacional (MCTIC/SIN).',
+          },
+          {
+            num: '04',
+            titulo: 'Relatório e análise de oportunidades',
+            desc: 'Entrega do inventário consolidado com emissões totais em tCO₂e, distribuição por escopo e fonte, e identificação de oportunidades de redução prioritárias.',
+          },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
+            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
+            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            icon: 'tabler:clipboard-list',
+            titulo: 'Inventário de GEE consolidado',
+            desc: 'Relatório técnico com emissões totais em tCO₂e, distribuídas por escopo, fonte e unidade organizacional.',
+          },
+          {
+            icon: 'tabler:table',
+            titulo: 'Planilha de cálculo auditável',
+            desc: 'Arquivo com todos os dados de atividade, fatores de emissão utilizados e memória de cálculo por fonte.',
+          },
+          {
+            icon: 'tabler:chart-pie',
+            titulo: 'Análise por escopo e fonte',
+            desc: 'Distribuição gráfica das emissões para identificação visual das principais fontes e prioridades de redução.',
+          },
+          {
+            icon: 'tabler:trending-down',
+            titulo: 'Oportunidades de redução',
+            desc: 'Identificação das fontes com maior potencial de redução e indicação de medidas de eficiência e substituição.',
+          },
+          {
+            icon: 'tabler:leaf',
+            titulo: 'Base para compensação',
+            desc: 'Dados estruturados para programas de neutralização de emissões via créditos de carbono ou projetos florestais.',
+          },
+          {
+            icon: 'tabler:headset',
+            titulo: 'Suporte ao reporte externo',
+            desc: 'Orientação para preenchimento de plataformas de reporte como CDP, GRI e relatórios de sustentabilidade.',
+          },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:chart-arrows-vertical', text: 'Visibilidade real sobre o perfil de emissões da empresa para embasar decisões de gestão e investimento' },
+            { icon: 'tabler:shield-check', text: 'Atendimento a exigências de clientes, financiadores e órgãos reguladores com dados tecnicamente consistentes' },
+            { icon: 'tabler:star', text: 'Posicionamento competitivo em processos seletivos e licitações com critérios de desempenho ambiental' },
+            { icon: 'tabler:coins', text: 'Identificação de ineficiências energéticas e operacionais com potencial de redução de custo' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:certificate', text: 'Inventário elaborado conforme o GHG Protocol Corporativo, padrão aceito internacionalmente' },
+            { icon: 'tabler:users', text: 'Equipe técnica com formação em engenharia ambiental e experiência em projetos de gestão climática corporativa' },
+            { icon: 'tabler:file-analytics', text: 'Relatório com memória de cálculo completa e auditável, adequado a processos de verificação externa' },
+            { icon: 'tabler:refresh', text: 'Suporte para atualização anual do inventário e acompanhamento da evolução das emissões ao longo do tempo' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Conheça o perfil de emissões da sua empresa</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite o inventário de gases de efeito estufa.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        A Triaxis elabora o inventário conforme o GHG Protocol, com dados rastreáveis, cálculo auditável e relatório pronto para reporte externo ou uso interno em estratégias de redução.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20Inventário%20de%20GEE."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com especialista
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>
