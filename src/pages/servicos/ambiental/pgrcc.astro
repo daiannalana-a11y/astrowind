@@ -6,8 +6,8 @@ import { headerData, footerData } from '~/navigation';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Plano de Gerenciamento de Resíduos da Construção Civil (PGRCC) | Triaxis Consultoria',
-  description: 'Elaboração do PGRCC para obras e construtoras em Minas Gerais. Conformidade com a Resolução CONAMA 307 e legislação municipal. Classificação, destinação e rastreabilidade de RCC. Triaxis Consultoria.',
+  title: 'PGRCC em MG | Plano de Resíduos da Construção Civil com Implantação | Triaxis',
+  description: 'Elaboração de PGRCC com implantação prática para obras. Conformidade, controle e evidências (CTR/MTR) para fiscalização. Atendimento em MG e remoto conforme o caso.',
 };
 ---
 
@@ -32,60 +32,101 @@ const metadata = {
     <div class="max-w-3xl mx-auto">
       <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
       <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
-        Plano de Gerenciamento de Resíduos da Construção Civil
+        PGRCC: plano + implantação<br class="hidden md:block" />
+        <span class="text-[#6fcf7f]">para obra pronta para fiscalização</span>
       </h1>
       <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
-      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Elaboração técnica do PGRCC conforme a Resolução CONAMA 307/2002 e legislações municipais. Viabiliza a aprovação de projetos, a obtenção do alvará de construção e a regularidade ambiental da obra.
+      <p class="text-lg text-slate-300 leading-relaxed mb-3 max-w-2xl mx-auto">
+        A Triaxis elabora o Plano de Gerenciamento de Resíduos da Construção Civil e, se você quiser, apoia a implantação prática no canteiro com rotinas simples, controles e evidências organizadas.
+        Atendimento presencial em Minas Gerais e remoto para todo o Brasil.
       </p>
+      <p class="text-sm text-slate-400 italic mb-6">
+        Servico tecnico para reduzir improviso, retrabalho, autuacao e exigencias de orgao ambiental, prefeitura ou contratante, com rastreabilidade e documentacao em ordem (CONAMA 307/2002 e regras locais).
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {[
+          { icon: 'tabler:clipboard-check', text: 'PGRCC alinhado ao município, órgão e contratante' },
+          { icon: 'tabler:building-warehouse', text: 'Classificação conforme CONAMA 307 (Classes A, B, C e D)' },
+          { icon: 'tabler:folder-check', text: 'Evidências (CTR/MTR, notas, fotos) para fiscalização e auditoria' },
+          { icon: 'tabler:certificate', text: 'ART emitida quando aplicável ao escopo' },
+        ].map(({ icon, text }) => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/10">
+            <Icon name={icon} class="w-4 h-4 text-[#6fcf7f]" />
+            {text}
+          </span>
+        ))}
+      </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20elaboração%20de%20PGRCC."
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20PGRCC.%20Obra%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Tipo%20(nova%2Freforma%2Famplia%C3%A7%C3%A3o)%3A%20____%20%7C%20%C3%81rea%20aprox.%20(m%C2%B2)%3A%20____%20%7C%20Fase%3A%20____%20%7C%20Precisa%20protocolar%3F%20____"
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Solicitar proposta
+          Solicitar orçamento de PGRCC
         </a>
-        <a href="#como-atuamos"
+        <a href="https://wa.me/5531994915126"
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
-          Como funciona
+          Falar com a Triaxis
         </a>
       </div>
     </div>
   </section>
 
-  <!-- INTRODUÇÃO -->
+  <!-- QUANDO PRECISA -->
   <section class="bg-white py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
-      <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o PGRCC e quando é exigido</h2>
-        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          O Plano de Gerenciamento de Resíduos da Construção Civil é o documento técnico que estabelece como os resíduos gerados em obras serão segregados, acondicionados, transportados e destinados. É exigido como condição para aprovação de projetos e emissão de alvarás de construção na maioria dos municípios de Minas Gerais.
-        </p>
-        <p class="text-slate-600 leading-relaxed">
-          A base legal principal é a Resolução CONAMA 307/2002, complementada pelas legislações estaduais e municipais. A Triaxis elabora o PGRCC com base nas características reais da obra, nos volumes estimados de RCC e nas exigências específicas do município onde a construção será executada.
-        </p>
-      </div>
-      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Classificação dos resíduos da construção</p>
-        <div class="space-y-4">
-          {[
-            { sigla: 'A', nome: 'Classe A', desc: 'Reutilizáveis ou recicláveis como agregados: concreto, tijolos, blocos, telhas, argamassa' },
-            { sigla: 'B', nome: 'Classe B', desc: 'Recicláveis para outros destinos: plásticos, papel, metais, vidros, madeiras' },
-            { sigla: 'C', nome: 'Classe C', desc: 'Sem tecnologia economicamente viável de reciclagem: produtos gessados' },
-            { sigla: 'D', nome: 'Classe D', desc: 'Perigosos: tintas, solventes, óleos, amianto e resíduos contaminados' },
-          ].map(({ sigla, nome, desc }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                <span class="text-xs font-black text-[#3a8d44]">{sigla}</span>
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">Quando sua obra precisa de um PGRCC?</h2>
+          <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            O PGRCC e exigido ou fortemente recomendado para obras que precisam organizar resíduos, comprovar destinacao e atender fiscalizacao e auditorias.
+            Em muitos casos, e solicitado pela prefeitura/orgao ambiental e/ou pelo contratante.
+          </p>
+          <div class="space-y-3 mb-6">
+            {[
+              'Exigência de prefeitura, órgão ambiental, licenciamento, alvará, habite-se ou condicionantes',
+              'Exigência de contratante (obras públicas ou privadas)',
+              'Início de obra nova, reforma, ampliação ou demolição',
+              'Obras com caçambas, transporte e destinação externa de resíduos',
+              'Falta de controle sobre os resíduos gerados no canteiro',
+              'Fiscalização, notificação ou histórico de autuação',
+              'Necessidade de comprovar destinação correta com rastreabilidade (CTR/MTR e documentos)',
+            ].map((item) => (
+              <div class="flex items-start gap-3">
+                <Icon name="tabler:circle-check-filled" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+                <p class="text-sm text-slate-600 leading-snug">{item}</p>
               </div>
-              <div>
-                <p class="text-sm font-bold text-[#1a3044]">{nome}</p>
-                <p class="text-xs text-slate-500">{desc}</p>
+            ))}
+          </div>
+          <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20confirmar%20se%20minha%20obra%20precisa%20de%20PGRCC.%20Cidade%3A%20____%20%7C%20Tipo%20de%20obra%3A%20____%20%7C%20%C3%81rea%20aprox.%20(m%C2%B2)%3A%20____%20%7C%20Existe%20exig%C3%AAncia%3F%20____"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shadow-md">
+            <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+            Ver se minha obra precisa de PGRCC
+          </a>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Classificação dos resíduos (CONAMA 307)</p>
+          <div class="space-y-5">
+            {[
+              { sigla: 'A', nome: 'Classe A', desc: 'Reutilizáveis ou recicláveis como agregados: concreto, tijolos, blocos, telhas, argamassa' },
+              { sigla: 'B', nome: 'Classe B', desc: 'Recicláveis para outros destinos: plásticos, papel, metais, vidros, madeiras' },
+              { sigla: 'C', nome: 'Classe C', desc: 'Sem tecnologia economicamente viável de reciclagem disponível: produtos gessados' },
+              { sigla: 'D', nome: 'Classe D', desc: 'Perigosos: tintas, solventes, óleos, amianto e resíduos contaminados' },
+            ].map(({ sigla, nome, desc }) => (
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+                  <span class="text-xs font-black text-[#6fcf7f]">{sigla}</span>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-[#1a3044]">{nome}</p>
+                  <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -96,17 +137,17 @@ const metadata = {
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
         <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Atenção</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Riscos pela ausência do PGRCC</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Riscos de obra sem PGRCC adequado</h2>
         <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Consequências diretas para obras e construtoras sem o plano elaborado adequadamente.</p>
+        <p class="text-slate-500 text-sm">Consequências diretas para obras e construtoras sem plano elaborado e implantado.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { icon: 'tabler:file-x', text: 'Reprovação do projeto ou negativa de alvará de construção pela prefeitura' },
-          { icon: 'tabler:receipt-tax', text: 'Multas por descarte irregular de resíduos em locais não autorizados' },
-          { icon: 'tabler:ban', text: 'Embargo da obra por irregularidade ambiental durante a execução' },
-          { icon: 'tabler:alert-circle', text: 'Responsabilidade civil e administrativa por contaminação do solo ou recursos hídricos' },
-          { icon: 'tabler:building-bank', text: 'Impedimento para obtenção de financiamentos com exigências de conformidade ambiental' },
+          { icon: 'tabler:file-x', text: 'Reprovação de projeto, negativa de alvará ou bloqueio de habite-se pela prefeitura' },
+          { icon: 'tabler:receipt-tax', text: 'Multas por descarte irregular de resíduos em locais não autorizados ou caçamba sem CTR' },
+          { icon: 'tabler:ban', text: 'Embargo ou paralisação da obra por irregularidade ambiental durante a execução' },
+          { icon: 'tabler:alert-circle', text: 'Responsabilidade solidária por contaminação de solo ou água causada por destinação inadequada' },
+          { icon: 'tabler:building-bank', text: 'Perda de contrato com clientes que exigem comprovação de conformidade e rastreabilidade' },
         ].map(({ icon, text }) => (
           <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
             <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
@@ -119,172 +160,365 @@ const metadata = {
     </div>
   </section>
 
-  <!-- COMO ATUAMOS -->
-  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
-    <div class="max-w-4xl mx-auto tx-fade">
-      <div class="text-center mb-12">
-        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis elabora o PGRCC</h2>
-        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-300 text-sm">Processo técnico alinhado às exigências municipais e às normas da CONAMA e ABNT.</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {[
-          {
-            num: '01',
-            titulo: 'Análise do projeto e da obra',
-            desc: 'Levantamento das características da construção: tipo, porte, etapas previstas e estimativa de volume de resíduos gerados por classe.',
-          },
-          {
-            num: '02',
-            titulo: 'Identificação das exigências municipais',
-            desc: 'Verificação da legislação municipal aplicável ao empreendimento, incluindo pontos de coleta autorizados, transportadores licenciados e áreas de destinação aceitas.',
-          },
-          {
-            num: '03',
-            titulo: 'Elaboração do plano técnico',
-            desc: 'Redação do PGRCC com todos os elementos exigidos: classificação dos resíduos, fluxograma de segregação, responsabilidades, destinação final e cronograma.',
-          },
-          {
-            num: '04',
-            titulo: 'Suporte na aprovação e execução',
-            desc: 'Orientação para protocolo junto à prefeitura e acompanhamento técnico durante a obra para garantir a aderência ao plano aprovado.',
-          },
-        ].map(({ num, titulo, desc }) => (
-          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
-            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
-            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ENTREGÁVEIS -->
+  <!-- O QUE A TRIAXIS ENTREGA -->
   <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
         <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a construtora recebe</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a Triaxis entrega no PGRCC</h2>
         <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 max-w-xl mx-auto text-sm">
+          Plano específico para a sua obra, sem modelo genérico, com foco em execução e evidências para funcionar no canteiro e passar em fiscalização.
+        </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          {
-            icon: 'tabler:clipboard-list',
-            titulo: 'PGRCC completo',
-            desc: 'Documento técnico elaborado conforme CONAMA 307 e legislação municipal, pronto para protocolo.',
-          },
-          {
-            icon: 'tabler:table',
-            titulo: 'Estimativa de volumes por classe',
-            desc: 'Planilha com quantitativo estimado de cada tipo de resíduo por fase da obra.',
-          },
-          {
-            icon: 'tabler:route',
-            titulo: 'Fluxograma de destinação',
-            desc: 'Representação visual do fluxo de cada classe de resíduo desde a geração até a destinação final.',
-          },
-          {
-            icon: 'tabler:map-2',
-            titulo: 'Locais de destinação licenciados',
-            desc: 'Relação de áreas de transbordo, triagem, reciclagem e aterros autorizados no município.',
-          },
-          {
-            icon: 'tabler:id',
-            titulo: 'ART/RRT do responsável técnico',
-            desc: 'Anotação de Responsabilidade Técnica do engenheiro ambiental responsável pela elaboração.',
-          },
-          {
-            icon: 'tabler:headset',
-            titulo: 'Suporte durante a obra',
-            desc: 'Atendimento técnico para adequações no plano decorrentes de mudanças no escopo da construção.',
-          },
-        ].map(({ icon, titulo, desc }) => (
-          <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50">
-            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
-              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Fase 1 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center">
+              <span class="text-xs font-black text-[#6fcf7f]">01</span>
             </div>
-            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
-            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+            <h3 class="font-bold text-[#1a3044] text-sm">Diagnóstico da obra</h3>
           </div>
-        ))}
+          <div class="space-y-2">
+            {[
+              'Entendimento do tipo, fase, duração e cronograma da obra',
+              'Identificação dos pontos de geração de resíduos no canteiro',
+              'Levantamento e estimativa de volumes por classe (A, B, C e D)',
+              'Avaliação das rotinas atuais (se a obra já iniciou)',
+              'Checagem das exigências do município/contratante',
+            ].map((item) => (
+              <div class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-[#3a8d44] flex-shrink-0 mt-1" />
+                <p class="text-xs text-slate-600 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fase 2 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center">
+              <span class="text-xs font-black text-[#6fcf7f]">02</span>
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-sm">Elaboração do PGRCC</h3>
+          </div>
+          <div class="space-y-2">
+            {[
+              'Estrutura conforme regras municipais e exigências contratuais',
+              'Classificação, segregação e diretrizes operacionais por tipo de resíduo',
+              'Armazenamento temporário no canteiro (baias, sinalização, proteção)',
+              'Fluxo de transporte interno e externo quando aplicável',
+              'Diretrizes de destinação e rastreabilidade (CTR/MTR, notas, contratos)',
+              'Definição de responsabilidades (obra, encarregado, fornecedores)',
+              'Matriz de resíduos + lista de registros para fiscalização',
+            ].map((item) => (
+              <div class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-[#3a8d44] flex-shrink-0 mt-1" />
+                <p class="text-xs text-slate-600 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fase 3 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-[#3a8d44]/30 relative">
+          <div class="absolute -top-3 right-4">
+            <span class="bg-[#3a8d44] text-white text-xs font-bold px-3 py-1 rounded-full">Recomendado</span>
+          </div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#3a8d44] flex items-center justify-center">
+              <span class="text-xs font-black text-white">03</span>
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-sm">Implantação no canteiro (opcional)</h3>
+          </div>
+          <div class="space-y-2">
+            {[
+              'Orientação prática no canteiro ("pé no chão")',
+              'Checklists simples para uso diário/semanal',
+              'Orientação de evidências (CTR/MTR, notas, fotos, controle de caçambas)',
+              'Treinamento rápido da equipe e encarregados',
+              'Indicadores básicos (geração, segregação e nao conformidades)',
+            ].map((item) => (
+              <div class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-[#3a8d44] flex-shrink-0 mt-1" />
+                <p class="text-xs text-slate-600 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Bônus -->
+      <div class="bg-[#1a3044]/5 border border-[#1a3044]/10 rounded-2xl p-6 mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <Icon name="tabler:gift" class="w-5 h-5 text-[#3a8d44]" />
+          <h3 class="font-bold text-[#1a3044] text-sm">Bônus (quando aplicável)</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+            <p class="text-sm text-slate-600">Modelo de planilha de controle de resíduos da obra</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+            <p class="text-sm text-slate-600">Checklist "obra pronta para fiscalizacao"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
+        <p class="text-xs text-amber-700 leading-relaxed">
+          <span class="font-bold">Alinhamento de escopo:</span> A implantação inclui orientação, treinamento e organização de controles.
+          A execução física, contratação de caçambas/destinadores/transportadores e a logística de coleta são responsabilidade da obra
+          (a Triaxis pode apoiar com critérios, documentação mínima e requisitos de conformidade).
+        </p>
+      </div>
+
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20receber%20o%20escopo%20completo%20do%20PGRCC.%20Obra%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Tipo%3A%20____%20%7C%20Plano%20apenas%20ou%20Plano%2BImplanta%C3%A7%C3%A3o%3F%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Receber escopo completo do PGRCC
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- BENEFÍCIOS + DIFERENCIAIS -->
-  <section class="bg-slate-50 py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+  <!-- COMO FUNCIONA -->
+  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o PGRCC na prática (passo a passo)</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Processo direto e alinhado ao cronograma da obra, sem burocracia desnecessária.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+        {[
+          { num: '01', titulo: 'Reunião inicial', desc: 'Entendimento da obra, prazos, fase atual e exigências de órgão ou contratante' },
+          { num: '02', titulo: 'Levantamento', desc: 'Questionário estruturado + visita técnica quando necessária' },
+          { num: '03', titulo: 'Elaboração', desc: 'PGRCC conforme as características da obra e a legislação local' },
+          { num: '04', titulo: 'Validação', desc: 'Envio para revisão e ajustes antes da entrega final' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-6 border border-white/10">
+            <span class="text-2xl font-black text-[#6fcf7f] opacity-70 mb-2 block">{num}</span>
+            <h3 class="text-white font-bold text-sm mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+        {[
+          { num: '05', titulo: 'Entrega final', desc: 'PDF + anexos, planilhas e modelos inclusos conforme escopo contratado' },
+          { num: '06', titulo: 'Implantação no canteiro', desc: 'Quando contratada: orientação da equipe, checklists e organização de evidências' },
+          { num: '07', titulo: 'Protocolo (opcional)', desc: 'Apoio em protocolo/adequações solicitadas por prefeitura ou contratante' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-6 border border-white/10">
+            <span class="text-2xl font-black text-[#6fcf7f] opacity-70 mb-2 block">{num}</span>
+            <h3 class="text-white font-bold text-sm mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20entender%20como%20funciona%20o%20PGRCC%20na%20minha%20obra.%20Cidade%3A%20____%20%7C%20Fase%20da%20obra%3A%20____%20%7C%20Prazo%20desejado%3A%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Entender como funciona no meu caso
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- PRAZOS + CHECKLIST -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+
+      <!-- Prazos -->
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a construtora</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <div class="space-y-4">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do PGRCC</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          O prazo depende do tipo e da fase da obra, do acesso as informações e das exigências do município/contratante.
+        </p>
+        <div class="space-y-3 mb-5">
           {[
-            { icon: 'tabler:shield-check', text: 'Aprovação de projetos e alvarás sem pendências ambientais relacionadas à gestão de resíduos' },
-            { icon: 'tabler:clock', text: 'Agilidade no processo de aprovação com documentação técnica correta desde o protocolo' },
-            { icon: 'tabler:coins', text: 'Redução de custos com destinação ao priorizar a reciclagem e o reaproveitamento de resíduos Classe A e B' },
-            { icon: 'tabler:scale', text: 'Eliminação do risco de responsabilidade civil por descarte irregular durante ou após a obra' },
-          ].map(({ icon, text }) => (
-            <div class="flex items-start gap-4">
+            { prazo: 'PGRCC (elaboração)', tempo: '5 a 15 dias' },
+            { prazo: 'PGRCC + implantação', tempo: '10 a 30 dias' },
+          ].map(({ prazo, tempo }) => (
+            <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
               <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+                <Icon name="tabler:clock" class="w-5 h-5 text-[#3a8d44]" />
               </div>
-              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+              <div>
+                <span class="text-xs font-bold text-[#1a3044] block">{prazo}</span>
+                <span class="text-base font-black text-[#3a8d44]">{tempo}</span>
+              </div>
             </div>
           ))}
         </div>
+        <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-5">
+          <p class="text-xs text-orange-700 font-semibold mb-1">O que pode impactar o prazo:</p>
+          <ul class="space-y-1">
+            {[
+              'Falta de informações da obra (área, cronograma, atividades)',
+              'Mudança de escopo ou fase durante o processo',
+              'Dependência de documentação de transportador/destinador',
+              'Exigências específicas de análise do município ou contratante',
+            ].map((item) => (
+              <li class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-orange-500 flex-shrink-0 mt-1" />
+                <span class="text-xs text-orange-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20estimar%20o%20prazo%20do%20meu%20PGRCC.%20Cidade%3A%20____%20%7C%20Tipo%20de%20obra%3A%20____%20%7C%20%C3%81rea%20aprox.%20(m%C2%B2)%3A%20____%20%7C%20Fase%3A%20____%20%7C%20Prazo%20desejado%3A%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Estimar prazo do meu PGRCC
+        </a>
       </div>
 
+      <!-- Checklist da obra -->
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <div class="space-y-4">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Para orçamento rápido</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que precisamos da sua obra</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Com essas informações, enviamos uma proposta precisa e sem vai-e-volta.
+        </p>
+        <div class="space-y-2 mb-5">
           {[
-            { icon: 'tabler:map-pin', text: 'Conhecimento das exigências específicas de cada município atendido em Minas Gerais' },
-            { icon: 'tabler:certificate', text: 'PGRCC elaborado por engenheiro ambiental habilitado, com emissão de ART' },
-            { icon: 'tabler:clock', text: 'Prazos de entrega compatíveis com o cronograma de aprovação da obra' },
-            { icon: 'tabler:refresh', text: 'Disponibilidade para revisão do plano em caso de alteração de projeto ou escopo da obra' },
-          ].map(({ icon, text }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
-              </div>
-              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            'Dados do responsável/empresa',
+            'Endereço da obra (cidade/UF)',
+            'Tipo de obra (nova, reforma, ampliação ou demolição)',
+            'Área aproximada (m²) e número de pavimentos (se aplicável)',
+            'Fase atual da obra e prazo estimado de conclusão',
+            'Se há terraplenagem ou demolição',
+            'Se existe exigência de órgão/contratante e qual',
+            'Se deseja apenas o plano ou plano + implantação no canteiro',
+            'Se precisa de protocolo e acompanhamento (serviço adicional)',
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600 leading-snug">{item}</p>
             </div>
           ))}
         </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20enviar%20informa%C3%A7%C3%B5es%20para%20or%C3%A7amento%20de%20PGRCC.%20Obra%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Tipo%3A%20____%20%7C%20%C3%81rea%20(m%C2%B2)%3A%20____%20%7C%20Fase%3A%20____%20%7C%20Exig%C3%AAncia%3F%20____%20%7C%20Plano%20ou%20Plano%2BImplanta%C3%A7%C3%A3o%3F%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Enviar informações para orçamento
+        </a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas frequentes</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre PGRCC</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-3">
+        {[
+          {
+            q: 'PGRCC é obrigatório?',
+            a: 'Depende das regras do município e do tipo/porte da obra. É frequentemente exigido em licenças, alvarás, condicionantes e contratos. Mesmo quando não obrigatório, é a forma mais segura de comprovar controle e destinação adequada dos resíduos.',
+          },
+          {
+            q: 'PGRCC é diferente de PGRS?',
+            a: 'Sim. O PGRCC é específico para resíduos da construção civil (obras, reformas e demolições). O PGRS costuma abranger resíduos de atividades em geral, dependendo do gerador e do enquadramento. Se a sua demanda for de obra, avaliamos qual documento se aplica — ou se faz sentido integrar os dois.',
+          },
+          {
+            q: 'Vocês fazem implantação no canteiro?',
+            a: 'Sim, quando contratada. A implantação inclui orientação prática, treinamento da equipe e encarregados, checklists operacionais e estruturação de evidências. O objetivo é que a rotina funcione no dia a dia da obra, não só no papel.',
+          },
+          {
+            q: 'Vocês protocolam o PGRCC na prefeitura ou órgão?',
+            a: 'Pode ser incluído como serviço adicional, conforme as exigências locais. Avaliamos a necessidade e incluímos na proposta quando aplicável.',
+          },
+          {
+            q: 'Vocês indicam caçambas e destinadores de resíduos?',
+            a: 'Orientamos os critérios e a documentação mínima que transportadores e destinadores precisam ter (licenças, autorizações, CTR/MTR). A contratação é feita pela obra; a Triaxis pode apoiar na validação documental.',
+          },
+          {
+            q: 'Emite ART?',
+            a: 'Sim, quando aplicável ao escopo contratado e/ou exigido por órgão ambiental, prefeitura ou contratante.',
+          },
+          {
+            q: 'Dá para fazer o PGRCC de forma remota?',
+            a: 'Sim. Para a maioria dos casos, o levantamento e feito via questionário estruturado e fotos enviadas pelo cliente. A visita ao canteiro e recomendada para obras de maior complexidade ou quando exigida pelo contratante.',
+          },
+          {
+            q: 'Vocês atendem a minha cidade?',
+            a: 'A Triaxis atende remotamente em todo o Brasil e presencialmente até 300 km a partir de Ouro Preto/MG, incluindo Belo Horizonte, Contagem, Betim, Itabirito, Ouro Preto e Mariana.',
+          },
+          {
+            q: 'Quanto custa um PGRCC?',
+            a: 'Depende do tipo de obra, área, complexidade e se inclui implantação. Enviamos proposta após as informações básicas da obra — sem compromisso.',
+          },
+          {
+            q: 'O PGRCC garante aprovação pela prefeitura ou pelo contratante?',
+            a: 'Não. A aprovação depende da análise do órgão ou contratante. O que garantimos é um documento tecnicamente fundamentado, alinhado às exigências locais e com evidências organizadas para suportar qualquer avaliação.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-[#1a3044] text-sm hover:bg-slate-50 transition-colors">
+              {q}
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
   <section class="bg-[#1a3044] py-16 px-4">
     <div class="max-w-3xl mx-auto text-center tx-fade">
-      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Obra em conformidade desde o início</p>
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Organize os resíduos da obra</p>
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-        Solicite a elaboração do PGRCC para o seu empreendimento.
+        Evite problema em obra: organize os resíduos desde o início
       </h2>
       <p class="text-slate-300 mb-8 leading-relaxed">
-        A Triaxis elabora o plano com base nas características reais da obra e nas exigências do município, com prazo compatível com o cronograma de aprovação do projeto.
+        O PGRCC certo reduz risco de multa, paralisação e retrabalho.
+        Melhor organizar agora do que correr atrás quando a fiscalizacao chegar,
+        e ela chega sem avisar.
+        A Triaxis entrega o plano e, se você quiser, implanta a rotina no canteiro com sua equipe.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20elaboração%20de%20PGRCC."
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20PGRCC.%20Obra%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20Plano%20ou%20Plano%2BImplanta%C3%A7%C3%A3o%3F%20____"
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Falar com especialista
+          Solicitar orçamento de PGRCC
         </a>
-        <a href="/contact"
+        <a href="https://wa.me/5531994915126"
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
-          Enviar mensagem
+          Falar com a Triaxis
         </a>
       </div>
+      <p class="text-slate-400 text-xs">
+        Atendimento presencial ate 300 km (base: Ouro Preto/MG) e remoto para todo o Brasil.
+        Belo Horizonte, Contagem, Betim, Itabirito, Ouro Preto, Mariana e região.
+      </p>
     </div>
   </section>
 
