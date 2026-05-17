@@ -6,8 +6,8 @@ import { headerData, footerData } from '~/navigation';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Plano de Gerenciamento de Resíduos Sólidos (PGRS) | Triaxis Consultoria',
-  description: 'Elaboração e implantação do PGRS para empresas em Minas Gerais. Conformidade com a PNRS, classificação de resíduos, destinação adequada e gestão documental. Triaxis Consultoria.',
+  title: 'PGRS com Implantação | Plano de Gerenciamento de Resíduos Sólidos | Triaxis',
+  description: 'Elaboração de PGRS com implantação prática: rotina, controles e evidências para conformidade e fiscalização. Presencial em MG e remoto no Brasil.',
 };
 ---
 
@@ -32,81 +32,119 @@ const metadata = {
     <div class="max-w-3xl mx-auto">
       <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
       <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
-        Plano de Gerenciamento de Resíduos Sólidos
+        PGRS com implantação:<br class="hidden md:block" />
+        <span class="text-[#6fcf7f]">gestão de resíduos executável e pronta para fiscalização</span>
       </h1>
       <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
-      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Elaboração técnica do PGRS em conformidade com a Política Nacional de Resíduos Sólidos (Lei 12.305/2010). Classificação, destinação adequada, rastreabilidade documental e suporte à implantação.
+      <p class="text-lg text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">
+        A Triaxis elabora o Plano de Gerenciamento de Resíduos Sólidos e, se você quiser, apoia a implantação prática da rotina, com controles e evidências organizadas.
+        Atendimento presencial em Minas Gerais e remoto para todo o Brasil.
       </p>
+      <p class="text-sm text-slate-400 italic mb-6">Serviço técnico sem "plano de gaveta" — foco em rotina, controle, conformidade e comprovação.</p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {[
+          { icon: 'tabler:clipboard-check', text: 'PGRS alinhado às exigências do órgão, prefeitura e/ou contratante' },
+          { icon: 'tabler:recycle', text: 'Rotina de resíduos com procedimentos simples e executáveis' },
+          { icon: 'tabler:folder-check', text: 'Evidências organizadas para auditoria e fiscalização' },
+          { icon: 'tabler:certificate', text: 'ART emitida quando aplicável ao escopo' },
+        ].map(({ icon, text }) => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/10">
+            <Icon name={icon} class="w-4 h-4 text-[#6fcf7f]" />
+            {text}
+          </span>
+        ))}
+      </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20elaboração%20de%20PGRS."
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20PGRS%20(com%20ou%20sem%20implanta%C3%A7%C3%A3o).%20Empresa%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20Possui%20licen%C3%A7a%3F%20____"
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Solicitar proposta
+          Solicitar orçamento de PGRS
         </a>
-        <a href="#como-atuamos"
+        <a href="https://wa.me/5531994915126"
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
-          Como funciona
+          Falar com a Triaxis
         </a>
       </div>
     </div>
   </section>
 
-  <!-- INTRODUÇÃO -->
+  <!-- QUANDO PRECISA -->
   <section class="bg-white py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
-      <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o PGRS e por que sua empresa precisa</h2>
-        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          O Plano de Gerenciamento de Resíduos Sólidos é um instrumento legal obrigatório para empresas geradoras de resíduos, previsto na Lei Federal 12.305/2010. Define responsabilidades, procedimentos e metas para a geração, acondicionamento, coleta, transporte, tratamento e destinação final dos resíduos produzidos pela atividade.
-        </p>
-        <p class="text-slate-600 leading-relaxed">
-          A ausência do PGRS ou sua elaboração inadequada expõe a empresa a autuações, multas e restrições em processos de licenciamento. A Triaxis elabora o plano com base no inventário real dos resíduos gerados, nas exigências do órgão ambiental competente e nas normas da ABNT.
-        </p>
-      </div>
-      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Quem é obrigado ao PGRS</p>
-        <div class="space-y-4">
-          {[
-            { icon: 'tabler:building-factory', label: 'Indústrias e manufaturados', desc: 'Geradoras de resíduos industriais Classes I e II' },
-            { icon: 'tabler:building-store', label: 'Estabelecimentos comerciais', desc: 'Conforme porte e tipo de resíduo gerado' },
-            { icon: 'tabler:heartbeat', label: 'Serviços de saúde', desc: 'RSS com exigências específicas de segregação e descarte' },
-            { icon: 'tabler:bulldozer', label: 'Construtoras e incorporadoras', desc: 'Obrigadas ao PGRCC conforme legislação municipal' },
-          ].map(({ icon, label, desc }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">Quando sua empresa precisa de um PGRS?</h2>
+          <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            O PGRS e recomendado (e muitas vezes exigido) para empresas que precisam organizar, comprovar e manter controle sobre os resíduos gerados na atividade.
+          </p>
+          <div class="space-y-3 mb-6">
+            {[
+              'Exigência de órgão ambiental, prefeitura, licenciamento ou renovação',
+              'Exigência de contratante (obras, indústria, mineração, cadeia de fornecedores)',
+              'Falta de padrão na rotina ("cada um faz de um jeito")',
+              'Necessidade de comprovar destinação adequada e manter documentos em dia',
+              'Documentação desorganizada ou incompleta (manifestos/CTR, certificados, contratos)',
+              'Crescimento da operação, mudança de endereço, ampliação ou nova atividade',
+              'Adequações internas após auditoria, ocorrência, notificação ou fiscalização',
+            ].map((item) => (
+              <div class="flex items-start gap-3">
+                <Icon name="tabler:circle-check-filled" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+                <p class="text-sm text-slate-600 leading-snug">{item}</p>
               </div>
-              <div>
-                <p class="text-sm font-bold text-[#1a3044]">{label}</p>
-                <p class="text-xs text-slate-500">{desc}</p>
+            ))}
+          </div>
+          <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20confirmar%20se%20minha%20empresa%20precisa%20de%20PGRS.%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20Setor%3A%20____"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shadow-md">
+            <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+            Ver se minha empresa precisa de PGRS
+          </a>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Segmentos que mais atendemos</p>
+          <div class="space-y-4">
+            {[
+              { icon: 'tabler:car', label: 'Oficinas, auto centers e lava-jatos', desc: 'Resíduos perigosos, óleos, filtros e embalagens contaminadas' },
+              { icon: 'tabler:crane', label: 'Construtoras e empreiteiras', desc: 'Resíduos de obra, entulho, madeiras e materiais mistos' },
+              { icon: 'tabler:building-factory', label: 'Indústrias, metalúrgicas e serralherias', desc: 'Sucatas, carepa, fluidos de corte e resíduos industriais' },
+              { icon: 'tabler:truck', label: 'Logística, transportadoras e mineração', desc: 'Resíduos operacionais e exigências de conformidade contratual' },
+            ].map(({ icon, label, desc }) => (
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                  <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-[#1a3044]">{label}</p>
+                  <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RISCOS -->
+  <!-- CONSEQUÊNCIAS -->
   <section class="bg-slate-50 py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
         <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Atenção</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Consequências da não conformidade</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Consequências de operar sem PGRS adequado</h2>
         <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Riscos concretos para empresas sem PGRS atualizado e implantado.</p>
+        <p class="text-slate-500 text-sm">Riscos concretos para empresas sem plano atualizado e implantado.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { icon: 'tabler:receipt-tax', text: 'Multas administrativas por ausência ou inadequação do plano de gerenciamento' },
-          { icon: 'tabler:ban', text: 'Bloqueio ou não renovação de licenças ambientais por pendência no PGRS' },
-          { icon: 'tabler:file-x', text: 'Irregularidade no Manifesto de Transporte de Resíduos (MTR) por ausência de base documental' },
-          { icon: 'tabler:alert-circle', text: 'Responsabilidade solidária por destinação inadequada de resíduos por terceiros' },
-          { icon: 'tabler:building-bank', text: 'Restrições em processos de due diligence, certificações e acesso a financiamentos' },
+          { icon: 'tabler:receipt-tax', text: 'Multas administrativas por ausência, desatualização ou inadequação do plano' },
+          { icon: 'tabler:ban', text: 'Bloqueio ou negativa de renovação de licença ambiental por pendência no PGRS' },
+          { icon: 'tabler:file-x', text: 'Irregularidade no Manifesto de Transporte de Resíduos (MTR/CTR) por falta de base documental' },
+          { icon: 'tabler:alert-circle', text: 'Responsabilidade solidária por destinação inadequada feita por terceiros contratados' },
+          { icon: 'tabler:building-bank', text: 'Perda de contratos com clientes e contratantes que exigem comprovação de conformidade' },
         ].map(({ icon, text }) => (
           <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
             <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
@@ -119,115 +157,296 @@ const metadata = {
     </div>
   </section>
 
-  <!-- COMO ATUAMOS -->
-  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
-    <div class="max-w-4xl mx-auto tx-fade">
-      <div class="text-center mb-12">
-        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis elabora o PGRS</h2>
-        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-300 text-sm">Processo técnico estruturado, com levantamento in loco, classificação normativa e entregáveis completos.</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {[
-          {
-            num: '01',
-            titulo: 'Inventário de resíduos',
-            desc: 'Levantamento de todos os resíduos gerados pela atividade, com identificação por processo, quantidade estimada, estado físico e frequência de geração.',
-          },
-          {
-            num: '02',
-            titulo: 'Classificação conforme ABNT NBR 10.004',
-            desc: 'Classificação técnica de cada resíduo em Classe I (perigosos) ou Classe II (não perigosos), com base nas características físico-químicas e nos anexos normativos.',
-          },
-          {
-            num: '03',
-            titulo: 'Definição de destinação e responsabilidades',
-            desc: 'Indicação de transportadores e destinadores licenciados para cada tipo de resíduo, com definição de responsabilidades internas e procedimentos operacionais.',
-          },
-          {
-            num: '04',
-            titulo: 'Elaboração do plano e apoio à implantação',
-            desc: 'Redação do PGRS conforme exigências do órgão licenciador, com orientação para implantação dos procedimentos e controle documental via MTR.',
-          },
-        ].map(({ num, titulo, desc }) => (
-          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
-            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
-            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ENTREGÁVEIS -->
+  <!-- O QUE A TRIAXIS ENTREGA -->
   <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
         <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a Triaxis entrega no PGRS</h2>
         <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 max-w-xl mx-auto text-sm">
+          Pacote completo, adaptado à realidade da sua empresa. Sem modelo genérico.
+        </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          {
-            icon: 'tabler:clipboard-list',
-            titulo: 'PGRS completo',
-            desc: 'Documento técnico elaborado conforme as exigências legais e do órgão licenciador competente.',
-          },
-          {
-            icon: 'tabler:table',
-            titulo: 'Inventário de resíduos',
-            desc: 'Planilha detalhada com classificação, quantidade e frequência de geração de cada resíduo.',
-          },
-          {
-            icon: 'tabler:route',
-            titulo: 'Fluxo de destinação',
-            desc: 'Mapeamento dos fluxos de cada resíduo até a destinação final, com transportadores e destinadores indicados.',
-          },
-          {
-            icon: 'tabler:file-certificate',
-            titulo: 'Modelo de MTR',
-            desc: 'Orientação e modelos para emissão do Manifesto de Transporte de Resíduos no sistema SINIR ou estadual.',
-          },
-          {
-            icon: 'tabler:book',
-            titulo: 'Procedimentos operacionais',
-            desc: 'Instruções internas para acondicionamento, segregação, identificação e movimentação de resíduos.',
-          },
-          {
-            icon: 'tabler:headset',
-            titulo: 'Suporte técnico',
-            desc: 'Atendimento para dúvidas durante a implantação e orientação em eventuais exigências do órgão ambiental.',
-          },
-        ].map(({ icon, titulo, desc }) => (
-          <div class="p-6 rounded-2xl border border-slate-100 bg-slate-50">
-            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center mb-4">
-              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Fase 1 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center">
+              <span class="text-xs font-black text-[#6fcf7f]">01</span>
             </div>
-            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
-            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+            <h3 class="font-bold text-[#1a3044] text-sm">Diagnóstico e levantamento</h3>
           </div>
-        ))}
+          <div class="space-y-2">
+            {[
+              'Entendimento do processo/atividade e pontos de geração',
+              'Levantamento dos resíduos e estimativas por evidências (compras, notas, histórico)',
+              'Avaliação das rotinas atuais (segregação, armazenamento, coleta)',
+              'Checagem documental básica: o que existe e o que falta',
+            ].map((item) => (
+              <div class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-[#3a8d44] flex-shrink-0 mt-1" />
+                <p class="text-xs text-slate-600 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fase 2 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center">
+              <span class="text-xs font-black text-[#6fcf7f]">02</span>
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-sm">Elaboração do PGRS</h3>
+          </div>
+          <div class="space-y-2">
+            {[
+              'Estrutura conforme exigências aplicáveis (município/estado/contratante)',
+              'Diretrizes de segregação, acondicionamento, identificação e armazenamento',
+              'Fluxo de movimentação interna e externa de resíduos',
+              'Diretrizes de destinação adequada e rastreabilidade documental',
+              'Definição de responsabilidades e controles operacionais',
+              'Matriz de resíduos (origem, classe, destino, responsável e evidências)',
+              'Lista de registros e evidências para auditoria e fiscalização',
+            ].map((item) => (
+              <div class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-[#3a8d44] flex-shrink-0 mt-1" />
+                <p class="text-xs text-slate-600 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fase 3 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-[#3a8d44]/30 relative">
+          <div class="absolute -top-3 right-4">
+            <span class="bg-[#3a8d44] text-white text-xs font-bold px-3 py-1 rounded-full">Recomendado</span>
+          </div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#3a8d44] flex items-center justify-center">
+              <span class="text-xs font-black text-white">03</span>
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-sm">Implantação (opcional)</h3>
+          </div>
+          <div class="space-y-2">
+            {[
+              'Checklists e procedimentos operacionais simples para a rotina',
+              'Orientação prática sobre evidências: como organizar pastas e registros',
+              'Treinamento rápido da equipe (presencial ou online)',
+              'Indicadores de controle e melhoria (geração, segregação, custos)',
+            ].map((item) => (
+              <div class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-[#3a8d44] flex-shrink-0 mt-1" />
+                <p class="text-xs text-slate-600 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Bônus -->
+      <div class="bg-[#1a3044]/5 border border-[#1a3044]/10 rounded-2xl p-6 mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <Icon name="tabler:gift" class="w-5 h-5 text-[#3a8d44]" />
+          <h3 class="font-bold text-[#1a3044] text-sm">Bônus (quando aplicável)</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+            <p class="text-sm text-slate-600">Modelo de planilha de controle de resíduos e evidências</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+            <p class="text-sm text-slate-600">Checklist "pronto para fiscalização" (auditoria interna rapida)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
+        <p class="text-xs text-amber-700 leading-relaxed">
+          <span class="font-bold">Observacao importante:</span> A implantação inclui orientação, treinamento e organização de controles.
+          Adequações físicas, contratação de coletores/destinadores e a operação logística são responsabilidades do cliente (a Triaxis pode apoiar com critérios e especificações).
+        </p>
+      </div>
+
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20receber%20o%20escopo%20completo%20do%20PGRS%20(Elabora%C3%A7%C3%A3o%20%2B%20op%C3%A7%C3%A3o%20de%20Implanta%C3%A7%C3%A3o).%20Empresa%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Atividade%3A%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Receber escopo completo do PGRS
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- BENEFÍCIOS + DIFERENCIAIS -->
-  <section class="bg-slate-50 py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+  <!-- COMO FUNCIONA -->
+  <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o PGRS na prática (passo a passo)</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Processo simples, organizado e sem burocracia desnecessária.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {[
+          { num: '01', titulo: 'Reunião inicial', desc: 'Online ou presencial para entender a operação, atividades, resíduos e urgência' },
+          { num: '02', titulo: 'Levantamento de informações', desc: 'Questionário + visita técnica quando necessário; solicitação de documentos e dados' },
+          { num: '03', titulo: 'Elaboração do PGRS', desc: 'Conforme realidade da empresa, exigências aplicáveis e boas práticas de gestão' },
+          { num: '04', titulo: 'Validação e ajustes', desc: 'Envio do rascunho para revisão e alinhamento com o cliente antes da entrega final' },
+          { num: '05', titulo: 'Entrega da versão final', desc: 'PDF + anexos, planilhas e modelos inclusos conforme escopo contratado' },
+          { num: '06', titulo: 'Implantação e treinamento', desc: 'Quando contratado: orientação da equipe, checklists operacionais e organização de evidências' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-6 border border-white/10">
+            <span class="text-2xl font-black text-[#6fcf7f] opacity-70 mb-2 block">{num}</span>
+            <h3 class="text-white font-bold text-sm mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20entender%20como%20funciona%20o%20PGRS%20no%20meu%20caso.%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20Precisa%20protocolar%3F%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Entender como funciona no meu caso
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- PRAZOS + CHECKLIST -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+
+      <!-- Prazos -->
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do PGRS</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          O prazo varia conforme o porte e a complexidade da operação.
+          O cronograma final e confirmado após o levantamento inicial e o recebimento das informações mínimas.
+        </p>
+        <div class="space-y-3 mb-5">
+          {[
+            { prazo: 'PGRS (elaboração)', tempo: '7 a 20 dias' },
+            { prazo: 'PGRS + implantação', tempo: '15 a 45 dias' },
+          ].map(({ prazo, tempo }) => (
+            <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name="tabler:clock" class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <span class="text-xs font-bold text-[#1a3044] block">{prazo}</span>
+                <span class="text-base font-black text-[#3a8d44]">{tempo}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-5">
+          <p class="text-xs text-orange-700 font-semibold mb-1">O que pode impactar o prazo:</p>
+          <ul class="space-y-1">
+            {[
+              'Necessidade de complementar informações ou documentos',
+              'Operações com muitos tipos de resíduos e frentes de trabalho',
+              'Dependência de terceiros (destinadores, transportadores, contratos)',
+            ].map((item) => (
+              <li class="flex items-start gap-2">
+                <Icon name="tabler:point-filled" class="w-3 h-3 text-orange-500 flex-shrink-0 mt-1" />
+                <span class="text-xs text-orange-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20estimar%20prazo%20do%20meu%20PGRS.%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20Complexidade%3A%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Estimar prazo do meu PGRS
+        </a>
+      </div>
+
+      <!-- O que precisamos -->
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Para orçamento rápido</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que precisamos da sua empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Com essas informações, enviamos uma proposta mais precisa e rápida.
+        </p>
+        <div class="space-y-2 mb-5">
+          {[
+            'Razão social e CNPJ',
+            'Endereço e atividade (CNAE, se tiver)',
+            'Quantidade aproximada de funcionários e turnos',
+            'Principais resíduos gerados (se souber; se não souber, sem problema)',
+            'Existe licenciamento, condicionante ou exigência de contratante?',
+            'Quer apenas o PGRS ou PGRS + implantação?',
+            'Necessita de visita presencial? (sim/não/nao sei)',
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600 leading-snug">{item}</p>
+            </div>
+          ))}
+        </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20enviar%20informa%C3%A7%C3%B5es%20para%20or%C3%A7amento%20de%20PGRS.%20Empresa%3A%20____%20%7C%20CNPJ%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20Funcion%C3%A1rios%3A%20____%20%7C%20Res%C3%ADduos%3A%20____%20%7C%20PGRS%20ou%20PGRS%2BImplanta%C3%A7%C3%A3o%3A%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Enviar informações para orçamento
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- O QUE NAO INCLUI + POR QUE TRIAXIS -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+
+      <!-- Não inclui -->
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Para evitar surpresas depois. Alguns custos e serviços dependem de terceiros ou da estrutura do cliente.
+        </p>
+        <div class="space-y-2">
+          {[
+            'Adequações físicas (baias de armazenamento, sinalizacao, containment)',
+            'Contratação de coletores, transportadores e destinadores licenciados',
+            'Análises laboratoriais de classificacao de resíduos',
+            'Projeto de layout de armazenamento (quando exigido por órgão)',
+            'Taxas e emolumentos de protocolo junto a órgãos',
+            'ART de terceiros (quando não emitida pela Triaxis)',
+            'Operação logística de coleta e destinação',
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600 leading-snug">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Por que Triaxis -->
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que confiar na Triaxis para seu PGRS</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
         <div class="space-y-4">
           {[
-            { icon: 'tabler:shield-check', text: 'Conformidade com a PNRS e com as condicionantes do licenciamento ambiental' },
-            { icon: 'tabler:coins', text: 'Redução de custos com descarte por meio de estratégias de reaproveitamento e reciclagem' },
-            { icon: 'tabler:scale', text: 'Eliminação de responsabilidade solidária por destinação indevida de resíduos' },
-            { icon: 'tabler:star', text: 'Melhora no desempenho ambiental e na imagem da empresa perante clientes e certificadoras' },
+            { icon: 'tabler:clipboard-check', text: 'PGRS elaborado conforme as exigências reais do órgão, prefeitura e/ou contratante' },
+            { icon: 'tabler:certificate', text: 'ART emitida quando aplicável ao escopo e/ou exigida por órgão ou auditoria' },
+            { icon: 'tabler:users', text: 'Integração com segurança do trabalho e visão de processos — documento mais completo e coerente com a operação' },
+            { icon: 'tabler:map-pin', text: 'Atendimento presencial em Minas Gerais (Ouro Preto, Mariana, BH e região) e remoto no Brasil' },
+            { icon: 'tabler:refresh', text: 'Suporte pós-entrega: 7 dias para duvidas + opção de assessoria continua para revisões e atualizações' },
           ].map(({ icon, text }) => (
             <div class="flex items-start gap-4">
               <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
@@ -239,52 +458,102 @@ const metadata = {
         </div>
       </div>
 
-      <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <div class="space-y-4">
-          {[
-            { icon: 'tabler:certificate', text: 'PGRS elaborado por profissionais habilitados, com ART/RRT quando exigido pelo órgão' },
-            { icon: 'tabler:map-pin', text: 'Conhecimento das exigências específicas de SUPRAM, SEMAD e órgãos municipais em Minas Gerais' },
-            { icon: 'tabler:settings', text: 'Orientação prática para implantação dos procedimentos internos sem impactar a rotina operacional' },
-            { icon: 'tabler:refresh', text: 'Suporte para revisão e atualização periódica do plano conforme mudanças na atividade ou na legislação' },
-          ].map(({ icon, text }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
-              </div>
-              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+    </div>
+  </section>
 
+  <!-- FAQ -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas frequentes</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre PGRS</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-3">
+        {[
+          {
+            q: 'O PGRS serve para qualquer empresa?',
+            a: 'Depende da atividade, porte e exigências locais/contratuais. É muito comum em comércio, serviços, obras e industria, especialmente quando há necessidade de comprovar destinação e manter evidências organizadas. A melhor forma de saber é fazer uma triagem inicial — sem custo.',
+          },
+          {
+            q: 'Qual a diferença entre PGRS e PGRCC?',
+            a: 'O PGRS trata da gestão de resíduos da empresa/atividade como um todo. O PGRCC é específico para resíduos da construção civil (obras e demolições). Se a sua demanda for de obra, avaliamos qual documento se aplica ao caso — ou se faz sentido integrar os dois.',
+          },
+          {
+            q: 'Vocês fazem apenas o documento ou também a implantação?',
+            a: 'Fazemos os dois. A implantação evita que o PGRS vire "documento de gaveta", ajudando a equipe a executar a rotina e manter os registros adequados para auditoria e fiscalização.',
+          },
+          {
+            q: 'Vocês protocolam o PGRS junto ao órgão ou prefeitura?',
+            a: 'Podemos incluir protocolo e acompanhamento como serviço adicional, conforme as regras do município/estado e a necessidade do cliente. Isso é avaliado na proposta.',
+          },
+          {
+            q: 'Vocês indicam empresas de coleta e destinação de resíduos?',
+            a: 'Orientamos os critérios e a documentação mínima que os fornecedores precisam ter (licenças, autorizações, evidências). Quando possível, ajudamos na organizacao e validação documental deles.',
+          },
+          {
+            q: 'Emite ART?',
+            a: 'Sim, quando aplicável ao escopo contratado e/ou exigido por órgão ambiental, contratante ou auditoria.',
+          },
+          {
+            q: 'Dá para fazer todo o trabalho de forma remota?',
+            a: 'Sim. Para a maioria dos casos, o levantamento é feito via questionário estruturado, fotos e documentos enviados pelo cliente. A visita presencial é recomendada para operações mais complexas ou quando exigida pelo órgão.',
+          },
+          {
+            q: 'Vocês atendem a minha cidade?',
+            a: 'A Triaxis atende remotamente em todo o Brasil e presencialmente até 300 km a partir de Ouro Preto/MG, incluindo Belo Horizonte, Contagem, Betim, Itabirito, Ouro Preto e Mariana.',
+          },
+          {
+            q: 'Quanto custa um PGRS?',
+            a: 'O valor depende do porte da empresa, quantidade de tipos de resíduos, complexidade da operação e se inclui implantação. Enviamos uma proposta após receber as informações basicas. Sem compromisso.',
+          },
+          {
+            q: 'O PGRS garante aprovação pelo órgão ou pelo contratante?',
+            a: 'Não garantimos aprovação, pois ela depende da analise de terceiros (órgão, contratante, auditor). O que garantimos é um documento tecnicamente fundamentado, alinhado às exigências aplicáveis e com evidências organizadas para suportar qualquer avaliação.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-[#1a3044] text-sm hover:bg-slate-100 transition-colors">
+              {q}
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
   <section class="bg-[#1a3044] py-16 px-4">
     <div class="max-w-3xl mx-auto text-center tx-fade">
-      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Regularize a gestão de resíduos</p>
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Organize seus resíduos</p>
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-        Solicite a elaboração do PGRS da sua empresa.
+        Organize seus resíduos com um PGRS que funciona na prática
       </h2>
       <p class="text-slate-300 mb-8 leading-relaxed">
-        A Triaxis elabora o plano com base no inventário real dos resíduos gerados, nas exigências do órgão licenciador e nas normas técnicas aplicáveis.
+        Se você precisa regularizar, organizar e comprovar a gestao de resíduos, o PGRS e um passo essencial.
+        Ele precisa ser executável, nao apenas um documento bonito no papel.
+        A Triaxis entrega o plano e, se você quiser, implanta a rotina com sua equipe para manter conformidade e evidências em dia.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20elaboração%20de%20PGRS."
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20or%C3%A7amento%20de%20PGRS.%20Empresa%3A%20____%20%7C%20Cidade%3A%20____%20%7C%20Atividade%3A%20____%20%7C%20PGRS%20ou%20PGRS%2BImplanta%C3%A7%C3%A3o%3A%20____"
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Falar com especialista
+          Solicitar orçamento de PGRS
         </a>
-        <a href="/contact"
+        <a href="https://wa.me/5531994915126"
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
-          Enviar mensagem
+          Falar com a Triaxis
         </a>
       </div>
+      <p class="text-slate-400 text-xs">
+        Atendimento presencial ate 300 km (base: Ouro Preto/MG) e remoto para todo o Brasil.
+      </p>
     </div>
   </section>
 
