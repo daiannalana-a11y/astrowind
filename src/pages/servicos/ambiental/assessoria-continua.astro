@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Assessoria Ambiental Contínua | Triaxis Consultoria',
-  description: 'Acompanhamento ambiental recorrente em Ouro Preto, Mariana e Belo Horizonte. Controle de prazos, licenças, resíduos e documentação durante o ano todo.',
+  description: 'Acompanhamento ambiental recorrente em Ouro Preto, Mariana e Belo Horizonte. Controle de prazos, licenças, condicionantes, resíduos e documentação durante o ano todo. Triaxis Consultoria.',
 };
 ---
 
@@ -23,31 +23,44 @@ const metadata = {
       <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
       <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
       <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
-      <span class="text-[#1a3044] font-semibold">Assessoria Contínua</span>
+      <span class="text-[#1a3044] font-semibold">Assessoria Ambiental Contínua</span>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="bg-[#1a3044] py-20 px-4 text-center">
     <div class="max-w-3xl mx-auto">
-      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Serviço Recorrente</p>
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
       <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
-        Assessoria Ambiental Contínua
+        Assessoria Ambiental Contínua: conformidade o ano todo
       </h1>
       <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
       <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Acompanhamento recorrente em Ouro Preto, Mariana, Belo Horizonte e região. Controle de prazos, licenças, condicionantes, resíduos e documentação com rotina, relatórios e suporte em fiscalização.
+        Acompanhamento recorrente em Ouro Preto, Mariana, Belo Horizonte e região: controle de prazos, licenças, condicionantes, resíduos e documentação com rotina, relatórios e suporte em fiscalização.
       </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Diagnóstico inicial + plano de ação',
+          'Rotina mensal com checklists, evidências e prazos',
+          'Visitas presenciais quando necessárias (conforme plano)',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20um%20diagnóstico%20gratuito%20de%20Assessoria%20Ambiental%20Contínua."
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20fazer%20um%20diagnóstico%20rápido%20sobre%20a%20situação%20ambiental%20da%20minha%20empresa."
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Quero um diagnóstico gratuito
+          Diagnóstico rápido no WhatsApp
         </a>
-        <a href="#planos"
+        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20Assessoria%20Ambiental%20Contínua."
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
-          Ver planos
+          Solicitar proposta (24h)
         </a>
       </div>
     </div>
@@ -57,48 +70,63 @@ const metadata = {
   <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entenda o serviço</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é Assessoria Ambiental Contínua?</h2>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é Assessoria Ambiental Contínua</h2>
         <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
         <p class="text-slate-600 leading-relaxed mb-4">
-          Serviço <strong>recorrente</strong> de consultoria ambiental para manter sua empresa em conformidade ao longo do ano, com rotina definida, controle de prazos, organização de evidências e suporte técnico contínuo.
+          Assessoria Ambiental Contínua é um serviço recorrente de consultoria ambiental para manter a empresa regular ao longo do ano, com rotina estruturada, controle de prazos, organização de evidências e suporte técnico permanente. É o suporte técnico disponível antes que o prazo vença ou a fiscalização chegue.
         </p>
         <p class="text-slate-600 leading-relaxed mb-6">
-          A empresa conta com suporte técnico permanente, sem depender de acionamentos pontuais quando a licença está vencendo ou quando há fiscalização. A Triaxis acompanha antes de o problema acontecer.
+          Em vez de agir de forma reativa, a empresa passa a ter acompanhamento periódico, documentação organizada e um plano de conformidade em execução contínua.
         </p>
         <div class="space-y-3">
           {[
             'Acompanhamento técnico periódico (remoto e/ou presencial)',
             'Controle de licenças, prazos e condicionantes',
-            'Organização de resíduos e documentação (evidências)',
+            'Organização de resíduos e documentação com evidências',
             'Orientação para auditorias e fiscalizações',
           ].map(item => (
             <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
               </div>
-              <p class="text-sm text-slate-700">{item}</p>
+              <p class="text-sm text-slate-600">{item}</p>
             </div>
           ))}
         </div>
       </div>
       <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Atendemos em</p>
-        <div class="space-y-4">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">Sem assessoria contínua</p>
+        <div class="space-y-3 mb-6">
           {[
-            { city: 'Ouro Preto', desc: 'Sede + região minerária' },
-            { city: 'Mariana', desc: 'Sede + entorno' },
-            { city: 'Belo Horizonte', desc: 'RMBH e Grande BH' },
-            { city: 'Todo o Brasil', desc: 'Modalidade remota' },
-          ].map(({ city, desc }) => (
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-                <Icon name="tabler:map-pin" class="w-4 h-4 text-[#3a8d44]" />
+            'Licença vence e ninguém acompanhou',
+            'Condicionantes sem evidência organizada',
+            'Resíduos sem rotina nem documentação',
+            'Fiscalização chega sem preparação',
+            'Adequações feitas às pressas e com custo elevado',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:x" class="w-3 h-3 text-red-400" />
               </div>
-              <div>
-                <p class="text-sm font-bold text-[#1a3044]">{city}</p>
-                <p class="text-xs text-slate-500">{desc}</p>
+              <p class="text-xs text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">Com assessoria contínua</p>
+        <div class="space-y-3">
+          {[
+            'Prazos controlados com antecedência',
+            'Evidências organizadas e acessíveis',
+            'Rotina de resíduos documentada',
+            'Fiscalização com orientação técnica prévia',
+            'Conformidade com previsibilidade de prazo e custo',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
               </div>
+              <p class="text-xs text-slate-600">{item}</p>
             </div>
           ))}
         </div>
@@ -106,67 +134,84 @@ const metadata = {
     </div>
   </section>
 
-  <!-- PARA QUEM É INDICADA -->
+  <!-- PARA QUEM É -->
   <section class="bg-slate-50 py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Público-alvo</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Para quem é indicada?</h2>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Indicação</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Para quem a Assessoria Ambiental Contínua é indicada</h2>
         <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Indicado para empresas que precisam de conformidade ambiental contínua sem estruturar equipe interna própria.</p>
+        <p class="text-slate-500 text-sm">Ideal para empresas que precisam de conformidade constante e querem previsibilidade de prazo, custo e organização.</p>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        {[
-          { icon: 'tabler:car', label: 'Oficinas, funilarias, autocenters e lava-jatos' },
-          { icon: 'tabler:building-community', label: 'Construtoras e prestadores de obra' },
-          { icon: 'tabler:tool', label: 'Pequenas indústrias, metalúrgicas e serralherias' },
-          { icon: 'tabler:truck', label: 'Transportadoras, logística e CDs' },
-          { icon: 'tabler:mountain', label: 'Prestadores de serviços para mineração' },
-          { icon: 'tabler:tools-kitchen-2', label: 'Restaurantes e bares' },
-          { icon: 'tabler:stethoscope', label: 'Clínicas de saúde' },
-          { icon: 'tabler:building', label: 'Outros segmentos com obrigações ambientais' },
-        ].map(({ icon, label }) => (
-          <div class="bg-white rounded-2xl p-5 border border-slate-100 flex flex-col items-center text-center gap-3 shadow-sm">
-            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center">
-              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
-            </div>
-            <p class="text-xs font-semibold text-[#1a3044] leading-snug">{label}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">Segmentos atendidos</p>
+          <div class="space-y-3">
+            {[
+              { icon: 'tabler:car', text: 'Oficinas mecânicas, funilarias, auto centers e lava-jatos' },
+              { icon: 'tabler:building-factory', text: 'Pequenas indústrias, metalúrgicas e serralherias' },
+              { icon: 'tabler:bulldozer', text: 'Construtoras, empreiteiras, terraplenagem e prestadores de obra' },
+              { icon: 'tabler:truck', text: 'Transportadoras, logística e centros de distribuição' },
+              { icon: 'tabler:mountain', text: 'Prestadores de serviços para o setor de mineração' },
+            ].map(({ icon, text }) => (
+              <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                  <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+                </div>
+                <p class="text-sm text-slate-600">{text}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <div>
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">Situações que indicam necessidade</p>
+          <div class="space-y-3">
+            {[
+              'Licença vencendo e nenhum responsável acompanhou o prazo',
+              'Condicionantes exigidas sem evidência organizada para comprovação',
+              'Resíduos sem rotina definida de armazenamento, coleta e destinação',
+              'Crescimento da operação sem adequação ambiental correspondente',
+              'Risco de fiscalização, autuação ou paralisação das atividades',
+            ].map(item => (
+              <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-l-4 border-l-orange-400 border-slate-100">
+                <Icon name="tabler:alert-triangle" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <p class="text-sm text-slate-600">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- O QUE VOCÊ RECEBE -->
+  <!-- ENTREGÁVEIS -->
   <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
         <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que você recebe</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe na Assessoria Ambiental Contínua</h2>
         <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Entregáveis objetivos, aplicáveis à rotina operacional da empresa, com registros utilizáveis em auditoria e fiscalização.</p>
+        <p class="text-slate-500 text-sm">Entregáveis práticos e aplicáveis à rotina da operação, sem relatórios genéricos desconectados da realidade da empresa.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { icon: 'tabler:clipboard-check', title: 'Diagnóstico inicial', desc: 'Situação atual + prioridades mapeadas' },
-          { icon: 'tabler:list-check', title: 'Matriz de obrigações', desc: 'Por atividade e localidade' },
-          { icon: 'tabler:route', title: 'Plano de ação', desc: 'Curto, médio e longo prazo' },
-          { icon: 'tabler:calendar-check', title: 'Calendário de compliance', desc: 'Controle de prazos, licenças e condicionantes' },
-          { icon: 'tabler:folder-check', title: 'Rotinas e checklists', desc: 'O que guardar, como e onde' },
-          { icon: 'tabler:recycle', title: 'Plano básico de resíduos', desc: 'Orientações e padronização interna' },
-          { icon: 'tabler:report', title: 'Relatórios periódicos', desc: 'Mensal ou bimestral, conforme plano' },
-          { icon: 'tabler:shield-check', title: 'Orientação para fiscalizações', desc: 'Pré e pós-fiscalização' },
-          { icon: 'tabler:message-circle', title: 'Suporte remoto', desc: 'WhatsApp/e-mail em horário comercial' },
-          { icon: 'tabler:building-bank', title: 'Interface com órgãos', desc: 'Quando aplicável ao escopo' },
-        ].map(({ icon, title, desc }) => (
-          <div class="flex items-start gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50">
-            <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-              <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+          { icon: 'tabler:stethoscope', titulo: 'Diagnóstico ambiental inicial', desc: 'Levantamento da situação atual com identificação de prioridades e riscos' },
+          { icon: 'tabler:list-check', titulo: 'Mapeamento de obrigações', desc: 'Obrigações aplicáveis por atividade, porte e localidade' },
+          { icon: 'tabler:timeline', titulo: 'Plano de ação de conformidade', desc: 'Ações definidas para curto, médio e longo prazo' },
+          { icon: 'tabler:calendar-stats', titulo: 'Calendário de compliance', desc: 'Controle de prazos, licenças e condicionantes com alertas' },
+          { icon: 'tabler:clipboard-list', titulo: 'Checklists de evidências', desc: 'O que guardar, como e onde para comprovar conformidade' },
+          { icon: 'tabler:trash', titulo: 'Plano básico de gestão de resíduos', desc: 'Orientações e padronização interna de rotina de resíduos' },
+          { icon: 'tabler:file-report', titulo: 'Relatórios periódicos', desc: 'Mensal ou bimestral conforme o plano contratado' },
+          { icon: 'tabler:eye', titulo: 'Orientação para fiscalizações', desc: 'Apoio técnico antes e após visitas de órgãos ambientais' },
+          { icon: 'tabler:message-circle', titulo: 'Suporte remoto contínuo', desc: 'Atendimento via WhatsApp e e-mail em horário comercial' },
+          { icon: 'tabler:building-bank', titulo: 'Interface com órgãos e terceiros', desc: 'Quando aplicável ao escopo e à localidade' },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center mb-3">
+              <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
             </div>
-            <div>
-              <p class="text-sm font-bold text-[#1a3044]">{title}</p>
-              <p class="text-xs text-slate-500">{desc}</p>
-            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
@@ -178,55 +223,54 @@ const metadata = {
     <div class="max-w-4xl mx-auto tx-fade">
       <div class="text-center mb-12">
         <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona a Assessoria Ambiental Contínua</h2>
         <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-300 text-sm">O cliente fornece acesso às informações da operação. A Triaxis estrutura o método, define a rotina e conduz o processo.</p>
+        <p class="text-slate-300 text-sm">A empresa fornece informações e acesso. A Triaxis aplica método, rotina e organização.</p>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Fase 1 -->
-        <div class="bg-white/10 rounded-2xl p-8 border border-white/10">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-[#3a8d44] flex items-center justify-center text-white font-black text-lg">1</div>
-            <div>
-              <p class="text-xs text-[#6fcf7f] font-bold uppercase tracking-wider">Fase 1</p>
-              <p class="text-white font-bold text-lg">Setup: Implantação</p>
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-8 h-8 rounded-full bg-[#3a8d44] flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-xs font-black">1</span>
             </div>
+            <h3 class="text-white font-bold text-base">Fase 1: Setup (Implantação)</h3>
           </div>
           <div class="space-y-3">
             {[
-              'Reunião inicial (objetivo, operação, histórico)',
-              'Levantamento documental e diagnóstico',
-              'Matriz de obrigações (licenças, prazos, resíduos)',
-              'Plano de ação + cronograma priorizado',
-              'Organização do dossiê ambiental',
-            ].map(item => (
-              <div class="flex items-start gap-3">
-                <div class="w-1.5 h-1.5 rounded-full bg-[#3a8d44] mt-2 flex-shrink-0"></div>
-                <p class="text-sm text-slate-300">{item}</p>
+              'Reunião inicial: objetivo, operação, histórico e prioridades',
+              'Levantamento documental e diagnóstico do que existe e do que falta',
+              'Matriz de obrigações: licenças, prazos, condicionantes e resíduos',
+              'Plano de ação e cronograma com prioridades definidas',
+              'Organização do dossiê ambiental com padrão de evidências',
+            ].map((item, i) => (
+              <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4 border border-white/10">
+                <span class="text-[#6fcf7f] font-black text-sm flex-shrink-0">{i + 1}.</span>
+                <p class="text-slate-300 text-sm">{item}</p>
               </div>
             ))}
           </div>
         </div>
+
         <!-- Fase 2 -->
-        <div class="bg-white/10 rounded-2xl p-8 border border-white/10">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-black text-lg">2</div>
-            <div>
-              <p class="text-xs text-orange-400 font-bold uppercase tracking-wider">Fase 2</p>
-              <p class="text-white font-bold text-lg">Rotina: Recorrência</p>
+        <div>
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-xs font-black">2</span>
             </div>
+            <h3 class="text-white font-bold text-base">Fase 2: Rotina (Recorrência)</h3>
           </div>
           <div class="space-y-3">
             {[
-              'Check-in periódico (mensal ou bimestral)',
-              'Atualização de prazos e pendências',
-              'Registro e organização de evidências',
-              'Relatório do período + próximos passos',
-              'Suporte contínuo para demandas e fiscalizações',
-            ].map(item => (
-              <div class="flex items-start gap-3">
-                <div class="w-1.5 h-1.5 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
-                <p class="text-sm text-slate-300">{item}</p>
+              'Check-in periódico mensal ou bimestral conforme plano',
+              'Atualização de prazos e pendências com registro de evidências',
+              'Relatório do período com resumo e próximos passos',
+              'Suporte contínuo para fiscalizações, dúvidas e adequações',
+            ].map((item, i) => (
+              <div class="flex items-start gap-3 bg-white/10 rounded-xl p-4 border border-white/10">
+                <span class="text-orange-400 font-black text-sm flex-shrink-0">{i + 6}.</span>
+                <p class="text-slate-300 text-sm">{item}</p>
               </div>
             ))}
           </div>
@@ -236,144 +280,111 @@ const metadata = {
   </section>
 
   <!-- PLANOS -->
-  <section id="planos" class="bg-slate-50 py-16 px-4">
+  <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
         <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Planos</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Escolha o nível de acompanhamento</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Planos de Assessoria Ambiental Contínua</h2>
         <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">A diferença entre os planos está no nível de acompanhamento e presença em campo. Contratos de 3, 6 ou 12 meses.</p>
+        <p class="text-slate-500 text-sm">Contratos de 3, 6 ou 12 meses. O objetivo é o mesmo: conformidade com previsibilidade.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Essencial -->
-        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Plano 1</p>
-          <h3 class="text-xl font-black text-[#1a3044] mb-1">Essencial</h3>
-          <p class="text-xs text-slate-500 mb-6 font-medium">100% Remoto</p>
-          <div class="space-y-3 flex-1 mb-8">
-            {[
-              'Setup + check-ins remotos',
+        {[
+          {
+            plano: 'Essencial',
+            tipo: 'Remoto',
+            desc: 'Para empresas com operação estável e necessidade de organização e controle de prazos.',
+            items: [
+              'Setup inicial + diagnóstico',
+              'Check-ins remotos periódicos',
               'Controle de prazos e condicionantes',
               'Relatório periódico',
-              'Suporte técnico remoto (horário comercial)',
-            ].map(item => (
-              <div class="flex items-start gap-2">
-                <Icon name="tabler:check" class="w-4 h-4 text-[#3a8d44] mt-0.5 flex-shrink-0" />
-                <p class="text-sm text-slate-600">{item}</p>
-              </div>
-            ))}
-            <div class="flex items-start gap-2 opacity-50">
-              <Icon name="tabler:x" class="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" />
-              <p class="text-sm text-slate-400">Visita presencial (pode ser contratada à parte)</p>
-            </div>
-          </div>
-          <a href="https://wa.me/5531994915126?text=Quero%20saber%20mais%20sobre%20o%20Plano%20Essencial%20de%20Assessoria%20Ambiental."
-            target="_blank" rel="noopener noreferrer"
-            class="block text-center border-2 border-[#3a8d44] text-[#3a8d44] hover:bg-[#3a8d44] hover:text-white font-bold py-3 rounded-full text-sm transition-colors">
-            Me interessa
-          </a>
-        </div>
-
-        <!-- Padrão -->
-        <div class="bg-[#1a3044] rounded-2xl p-8 shadow-lg flex flex-col relative">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="bg-orange-500 text-white text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">Mais escolhido</span>
-          </div>
-          <p class="text-xs font-bold text-[#6fcf7f] uppercase tracking-widest mb-2">Plano 2</p>
-          <h3 class="text-xl font-black text-white mb-1">Padrão</h3>
-          <p class="text-xs text-slate-400 mb-6 font-medium">Híbrido sob demanda</p>
-          <div class="space-y-3 flex-1 mb-8">
-            {[
-              'Tudo do Plano Essencial',
-              'Visita presencial quando necessária para execução',
-              'Melhor para operações com rotina de resíduos',
-              'Evidência em campo quando exigido',
-            ].map(item => (
-              <div class="flex items-start gap-2">
-                <Icon name="tabler:check" class="w-4 h-4 text-[#6fcf7f] mt-0.5 flex-shrink-0" />
-                <p class="text-sm text-slate-300">{item}</p>
-              </div>
-            ))}
-          </div>
-          <a href="https://wa.me/5531994915126?text=Quero%20saber%20mais%20sobre%20o%20Plano%20Padrão%20de%20Assessoria%20Ambiental."
-            target="_blank" rel="noopener noreferrer"
-            class="block text-center bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold py-3 rounded-full text-sm transition-colors">
-            Me interessa
-          </a>
-        </div>
-
-        <!-- Premium -->
-        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col">
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Plano 3</p>
-          <h3 class="text-xl font-black text-[#1a3044] mb-1">Premium</h3>
-          <p class="text-xs text-slate-500 mb-6 font-medium">Híbrido com mais presença</p>
-          <div class="space-y-3 flex-1 mb-8">
-            {[
-              'Tudo do Plano Padrão',
+              'Suporte técnico remoto em horário comercial',
+            ],
+            obs: 'Visita presencial não inclusa. Pode ser contratada separadamente quando necessário.',
+            destaque: false,
+          },
+          {
+            plano: 'Padrão',
+            tipo: 'Híbrido sob demanda',
+            desc: 'Para operações com rotina de resíduos e necessidade de evidências em campo.',
+            items: [
+              'Tudo do plano Essencial',
+              'Visita presencial quando necessária para execução do serviço',
+              'Indicado para empresas com movimentação de resíduos e exigências de campo',
+            ],
+            obs: 'Visitas presenciais dependem de agenda, localidade e necessidade técnica.',
+            destaque: true,
+          },
+          {
+            plano: 'Premium',
+            tipo: 'Híbrido com mais presença',
+            desc: 'Para empresas com maior volume, risco elevado, múltiplas frentes ou histórico de fiscalização.',
+            items: [
+              'Tudo do plano Padrão',
               'Maior disponibilidade de agenda',
               'Acompanhamento mais próximo e frequente',
-              'Ideal para empresas com maior risco ou volume',
-              'Indicado para histórico de fiscalização ou várias frentes',
-            ].map(item => (
-              <div class="flex items-start gap-2">
-                <Icon name="tabler:check" class="w-4 h-4 text-[#3a8d44] mt-0.5 flex-shrink-0" />
-                <p class="text-sm text-slate-600">{item}</p>
-              </div>
-            ))}
+              'Indicado para empresas com várias frentes ou histórico de fiscalização',
+            ],
+            obs: 'Recomendado para operações de maior porte ou com passivos ambientais ativos.',
+            destaque: false,
+          },
+        ].map(({ plano, tipo, desc, items, obs, destaque }) => (
+          <div class={`rounded-2xl p-7 border ${destaque ? 'border-[#3a8d44] bg-green-50 ring-2 ring-[#3a8d44]/20' : 'border-slate-100 bg-slate-50'}`}>
+            {destaque && <span class="inline-block text-xs font-bold text-[#3a8d44] uppercase tracking-wider bg-green-100 px-3 py-1 rounded-full mb-4">Mais escolhido</span>}
+            <h3 class="text-lg font-black text-[#1a3044] mb-1">{plano}</h3>
+            <p class="text-xs text-[#3a8d44] font-bold uppercase tracking-wider mb-3">{tipo}</p>
+            <p class="text-xs text-slate-500 mb-5">{desc}</p>
+            <div class="space-y-2 mb-5">
+              {items.map(item => (
+                <div class="flex items-start gap-2">
+                  <Icon name="tabler:check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+                  <p class="text-xs text-slate-600">{item}</p>
+                </div>
+              ))}
+            </div>
+            <p class="text-xs text-slate-400 italic border-t border-slate-200 pt-4">{obs}</p>
           </div>
-          <a href="https://wa.me/5531994915126?text=Quero%20saber%20mais%20sobre%20o%20Plano%20Premium%20de%20Assessoria%20Ambiental."
-            target="_blank" rel="noopener noreferrer"
-            class="block text-center border-2 border-[#3a8d44] text-[#3a8d44] hover:bg-[#3a8d44] hover:text-white font-bold py-3 rounded-full text-sm transition-colors">
-            Me interessa
-          </a>
-        </div>
+        ))}
       </div>
-      <p class="text-center text-xs text-slate-400 mt-6">⚠️ Visitas presenciais dependem de agenda, localidade e necessidade técnica. Recomendamos contratos de 6+ meses para consolidar rotina.</p>
+      <p class="text-center text-xs text-slate-400 mt-6">Contratos disponíveis em 3, 6 ou 12 meses. Recomendado 6 meses ou mais para consolidar rotina.</p>
+      <div class="flex justify-center mt-6">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20ajuda%20para%20escolher%20o%20plano%20(Essencial%2FPadrão%2FPremium)%20e%20o%20prazo%20(3%2F6%2F12%20meses).%20Minha%20cidade%20é%20____%20e%20meu%20segmento%20é%20____."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Me ajudar a escolher o plano
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- PRAZOS + O QUE NÃO INCLUI -->
-  <section class="bg-white py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+  <!-- PRAZOS + O QUE NÃO INCLUI (lado a lado) -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
 
-      <!-- Prazos -->
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Cronograma</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazos típicos</h2>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazos típicos do setup</h2>
         <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <p class="text-sm text-slate-500 mb-6">O setup inicial é executado nos primeiros dias. A consistência do processo se consolida ao longo dos meses de contrato.</p>
-        <div class="space-y-3 mb-6">
+        <p class="text-slate-600 text-sm mb-5">A assessoria é contínua. O setup inicial costuma ser rápido; a maturidade vem com a rotina.</p>
+        <div class="space-y-3">
           {[
-            { label: 'Setup simples', prazo: '7 a 15 dias' },
-            { label: 'Setup médio', prazo: '15 a 30 dias' },
-            { label: 'Casos complexos', prazo: 'Acima de 30 dias' },
-          ].map(({ label, prazo }) => (
-            <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100">
-              <p class="text-sm font-semibold text-[#1a3044]">{label}</p>
-              <span class="text-xs font-bold text-[#3a8d44] bg-green-50 px-3 py-1 rounded-full">{prazo}</span>
+            { prazo: '7 a 15 dias', desc: 'Setup simples: documentação básica disponível e operação sem passivos relevantes' },
+            { prazo: '15 a 30 dias', desc: 'Setup médio: documentação parcial, licenças com pendências e organização inicial necessária' },
+            { prazo: 'Acima de 30 dias', desc: 'Casos complexos: passivos antigos, dependência de órgãos, análises laboratoriais ou terceiros' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
             </div>
           ))}
         </div>
-        <p class="text-xs text-slate-400 font-medium mb-2">Pode atrasar se houver:</p>
-        <ul class="space-y-1">
-          {[
-            'Falta de documentos e histórico',
-            'Pendências antigas ou licença vencida há muito tempo',
-            'Dependência de análises laboratoriais ou terceiros',
-            'Prazos e exigências do órgão ambiental local',
-          ].map(item => (
-            <li class="flex items-start gap-2 text-xs text-slate-500">
-              <Icon name="tabler:alert-triangle" class="w-3.5 h-3.5 text-orange-400 mt-0.5 flex-shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
+        <p class="text-xs text-slate-400 mt-4 italic">Pode atrasar se houver falta de documentos, licença vencida há muito tempo, dependência de análises laboratoriais ou exigências do órgão ambiental local.</p>
       </div>
 
-      <!-- O que não inclui -->
       <div>
-        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Atenção</p>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
         <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
         <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
         <div class="space-y-3">
@@ -381,13 +392,66 @@ const metadata = {
             'Taxas e emolumentos de órgãos ambientais',
             'Análises laboratoriais e monitoramentos externos',
             'Obras, adequações físicas e projetos executivos',
-            'Transporte e destinação de resíduos (contratos com destinadores)',
-            'Custos de sistemas/cadastros exigidos por órgão ou terceiros',
-            'ART/RRT de terceiros e serviços fora do escopo',
-            'Multas e penalidades aplicadas por órgãos',
+            'Transporte e destinação de resíduos e contratos com destinadores',
+            'Custos de sistemas e cadastros exigidos por órgão ou terceiros',
+            'ART e RRT de terceiros e serviços fora do escopo contratado',
+            'Multas e penalidades aplicadas por órgãos ambientais',
           ].map(item => (
-            <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl">
-              <Icon name="tabler:x" class="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- O QUE PRECISAMOS + VARIAÇÕES -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Documentação</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que precisamos da sua empresa</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 text-sm mb-5">Conformidade é construída em parceria. Sem informação estruturada, o processo de adequação fica mais longo e mais caro.</p>
+        <div class="space-y-2">
+          {[
+            'CNPJ, endereço e responsável legal',
+            'CNAE e descrição da atividade real (como opera na prática)',
+            'Licenças e autorizações existentes com condicionantes',
+            'Plantas, layout, croqui ou fotos do processo (se disponíveis)',
+            'Informações de resíduos: tipos, frequência e volumes estimados',
+            'Contatos de fornecedores de coleta, destinação e laboratório',
+            'Histórico de fiscalização, autos ou notificações (se existir)',
+            'Responsável interno para contato e validações ao longo do processo',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Localidade</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Variações por órgão e localidade em Minas Gerais</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 text-sm mb-5">As exigências ambientais variam por município, órgão licenciador e tipo de atividade.</p>
+        <div class="space-y-3">
+          {[
+            'Critérios e documentos exigidos variam entre Ouro Preto, Mariana, BH e demais municípios da região',
+            'Órgãos estaduais (SUPRAM, SEMAD) e municipais têm fluxos e formulários próprios',
+            'Atividades vinculadas à mineração costumam ter exigências específicas e prazos mais rigorosos',
+            'O nível de regularidade atual da empresa influencia diretamente os prazos e a sequência de adequação',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <Icon name="tabler:map-pin" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
               <p class="text-sm text-slate-600">{item}</p>
             </div>
           ))}
@@ -405,25 +469,65 @@ const metadata = {
         <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes</h2>
         <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
       </div>
-      <div class="space-y-3" id="faq">
+      <div class="space-y-4">
         {[
-          { q: 'Vocês atendem minha cidade?', a: 'Presencialmente em todo o estado de Minas Gerais e remotamente em todo o Brasil.' },
-          { q: 'Dá pra fazer tudo remoto?', a: 'Sim. Grande parte do acompanhamento é remoto. Visitas presenciais são feitas quando necessárias para a execução do serviço.' },
-          { q: 'Qual a diferença entre os planos?', a: 'Principalmente o nível de acompanhamento e a frequência de visitas presenciais. O diagnóstico inicial ajuda a identificar qual se encaixa melhor na sua realidade.' },
-          { q: 'Quanto custa?', a: 'O valor depende do porte, risco, atividade e situação atual da empresa. A proposta é elaborada após um diagnóstico rápido e gratuito.' },
-          { q: 'Tem contrato mínimo?', a: 'Sim, o contrato mínimo é de 3 meses. Recomendamos 6 meses ou mais para consolidar a rotina.' },
-          { q: 'Tenho licença vencida ou pendência antiga. Vocês ajudam?', a: 'Sim. Elaboramos plano de ação e conduzimos o processo de regularização. A aprovação depende do órgão ambiental e do atendimento às exigências técnicas.' },
-          { q: 'O serviço garante aprovação ou emissão de licença?', a: 'Não. A decisão é do órgão ambiental, condicionada ao cumprimento das exigências. A Triaxis garante o suporte técnico e a condução adequada do processo.' },
-          { q: 'Emitem ART?', a: 'Quando aplicável ao serviço e conforme o escopo contratado, sim.' },
-          { q: 'Como funcionam as visitas presenciais?', a: 'São agendadas quando necessárias para a execução do serviço, conforme plano, região e demanda técnica.' },
-          { q: 'Serve para pequena empresa?', a: 'Sim. Trabalhamos com empresas de diferentes portes, sempre com foco em organização de evidências e orientação técnica proporcional à realidade do cliente.' },
-        ].map(({ q, a }, i) => (
-          <details class="faq-item bg-white rounded-xl border border-slate-100 overflow-hidden group">
-            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-[#1a3044] text-sm">
-              {q}
-              <Icon name="tabler:chevron-down" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 transition-transform group-open:rotate-180" />
+          {
+            p: 'Vocês atendem minha cidade?',
+            r: 'Sim. O atendimento presencial é realizado nas regiões de Ouro Preto, Mariana e Belo Horizonte. O acompanhamento remoto cobre todo o estado de Minas Gerais.',
+          },
+          {
+            p: 'É possível fazer a assessoria de forma remota?',
+            r: 'Sim. Grande parte do acompanhamento é realizado remotamente. A visita presencial é prevista nos planos que incluem essa necessidade, conforme o escopo e a localidade.',
+          },
+          {
+            p: 'Qual a diferença entre os planos?',
+            r: 'A diferença está principalmente no nível de acompanhamento e na disponibilidade de visitas presenciais. O plano Essencial é totalmente remoto; o Padrão prevê visitas quando necessárias para execução; o Premium oferece maior proximidade e disponibilidade para operações de maior risco ou volume.',
+          },
+          {
+            p: 'Quanto custa a assessoria?',
+            r: 'O valor depende do porte da empresa, da atividade, do nível de risco e da situação ambiental atual. A proposta é apresentada após um diagnóstico inicial, em até 24 horas.',
+          },
+          {
+            p: 'Existe prazo mínimo de contrato?',
+            r: 'Sim. Os contratos são disponíveis em 3, 6 ou 12 meses. Para a consolidação da rotina e dos resultados, o prazo recomendado é de 6 meses ou mais.',
+          },
+          {
+            p: 'Se a empresa tiver licença vencida ou pendência antiga, vocês ajudam?',
+            r: 'Sim. A Triaxis elabora o plano de ação e conduz o processo de regularização. Não há garantia de aprovação, pois esta depende do órgão ambiental e do atendimento às exigências aplicáveis.',
+          },
+          {
+            p: 'A assessoria garante aprovação de licença?',
+            r: 'Não. A aprovação é decisão do órgão ambiental competente. A Triaxis garante o processo técnico: diagnóstico correto, documentação adequada e acompanhamento em cada etapa.',
+          },
+          {
+            p: 'É emitida ART para o serviço?',
+            r: 'Quando aplicável ao escopo do serviço e exigido pelo órgão, sim.',
+          },
+          {
+            p: 'Como funcionam as visitas presenciais?',
+            r: 'As visitas são agendadas conforme o plano contratado, a necessidade técnica e a região. Dependem de disponibilidade de agenda e são programadas em conjunto com a empresa.',
+          },
+          {
+            p: 'O serviço é indicado para pequenas empresas?',
+            r: 'Sim. A assessoria é dimensionada para o porte e a realidade de cada empresa. Pequenas empresas, em geral, têm escopo mais objetivo e custo proporcionalmente menor.',
+          },
+          {
+            p: 'A Triaxis auxilia em caso de fiscalização?',
+            r: 'Sim. A assessoria inclui orientação técnica antes e após fiscalizações, com organização de evidências e apoio para resposta a notificações.',
+          },
+          {
+            p: 'A assessoria inclui segurança do trabalho?',
+            r: 'A Triaxis atua também na área de Segurança do Trabalho. Quando faz sentido para o contexto da empresa, os serviços podem ser integrados.',
+          },
+        ].map(({ p, r }) => (
+          <details class="bg-white rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
             </summary>
-            <p class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">{a}</p>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
           </details>
         ))}
       </div>
@@ -432,27 +536,50 @@ const metadata = {
 
   <!-- POR QUE TRIAXIS -->
   <section class="bg-white py-16 px-4">
-    <div class="max-w-4xl mx-auto tx-fade">
-      <div class="text-center mb-10">
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Nossos diferenciais</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Por que escolher a Triaxis?</h2>
-        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Processo estruturado, comunicação objetiva e rotina definida para sua empresa manter a conformidade com previsibilidade.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          { icon: 'tabler:checklist', title: 'Processo estruturado', desc: 'Checklists e calendário de compliance para não perder nenhum prazo.' },
-          { icon: 'tabler:folder-open', title: 'Evidências organizadas', desc: 'Documentação pronta para auditoria ou fiscalização a qualquer momento.' },
-          { icon: 'tabler:message-2', title: 'Comunicação objetiva', desc: 'Relatórios e orientações em linguagem direta. O cliente sabe o que está pendente e qual a próxima ação.' },
-        ].map(({ icon, title, desc }) => (
-          <div class="text-center p-8 bg-slate-50 rounded-2xl border border-slate-100">
-            <div class="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
-              <Icon name={icon} class="w-6 h-6 text-[#3a8d44]" />
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que confiar na Triaxis</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:list-check', text: 'Processo estruturado com checklists e calendário de compliance' },
+            { icon: 'tabler:folder-open', text: 'Organização de evidências pronta para auditoria e fiscalização' },
+            { icon: 'tabler:message-circle', text: 'Comunicação direta e objetiva, sem linguagem inacessível' },
+            { icon: 'tabler:map-pin', text: 'Atuação local em Ouro Preto, Mariana e Belo Horizonte' },
+            { icon: 'tabler:shield-check', text: 'Integração com Segurança do Trabalho quando necessário' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
             </div>
-            <h3 class="text-base font-bold text-[#1a3044] mb-2">{title}</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">{desc}</p>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <!-- AUTOAVALIAÇÃO -->
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-2">Autoavaliação</p>
+        <h3 class="text-lg font-bold text-[#1a3044] mb-5">Sua empresa precisa de Assessoria Ambiental Contínua?</h3>
+        <div class="space-y-3">
+          {[
+            'Tenho controle de prazos e condicionantes?',
+            'Sei exatamente quais licenças e autorizações preciso manter?',
+            'Tenho evidências organizadas: documentos, registros, fotos e comprovantes?',
+            'Os resíduos têm rotina definida de armazenamento, coleta e destinação?',
+            'Já recebi fiscalização ou notificação, ou tenho risco de receber?',
+            'Tenho responsável interno para apoiar o processo ambiental?',
+            'Quero reduzir riscos e parar de agir de forma reativa?',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded border-2 border-slate-300 flex-shrink-0 mt-0.5"></div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-slate-400 mt-5 italic">Se você respondeu "não" a três ou mais perguntas, o risco de irregularidade é real. A assessoria contínua é o caminho mais eficiente para regularizar.</p>
       </div>
     </div>
   </section>
@@ -460,19 +587,19 @@ const metadata = {
   <!-- CTA FINAL -->
   <section class="bg-[#1a3044] py-16 px-4">
     <div class="max-w-3xl mx-auto text-center tx-fade">
-      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Pronto para começar?</p>
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Evite surpresas ambientais</p>
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-        O diagnóstico inicial é gratuito.
+        Comece a organizar a conformidade ambiental da sua empresa agora.
       </h2>
       <p class="text-slate-300 mb-8 leading-relaxed">
-        Em uma conversa inicial, levantamos a situação atual da empresa, identificamos as prioridades e indicamos o plano mais adequado ao perfil da operação.
+        Quanto antes a rotina e as evidências estiverem estruturadas, menor o risco de autuação e menor o custo de adequação. A Triaxis monta o plano de acompanhamento adequado ao porte e à situação atual da empresa.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20um%20diagnóstico%20gratuito%20de%20Assessoria%20Ambiental%20Contínua."
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20fazer%20um%20diagnóstico%20rápido%20sobre%20a%20situação%20ambiental%20da%20minha%20empresa."
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Agendar diagnóstico gratuito
+          Diagnóstico rápido no WhatsApp
         </a>
         <a href="/contact"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
@@ -484,7 +611,3 @@ const metadata = {
 
   <Footer {...footerData} />
 </Layout>
-
-<style>
-  details summary::-webkit-details-marker { display: none; }
-</style>
