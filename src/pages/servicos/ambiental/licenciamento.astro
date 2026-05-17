@@ -6,8 +6,8 @@ import { headerData, footerData } from '~/navigation';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Licenciamento e Regularização Ambiental | Triaxis Consultoria',
-  description: 'Licenciamento ambiental em Minas Gerais com planejamento técnico, acompanhamento junto aos órgãos competentes e suporte contínuo. Triaxis Consultoria.',
+  title: 'Licenciamento Ambiental em MG (Regularização e Renovação) | Ouro Preto, Mariana e BH',
+  description: 'Regularize ou renove o licenciamento ambiental da sua empresa em Minas Gerais. Checklist, cronograma e acompanhamento claro do diagnóstico ao protocolo. Triaxis Consultoria.',
 };
 ---
 
@@ -32,183 +32,479 @@ const metadata = {
     <div class="max-w-3xl mx-auto">
       <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
       <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
-        Licenciamento e Regularização Ambiental
+        Licenciamento Ambiental em MG<br class="hidden md:block" />
+        <span class="text-[#6fcf7f]">(Regularização e Renovação)</span>
       </h1>
       <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
-      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Segurança jurídica e conformidade ambiental para sua empresa. Planejamento técnico, organização documental e acompanhamento junto aos órgãos competentes em cada etapa do processo.
+      <p class="text-lg text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">
+        Regularize sua empresa e evite dor de cabeça com fiscalização, embargo e prazos estourando.
+        A Triaxis cuida do seu Licenciamento Ambiental com organização, clareza e foco em conformidade.
       </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {[
+          { icon: 'tabler:map-pin', text: 'Presencial até 300 km (base: Ouro Preto/MG) e remoto' },
+          { icon: 'tabler:checklist', text: 'Checklists + comunicação periódica do andamento' },
+          { icon: 'tabler:building-factory', text: 'Integração com segurança do trabalho e visão de processos' },
+        ].map(({ icon, text }) => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/10">
+            <Icon name={icon} class="w-4 h-4 text-[#6fcf7f]" />
+            {text}
+          </span>
+        ))}
+      </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20para%20Licenciamento%20Ambiental."
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20licenciamento%20ambiental%20(regulariza%C3%A7%C3%A3o/renova%C3%A7%C3%A3o)%20em%20MG.%20Minha%20empresa%20%C3%A9%20de%20[SEGMENTO]%20em%20[CIDADE]."
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Solicitar proposta
+          Falar no WhatsApp e avaliar meu caso
         </a>
-        <a href="#como-atuamos"
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Pode%20me%20passar%20um%20or%C3%A7amento%20para%20licenciamento%20ambiental%20em%20[CIDADE]%3F%20Tenho%20CNPJ%20e%20a%20atividade%20%C3%A9%20[ATIVIDADE]."
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
-          Como funciona
+          Pedir orçamento rápido
         </a>
       </div>
     </div>
   </section>
 
-  <!-- INTRODUÇÃO -->
+  <!-- O QUE É LICENCIAMENTO -->
   <section class="bg-white py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center tx-fade">
-      <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Contexto</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">Por que o licenciamento exige atenção técnica</h2>
-        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          O licenciamento ambiental é um dos processos mais exigentes da gestão empresarial. Envolve múltiplos órgãos, prazos específicos, documentação técnica e atendimento a condicionantes que variam conforme a atividade e a localidade.
-        </p>
-        <p class="text-slate-600 leading-relaxed">
-          A Triaxis conduz o processo com planejamento técnico, organização documental e acompanhamento direto junto aos órgãos competentes, reduzindo o risco de negativas, inconsistências e atrasos desnecessários.
-        </p>
-      </div>
-      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Tipos de licença que atendemos</p>
-        <div class="space-y-4">
-          {[
-            { sigla: 'LP', nome: 'Licença Prévia', desc: 'Aprovação da viabilidade e localização do empreendimento' },
-            { sigla: 'LI', nome: 'Licença de Instalação', desc: 'Autorização para implantação conforme projeto aprovado' },
-            { sigla: 'LO', nome: 'Licença de Operação', desc: 'Autorização para início e continuidade das atividades' },
-            { sigla: 'LR', nome: 'Renovação de Licença', desc: 'Manutenção da regularidade antes do vencimento' },
-          ].map(({ sigla, nome, desc }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                <span class="text-xs font-black text-[#3a8d44]">{sigla}</span>
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entenda o processo</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é licenciamento ambiental e por que sua empresa precisa?</h2>
+          <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Licenciamento ambiental é o processo que autoriza a localização, instalação e/ou operação de atividades que possam gerar impacto ambiental.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Na prática: é a licença (ou regularização) que comprova que sua empresa está em conformidade com o órgão ambiental e com as regras aplicáveis ao seu porte, atividade e localidade.
+          </p>
+          <div class="space-y-3 mb-8">
+            {[
+              { icon: 'tabler:file-check', label: 'Regularização', desc: 'quando a empresa ainda não tem licença válida ou mudou atividade/endereço' },
+              { icon: 'tabler:refresh', label: 'Renovação', desc: 'quando a licença vai vencer e precisa ser renovada dentro do prazo' },
+              { icon: 'tabler:file-text', label: 'Processo', desc: 'pode envolver documentos, formulários, estudos e resposta a exigências do órgão' },
+            ].map(({ icon, label, desc }) => (
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed"><span class="font-semibold text-[#1a3044]">{label}:</span> {desc}</p>
               </div>
-              <div>
-                <p class="text-sm font-bold text-[#1a3044]">{nome}</p>
-                <p class="text-xs text-slate-500">{desc}</p>
+            ))}
+          </div>
+          <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Voc%C3%AA%20pode%20confirmar%20se%20minha%20atividade%20precisa%20de%20licen%C3%A7a%20ambiental%3F%20Sou%20de%20[CIDADE]%20e%20fa%C3%A7o%20[ATIVIDADE]."
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm shadow-md">
+            <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+            Ver se minha atividade precisa de licença
+          </a>
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Tipos de licença que atendemos</p>
+          <div class="space-y-5">
+            {[
+              { sigla: 'LP', nome: 'Licença Prévia', desc: 'Aprovação da viabilidade e localização do empreendimento na fase de planejamento' },
+              { sigla: 'LI', nome: 'Licença de Instalação', desc: 'Autorização para implantação conforme projeto e condicionantes aprovados' },
+              { sigla: 'LO', nome: 'Licença de Operação', desc: 'Autorização para início e continuidade das atividades com controles exigidos' },
+              { sigla: 'LR', nome: 'Renovação de Licença', desc: 'Manutenção da regularidade com protocolo antecipado ao vencimento' },
+            ].map(({ sigla, nome, desc }) => (
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+                  <span class="text-xs font-black text-[#6fcf7f]">{sigla}</span>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-[#1a3044]">{nome}</p>
+                  <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DESAFIOS -->
+  <!-- PARA QUEM É -->
   <section class="bg-slate-50 py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
-        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Atenção</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Principais dificuldades no processo</h2>
-        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Problemas recorrentes que comprometem a regularidade ambiental das empresas.</p>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Público-alvo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Para quem é este serviço (e quando faz sentido agir agora)</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 max-w-2xl mx-auto text-sm leading-relaxed">
+          Este serviço é para empresas que precisam iniciar, regularizar ou manter a operação sem surpresas com órgão ambiental e fiscalização.
+          Ideal para quem quer previsibilidade de prazos, documentação organizada e suporte para responder exigências.
+        </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center">
+              <Icon name="tabler:building-factory-2" class="w-5 h-5 text-[#3a8d44]" />
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-sm uppercase tracking-wide">Segmentos que mais atendemos</h3>
+          </div>
+          <div class="space-y-3">
+            {[
+              'Oficinas mecânicas, funilarias, auto centers e lava-jatos',
+              'Construtoras, empreiteiras, terraplenagem e prestadores de obra',
+              'Pequenas indústrias, metalúrgicas, serralherias e logística/transportadoras',
+              'Prestadores de serviços para mineração (Ouro Preto, Mariana, Itabirito e entorno)',
+            ].map((item) => (
+              <div class="flex items-start gap-3">
+                <Icon name="tabler:circle-check-filled" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+                <p class="text-sm text-slate-600 leading-snug">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-9 h-9 rounded-lg bg-orange-50 flex items-center justify-center">
+              <Icon name="tabler:alert-triangle" class="w-5 h-5 text-orange-500" />
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-sm uppercase tracking-wide">Situações comuns</h3>
+          </div>
+          <div class="space-y-3">
+            {[
+              'Licença vencendo nos próximos meses',
+              'Empresa crescendo e "a documentação ficou para depois"',
+              'Mudança de endereço, ampliação, novos equipamentos ou aumento de produção',
+              'Exigência de cliente ou contrato pedindo regularidade ambiental',
+            ].map((item) => (
+              <div class="flex items-start gap-3">
+                <Icon name="tabler:point-filled" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                <p class="text-sm text-slate-600 leading-snug">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20regularizar%20ou%20renovar%20minha%20licen%C3%A7a%20ambiental.%20Minha%20empresa%20%C3%A9%20de%20[SEGMENTO]%20em%20[CIDADE]."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Quero regularizar/renovar sem correria
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que você recebe ao contratar a Triaxis</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 max-w-xl mx-auto text-sm">
+          Entrega completa, organizada e documentada do diagnóstico ao protocolo e acompanhamento.
+          Tudo em linguagem simples, com registro do que foi feito e do que falta.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         {[
-          { icon: 'tabler:file-unknown', text: 'Falta de clareza sobre as exigências legais e documentais aplicáveis à atividade' },
-          { icon: 'tabler:clock-x', text: 'Processos negados ou com prazo comprometido por inconsistências técnicas' },
-          { icon: 'tabler:building-bank', text: 'Dificuldade de interlocução com órgãos ambientais estaduais e municipais' },
-          { icon: 'tabler:license-off', text: 'Licenças vencidas ou em atraso, expondo a empresa a riscos de autuação' },
-          { icon: 'tabler:shield-x', text: 'Risco de multas, interdições ou embargos por irregularidade ambiental' },
-        ].map(({ icon, text }) => (
-          <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
-            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-              <Icon name={icon} class="w-5 h-5 text-orange-500" />
+          { n: '01', text: 'Diagnóstico de enquadramento (atividade, porte e potencial poluidor) e definição do caminho de licenciamento' },
+          { n: '02', text: 'Checklist de documentos e requisitos específicos do caso' },
+          { n: '03', text: 'Plano de ação com prazos e responsabilidades (o que é do cliente vs. consultoria)' },
+          { n: '04', text: 'Levantamento documental e organização do dossiê digital (pastas padronizadas)' },
+          { n: '05', text: 'Preenchimento de formulários e preparação do processo para protocolo no sistema do órgão' },
+          { n: '06', text: 'Memorial descritivo/relatório técnico de suporte (quando aplicável ao caso)' },
+          { n: '07', text: 'Orientações de conformidade operacional (rotina, registros, evidências e boas práticas)' },
+          { n: '08', text: 'Protocolo do processo e comprovantes (número do processo, recibos, prints quando necessário)' },
+          { n: '09', text: 'Acompanhamento de análise e gestão de pendências/exigências técnicas dentro do escopo' },
+          { n: '10', text: 'Entrega final com "kit do licenciamento": licença emitida + resumo executivo + recomendações de manutenção' },
+        ].map(({ n, text }) => (
+          <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+            <div class="w-9 h-9 rounded-xl bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+              <span class="text-xs font-black text-[#6fcf7f]">{n}</span>
             </div>
             <p class="text-sm text-slate-600 leading-snug">{text}</p>
           </div>
         ))}
       </div>
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20entender%20os%20entreg%C3%A1veis%20do%20licenciamento%20ambiental%20para%20minha%20empresa%20em%20[CIDADE].%20Atividade%3A%20[ATIVIDADE]."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Quero ver os entregáveis no meu caso
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- COMO ATUAMOS -->
+  <!-- COMO FUNCIONA -->
   <section id="como-atuamos" class="bg-[#1a3044] py-16 px-4">
-    <div class="max-w-4xl mx-auto tx-fade">
+    <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-12">
         <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Metodologia</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como a Triaxis atua</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona (passo a passo)</h2>
         <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-300 text-sm">Cada etapa é conduzida com planejamento técnico, transparência e acompanhamento direto junto aos órgãos.</p>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          Primeiro enquadrar corretamente, depois montar um processo consistente, protocolar e acompanhar ate a emissão.
+          Sem improviso. Sem achismo. Com comunicação clara.
+        </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
         {[
-          {
-            num: '01',
-            titulo: 'Diagnóstico técnico detalhado',
-            desc: 'Levantamento completo da situação ambiental da empresa: atividade, porte, localização, histórico de licenças e obrigações aplicáveis.',
-          },
-          {
-            num: '02',
-            titulo: 'Elaboração e organização documental',
-            desc: 'Montagem do processo com toda a base legal e técnica exigida pelo órgão competente, reduzindo o risco de pendências e exigências complementares.',
-          },
-          {
-            num: '03',
-            titulo: 'Acompanhamento junto aos órgãos',
-            desc: 'Gestão direta do processo de licenciamento perante SUPRAM, SEMAD, prefeituras e demais órgãos, com comunicação técnica formal em cada etapa.',
-          },
-          {
-            num: '04',
-            titulo: 'Atualização e renovação periódica',
-            desc: 'Monitoramento dos prazos de vencimento para manter a empresa regularizada, com antecedência suficiente para evitar lapsos de conformidade.',
-          },
+          { num: '01', titulo: 'Reunião inicial', desc: '15 a 40 min para entender atividade, local, histórico e urgência' },
+          { num: '02', titulo: 'Enquadramento', desc: 'Definição do tipo de processo: regularização, renovação ou alteração' },
+          { num: '03', titulo: 'Levantamento documental', desc: 'Solicitação e organização de documentos e informações do cliente' },
+          { num: '04', titulo: 'Visita técnica', desc: 'Quando necessária: registros fotográficos e levantamentos básicos in loco' },
+          { num: '05', titulo: 'Montagem do dossiê', desc: 'Preparação dos anexos técnicos e preenchimento de formulários' },
         ].map(({ num, titulo, desc }) => (
-          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
-            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
-            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10">
+            <span class="text-2xl font-black text-[#6fcf7f] opacity-70 mb-2 block">{num}</span>
+            <h3 class="text-white font-bold text-sm mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+        {[
+          { num: '06', titulo: 'Revisão final', desc: 'Checklist de conformidade para reduzir exigências do órgão' },
+          { num: '07', titulo: 'Protocolo', desc: 'Envio no sistema do órgão estadual/municipal e geração de comprovantes' },
+          { num: '08', titulo: 'Acompanhamento', desc: 'Gestão de prazos e resposta a exigências dentro do escopo contratado' },
+          { num: '09', titulo: 'Emissão da licença', desc: 'Recebimento do ato/licença e entrega do "kit do licenciamento"' },
+          { num: '10', titulo: 'Orientação de manutenção', desc: 'Condicionantes, prazos de renovação e rotina de evidências' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10">
+            <span class="text-2xl font-black text-[#6fcf7f] opacity-70 mb-2 block">{num}</span>
+            <h3 class="text-white font-bold text-sm mb-2">{titulo}</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20pelo%20enquadramento%20do%20licenciamento%20ambiental.%20Empresa%20em%20[CIDADE]%20-%20atividade%3A%20[ATIVIDADE]."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-7 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Quero começar pelo enquadramento
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <!-- PRAZOS + CHECKLIST DO CLIENTE -->
   <section class="bg-white py-16 px-4">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
 
-      <!-- Benefícios -->
+      <!-- Prazos -->
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <div class="space-y-4">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazos típicos (e o que pode variar)</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          O prazo depende do tipo de licença, do órgão competente e da qualidade da documentação.
+          A Triaxis controla o que está ao alcance da consultoria: organização, velocidade de resposta e protocolo correto.
+        </p>
+        <div class="space-y-3 mb-5">
           {[
-            { icon: 'tabler:shield-check', text: 'Redução de riscos legais e financeiros associados à irregularidade ambiental' },
-            { icon: 'tabler:rocket', text: 'Processos conduzidos com agilidade e aprovados com base técnica sólida' },
-            { icon: 'tabler:scale', text: 'Segurança perante órgãos fiscalizadores e auditorias externas' },
-            { icon: 'tabler:star', text: 'Credibilidade ambiental perante clientes, parceiros e financiadores' },
-          ].map(({ icon, text }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+            { prazo: 'Casos simples', tempo: '15 a 45 dias para preparar e protocolar + análise do órgão' },
+            { prazo: 'Casos médios', tempo: '30 a 75 dias para preparar e protocolar + análise do órgão' },
+            { prazo: 'Casos complexos', tempo: '60 a 120+ dias (podem exigir estudos/plantas/adequações) + análise do órgão' },
+          ].map(({ prazo, tempo }) => (
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+              <Icon name="tabler:clock" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+              <div>
+                <span class="text-xs font-bold text-[#1a3044] block">{prazo}</span>
+                <span class="text-xs text-slate-500">{tempo}</span>
               </div>
-              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
+        <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-5">
+          <p class="text-xs text-orange-700 font-semibold mb-1">O que mais atrasa:</p>
+          <p class="text-xs text-orange-600 leading-relaxed">
+            Falta de documentos, dados inconsistentes, pendências cadastrais, exigências técnicas, agenda de vistoria, pagamentos de taxas e mudanças de entendimento do órgão.
+          </p>
+        </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Tenho%20prazo%20at%C3%A9%20[DATA]%20para%20regularizar/renovar.%20Empresa%20em%20[CIDADE]%20-%20atividade%3A%20[ATIVIDADE].%20D%C3%A1%20tempo%3F"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Tenho prazo — dá tempo?
+        </a>
       </div>
 
-      <!-- Por que Triaxis -->
+      <!-- Checklist do cliente -->
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <div class="space-y-4">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Documentação</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que preciso de você (para andar rápido)</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Licenciamento é um trabalho em equipe. Você entra com informações e documentos; a Triaxis entra com método, técnica e gestão do processo.
+          Quanto mais completo o checklist, menos exigências e retrabalho.
+        </p>
+        <div class="space-y-2 mb-5">
           {[
-            { icon: 'tabler:certificate', text: 'Experiência consolidada em licenciamento industrial e corporativo em Minas Gerais' },
-            { icon: 'tabler:users', text: 'Equipe técnica com Engenheiros Ambientais, Biólogos e Técnicos em Meio Ambiente' },
-            { icon: 'tabler:heart-handshake', text: 'Relacionamento direto e ético com órgãos públicos estaduais e municipais' },
-            { icon: 'tabler:refresh', text: 'Suporte contínuo após a emissão das licenças, com controle de prazos e condicionantes' },
-          ].map(({ icon, text }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
-              </div>
-              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            'CNPJ, contrato social/alterações e dados do responsável legal',
+            'Endereço completo, inscrição municipal/estadual (se houver) e alvará (se existir)',
+            'Descrição da atividade, capacidade/produção, horários e número de funcionários',
+            'Layout/fotos do local (planta, se disponível)',
+            'Informações de água/efluentes (origem, consumo, descarte; caixa separadora, se existir)',
+            'Informações de resíduos (tipos, volumes aproximados e destinação atual)',
+            'Prestadores/fornecedores relevantes (coleta de resíduos, manutenção, transportador)',
+            'Acesso a sistemas do órgão/assinatura digital (quando o protocolo exigir)',
+            'Pessoa de contato para respostas rápidas (WhatsApp/e-mail)',
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:circle-check" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600 leading-snug">{item}</p>
             </div>
           ))}
         </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Pode%20me%20enviar%20o%20checklist%20do%20licenciamento%20ambiental%20para%20minha%20empresa%20em%20[CIDADE]%3F"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Quero o checklist completo no WhatsApp
+        </a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- O QUE NAO INCLUI + VARIAÇÕES -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+
+      <!-- Não inclui -->
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso (para evitar surpresas)</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Transparência aqui evita dor de cabeça depois. Alguns custos e serviços dependem de terceiros, obras ou taxas do órgão.
+          Tudo isso pode ser orçado à parte conforme a necessidade.
+        </p>
+        <div class="space-y-2 mb-5">
+          {[
+            'Taxas e emolumentos do órgão ambiental/município (protocolo, análise, publicação etc.)',
+            'Projetos/plantas "as built", topografia, arquitetura e complementares (quando exigidos)',
+            'Laudos e análises laboratoriais (água, efluentes, ruído, solo, emissões)',
+            'Obras e adequações físicas (piso, drenagem, contenção, caixa separadora, ETE)',
+            'Destinação e transporte de resíduos via empresas licenciadas (terceiros)',
+            'ART/RRT de terceiros (quando não emitido pela Triaxis)',
+            'Multas, defesas e contencioso (disponíveis como serviço específico)',
+            'Vistorias/reuniões extras fora do escopo planejado',
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600 leading-snug">{item}</p>
+            </div>
+          ))}
+        </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20uma%20proposta%20com%20escopo%20fechado%20para%20licenciamento%20ambiental.%20Empresa%20em%20[CIDADE]%20-%20atividade%3A%20[ATIVIDADE]."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Quero proposta com escopo fechado
+        </a>
+      </div>
+
+      <!-- Variações por localidade -->
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Localidade</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Variações por órgão e localidade (Minas Gerais)</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+          Em Minas Gerais, o licenciamento pode ser conduzido em esfera estadual ou municipal, dependendo da atividade e do local.
+          Cada órgão pode exigir formulários, padrões e documentos diferentes.
+        </p>
+        <div class="space-y-3 mb-5">
+          {[
+            { cidade: 'BH, Contagem e Betim', desc: 'podem ter regras e fluxos próprios, com sistemas e exigências locais específicas' },
+            { cidade: 'Itabirito, Ouro Preto e Mariana', desc: 'demandas frequentes ligadas a obras, logística e serviços para mineração; pode haver condicionantes específicas de análise' },
+            { cidade: 'Interfaces com outros temas', desc: 'em alguns casos, o processo envolve recursos hídricos, resíduos, supressão de vegetação ou uso do solo' },
+            { cidade: 'Escopo confirmado após enquadramento', desc: 'o órgão competente e os requisitos são definidos após análise da atividade e localização' },
+          ].map(({ cidade, desc }) => (
+            <div class="p-4 bg-white rounded-xl border border-slate-100">
+              <p class="text-xs font-bold text-[#1a3044] mb-1">{cidade}</p>
+              <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Minha%20cidade%20%C3%A9%20[CIDADE]%20e%20minha%20atividade%20%C3%A9%20[ATIVIDADE].%20Qual%20%C3%B3rg%C3%A3o%20conduz%20o%20licenciamento%20e%20como%20funciona%3F"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-5 py-3 rounded-full transition-colors text-sm shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Me diga sua cidade e atividade
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas frequentes</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre licenciamento ambiental</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-3">
+        {[
+          {
+            q: 'O que é licenciamento ambiental e quando minha empresa precisa?',
+            a: 'É o processo que autoriza a localização, instalação e/ou operação de atividades que possam causar impacto ambiental. Em MG, a necessidade depende da atividade (CNAE/descrição real), porte e potencial poluidor. Se sua empresa opera com potencial de impacto (resíduos, efluentes, emissões, ruído, movimentação de solo etc.), geralmente precisa de licença.',
+          },
+          {
+            q: 'Regularização e renovação são a mesma coisa?',
+            a: 'Não. Regularização: quando a empresa está sem licença válida, com licença inadequada, ou mudou atividade/porte/local e precisa adequar. Renovação: quando a licença ainda está válida (ou dentro do prazo aceito pelo órgão) e você precisa solicitar a renovação antes do vencimento para manter a regularidade.',
+          },
+          {
+            q: 'Com quanto tempo de antecedência devo iniciar a renovação?',
+            a: 'A regra prática para evitar problemas: começar com 4 a 6 meses de antecedência. Assim há tempo suficiente para reunir documentos, ajustar pendências e protocolar sem correria, evitando também pendências que atraem atenção do órgão.',
+          },
+          {
+            q: 'O que acontece se eu operar com licença vencida ou sem licença?',
+            a: 'A empresa pode sofrer autuação, multa, embargo/interdição e exigências emergenciais, além de complicações para contratos, financiamentos e auditorias. O custo de regularizar após o problema costuma ser significativamente maior do que agir antes.',
+          },
+          {
+            q: 'Quais documentos normalmente são necessários?',
+            a: 'Varia por atividade, mas em geral entram: dados da empresa e do imóvel (endereço, coordenadas, área), documentos de regularidade (contrato social, inscrições, etc.), informações do processo produtivo e insumos, dados de resíduos/efluentes/emissões e plantas ou croquis exigidos pelo órgão. Após análise, podem surgir complementações.',
+          },
+          {
+            q: 'A Triaxis atende apenas Ouro Preto?',
+            a: 'Não. A Triaxis atende remotamente em todo o estado de Minas Gerais e presencialmente até 300 km a partir da base em Ouro Preto/MG, incluindo Belo Horizonte, Contagem, Betim, Itabirito, Ouro Preto e Mariana.',
+          },
+          {
+            q: 'Vocês fazem apenas o protocolo ou acompanham até a decisão do órgão?',
+            a: 'Acompanhamos o processo com organização e comunicação periódica do andamento, incluindo gestão de prazos e resposta a exigências dentro do escopo contratado. O cliente sabe o que está acontecendo em cada etapa.',
+          },
+          {
+            q: 'Em quanto tempo sai a licença?',
+            a: 'Depende do tipo de licença, complexidade e fila do órgão. O que é possível garantir é método e previsibilidade: checklist completo, documentação organizada, protocolo no timing correto e acompanhamento para reduzir idas e vindas.',
+          },
+          {
+            q: 'Posso licenciar se meu empreendimento já está em operação?',
+            a: 'Em muitos casos, sim, por meio de regularização, com avaliação do órgão e das adequações necessárias. O ideal é realizar um diagnóstico para entender a melhor estratégia e o risco envolvido antes de iniciar o processo.',
+          },
+          {
+            q: 'A integração com Segurança do Trabalho ajuda em quê?',
+            a: 'Ajuda a empresa a trabalhar com visão de processos e rotinas mais robustas (documentos, controles, evidências), reduzindo não conformidades e surpresas em fiscalizações e auditorias. É o conjunto: ambiental em dia + operação mais organizada.',
+          },
+        ].map(({ q, a }) => (
+          <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-[#1a3044] text-sm hover:bg-slate-100 transition-colors">
+              {q}
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -217,23 +513,29 @@ const metadata = {
     <div class="max-w-3xl mx-auto text-center tx-fade">
       <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Regularize sua empresa</p>
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-        Inicie o processo de licenciamento com suporte técnico especializado.
+        Pronto para regularizar ou renovar seu Licenciamento Ambiental em MG?
       </h2>
       <p class="text-slate-300 mb-8 leading-relaxed">
-        A Triaxis avalia a situação atual da empresa, identifica as licenças necessárias e apresenta um plano de ação com prazos e etapas definidas.
+        Evite correrias de última hora, multas e interrupções na operação. A Triaxis organiza seu processo
+        de Licenciamento Ambiental com checklist, cronograma e acompanhamento claro do andamento,
+        do diagnóstico ao protocolo.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20uma%20proposta%20para%20Licenciamento%20Ambiental."
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20do%20meu%20licenciamento%20ambiental.%20Empresa%20em%20[CIDADE]%20-%20atividade%3A%20[ATIVIDADE]."
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Falar com especialista
+          Quero um diagnóstico do meu licenciamento
         </a>
-        <a href="/contact"
+        <a href="https://wa.me/5531994915126?text=Ol%C3%A1!%20Quero%20falar%20sobre%20licenciamento%20ambiental."
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
-          Enviar mensagem
+          Falar no WhatsApp
         </a>
       </div>
+      <p class="text-slate-400 text-xs">
+        Atendimento remoto e presencial ate 300 km (base: Ouro Preto/MG). Belo Horizonte, Contagem, Betim, Itabirito, Ouro Preto, Mariana e região.
+      </p>
     </div>
   </section>
 

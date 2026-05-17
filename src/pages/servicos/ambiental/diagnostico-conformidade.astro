@@ -6,8 +6,8 @@ import { headerData, footerData } from '~/navigation';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'Diagnóstico de Conformidade Ambiental | Triaxis Consultoria',
-  description: 'Diagnóstico técnico de conformidade ambiental para empresas em Minas Gerais. Levantamento de pendências, matriz de riscos e plano de ação 90 dias. Entrega em até 7 dias. Triaxis Consultoria.',
+  title: 'Diagnóstico de Conformidade Ambiental (Check-up) | Ouro Preto, Mariana e Belo Horizonte',
+  description: 'Check-up ambiental para identificar pendências, riscos e prioridades. Entregáveis claros, plano de ação e devolutiva. Ouro Preto, Mariana, BH e região. Triaxis Consultoria.',
 };
 ---
 
@@ -32,18 +32,18 @@ const metadata = {
     <div class="max-w-3xl mx-auto">
       <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
       <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
-        Diagnóstico de Conformidade Ambiental
+        Check-up de Conformidade Ambiental: identifique pendências e reduza risco de multa
       </h1>
       <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
       <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Levantamento técnico completo da situação ambiental da empresa: pendências, riscos e prioridades identificadas com um plano claro de ação para regularização.
+        Diagnóstico técnico e objetivo para mapear riscos, não conformidades e prioridades ambientais da sua operação em Ouro Preto, Mariana, Belo Horizonte e região — antes que se tornem multa, embargo ou paralisação.
       </p>
       <div class="flex flex-wrap gap-3 justify-center mb-8">
         {[
-          'Levantamento de documentos e obrigações aplicáveis',
-          'Matriz de riscos com prioridades e impactos',
-          'Plano de ação 90 dias para regularização',
-          'Entrega em até 7 dias',
+          'Diagnóstico claro da situação ambiental atual',
+          'Não conformidades e riscos classificados: baixo, médio e alto',
+          'Plano de ação priorizado: 0 a 30 a 90 dias',
+          'Orientação sobre documentos e evidências para fiscalização',
         ].map(item => (
           <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
             <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
@@ -52,15 +52,16 @@ const metadata = {
         ))}
       </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20agendar%20um%20Diagnóstico%20de%20Conformidade%20Ambiental."
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20Check-up%20de%20Conformidade%20Ambiental.%20Minha%20empresa%20é%20do%20setor%20____%20e%20fica%20em%20____.%20Podemos%20falar%20sobre%20escopo%2C%20prazo%20e%20proposta%3F"
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Agendar diagnóstico
+          Fazer check-up no WhatsApp
         </a>
-        <a href="#como-funciona"
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20solicitar%20uma%20proposta%20para%20Diagnóstico%20de%20Conformidade%20Ambiental."
+          target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
-          Como funciona
+          Solicitar proposta (24h)
         </a>
       </div>
     </div>
@@ -74,19 +75,34 @@ const metadata = {
         <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o Diagnóstico de Conformidade Ambiental</h2>
         <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
         <p class="text-slate-600 leading-relaxed mb-4">
-          O Diagnóstico de Conformidade é um levantamento técnico estruturado que mapeia a situação real da empresa frente às exigências legais ambientais vigentes. Funciona como um raio-X ambiental: identifica o que está regularizado, o que está pendente e o que representa risco imediato.
+          O Diagnóstico de Conformidade Ambiental é um serviço pontual de consultoria que avalia se a empresa está atendendo às exigências ambientais aplicáveis à sua atividade e localidade: licenças, resíduos, documentos, evidências e rotinas. Ao final, a empresa recebe um retrato real da situação e um plano de ação para regularizar com prioridade e previsibilidade.
         </p>
-        <p class="text-slate-600 leading-relaxed">
-          O resultado é um relatório objetivo com a situação de cada obrigação, a classificação por grau de risco e um plano de ação com prioridades e prazos definidos para regularização em 90 dias.
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Não se trata de licenciamento nem de auditoria certificadora. É um diagnóstico técnico para orientar decisões e evitar retrabalho, urgências e custos desnecessários.
         </p>
+        <div class="space-y-3">
+          {[
+            'Avaliação técnica da situação atual: documental e operacional',
+            'Identificação de não conformidades e riscos',
+            'Mapa do que é obrigatório para a atividade e a localidade',
+            'Base prática para regularização e planejamento',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
         <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">O diagnóstico avalia</p>
         <div class="space-y-4">
           {[
-            { icon: 'tabler:license', label: 'Licenças ambientais', desc: 'Validade, condicionantes, pendências e histórico junto aos órgãos competentes' },
-            { icon: 'tabler:droplet', label: 'Outorgas de uso de água', desc: 'Captação e lançamento de efluentes conforme legislação aplicável' },
-            { icon: 'tabler:trash', label: 'Gestão de resíduos', desc: 'Classificação, destinação, documentação e rastreabilidade via MTR' },
+            { icon: 'tabler:license', label: 'Licenças e autorizações', desc: 'Validade, condicionantes e pendências junto aos órgãos competentes' },
+            { icon: 'tabler:droplet', label: 'Outorgas de uso de água', desc: 'Captação, lançamento de efluentes e conformidade com a legislação' },
+            { icon: 'tabler:trash', label: 'Gestão de resíduos', desc: 'Rotina, armazenamento, destinação, documentação e rastreabilidade' },
             { icon: 'tabler:file-report', label: 'Obrigações acessórias', desc: 'Relatórios, cadastros e declarações periódicas exigidas pelo órgão licenciador' },
           ].map(({ icon, label, desc }) => (
             <div class="flex items-start gap-4">
@@ -104,102 +120,193 @@ const metadata = {
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
-  <section id="como-funciona" class="bg-[#1a3044] py-16 px-4">
-    <div class="max-w-4xl mx-auto tx-fade">
-      <div class="text-center mb-12">
-        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o diagnóstico</h2>
-        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-300 text-sm">Cinco entregáveis definidos. Prazo de até 7 dias após o recebimento dos documentos.</p>
+  <!-- PARA QUEM É -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Indicação</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Para quem o Diagnóstico de Conformidade é indicado</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Ideal para empresas que querem clareza antes de investir tempo e dinheiro sem diagnóstico prévio.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {[
-          {
-            num: '01',
-            titulo: 'Reunião técnica inicial',
-            desc: 'Conversa de até 60 minutos (online) para entendimento da atividade, histórico ambiental da empresa e prioridades da gestão.',
-          },
-          {
-            num: '02',
-            titulo: 'Checklist documental',
-            desc: 'Levantamento completo do que a empresa possui e do que está faltando: licenças, outorgas, registros, relatórios e condicionantes.',
-          },
-          {
-            num: '03',
-            titulo: 'Mapa de riscos e prioridades',
-            desc: 'Classificação de cada obrigação ambiental por grau de criticidade: alto, médio ou baixo, com justificativa técnica para cada classificação.',
-          },
-          {
-            num: '04',
-            titulo: 'Plano de ação 90 dias',
-            desc: 'Sequência de regularização definida por prioridade, com o que fazer primeiro, por quê e como, de forma objetiva e aplicável.',
-          },
-          {
-            num: '05',
-            titulo: 'Orçamento em dois caminhos',
-            desc: 'Apresentação das opções de execução: o caminho mínimo necessário para regularização e o caminho completo para conformidade ampla.',
-          },
-        ].map(({ num, titulo, desc }) => (
-          <div class="bg-white/10 rounded-2xl p-7 border border-white/10">
-            <span class="text-3xl font-black text-[#3a8d44] opacity-60 mb-3 block">{num}</span>
-            <h3 class="text-white font-bold text-base mb-2">{titulo}</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">Segmentos atendidos</p>
+          <div class="space-y-3">
+            {[
+              { icon: 'tabler:car', text: 'Oficinas mecânicas, funilarias, auto centers e lava-jatos' },
+              { icon: 'tabler:bulldozer', text: 'Construtoras, empreiteiras e prestadores de obra' },
+              { icon: 'tabler:mountain', text: 'Terraplenagem e movimentação de solo' },
+              { icon: 'tabler:building-factory', text: 'Pequenas indústrias, metalúrgicas e serralherias' },
+              { icon: 'tabler:truck', text: 'Transportadoras e logística' },
+              { icon: 'tabler:pickaxe', text: 'Prestadores de serviços para o setor de mineração' },
+            ].map(({ icon, text }) => (
+              <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+                <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                  <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+                </div>
+                <p class="text-sm text-slate-600">{text}</p>
+              </div>
+            ))}
           </div>
-        ))}
-        <div class="bg-orange-500/10 rounded-2xl p-7 border border-orange-400/20 flex items-center gap-4">
-          <Icon name="tabler:clock" class="w-10 h-10 text-orange-400 flex-shrink-0" />
-          <div>
-            <p class="text-white font-bold text-base mb-1">Prazo de entrega</p>
-            <p class="text-slate-300 text-sm">Até 7 dias corridos após o recebimento dos documentos solicitados.</p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">Situações que indicam necessidade</p>
+          <div class="space-y-3">
+            {[
+              'Licença vencendo, vencida ou dúvida se está correta para a atividade',
+              'Falta de organização de documentos e evidências ambientais',
+              'Resíduos sem rotina definida e sem rastreabilidade',
+              'Histórico de fiscalização, notificação ou auto de infração',
+              'Antes de contratar assessoria contínua, para começar com diagnóstico real',
+            ].map(item => (
+              <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-l-4 border-l-orange-400 border-slate-100">
+                <Icon name="tabler:alert-triangle" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <p class="text-sm text-slate-600">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- QUANDO É NECESSÁRIO -->
-  <section class="bg-slate-50 py-16 px-4">
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto tx-fade">
       <div class="text-center mb-10">
-        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Aplicações</p>
-        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Quando o diagnóstico é necessário</h2>
-        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
-        <p class="text-slate-500 text-sm">Situações em que a avaliação da conformidade ambiental é urgente ou estrategicamente relevante.</p>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe no diagnóstico</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm">Entregáveis objetivos, focados na operação real da empresa e no que será efetivamente cobrado ou avaliado pelo órgão ambiental.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { icon: 'tabler:building-factory', text: 'Empresa sem histórico organizado de licenças ou documentação ambiental' },
-          { icon: 'tabler:alert-triangle', text: 'Recebimento de notificação, auto de infração ou autuação por órgão ambiental' },
-          { icon: 'tabler:transfer', text: 'Processos de fusão, aquisição ou due diligence ambiental' },
-          { icon: 'tabler:cash', text: 'Acesso a financiamentos ou certificações que exigem conformidade ambiental comprovada' },
-          { icon: 'tabler:rotate', text: 'Mudança de atividade, ampliação ou reforma com impacto no passivo ambiental' },
-          { icon: 'tabler:eye', text: 'Preparação para auditorias internas, externas ou visitas de órgãos fiscalizadores' },
-        ].map(({ icon, text }) => (
-          <div class="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm">
-            <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-              <Icon name={icon} class="w-5 h-5 text-orange-500" />
+          { icon: 'tabler:stethoscope', titulo: 'Diagnóstico da situação atual', desc: 'Avaliação documental e operacional com base nas exigências legais aplicáveis' },
+          { icon: 'tabler:list-check', titulo: 'Matriz de obrigações aplicáveis', desc: 'O que é obrigatório para a atividade e a localidade da empresa' },
+          { icon: 'tabler:license', titulo: 'Verificação de licenças', desc: 'Análise de licenças e autorizações existentes, com avaliação de condicionantes' },
+          { icon: 'tabler:trash', titulo: 'Avaliação da gestão de resíduos', desc: 'Rotina, armazenamento, destinação e evidências de rastreabilidade' },
+          { icon: 'tabler:alert-triangle', titulo: 'Lista de não conformidades', desc: 'Classificação de riscos por impacto, urgência e exigência legal: baixo, médio e alto' },
+          { icon: 'tabler:timeline', titulo: 'Plano de ação priorizado', desc: 'O que fazer em 0, 30 e 90 dias, com sequência técnica definida' },
+          { icon: 'tabler:folder-open', titulo: 'Lista de evidências recomendadas', desc: 'Documentos e registros necessários para prontidão em fiscalização' },
+          { icon: 'tabler:file-report', titulo: 'Relatório técnico', desc: 'Versão executiva e técnica do diagnóstico para tomada de decisão' },
+          { icon: 'tabler:presentation', titulo: 'Reunião de devolutiva', desc: 'Apresentação dos resultados com orientações e próximos passos' },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center mb-3">
+              <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
             </div>
-            <p class="text-sm text-slate-600 leading-snug">{text}</p>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- BENEFÍCIOS + DIFERENCIAIS -->
+  <!-- COMO FUNCIONA -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o Diagnóstico de Conformidade</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-300 text-sm">Processo direto, sem burocracia desnecessária. Pode ser remoto ou com visita presencial, conforme a operação.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { num: '01', titulo: 'Alinhamento e escopo', desc: 'Definição da atividade, localidade e objetivo do diagnóstico.' },
+          { num: '02', titulo: 'Checklist documental', desc: 'Solicitação de documentos e informações conforme o perfil da empresa.' },
+          { num: '03', titulo: 'Análise documental', desc: 'Avaliação dos documentos recebidos frente aos requisitos legais aplicáveis.' },
+          { num: '04', titulo: 'Avaliação da operação', desc: 'Análise remota e/ou presencial conforme a necessidade do caso.' },
+          { num: '05', titulo: 'Identificação de não conformidades', desc: 'Levantamento de pendências e riscos com base na avaliação técnica.' },
+          { num: '06', titulo: 'Priorização técnica', desc: 'Classificação das pendências por criticidade e sequência de regularização.' },
+          { num: '07', titulo: 'Elaboração do relatório', desc: 'Redação do relatório técnico com todas as constatações e o plano de ação.' },
+          { num: '08', titulo: 'Reunião de devolutiva', desc: 'Apresentação dos resultados com orientações claras sobre os próximos passos.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 bg-orange-500/10 rounded-2xl p-6 border border-orange-400/20 flex items-center gap-4">
+        <Icon name="tabler:clock" class="w-10 h-10 text-orange-400 flex-shrink-0" />
+        <div>
+          <p class="text-white font-bold text-sm mb-1">Prazo de entrega</p>
+          <p class="text-slate-300 text-sm">Simples: 5 a 7 dias. Médio: 7 a 15 dias. Complexo: até 30 dias. Contados após o recebimento dos documentos solicitados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS + O QUE NÃO INCLUI -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazos típicos do diagnóstico</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3 mb-4">
+          {[
+            { prazo: '5 a 7 dias', desc: 'Operação simples, documentação disponível e sem passivos relevantes' },
+            { prazo: '7 a 15 dias', desc: 'Porte médio, documentação parcial ou pendências de organização inicial' },
+            { prazo: 'Até 30 dias', desc: 'Casos complexos: múltiplas frentes, passivos antigos ou dependência de terceiros' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-slate-400 italic">Pode exigir prazo maior quando houver falta de documentos, passivos antigos, dependência de destinadores ou laboratório, ou operação com múltiplas frentes.</p>
+      </div>
+
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Taxas e emolumentos de órgãos ambientais',
+            'Análises laboratoriais, monitoramentos e campanhas de amostragem',
+            'Elaboração de projetos específicos (PGRS completo, PRAD, PCA) — podem ser contratados separadamente',
+            'Adequações físicas, obras ou reformas',
+            'Transporte e destinação de resíduos',
+            'ART e RRT de terceiros quando exigidos por escopo específico',
+            'Multas e penalidades aplicadas por órgãos ambientais',
+            'Cadastros em sistemas do órgão ambiental — podem ser incluídos como serviço adicional',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- POR QUE TRIAXIS + AUTOAVALIAÇÃO -->
   <section class="bg-white py-16 px-4">
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 tx-fade">
       <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Resultados</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Benefícios para a empresa</h2>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que confiar na Triaxis</h2>
         <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 text-sm mb-5">Diagnóstico prático, direto e aplicável — com relatório para tomada de decisão, não para ficar na gaveta.</p>
         <div class="space-y-4">
           {[
-            { icon: 'tabler:shield-check', text: 'Conhecimento real da situação ambiental antes de enfrentar fiscalizações ou auditorias' },
-            { icon: 'tabler:zoom-money', text: 'Redução do risco de multas, embargos e interdições por irregularidades não identificadas' },
-            { icon: 'tabler:chart-arrows-vertical', text: 'Base técnica para priorizar investimentos em conformidade de forma eficiente' },
-            { icon: 'tabler:certificate', text: 'Documentação organizada para apresentação a financiadores, parceiros e órgãos reguladores' },
+            { icon: 'tabler:list-check', text: 'Metodologia com checklist, matriz de obrigações e classificação de risco por criticidade' },
+            { icon: 'tabler:file-analytics', text: 'Relatório objetivo em versão executiva e técnica, para uso real na gestão da empresa' },
+            { icon: 'tabler:message-circle', text: 'Comunicação direta e transparente em todas as etapas do processo' },
+            { icon: 'tabler:map-pin', text: 'Atuação local em Ouro Preto, Mariana e Belo Horizonte, com atendimento remoto em Minas Gerais' },
+            { icon: 'tabler:shield-check', text: 'Integração com Segurança do Trabalho quando necessário ao escopo definido' },
           ].map(({ icon, text }) => (
             <div class="flex items-start gap-4">
               <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
@@ -210,25 +317,97 @@ const metadata = {
           ))}
         </div>
       </div>
-      <div>
-        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Diferenciais</p>
-        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Por que escolher a Triaxis</h2>
-        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
-        <div class="space-y-4">
+
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-2">Autoavaliação</p>
+        <h3 class="text-lg font-bold text-[#1a3044] mb-5">Sua empresa está em conformidade ambiental?</h3>
+        <div class="space-y-3 mb-5">
           {[
-            { icon: 'tabler:map-pin', text: 'Experiência em conformidade ambiental para empresas de diferentes portes e setores em Minas Gerais' },
-            { icon: 'tabler:users', text: 'Equipe multidisciplinar com Engenheiros Ambientais, Biólogos e especialistas em legislação ambiental' },
-            { icon: 'tabler:file-analytics', text: 'Relatório objetivo, com linguagem clara e plano de ação aplicável à realidade da empresa' },
-            { icon: 'tabler:refresh', text: 'O valor do diagnóstico pode ser abatido na contratação da execução do plano de adequação' },
-          ].map(({ icon, text }) => (
-            <div class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                <Icon name={icon} class="w-5 h-5 text-[#1a3044]" />
-              </div>
-              <p class="text-sm text-slate-600 leading-relaxed">{text}</p>
+            'Sei quais licenças preciso manter e se as atuais estão corretas?',
+            'Tenho controle de prazos e condicionantes?',
+            'Os resíduos têm rotina definida de armazenamento, coleta, destinação e evidências?',
+            'Os documentos e evidências estão organizados para fiscalização?',
+            'Já houve fiscalização ou existe risco de ocorrer?',
+            'A operação está em Minas Gerais?',
+            'Quero evitar urgências, multas e interrupções na operação?',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded border-2 border-slate-300 flex-shrink-0 mt-0.5"></div>
+              <p class="text-sm text-slate-600">{item}</p>
             </div>
           ))}
         </div>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Respondi%20o%20checklist%20e%20quero%20um%20Check-up%20de%20Conformidade%20Ambiental."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-6 py-3 rounded-full text-sm transition-colors w-full justify-center">
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Fazer check-up no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          {
+            p: 'Vocês atendem minha cidade?',
+            r: 'Sim. O atendimento presencial é realizado nas regiões de Ouro Preto, Mariana e Belo Horizonte, conforme combinação prévia. O diagnóstico remoto cobre todo o estado de Minas Gerais, conforme a viabilidade do caso.',
+          },
+          {
+            p: 'É possível fazer o diagnóstico de forma remota?',
+            r: 'Sim. Parte ou todo o diagnóstico pode ser conduzido remotamente. Para operações com áreas externas, armazenamento de resíduos, obras e movimentação de solo, a visita presencial costuma ser recomendada para maior precisão técnica.',
+          },
+          {
+            p: 'Quanto custa o diagnóstico?',
+            r: 'O valor depende do porte da empresa, da atividade, da complexidade, da necessidade de visita presencial e do nível de organização documental atual. A proposta é apresentada com escopo e entregáveis definidos.',
+          },
+          {
+            p: 'É emitida ART para o diagnóstico?',
+            r: 'Somente quando aplicável ao escopo contratado e conforme as exigências do conselho profissional e da atividade avaliada.',
+          },
+          {
+            p: 'O diagnóstico garante aprovação de licença ou ausência de autuação?',
+            r: 'Não. O diagnóstico fornece clareza técnica, identifica riscos e indica o caminho de regularização. A aprovação de licenças é decisão do órgão ambiental competente.',
+          },
+          {
+            p: 'O serviço é indicado para pequenas empresas?',
+            r: 'Sim. O diagnóstico é dimensionado para o porte de cada empresa. Oficinas, pequenos prestadores, galpões e operações de baixo ou médio porte são atendidos com escopo ajustado à realidade.',
+          },
+          {
+            p: 'O diagnóstico auxilia em caso de fiscalização?',
+            r: 'Sim, com orientação sobre organização de evidências e o que apresentar ao órgão. O acompanhamento específico em fiscalizações ou a elaboração de defesas administrativas pode ser contratado separadamente, conforme a necessidade.',
+          },
+          {
+            p: 'O diagnóstico obriga a contratar assessoria contínua?',
+            r: 'Não. O diagnóstico é um serviço independente. Se a empresa optar por contratar a assessoria contínua, o diagnóstico funciona como o marco inicial para uma estruturação bem fundamentada.',
+          },
+          {
+            p: 'O diagnóstico inclui Segurança do Trabalho?',
+            r: 'O foco do serviço é conformidade ambiental. Quando faz sentido, pontos relacionados a SST podem ser integrados como parte do escopo, o que é definido na proposta.',
+          },
+          {
+            p: 'O diagnóstico pode ser usado como base para regularização?',
+            r: 'Sim. O plano de ação entregue ao final existe exatamente para orientar a regularização com prioridade técnica e previsibilidade de prazo e custo.',
+          },
+        ].map(({ p, r }) => (
+          <details class="bg-white rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
@@ -236,19 +415,19 @@ const metadata = {
   <!-- CTA FINAL -->
   <section class="bg-[#1a3044] py-16 px-4">
     <div class="max-w-3xl mx-auto text-center tx-fade">
-      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Saiba exatamente onde sua empresa está</p>
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Descubra os riscos antes que virem problema</p>
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
         Agende o Diagnóstico de Conformidade Ambiental.
       </h2>
       <p class="text-slate-300 mb-8 leading-relaxed">
-        A Triaxis realiza a avaliação completa da situação ambiental da empresa e entrega o relatório com mapa de riscos e plano de ação em até 7 dias.
+        Um diagnóstico técnico normalmente custa menos do que uma multa, um embargo ou dias de paralisação. Resolver com método e antecedência é sempre mais eficiente do que agir sob pressão.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://wa.me/5531994915126?text=Olá!%20Gostaria%20de%20agendar%20um%20Diagnóstico%20de%20Conformidade%20Ambiental."
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20fazer%20o%20Check-up%20Ambiental%20e%20começar%20pelo%20diagnóstico.%20Minha%20empresa:%20____%20%7C%20Cidade:%20____"
           target="_blank" rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
           <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
-          Agendar diagnóstico
+          Fazer check-up ambiental
         </a>
         <a href="/contact"
           class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
