@@ -1,15 +1,355 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Consultoria em Segurança do Trabalho | Triaxis Consultoria MG',
+  description:
+    'Consultoria especializada em SST: implantação de programas, adequação às NRs, assessoria técnica contínua e gestão de riscos ocupacionais para empresas em Minas Gerais.',
+};
+
+const whatsappMsg = encodeURIComponent(
+  'Olá! Tenho interesse na Consultoria em Segurança do Trabalho da Triaxis. Pode me passar mais informações?'
+);
+const whatsappHref = `https://wa.me/5531994915126?text=${whatsappMsg}`;
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-white border-b border-slate-200 px-4 py-2 text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto flex items-center gap-2">
+      <a href="/" class="hover:text-[#3a8d44]">Início</a>
+      <span>/</span>
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44]">Segurança do Trabalho</a>
+      <span>/</span>
+      <span class="text-slate-800 font-medium">Consultoria em SST</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] text-white py-16 px-4 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#6fcf7f] text-sm font-semibold uppercase tracking-widest mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-5">
+        Consultoria em <span class="text-[#6fcf7f]">Segurança do Trabalho</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-3xl mb-7">
+        Assessoria técnica especializada para empresas que precisam implantar, manter ou melhorar sua gestão de
+        Segurança e Saúde no Trabalho — seja por obrigação legal, exigência de clientes ou compromisso com a
+        qualidade de vida dos colaboradores.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        {['Conformidade com NRs', 'Implantação de programas de SST', 'Assessoria técnica contínua', 'Gestão de riscos', 'ART inclusa'].map((p) => (
+          <span class="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">{p}</span>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com Especialista
+        </a>
+        <a
+          href="#o-que-fazemos"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+        >
+          Ver o que cobrimos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE FAZEMOS -->
+  <section id="o-que-fazemos" class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">O que a consultoria cobre</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">
+        Atuamos em todas as frentes de SST, da implantação inicial à manutenção contínua dos programas obrigatórios.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { sigla: 'PGR', titulo: 'Programa de Gerenciamento de Riscos', desc: 'Elaboração, atualização e implementação do PGR conforme NR-1 e eSocial.' },
+          { sigla: 'PCM', titulo: 'PCMSO e saúde ocupacional', desc: 'Coordenação do programa de saúde, ASOs em dia e gestão dos exames periódicos.' },
+          { sigla: 'NR', titulo: 'Adequação às NRs', desc: 'Diagnóstico e plano de ação para adequação a todas as NRs aplicáveis ao seu setor e porte.' },
+          { sigla: 'GES', titulo: 'Gestão da CIPA', desc: 'Suporte na eleição, treinamento de cipeiros, atas mensais e realização da SIPAT.' },
+          { sigla: 'ACI', titulo: 'Investigação de acidentes', desc: 'Análise de causas raiz, elaboração de CAT e implementação de ações preventivas.' },
+          { sigla: 'ASS', titulo: 'Assessoria técnica', desc: 'Suporte contínuo por e-mail, WhatsApp e visitas periódicas para gestores e SESMT.' },
+        ].map(({ sigla, titulo, desc }) => (
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-[#3a8d44]/30 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{sigla}</span>
+              </div>
+              <h3 class="font-bold text-[#1a3044] text-base">{titulo}</h3>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELOS DE CONTRATAÇÃO -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Modelos de contratação</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">Adaptamos o formato ao tamanho e à maturidade de SST da sua empresa.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            modelo: 'Pontual',
+            icon: 'tabler:bolt',
+            desc: 'Um projeto específico com início, meio e fim — adequação a uma NR, elaboração de um laudo, implantação de um programa.',
+            ideal: 'Empresas que precisam resolver uma demanda específica.',
+          },
+          {
+            modelo: 'Mensal / Contínua',
+            icon: 'tabler:refresh',
+            desc: 'Assessoria recorrente com visitas, suporte e manutenção dos programas. Ideal para empresas sem SESMT próprio.',
+            ideal: 'Empresas de 20 a 500 colaboradores sem estrutura interna de SST.',
+          },
+          {
+            modelo: 'Projeto completo',
+            icon: 'tabler:checkup-list',
+            desc: 'Da auditoria inicial à implantação completa de um Sistema de Gestão de SST, com entregáveis e marcos definidos.',
+            ideal: 'Empresas em fase de crescimento ou que precisam se certificar.',
+          },
+        ].map(({ modelo, icon, desc, ideal }) => (
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 flex flex-col">
+            <div class="w-12 h-12 rounded-xl bg-[#1a3044] flex items-center justify-center mb-4">
+              <Icon name={icon} class="w-6 h-6 text-[#6fcf7f]" />
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-lg mb-3">{modelo}</h3>
+            <p class="text-slate-600 text-sm mb-4 flex-1 leading-relaxed">{desc}</p>
+            <div class="bg-[#3a8d44]/10 rounded-lg px-3 py-2">
+              <p class="text-[#3a8d44] text-xs font-semibold">Ideal para:</p>
+              <p class="text-slate-700 text-xs mt-0.5">{ideal}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANDO CONTRATAR + PARA QUEM -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Quando contratar</h2>
+        <ul class="space-y-4">
+          {[
+            'A empresa não tem profissional de SST próprio ou SESMT dimensionado',
+            'Há fiscalização iminente ou autuação pelo MTE',
+            'Os documentos de SST estão desatualizados ou inexistentes',
+            'A empresa cresceu e novas NRs se tornaram aplicáveis',
+            'Clientes ou licitações exigem comprovação de conformidade em SST',
+            'Houve acidente de trabalho e é necessário reestruturar a gestão',
+            'A empresa quer implantar um sistema de gestão de SST (ISO 45001 ou similar)',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#3a8d44]/10 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#3a8d44]" />
+              </span>
+              <span class="text-slate-700 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Para quem é indicado</h2>
+        <div class="space-y-3">
+          {[
+            { seg: 'Indústria', desc: 'Metalurgia, alimentos, química, têxtil, construção civil — setores com maior complexidade de riscos.' },
+            { seg: 'Comércio e serviços', desc: 'Supermercados, hospitais, escolas, laboratórios, transporte — NRs específicas e obrigações CIPA.' },
+            { seg: 'Agronegócio', desc: 'Propriedades rurais, cooperativas e agroindústrias com NR-31 e NR-5 aplicáveis.' },
+            { seg: 'Construção civil', desc: 'Obras com NR-18, NR-35, NR-10 e gestão de terceiros e subcontratados.' },
+            { seg: 'Escritórios e tecnologia', desc: 'Ergonomia (NR-17), saúde mental no trabalho e riscos de menor complexidade.' },
+          ].map(({ seg, desc }) => (
+            <div class="flex items-start gap-3 bg-slate-50 rounded-xl p-4">
+              <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center shrink-0">
+                <Icon name="tabler:building" class="w-4 h-4 text-[#6fcf7f]" />
+              </div>
+              <div>
+                <p class="font-semibold text-[#1a3044] text-sm">{seg}</p>
+                <p class="text-slate-600 text-xs">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Como funciona</h2>
+      <p class="text-slate-300 mb-10">Processo estruturado para garantir resultado desde o primeiro contato.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          { n: '01', titulo: 'Diagnóstico inicial', desc: 'Visita técnica e análise documental para entender o estágio atual de SST, identificar lacunas e definir o escopo da consultoria.' },
+          { n: '02', titulo: 'Plano de trabalho', desc: 'Proposta detalhada com atividades, responsáveis, prazos e entregas. Alinhamento com o gestor antes de iniciar.' },
+          { n: '03', titulo: 'Implantação dos programas', desc: 'Elaboração e implementação dos documentos obrigatórios: PGR, PCMSO, laudos, CIPA, treinamentos e demais NRs aplicáveis.' },
+          { n: '04', titulo: 'Capacitação da equipe', desc: 'Treinamentos para gestores, líderes e colaboradores sobre os programas implantados e seus papéis na segurança.' },
+          { n: '05', titulo: 'Acompanhamento contínuo', desc: 'Visitas periódicas, suporte remoto e atualização dos documentos conforme mudanças na legislação ou na empresa.' },
+          { n: '06', titulo: 'Relatórios de progresso', desc: 'Relatórios mensais ou trimestrais com indicadores, não-conformidades resolvidas e status dos programas.' },
+          { n: '07', titulo: 'Revisão anual', desc: 'Atualização completa dos programas, reavaliação de riscos e planejamento das ações do próximo período.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="flex items-start gap-4 bg-white/5 rounded-xl p-5">
+            <span class="text-[#6fcf7f] font-black text-2xl leading-none w-10 shrink-0">{n}</span>
+            <div>
+              <p class="font-bold text-white mb-1">{titulo}</p>
+              <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS E NÃO INCLUI -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Prazos estimados</h2>
+        <div class="space-y-4">
+          {[
+            { tipo: 'Consultoria pontual', prazo: '15 a 30 dias', detalhe: 'Adequação a uma NR específica ou elaboração de um programa.' },
+            { tipo: 'Implantação completa', prazo: '60 a 120 dias', detalhe: 'Diagnóstico + implantação de todos os programas obrigatórios.' },
+            { tipo: 'Assessoria contínua', prazo: 'Contrato mensal', detalhe: 'Renovação automática com visitas e suporte recorrentes.' },
+          ].map(({ tipo, prazo, detalhe }) => (
+            <div class="bg-white rounded-xl p-5 border border-slate-200">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-bold text-[#1a3044]">{tipo}</p>
+                <span class="text-[#3a8d44] font-bold text-sm shrink-0">{prazo}</span>
+              </div>
+              <p class="text-slate-500 text-sm">{detalhe}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O serviço não inclui</h2>
+        <ul class="space-y-3">
+          {[
+            'Fornecimento ou compra de EPIs e equipamentos de segurança',
+            'Execução de obras ou adequações físicas nas instalações',
+            'Representação jurídica em processos trabalhistas',
+            'Serviços médicos (exames, consultas) — apenas coordenação do PCMSO',
+            'Calibração de equipamentos de medição ambiental',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
+              <span class="text-slate-600 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <p class="text-amber-800 text-sm">
+            <strong>Sobre o SESMT:</strong> Empresas com determinado grau de risco e número de colaboradores são
+            obrigadas a ter SESMT próprio. Nesse caso, a Triaxis pode atuar como consultoria de apoio ao SESMT interno.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Dúvidas frequentes</h2>
+      <p class="text-slate-500 mb-10">As perguntas mais comuns sobre consultoria em SST.</p>
+      <div class="space-y-3">
+        {[
+          {
+            p: 'Minha empresa é obrigada a ter SESMT? A consultoria substitui?',
+            r: 'Depende do grau de risco (NR-4) e do número de colaboradores. Empresas com SESMT obrigatório precisam ter profissionais próprios; a consultoria externa pode complementar, mas não substituir. Para empresas abaixo do dimensionamento mínimo, a consultoria é a alternativa legal.',
+          },
+          {
+            p: 'O consultor da Triaxis pode assinar os documentos de SST como responsável técnico?',
+            r: 'Sim. O PGR, laudos e demais documentos que exigem responsável técnico são assinados por nosso engenheiro de segurança ou técnico de segurança habilitado, com emissão de ART quando aplicável.',
+          },
+          {
+            p: 'Qual a diferença entre consultoria e terceirização do SESMT?',
+            r: 'Na terceirização do SESMT, a empresa contratante cede suas obrigações legais a outra empresa. Na consultoria, a Triaxis atua como especialista de apoio — a responsabilidade pela gestão permanece com o empregador, mas com suporte técnico especializado.',
+          },
+          {
+            p: 'A Triaxis atende empresas fora de Belo Horizonte?',
+            r: 'Sim. Atendemos todo o estado de Minas Gerais. Para cidades mais distantes, adaptamos o cronograma de visitas e maximizamos o suporte remoto para reduzir deslocamentos.',
+          },
+          {
+            p: 'Como a consultoria ajuda em caso de fiscalização do MTE?',
+            r: 'Com a documentação atualizada e os programas em dia, sua empresa está preparada para apresentar todos os registros exigidos. Além disso, nosso consultor pode orientar o gestor durante a fiscalização, sem substituir o advogado em caso de auto de infração.',
+          },
+          {
+            p: 'Minha empresa tem menos de 10 funcionários. Vale a pena contratar consultoria?',
+            r: 'Sim. Mesmo MEIs e microempresas precisam de PGR, EPIs adequados e, dependendo da atividade, laudos específicos. Uma consultoria pontual é mais acessível do que parece e evita multas que podem ser bem maiores.',
+          },
+          {
+            p: 'O que é o eSocial e como a consultoria ajuda nesse ponto?',
+            r: 'O eSocial é a plataforma do governo federal que integra obrigações trabalhistas, previdenciárias e tributárias. Os eventos de SST (S-2210, S-2220, S-2240) exigem que PGR e PCMSO estejam atualizados. Nossa consultoria garante que os dados estejam corretos e enviados no prazo.',
+          },
+          {
+            p: 'A consultoria inclui treinamentos para os colaboradores?',
+            r: 'Os treinamentos das NRs são parte integrante da consultoria e podem ser incluídos no escopo. Caso a empresa prefira contratar separadamente, também oferecemos esse serviço de forma independente.',
+          },
+          {
+            p: 'Quanto tempo leva para implantar todos os programas de SST do zero?',
+            r: 'Para uma empresa pequena (até 30 colaboradores), de 60 a 90 dias é suficiente para implantação básica. Para empresas maiores ou com mais riscos, o prazo pode chegar a 120 a 180 dias dependendo da complexidade.',
+          },
+          {
+            p: 'A Triaxis assume os serviços que já temos com outro consultor?',
+            r: 'Sim. Fazemos transição de forma organizada, revisando o que existe, atualizando o que está desatualizado e dando continuidade sem interrupção nos programas obrigatórios.',
+          },
+        ].map(({ p, r }) => (
+          <details class="group border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-[#1a3044] text-sm">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-5 h-5 text-[#3a8d44] shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">{r}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">SST em ordem, empresa protegida</h2>
+      <p class="text-slate-300 mb-8 text-lg">
+        Da primeira visita ao relatório mensal, a Triaxis cuida da sua conformidade para que você possa focar no
+        que mais importa: fazer seu negócio crescer com segurança.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-8 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Falar com Especialista
+        </a>
+        <a
+          href="/contato"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-8 py-3 rounded-xl transition-colors"
+        >
+          Solicitar proposta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

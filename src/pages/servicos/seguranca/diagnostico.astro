@@ -1,15 +1,250 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Diagnóstico de Segurança do Trabalho | Check-up de SST | Triaxis Consultoria MG',
+  description: 'Diagnóstico técnico de Segurança do Trabalho para identificar não conformidades, riscos e prioridades. Relatório com plano de ação para regularização. Ouro Preto, Mariana, BH e MG. Triaxis.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44] transition-colors">Segurança do Trabalho</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Diagnóstico de SST</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Diagnóstico de SST: <span class="text-[#6fcf7f]">identifique não conformidades, riscos e prioridades antes da fiscalização</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Check-up técnico de Segurança do Trabalho para mapear o que está irregular, o que representa risco imediato e o que priorizar para regularizar — antes que vire autuação, acidente ou processo trabalhista.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Avaliação documental e operacional de SST',
+          'Não conformidades classificadas por criticidade',
+          'Plano de ação priorizado: 0 a 30 a 90 dias',
+          'Relatório técnico com devolutiva',
+          'Base para regularização com método',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20Diagnóstico%20de%20SST%20da%20minha%20empresa.%20Empresa:%20____%20%7C%20Atividade:%20____%20%7C%20Nº%20de%20funcionários:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Diagnóstico de SST
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20Diagnóstico%20de%20SST."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o Diagnóstico de SST</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O Diagnóstico de SST é um levantamento técnico estruturado das condições de Segurança e Saúde do Trabalho da empresa. Avalia documentos, instalações, equipamentos, rotinas e práticas operacionais — e entrega um retrato claro do que está irregular, com risco e prioridade definidos.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Não é auditoria de certificação. É um diagnóstico técnico para orientar decisões e regularização com método — sem urgências, retrabalho e gastos desnecessários.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Visão completa da situação de SST sem esperar a fiscalização revelar',
+            'Priorização técnica do que resolver primeiro e como',
+            'Redução de passivo trabalhista e risco de acidente',
+            'Ponto de partida para contratar os serviços certos na sequência correta',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">O que o diagnóstico avalia</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:file-report', label: 'Documentação de SST', desc: 'PGR, PCMSO, laudos, treinamentos, registros e obrigações acessórias.' },
+            { icon: 'tabler:shield-check', label: 'Condições das instalações', desc: 'Layout, saídas de emergência, sinalização, proteções e EPC.' },
+            { icon: 'tabler:helmet', label: 'Gestão de EPI', desc: 'Fornecimento, CA vigente, treinamento e controle de entrega.' },
+            { icon: 'tabler:alert-triangle', label: 'Riscos ocupacionais', desc: 'Identificação preliminar de perigos físicos, químicos, ergonômicos e de acidentes.' },
+            { icon: 'tabler:school', label: 'Treinamentos obrigatórios', desc: 'Verificação das NRs aplicáveis e situação dos treinamentos da equipe.' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-xs font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o Diagnóstico de SST</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { num: '01', titulo: 'Alinhamento inicial', desc: 'Entendimento da atividade, porte, riscos conhecidos e objetivo do diagnóstico.' },
+          { num: '02', titulo: 'Checklist documental', desc: 'Solicitação e análise de documentos de SST existentes.' },
+          { num: '03', titulo: 'Visita técnica', desc: 'Inspeção das instalações, postos de trabalho e rotinas operacionais.' },
+          { num: '04', titulo: 'Identificação de não conformidades', desc: 'Levantamento das irregularidades por área, documento e requisito legal.' },
+          { num: '05', titulo: 'Classificação de riscos', desc: 'Priorização por criticidade: risco imediato, médio prazo e melhorias.' },
+          { num: '06', titulo: 'Elaboração do relatório', desc: 'Documento com constatações, classificação e plano de ação.' },
+          { num: '07', titulo: 'Reunião de devolutiva', desc: 'Apresentação dos resultados e orientações sobre os próximos passos.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do diagnóstico</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            { prazo: '5 a 10 dias', desc: 'Empresa pequena com até 20 funcionários e atividade de baixo risco.' },
+            { prazo: '10 a 20 dias', desc: 'Empresa de porte médio ou com múltiplas atividades e riscos.' },
+            { prazo: 'Até 30 dias', desc: 'Operações complexas, múltiplos locais ou passivos antigos a avaliar.' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Elaboração dos documentos identificados como pendentes (PGR, laudos, etc.)',
+            'Medições quantitativas de agentes físicos e químicos',
+            'Treinamentos de NR',
+            'Implantação das medidas corretivas',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre o Diagnóstico de SST</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras cidades de Minas Gerais, parte do diagnóstico pode ser conduzida remotamente, com visita técnica conforme necessidade.' },
+          { p: 'É possível fazer o diagnóstico remotamente?', r: 'Parte do diagnóstico documental pode ser feita remotamente. A visita técnica é necessária para avaliação das instalações, postos de trabalho e rotinas operacionais.' },
+          { p: 'Quanto custa o diagnóstico de SST?', r: 'O valor depende do porte da empresa, do número de funcionários, da complexidade da atividade e da necessidade de visita presencial. A proposta é enviada com escopo detalhado.' },
+          { p: 'O diagnóstico é obrigatório?', r: 'Não é um documento legalmente obrigatório. É um serviço de consultoria para que a empresa conheça sua situação real antes de ser fiscalizada ou após identificar irregularidades.' },
+          { p: 'O diagnóstico substitui o PGR?', r: 'Não. O diagnóstico identifica o que a empresa precisa — incluindo se o PGR está pendente ou desatualizado. O PGR é um documento obrigatório e deve ser elaborado após ou junto ao diagnóstico.' },
+          { p: 'O diagnóstico garante que a empresa ficará regular?', r: 'O diagnóstico fornece a base técnica e o caminho de regularização. A conformidade depende da implantação das medidas identificadas no plano de ação.' },
+          { p: 'Para quem o diagnóstico é mais indicado?', r: 'Para empresas que nunca tiveram consultoria de SST, que passaram por fiscalização, que têm histórico de acidentes ou que querem se organizar antes de ampliar a equipe ou contratar clientes com requisitos de SST.' },
+          { p: 'A Triaxis elabora os documentos identificados no diagnóstico?', r: 'Sim. O diagnóstico identifica o que está pendente e a Triaxis pode dar continuidade com PGR, laudos, treinamentos, gestão de EPI e consultoria conforme necessidade.' },
+          { p: 'O diagnóstico inclui medições de ruído ou agentes químicos?', r: 'Não. Medições quantitativas de agentes físicos e químicos (para LTCAT, por exemplo) são serviços distintos e podem ser contratados separadamente.' },
+          { p: 'Quanto tempo leva para regularizar após o diagnóstico?', r: 'Depende das pendências encontradas. Ações documentais (PGR, treinamentos) têm prazo menor. Adequações físicas levam mais tempo. O plano de ação do diagnóstico define a sequência e os prazos realistas.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Saiba onde está antes de regularizar</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Agende o Diagnóstico de SST da sua empresa.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Regularizar sem diagnóstico é gastar sem método. Com base técnica, você sabe o que é urgente, o que pode esperar e o que vai custar — antes de tomar decisões erradas. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20Diagnóstico%20de%20SST%20da%20minha%20empresa.%20Empresa:%20____%20%7C%20Atividade:%20____%20%7C%20Nº%20de%20funcionários:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Diagnóstico de SST
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

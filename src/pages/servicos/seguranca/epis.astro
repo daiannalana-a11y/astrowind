@@ -1,15 +1,350 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Gestão de EPIs | Triaxis Consultoria MG',
+  description:
+    'Implantação e gestão do programa de EPIs: seleção técnica, controle de entrega, fichas de fornecimento, treinamento de uso correto e conformidade com NR-6.',
+};
+
+const whatsappMsg = encodeURIComponent(
+  'Olá! Tenho interesse no serviço de Gestão de EPIs da Triaxis. Pode me passar mais informações?'
+);
+const whatsappHref = `https://wa.me/5531994915126?text=${whatsappMsg}`;
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-white border-b border-slate-200 px-4 py-2 text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto flex items-center gap-2">
+      <a href="/" class="hover:text-[#3a8d44]">Início</a>
+      <span>/</span>
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44]">Segurança do Trabalho</a>
+      <span>/</span>
+      <span class="text-slate-800 font-medium">Gestão de EPIs</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] text-white py-16 px-4 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#6fcf7f] text-sm font-semibold uppercase tracking-widest mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-5">
+        Gestão de <span class="text-[#6fcf7f]">EPIs</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-3xl mb-7">
+        Implantamos e estruturamos o programa de Equipamentos de Proteção Individual da sua empresa — da seleção
+        técnica correta ao controle de entrega e treinamento — garantindo conformidade com a NR-6 e efetiva
+        proteção dos trabalhadores.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        {['NR-6', 'CA válido', 'Ficha de EPI', 'Seleção técnica', 'Treinamento de uso', 'Controle digital ou impresso'].map((p) => (
+          <span class="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">{p}</span>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Proposta
+        </a>
+        <a
+          href="#o-que-fazemos"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+        >
+          Ver como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE A NR-6 EXIGE -->
+  <section id="o-que-fazemos" class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">O que a NR-6 exige</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">
+        A Norma Regulamentadora nº 6 define as obrigações do empregador em relação aos EPIs. O descumprimento
+        gera autuações, responsabilidade por acidente e passivo trabalhista.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { sigla: 'CA', titulo: 'Certificado de Aprovação válido', desc: 'Todo EPI deve ter CA emitido pelo MTE. A Triaxis verifica validade e adequação técnica para cada função.' },
+          { sigla: 'SEL', titulo: 'Seleção técnica correta', desc: 'EPI errado não protege. Selecionamos o equipamento adequado ao risco identificado no PGR de cada função.' },
+          { sigla: 'ENT', titulo: 'Fornecimento documentado', desc: 'Ficha de EPI assinada pelo trabalhador é obrigatória. Implantamos controle manual ou digital com histórico.' },
+          { sigla: 'TRE', titulo: 'Treinamento de uso', desc: 'O trabalhador deve saber usar, higienizar e conservar o EPI. Elaboramos e registramos os treinamentos.' },
+          { sigla: 'CON', titulo: 'Conservação e substituição', desc: 'EPIs danificados devem ser substituídos imediatamente. Definimos prazos de vida útil e fluxo de substituição.' },
+          { sigla: 'COB', titulo: 'Cobrança pelo uso', desc: 'A lei permite descontar do salário o EPI danificado por dolo ou mau uso. Estruturamos o procedimento correto.' },
+        ].map(({ sigla, titulo, desc }) => (
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-[#3a8d44]/30 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{sigla}</span>
+              </div>
+              <h3 class="font-bold text-[#1a3044] text-base">{titulo}</h3>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE ENTREGAMOS -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">O que você recebe</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">Entregáveis práticos que podem ser implementados diretamente pela empresa.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            titulo: 'Matriz de EPIs por função',
+            desc: 'Tabela completa relacionando cada cargo/função aos EPIs necessários, com CA atualizado e justificativa técnica baseada nos riscos do PGR.',
+            badge: 'Base do programa',
+            badgeColor: 'bg-[#1a3044]',
+          },
+          {
+            titulo: 'Fichas de fornecimento de EPI',
+            desc: 'Modelo padronizado de ficha individual com campos de data, descrição, CA, quantidade e assinatura. Disponível em formato Word/Excel para uso interno.',
+            badge: 'Exigência legal',
+            badgeColor: 'bg-red-600',
+          },
+          {
+            titulo: 'Procedimento de gestão de EPIs',
+            desc: 'Documento descrevendo o fluxo completo: como solicitar, receber, usar, higienizar, devolver e substituir EPIs. Inclui responsabilidades de cada área.',
+            badge: 'Boa prática',
+            badgeColor: 'bg-[#3a8d44]',
+          },
+          {
+            titulo: 'Registro de treinamentos',
+            desc: 'Lista de presença, conteúdo programático e certificado de treinamento de uso correto de EPIs para os trabalhadores e líderes.',
+            badge: 'Obrigatório',
+            badgeColor: 'bg-orange-500',
+          },
+          {
+            titulo: 'Checklist de inspeção periódica',
+            desc: 'Formulário para inspeção mensal das condições dos EPIs em uso, identificando desgaste, validade do CA e necessidade de substituição.',
+            badge: 'Controle contínuo',
+            badgeColor: 'bg-blue-600',
+          },
+          {
+            titulo: 'Relatório de conformidade com NR-6',
+            desc: 'Documento técnico atestando que a empresa adota EPIs adequados e mantém os registros exigidos — útil para fiscalizações e auditorias de clientes.',
+            badge: 'Com ART',
+            badgeColor: 'bg-[#3a8d44]',
+          },
+        ].map(({ titulo, desc, badge, badgeColor }) => (
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class={`${badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full`}>{badge}</span>
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-base mb-2 pr-28">{titulo}</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ERROS COMUNS -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Erros que geram autuações</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">
+        Esses são os problemas mais frequentes que o fiscal do MTE identifica durante vistorias de EPIs.
+        Todos podem ser corrigidos com uma boa gestão.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { erro: 'CA vencido ou inválido', impacto: 'EPI sem CA válido é equivalente a não fornecer EPI — gera auto de infração mesmo que o produto seja de qualidade.' },
+          { erro: 'Ausência de ficha de entrega', impacto: 'Sem ficha assinada, o empregador não consegue provar que forneceu o EPI em caso de acidente ou fiscalização.' },
+          { erro: 'EPI errado para o risco', impacto: 'Fornecer luva de raspa para risco químico, ou protetor auricular de espuma em ambiente com ruído acima de 100 dB, não protege e não atende à NR-6.' },
+          { erro: 'Sem treinamento documentado', impacto: 'O trabalhador que não sabe usar o EPI corretamente está tão exposto quanto o que não usa. O treinamento é obrigatório e deve ser registrado.' },
+          { erro: 'EPI danificado em uso', impacto: 'Capacetes amassados, óculos riscados, luvas furadas — EPIs com vida útil vencida não protegem e demonstram falha na gestão.' },
+          { erro: 'Sem critério de substituição', impacto: 'Sem uma política clara de quando trocar os EPIs, a empresa fica sujeita ao critério do trabalhador — ou à falta de critério.' },
+        ].map(({ erro, impacto }) => (
+          <div class="flex items-start gap-4 bg-red-50 border border-red-100 rounded-xl p-5">
+            <Icon name="tabler:alert-triangle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+            <div>
+              <p class="font-bold text-red-800 text-sm mb-1">{erro}</p>
+              <p class="text-red-700 text-xs leading-relaxed">{impacto}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Como implantamos o programa</h2>
+      <p class="text-slate-300 mb-10">Do levantamento dos riscos à entrega de todos os documentos prontos para uso.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[
+          { n: '01', titulo: 'Levantamento de funções e riscos', desc: 'Análise do PGR existente (ou levantamento próprio) para identificar os riscos de cada função e posto de trabalho.' },
+          { n: '02', titulo: 'Seleção técnica dos EPIs', desc: 'Escolha dos EPIs adequados para cada risco, verificando CA válido, conforto, viabilidade de uso e custo-benefício.' },
+          { n: '03', titulo: 'Elaboração da matriz', desc: 'Construção da matriz de EPIs por cargo — documento-base que guia compras, reposição e auditorias.' },
+          { n: '04', titulo: 'Criação dos documentos', desc: 'Fichas de entrega, procedimento de gestão, checklist de inspeção e demais registros padronizados.' },
+          { n: '05', titulo: 'Treinamento da equipe', desc: 'Capacitação de líderes e trabalhadores sobre uso correto, higienização, conservação e procedimentos de substituição.' },
+          { n: '06', titulo: 'Entrega e suporte', desc: 'Entrega de todos os documentos em formato editável, reunião de passagem e disponibilidade para dúvidas pós-implantação.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="flex items-start gap-4 bg-white/5 rounded-xl p-5">
+            <span class="text-[#6fcf7f] font-black text-2xl leading-none w-10 shrink-0">{n}</span>
+            <div>
+              <p class="font-bold text-white mb-1">{titulo}</p>
+              <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS E NÃO INCLUI -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Prazos estimados</h2>
+        <div class="space-y-4">
+          {[
+            { tipo: 'Empresa pequena', prazo: '10 a 20 dias úteis', detalhe: 'Até 30 funções, sem processos produtivos complexos.' },
+            { tipo: 'Empresa média', prazo: '20 a 40 dias úteis', detalhe: 'Múltiplos setores com riscos distintos.' },
+            { tipo: 'Indústria / grande empresa', prazo: '30 a 60 dias úteis', detalhe: 'Muitas funções, ambientes complexos e treinamento de grande grupo.' },
+          ].map(({ tipo, prazo, detalhe }) => (
+            <div class="bg-white rounded-xl p-5 border border-slate-200">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-bold text-[#1a3044]">{tipo}</p>
+                <span class="text-[#3a8d44] font-bold text-sm shrink-0">{prazo}</span>
+              </div>
+              <p class="text-slate-500 text-sm">{detalhe}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O serviço não inclui</h2>
+        <ul class="space-y-3">
+          {[
+            'Compra ou fornecimento dos EPIs físicos',
+            'Implantação de sistema de gestão digital de EPIs (pode ser contratado à parte)',
+            'Elaboração do PGR (necessário como base — pode ser contratado junto)',
+            'Medições ambientais de ruído, poeira ou agentes químicos',
+            'Gestão de EPCs (Equipamentos de Proteção Coletiva)',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
+              <span class="text-slate-600 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <p class="text-amber-800 text-sm">
+            <strong>EPI x EPC:</strong> A NR-6 prioriza os Equipamentos de Proteção Coletiva (EPC) sobre os
+            individuais. O programa de EPIs da Triaxis sempre parte da análise se o EPC é viável antes de
+            recomendar o EPI correspondente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Dúvidas frequentes</h2>
+      <p class="text-slate-500 mb-10">As perguntas mais comuns sobre gestão de EPIs.</p>
+      <div class="space-y-3">
+        {[
+          {
+            p: 'Minha empresa é obrigada a fornecer EPIs gratuitamente?',
+            r: 'Sim. A NR-6 determina que o empregador forneça gratuitamente EPIs adequados ao risco, em perfeito estado de conservação e funcionamento. Cobrar do trabalhador pelo EPI novo é proibido.',
+          },
+          {
+            p: 'Posso descontar do salário o EPI danificado pelo trabalhador?',
+            r: 'Somente se ficar comprovado que o dano foi causado por dolo ou mau uso intencional. Desgaste normal pelo uso não pode ser descontado. É necessário procedimento formal documentado antes de qualquer desconto.',
+          },
+          {
+            p: 'Como verifico se o CA de um EPI está válido?',
+            r: 'O CA pode ser consultado no site do Ministério do Trabalho e Emprego (consulta pública de CA). Verificamos isso sistematicamente para todos os EPIs da sua empresa e alertamos sobre vencimentos.',
+          },
+          {
+            p: 'O trabalhador pode recusar usar o EPI?',
+            r: 'A NR-6 prevê que o trabalhador é obrigado a usar o EPI fornecido. A recusa injustificada pode ser motivo de advertência, suspensão e, em casos extremos, demissão por justa causa — desde que a empresa tenha documentado corretamente o fornecimento e o treinamento.',
+          },
+          {
+            p: 'Qual a diferença entre EPI e EPC?',
+            r: 'EPC (Equipamento de Proteção Coletiva) protege todos os trabalhadores de um ambiente (exemplo: enclausuramento acústico, exaustão local). EPI protege um trabalhador individualmente. A hierarquia de controles prioriza EPC sobre EPI — usamos EPI quando o EPC não é viável ou suficiente.',
+          },
+          {
+            p: 'A ficha de EPI precisa ser assinada a cada entrega?',
+            r: 'Sim. Cada vez que um EPI é entregue ao trabalhador, deve haver registro com data, descrição, quantidade e assinatura. Uma única ficha com datas preenchidas ao longo do tempo é a forma mais prática de manter esse controle.',
+          },
+          {
+            p: 'EPIs com CA vencido ainda podem ser usados se o produto estiver em bom estado?',
+            r: 'Não. O CA vencido significa que o fabricante não renovou a aprovação junto ao MTE. O produto pode não atender mais os requisitos atuais de proteção, independentemente da aparência física. Deve ser substituído.',
+          },
+          {
+            p: 'Com que frequência devo revisar a matriz de EPIs?',
+            r: 'Sempre que houver mudança nos processos, novos postos de trabalho, atualização do PGR ou alteração na NR correspondente. No mínimo, uma revisão anual é recomendada para verificar CAs vencidos e adequação técnica.',
+          },
+          {
+            p: 'A gestão de EPIs precisa ser integrada ao PGR?',
+            r: 'Sim. O PGR identifica os riscos e as medidas de controle — os EPIs são uma das medidas. A matriz de EPIs deve ser consistente com os riscos identificados no PGR para que a empresa esteja em conformidade completa.',
+          },
+          {
+            p: 'Como fazer o controle de EPIs em empresas com muitos funcionários?',
+            r: 'Para empresas com mais de 50 colaboradores, recomendamos sistemas digitais de gestão de EPIs (planilhas avançadas ou softwares específicos). A Triaxis pode estruturar esse processo e treinar o responsável interno para operação.',
+          },
+        ].map(({ p, r }) => (
+          <details class="group border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-[#1a3044] text-sm">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-5 h-5 text-[#3a8d44] shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">{r}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Proteja seus trabalhadores — e a empresa</h2>
+      <p class="text-slate-300 mb-8 text-lg">
+        Um programa de EPIs bem estruturado reduz acidentes, elimina passivos trabalhistas e demonstra
+        responsabilidade da empresa perante fiscais, clientes e colaboradores.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-8 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Proposta
+        </a>
+        <a
+          href="/contato"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-8 py-3 rounded-xl transition-colors"
+        >
+          Falar com consultor
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

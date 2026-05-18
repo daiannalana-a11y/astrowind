@@ -1,15 +1,324 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Treinamentos de Segurança do Trabalho (NRs) | Triaxis Consultoria MG',
+  description:
+    'Treinamentos obrigatórios de NRs: NR-10, NR-12, NR-17, NR-20, NR-33, NR-35 e outros. In company, presencial ou online, com certificado e lista de presença.',
+};
+
+const whatsappMsg = encodeURIComponent(
+  'Olá! Tenho interesse nos Treinamentos de Segurança do Trabalho da Triaxis. Pode me passar mais informações sobre as NRs disponíveis?'
+);
+const whatsappHref = `https://wa.me/5531994915126?text=${whatsappMsg}`;
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-white border-b border-slate-200 px-4 py-2 text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto flex items-center gap-2">
+      <a href="/" class="hover:text-[#3a8d44]">Início</a>
+      <span>/</span>
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44]">Segurança do Trabalho</a>
+      <span>/</span>
+      <span class="text-slate-800 font-medium">Treinamentos de NRs</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] text-white py-16 px-4 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#6fcf7f] text-sm font-semibold uppercase tracking-widest mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-5">
+        Treinamentos de <span class="text-[#6fcf7f]">Segurança do Trabalho</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-3xl mb-7">
+        Treinamentos obrigatórios conforme as Normas Regulamentadoras, aplicados in company na sua empresa —
+        presencial, online ao vivo ou híbrido — com conteúdo técnico atualizado, certificado e toda a
+        documentação exigida pela legislação.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        {['NR-10', 'NR-12', 'NR-17', 'NR-20', 'NR-33', 'NR-35', 'CIPA / NR-5', 'Certificado individual', 'Lista de presença'].map((p) => (
+          <span class="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">{p}</span>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Treinamento
+        </a>
+        <a
+          href="#nrs-disponiveis"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+        >
+          Ver NRs disponíveis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NRs DISPONÍVEIS -->
+  <section id="nrs-disponiveis" class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">NRs disponíveis</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">
+        Oferecemos os treinamentos das principais NRs com periodicidade e carga horária conforme exigência legal.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { nr: 'NR-5', nome: 'CIPA', ch: '20h', per: 'Anual', desc: 'Comissão Interna de Prevenção de Acidentes — formação de cipeiros e suplentes.' },
+          { nr: 'NR-6', nome: 'Uso de EPIs', ch: '2h', per: 'Admissional + anual', desc: 'Uso correto, higienização, conservação e substituição de Equipamentos de Proteção Individual.' },
+          { nr: 'NR-10', nome: 'Segurança em Eletricidade', ch: '40h (básico) / 40h+40h (SEP)', per: 'Bienal', desc: 'Obrigatório para trabalhadores que operam, mantêm ou têm acesso a instalações elétricas.' },
+          { nr: 'NR-12', nome: 'Segurança em Máquinas', ch: 'Variável', per: 'Admissional + quando necessário', desc: 'Operadores e mantenedores de máquinas e equipamentos com riscos mecânicos.' },
+          { nr: 'NR-17', nome: 'Ergonomia', ch: '8h', per: 'Anual', desc: 'Boas práticas ergonômicas, postura correta, pausas e organização do trabalho.' },
+          { nr: 'NR-20', nome: 'Inflamáveis e Combustíveis', ch: '4h a 16h', per: 'Bienal', desc: 'Trabalhadores que operam, mantêm ou supervisionam atividades com inflamáveis e combustíveis líquidos.' },
+          { nr: 'NR-23', nome: 'Proteção Contra Incêndio', ch: '4h a 8h', per: 'Anual', desc: 'Uso de extintores, rotas de fuga, prevenção e combate a incêndios.' },
+          { nr: 'NR-33', nome: 'Espaços Confinados', ch: '16h (autorizado) / 16h (vigia) / 16h (sup.)', per: 'Anual', desc: 'Trabalhadores que entram ou supervisionam espaços confinados (silos, cisternas, dutos, fossas).' },
+          { nr: 'NR-35', nome: 'Trabalho em Altura', ch: '8h', per: 'Bienal', desc: 'Todo trabalhador que execute atividades acima de 2 metros com risco de queda.' },
+        ].map(({ nr, nome, ch, per, desc }) => (
+          <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-[#3a8d44]/30 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{nr}</span>
+              </div>
+              <div>
+                <p class="font-bold text-[#1a3044] text-sm leading-tight">{nome}</p>
+                <p class="text-slate-400 text-xs">{ch} · {per}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-4 max-w-2xl">
+        <p class="text-amber-800 text-sm">
+          <strong>Não encontrou a NR que precisa?</strong> Também realizamos treinamentos de NR-13 (vasos de pressão),
+          NR-18 (construção civil), NR-31 (agronegócio), NR-36 (frigoríficos) e outras. Entre em contato para verificar disponibilidade.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATOS E DOCUMENTAÇÃO -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Formatos disponíveis</h2>
+        <div class="space-y-4">
+          {[
+            { formato: 'Presencial in company', icon: 'tabler:building', desc: 'Treinamento realizado nas instalações da sua empresa, com o instrutor indo até você. Ideal para turmas a partir de 5 pessoas.' },
+            { formato: 'Online ao vivo (síncrono)', icon: 'tabler:device-laptop', desc: 'Via Zoom ou Google Meet, com interação em tempo real. Mesmo conteúdo e carga horária do presencial. Certificado válido.' },
+            { formato: 'Turmas abertas', icon: 'tabler:users', desc: 'O colaborador participa de uma turma com outros alunos de diferentes empresas. Boa opção para 1 a 3 pessoas.' },
+            { formato: 'Reciclagem e atualização', icon: 'tabler:refresh', desc: 'Reciclagem periódica conforme validade do treinamento anterior. Carga horária reduzida e foco nas atualizações normativas.' },
+          ].map(({ formato, icon, desc }) => (
+            <div class="flex items-start gap-4 bg-white rounded-xl p-5 border border-slate-200">
+              <div class="w-10 h-10 rounded-xl bg-[#1a3044] flex items-center justify-center shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#6fcf7f]" />
+              </div>
+              <div>
+                <p class="font-bold text-[#1a3044] text-sm mb-1">{formato}</p>
+                <p class="text-slate-600 text-sm">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Documentação entregue</h2>
+        <div class="space-y-4">
+          {[
+            { doc: 'Certificado individual', desc: 'Certificado nominado por participante com nome, NR, carga horária, conteúdo programático, data e instrutor responsável.' },
+            { doc: 'Lista de presença', desc: 'Folha assinada por todos os participantes, com dados do treinamento e do instrutor — documento exigido em fiscalizações.' },
+            { doc: 'Conteúdo programático', desc: 'Descrição detalhada dos tópicos abordados, utilizada para comprovar a conformidade da carga horária e do conteúdo com a NR.' },
+            { doc: 'Registro fotográfico', desc: 'Fotos do treinamento para compor o dossiê de SST da empresa, complementando a documentação.' },
+            { doc: 'Avaliação de aprendizagem', desc: 'Prova ou questionário aplicado ao final (onde a NR exige), com gabarito e resultado individual arquivado.' },
+          ].map(({ doc, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-[#3a8d44] flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="tabler:file-certificate" class="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <p class="font-semibold text-[#1a3044] text-sm">{doc}</p>
+                <p class="text-slate-600 text-sm">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Como funciona</h2>
+      <p class="text-slate-300 mb-10">Da solicitação ao certificado — processo simples e sem burocracia.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          { n: '01', titulo: 'Solicitação e levantamento', desc: 'Você informa as NRs necessárias, número de participantes, funções e o prazo desejado. Analisamos e confirmamos a viabilidade.' },
+          { n: '02', titulo: 'Proposta e cronograma', desc: 'Enviamos proposta com investimento, datas disponíveis, carga horária e formato (presencial ou online). Sem surpresas.' },
+          { n: '03', titulo: 'Preparação do material', desc: 'Adaptamos o conteúdo à realidade da sua empresa — exemplos do setor, fotos do ambiente, riscos específicos da operação.' },
+          { n: '04', titulo: 'Aplicação do treinamento', desc: 'O instrutor conduz o treinamento com linguagem acessível, exemplos práticos e espaço para dúvidas. Avaliação ao final quando exigida.' },
+          { n: '05', titulo: 'Emissão de certificados', desc: 'Certificados individuais, lista de presença e conteúdo programático entregues em até 2 dias úteis após o treinamento.' },
+          { n: '06', titulo: 'Controle de vencimentos', desc: 'Clientes de assessoria contínua recebem alertas automáticos de vencimento de treinamentos para não ficar em não-conformidade.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="flex items-start gap-4 bg-white/5 rounded-xl p-5">
+            <span class="text-[#6fcf7f] font-black text-2xl leading-none w-10 shrink-0">{n}</span>
+            <div>
+              <p class="font-bold text-white mb-1">{titulo}</p>
+              <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS E NÃO INCLUI -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Prazos para agendamento</h2>
+        <div class="space-y-4">
+          {[
+            { tipo: 'Treinamentos simples (até 8h)', prazo: '5 a 10 dias úteis', detalhe: 'NR-35, NR-23, uso de EPIs, ergonomia — disponibilidade rápida.' },
+            { tipo: 'Treinamentos complexos (16h+)', prazo: '10 a 20 dias úteis', detalhe: 'NR-10, NR-33, NR-20 — exigem preparação mais detalhada.' },
+            { tipo: 'CIPA (NR-5)', prazo: '15 a 30 dias úteis', detalhe: 'Inclui planejamento da SIPAT e integração com o calendário da empresa.' },
+          ].map(({ tipo, prazo, detalhe }) => (
+            <div class="bg-white rounded-xl p-5 border border-slate-200">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-bold text-[#1a3044]">{tipo}</p>
+                <span class="text-[#3a8d44] font-bold text-sm shrink-0">{prazo}</span>
+              </div>
+              <p class="text-slate-500 text-sm">{detalhe}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O serviço não inclui</h2>
+        <ul class="space-y-3">
+          {[
+            'Fornecimento de EPIs ou equipamentos para prática',
+            'EAD assíncrono (gravado) — todos os treinamentos são conduzidos ao vivo',
+            'Simulados práticos que exijam estrutura física específica (para NR-10 SEP, por exemplo)',
+            'Elaboração de documentos de SST (PGR, PCMSO, laudos) — serviços distintos',
+            'Homologação junto ao MTE de módulos próprios de treinamento da empresa',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
+              <span class="text-slate-600 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <p class="text-amber-800 text-sm">
+            <strong>Atualização de NRs:</strong> As NRs são revisadas periodicamente. O conteúdo de todos os
+            treinamentos da Triaxis é atualizado conforme as portarias mais recentes do MTE.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Dúvidas frequentes</h2>
+      <p class="text-slate-500 mb-10">As perguntas mais comuns sobre treinamentos de NRs.</p>
+      <div class="space-y-3">
+        {[
+          {
+            p: 'O certificado de treinamento online tem a mesma validade do presencial?',
+            r: 'Sim, desde que o treinamento online seja realizado ao vivo (síncrono) com instrutor, com controle de frequência, avaliação e carga horária completa conforme a NR. Treinamentos assíncronos (gravados) não são aceitos para a maioria das NRs.',
+          },
+          {
+            p: 'Quem pode ministrar treinamentos de NR?',
+            r: 'Depende da NR. Para NR-10, o instrutor deve ser profissional habilitado em Segurança do Trabalho com conhecimento em eletricidade. Para NR-35, profissional com formação em SST. A Triaxis utiliza instrutores habilitados e com experiência prática em cada NR.',
+          },
+          {
+            p: 'O que acontece se um trabalhador não participar do treinamento obrigatório?',
+            r: 'O trabalhador não pode exercer as atividades que exigem o treinamento sem estar capacitado. Caso exerça e ocorra acidente, a responsabilidade recai sobre a empresa. Além disso, o fiscal do MTE pode autuar a empresa por trabalhador sem treinamento em dia.',
+          },
+          {
+            p: 'Como saber quais NRs são obrigatórias para minha empresa?',
+            r: 'As NRs aplicáveis dependem do setor, das atividades e dos riscos da empresa. As universais (NR-1, NR-5, NR-6, NR-7) se aplicam a todas. As demais dependem das atividades: trabalho em altura, espaços confinados, eletricidade, etc. A Triaxis faz esse mapeamento como parte dos serviços de consultoria.',
+          },
+          {
+            p: 'Posso pedir um treinamento de NR que não está na lista?',
+            r: 'Sim. Realizamos treinamentos de diversas NRs além das listadas, incluindo NR-13, NR-18, NR-31, NR-36, brigada de incêndio e primeiros socorros. Entre em contato para verificar disponibilidade de instrutores.',
+          },
+          {
+            p: 'É possível fazer vários treinamentos no mesmo dia?',
+            r: 'Sim, desde que a carga horária total respeite a jornada de trabalho e as NRs não exijam dias distintos. Combinamos treinamentos complementares para otimizar o tempo da equipe — por exemplo, NR-35 + NR-6 no mesmo dia.',
+          },
+          {
+            p: 'Qual é a carga horária mínima do NR-10?',
+            r: 'NR-10 Básico: 40 horas. NR-10 SEP (Sistemas Elétricos de Potência): 40 horas adicionais ao básico, totalizando 80 horas para trabalhadores que atuam no SEP. A reciclagem é de 40 horas a cada 2 anos.',
+          },
+          {
+            p: 'O treinamento de NR-35 (trabalho em altura) precisa incluir prática?',
+            r: 'Sim. A NR-35 exige que o treinamento inclua componente prático de uso de EPI contra quedas (trava-queda, talabarte, cinto de segurança). A parte prática pode ser realizada nas instalações da empresa com os equipamentos reais usados pelos trabalhadores.',
+          },
+          {
+            p: 'Empresa com menos de 20 funcionários precisa de CIPA?',
+            r: 'Depende do grau de risco. Empresas com grau de risco 1 ou 2 podem ser dispensadas da CIPA formal abaixo de certo número de colaboradores — mas precisam de um designado de CIPA (NR-5, Quadro I). A Triaxis verifica o enquadramento e orienta sobre a obrigação correta.',
+          },
+          {
+            p: 'Os certificados emitidos pela Triaxis têm algum registro ou numeração?',
+            r: 'Sim. Todos os certificados possuem número de registro interno, dados do instrutor responsável, data de emissão e conteúdo programático. São documentos técnicos que atendem às exigências de fiscalização do MTE e auditorias de clientes.',
+          },
+        ].map(({ p, r }) => (
+          <details class="group border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-[#1a3044] text-sm">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-5 h-5 text-[#3a8d44] shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">{r}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Equipe treinada é empresa protegida</h2>
+      <p class="text-slate-300 mb-8 text-lg">
+        Trabalhador capacitado acidenta menos, a empresa está em conformidade legal e você tem toda a
+        documentação para apresentar quando o fiscal ou o cliente pedir.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-8 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Treinamento
+        </a>
+        <a
+          href="/contato"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-8 py-3 rounded-xl transition-colors"
+        >
+          Ver calendário de turmas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

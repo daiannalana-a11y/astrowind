@@ -1,15 +1,315 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Ergonomia e Laudo Ergonômico (AET) | Triaxis Consultoria MG',
+  description:
+    'Análise Ergonômica do Trabalho (AET) e Laudo Ergonômico conforme NR-17: avaliação dos postos de trabalho, identificação de riscos ergonômicos e recomendações técnicas para adequação.',
+};
+
+const whatsappMsg = encodeURIComponent(
+  'Olá! Tenho interesse no serviço de Ergonomia e AET da Triaxis. Pode me passar mais informações sobre prazo e investimento?'
+);
+const whatsappHref = `https://wa.me/5531994915126?text=${whatsappMsg}`;
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-white border-b border-slate-200 px-4 py-2 text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto flex items-center gap-2">
+      <a href="/" class="hover:text-[#3a8d44]">Início</a>
+      <span>/</span>
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44]">Segurança do Trabalho</a>
+      <span>/</span>
+      <span class="text-slate-800 font-medium">Ergonomia e AET</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] text-white py-16 px-4 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#6fcf7f] text-sm font-semibold uppercase tracking-widest mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-5">
+        Ergonomia e <span class="text-[#6fcf7f]">Laudo Ergonômico</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-3xl mb-7">
+        Realizamos a Análise Ergonômica do Trabalho (AET) conforme NR-17: avaliação técnica dos postos de
+        trabalho, identificação de fatores de risco ergonômico e elaboração do laudo com recomendações para
+        adequação do ambiente, equipamentos e organização do trabalho.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        {['NR-17', 'AET completa', 'Laudo Ergonômico', 'Postos de trabalho', 'Escritório e indústria', 'ART inclusa'].map((p) => (
+          <span class="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">{p}</span>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Laudo Ergonômico
+        </a>
+        <a
+          href="#fatores-risco"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+        >
+          Ver fatores avaliados
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FATORES DE RISCO ERGONÔMICO -->
+  <section id="fatores-risco" class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Fatores de risco ergonômico avaliados</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">
+        A NR-17 classifica os riscos ergonômicos em dimensões físicas, cognitivas e organizacionais. Nossa AET
+        cobre todas elas.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { sigla: 'POS', titulo: 'Postura e biomecânica', desc: 'Flexão, rotação, extensão do tronco e membros superiores. Avaliação de posturas estáticas prolongadas e movimentos repetitivos.' },
+          { sigla: 'FOR', titulo: 'Força e esforço físico', desc: 'Levantamento e transporte manual de cargas, força de preensão, empurrar e puxar — análise conforme limites da NIOSH e NR-17.' },
+          { sigla: 'REP', titulo: 'Repetitividade', desc: 'Identificação de ciclos de trabalho com movimentos repetitivos de membros superiores, com avaliação pelo método OCRA ou RULA.' },
+          { sigla: 'AMB', titulo: 'Condições ambientais', desc: 'Temperatura, ruído, iluminância, umidade e vibração nos postos de trabalho, conforme anexos da NR-17.' },
+          { sigla: 'MOB', titulo: 'Mobiliário e equipamentos', desc: 'Adequação de cadeiras, mesas, monitores, teclados, ferramentas e bancadas às dimensões e necessidades dos trabalhadores.' },
+          { sigla: 'ORG', titulo: 'Organização do trabalho', desc: 'Ritmo, pausas, jornadas, demanda cognitiva, pressão por produtividade e relações interpessoais — riscos psicossociais associados à ergonomia.' },
+        ].map(({ sigla, titulo, desc }) => (
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-[#3a8d44]/30 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{sigla}</span>
+              </div>
+              <h3 class="font-bold text-[#1a3044] text-base">{titulo}</h3>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS + QUANDO CONTRATAR -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O que você recebe</h2>
+        <div class="space-y-4">
+          {[
+            { titulo: 'AET — Análise Ergonômica do Trabalho', desc: 'Documento técnico completo com metodologia, análise das tarefas, avaliação postural e resultados por posto de trabalho.' },
+            { titulo: 'Laudo Ergonômico', desc: 'Conclusão técnica com classificação dos riscos por grau (baixo, médio, alto) e fundamentação normativa.' },
+            { titulo: 'Plano de melhorias ergonômicas', desc: 'Lista priorizada de adequações recomendadas com descrição técnica, prazo sugerido e custo estimado quando aplicável.' },
+            { titulo: 'Registros fotográficos', desc: 'Fotografias dos postos avaliados com anotações técnicas, compondo o anexo fotográfico do laudo.' },
+            { titulo: 'ART do profissional', desc: 'Anotação de Responsabilidade Técnica de engenheiro habilitado, conferindo validade legal ao documento.' },
+          ].map(({ titulo, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="tabler:file-check" class="w-4 h-4 text-[#6fcf7f]" />
+              </div>
+              <div>
+                <p class="font-semibold text-[#1a3044] text-sm">{titulo}</p>
+                <p class="text-slate-600 text-sm">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Quando contratar</h2>
+        <ul class="space-y-4">
+          {[
+            'Exigência de clientes ou auditorias de fornecedores (ISO 9001, ISO 45001)',
+            'Alta incidência de afastamentos por LER/DORT (lesões por esforço repetitivo)',
+            'Fiscalização do MTE ou Ministério Público do Trabalho com foco em ergonomia',
+            'Instalação de novo posto de trabalho, linha de produção ou setor',
+            'Trabalho com VDT (Video Display Terminal) conforme Anexo II da NR-17',
+            'Operadores de checkout (supermercados) — Anexo I da NR-17',
+            'Reclamações frequentes de dores musculares ou fadiga entre trabalhadores',
+            'Implantação do PGR com riscos ergonômicos identificados como relevantes',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-[#3a8d44]/10 flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#3a8d44]" />
+              </span>
+              <span class="text-slate-700 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Como realizamos a AET</h2>
+      <p class="text-slate-300 mb-10">Processo rigoroso que segue as etapas metodológicas da NR-17.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          { n: '01', titulo: 'Definição de escopo', desc: 'Identificação dos postos de trabalho e funções a serem avaliados, com base no número de colaboradores e riscos identificados no PGR.' },
+          { n: '02', titulo: 'Análise da demanda', desc: 'Levantamento de queixas, afastamentos por LER/DORT, acidentes relacionados a esforço físico e dados do PCMSO para direcionar a avaliação.' },
+          { n: '03', titulo: 'Análise das tarefas', desc: 'Observação direta das atividades nos postos de trabalho, cronometragem, registro fotográfico e aplicação de checklists ergonômicos validados.' },
+          { n: '04', titulo: 'Avaliação postural e ambiental', desc: 'Aplicação de métodos reconhecidos (RULA, REBA, NIOSH) e medições ambientais (iluminância, temperatura, ruído) conforme a necessidade.' },
+          { n: '05', titulo: 'Análise da atividade real', desc: 'Entrevistas com os trabalhadores para entender a discrepância entre o trabalho prescrito e o trabalho real — etapa fundamental da AET.' },
+          { n: '06', titulo: 'Elaboração do laudo', desc: 'Produção da AET e do Laudo Ergonômico com conclusões técnicas, recomendações e ART assinada.' },
+          { n: '07', titulo: 'Apresentação dos resultados', desc: 'Reunião de entrega com gestores de RH, SST e líderes de área para apresentar as recomendações e alinhar o plano de melhorias.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="flex items-start gap-4 bg-white/5 rounded-xl p-5">
+            <span class="text-[#6fcf7f] font-black text-2xl leading-none w-10 shrink-0">{n}</span>
+            <div>
+              <p class="font-bold text-white mb-1">{titulo}</p>
+              <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS E NÃO INCLUI -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Prazos estimados</h2>
+        <div class="space-y-4">
+          {[
+            { escopo: 'Até 10 postos de trabalho', prazo: '10 a 20 dias úteis', detalhe: 'Escritório ou pequeno comércio, funções homogêneas.' },
+            { escopo: '10 a 50 postos', prazo: '20 a 40 dias úteis', detalhe: 'Indústria pequena ou empresa com múltiplos setores.' },
+            { escopo: 'Acima de 50 postos', prazo: '40 a 90 dias úteis', detalhe: 'Grande indústria ou empresa com muitas funções distintas.' },
+          ].map(({ escopo, prazo, detalhe }) => (
+            <div class="bg-white rounded-xl p-5 border border-slate-200">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-bold text-[#1a3044]">{escopo}</p>
+                <span class="text-[#3a8d44] font-bold text-sm shrink-0">{prazo}</span>
+              </div>
+              <p class="text-slate-500 text-sm">{detalhe}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O serviço não inclui</h2>
+        <ul class="space-y-3">
+          {[
+            'Execução das adequações físicas recomendadas (obra, mobiliário, equipamentos)',
+            'Fornecimento de equipamentos ergonômicos (cadeiras, suportes, mesas)',
+            'Treinamentos de ergonomia para os trabalhadores (pode ser contratado à parte)',
+            'Laudos para fins previdenciários (PPP, LTCAT) — serviços distintos',
+            'Acompanhamento médico ou fisioterapêutico dos trabalhadores afastados',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
+              <span class="text-slate-600 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <p class="text-amber-800 text-sm">
+            <strong>AET x Laudo Ergonômico:</strong> A AET é o processo metodológico completo de análise. O
+            Laudo Ergonômico é o documento conclusivo. A Triaxis entrega ambos como parte do mesmo serviço.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Dúvidas frequentes</h2>
+      <p class="text-slate-500 mb-10">As perguntas mais comuns sobre ergonomia e AET.</p>
+      <div class="space-y-3">
+        {[
+          {
+            p: 'Toda empresa precisa ter um Laudo Ergonômico?',
+            r: 'A NR-17 exige que o empregador realize a Análise Ergonômica do Trabalho sempre que houver riscos ergonômicos nos postos de trabalho. Na prática, toda empresa com trabalhadores expostos a esforço físico, repetitividade, posturas inadequadas ou uso de VDTs precisa ter uma AET atualizada.',
+          },
+          {
+            p: 'Qual a diferença entre a AET e o LTCAT?',
+            r: 'A AET (NR-17) avalia condições ergonômicas para adequação do trabalho e prevenção de LER/DORT. O LTCAT (Laudo Técnico das Condições do Ambiente de Trabalho) é um documento previdenciário que analisa agentes nocivos para fins de aposentadoria especial. São documentos distintos com finalidades diferentes.',
+          },
+          {
+            p: 'A NR-17 foi atualizada recentemente? O laudo precisa ser refeito?',
+            r: 'Sim. A NR-17 passou por revisão em 2021 (portaria MTE 423/2021). Se o seu laudo foi elaborado antes dessa data, é necessário revisão para verificar a conformidade com as novas exigências, especialmente nos anexos I (operadores de checkout) e II (trabalho em teleatendimento/VDT).',
+          },
+          {
+            p: 'Home office precisa de laudo ergonômico?',
+            r: 'Sim, desde que a empresa defina o trabalho remoto como regime habitual. O empregador tem a obrigação de orientar o trabalhador sobre ergonomia e, idealmente, realizar uma avaliação do posto de trabalho domiciliar. A Triaxis realiza AET para home office com visita presencial ou por questionário + videoconferência.',
+          },
+          {
+            p: 'Quais métodos são usados na avaliação ergonômica?',
+            r: 'Os mais utilizados são: RULA e REBA (avaliação postural), NIOSH (levantamento de carga), OCRA (repetitividade de membros superiores), Strain Index e Check OSHA. A escolha do método depende do risco predominante em cada posto avaliado.',
+          },
+          {
+            p: 'O laudo pode ser usado como defesa em processos trabalhistas de LER/DORT?',
+            r: 'Sim. Uma AET bem elaborada, com histórico de avaliações e evidência de que a empresa adotou medidas corretivas, é um instrumento importante de defesa. Contudo, não garante por si só a exclusão de responsabilidade — o conjunto de medidas preventivas importa.',
+          },
+          {
+            p: 'Com que frequência o laudo deve ser atualizado?',
+            r: 'A NR-17 não define prazo fixo, mas prevê revisão sempre que houver mudança no processo de trabalho, introdução de novos equipamentos, alteração no layout ou surgimento de novos casos de LER/DORT. Na prática, revisão a cada 2 anos é uma boa prática.',
+          },
+          {
+            p: 'A ergonomia só se aplica a trabalhos industriais?',
+            r: 'Não. Escritórios, callcenters, hospitais, escolas, supermercados e até home offices têm riscos ergonômicos relevantes — especialmente relacionados ao uso de VDTs, posturas sentadas prolongadas e demanda cognitiva. A NR-17 se aplica a qualquer tipo de trabalho.',
+          },
+          {
+            p: 'Posso usar o laudo ergonômico para adequação do PGR?',
+            r: 'Sim. Os resultados da AET alimentam o PGR na identificação e avaliação dos riscos ergonômicos. A Triaxis integra os dois serviços quando contratados juntos, evitando redundâncias e garantindo consistência nos documentos.',
+          },
+          {
+            p: 'Qual profissional pode assinar um laudo ergonômico?',
+            r: 'Ergonomistas certificados (ABERGO/HFES) ou engenheiros de segurança do trabalho com formação em ergonomia são os profissionais habilitados. O laudo deve conter ART quando assinado por engenheiro.',
+          },
+        ].map(({ p, r }) => (
+          <details class="group border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-[#1a3044] text-sm">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-5 h-5 text-[#3a8d44] shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">{r}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Previna LER/DORT antes que virem passivo</h2>
+      <p class="text-slate-300 mb-8 text-lg">
+        Uma AET bem feita identifica os riscos, orienta as melhorias e documenta que a empresa agiu com
+        responsabilidade. Isso vale tanto para a saúde dos seus colaboradores quanto para a defesa jurídica da empresa.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-8 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar AET
+        </a>
+        <a
+          href="/contato"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-8 py-3 rounded-xl transition-colors"
+        >
+          Falar com consultor
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

@@ -1,15 +1,262 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Laudos Técnicos de SST | LTCAT, PPP, LSPCP e outros | Triaxis Consultoria MG',
+  description: 'Elaboração de laudos técnicos de Segurança do Trabalho: LTCAT, LSPCP, Laudo de Insalubridade, Laudo de Periculosidade e outros. ART incluída. Ouro Preto, Mariana, BH e MG. Triaxis.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44] transition-colors">Segurança do Trabalho</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Laudos Técnicos</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Laudos Técnicos de SST: <span class="text-[#6fcf7f]">LTCAT, insalubridade, periculosidade e outros documentos obrigatórios</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Elaboração de laudos técnicos de Segurança do Trabalho com avaliação qualitativa e quantitativa dos agentes presentes no ambiente de trabalho — com ART incluída e documentação pronta para eSocial, previdência e fiscalização.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'LTCAT — Laudo Técnico das Condições Ambientais do Trabalho',
+          'Laudo de Insalubridade (NR-15)',
+          'Laudo de Periculosidade (NR-16)',
+          'LSPCP e outros laudos específicos',
+          'ART emitida pelo responsável técnico',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Preciso%20de%20Laudos%20Técnicos%20de%20SST.%20Empresa:%20____%20%7C%20Atividade:%20____%20%7C%20Laudo%20necessário:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar laudo técnico
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20laudos%20de%20SST."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Laudos disponíveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Laudos técnicos elaborados pela Triaxis</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            sigla: 'LTCAT',
+            nome: 'Laudo Técnico das Condições Ambientais do Trabalho',
+            desc: 'Exigido pela Previdência Social para comprovar exposição a agentes nocivos e embasar aposentadoria especial. Obrigatório para empresas com exposição a agentes físicos, químicos ou biológicos prejudiciais à saúde.',
+            obrig: 'Previdência Social / eSocial',
+          },
+          {
+            sigla: 'LI',
+            nome: 'Laudo de Insalubridade',
+            desc: 'Avalia se o trabalhador está exposto a agentes insalubres acima dos limites de tolerância previstos na NR-15. Define o grau (mínimo, médio, máximo) e embasa o pagamento do adicional de insalubridade.',
+            obrig: 'NR-15 / CLT',
+          },
+          {
+            sigla: 'LP',
+            nome: 'Laudo de Periculosidade',
+            desc: 'Avalia a exposição a agentes perigosos (inflamáveis, explosivos, energia elétrica, radiação ionizante, roubos e outras violências). Embasa o pagamento do adicional de periculosidade conforme NR-16.',
+            obrig: 'NR-16 / CLT',
+          },
+          {
+            sigla: 'LSPCP',
+            nome: 'Laudo de Segurança para Concessão de Piso Complementar',
+            desc: 'Laudo específico exigido por alguns contratantes e setores industriais para comprovação das condições de segurança dos prestadores de serviço antes do início das atividades.',
+            obrig: 'Exigência de contratante',
+          },
+        ].map(({ sigla, nome, desc, obrig }) => (
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs text-center leading-tight">{sigla}</span>
+              </div>
+              <h3 class="text-sm font-bold text-[#1a3044]">{nome}</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed mb-3">{desc}</p>
+            <span class="inline-flex items-center gap-1 text-xs text-[#3a8d44] font-bold bg-green-50 px-3 py-1 rounded-full">
+              <Icon name="tabler:file-certificate" class="w-3 h-3" />
+              {obrig}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 bg-amber-50 border border-amber-200 rounded-2xl p-5 flex items-start gap-4">
+        <Icon name="tabler:info-circle" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+        <p class="text-sm text-amber-800 leading-relaxed">
+          Outros laudos específicos podem ser elaborados conforme a atividade e a exigência do contratante ou do órgão fiscalizador. Entre em contato para verificar a aplicabilidade ao seu caso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Quando contratar</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Situações que exigem laudos técnicos</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            'Trabalhadores expostos a ruído, calor, produtos químicos ou agentes biológicos',
+            'Pagamento de adicional de insalubridade ou periculosidade',
+            'Envio de informações de aposentadoria especial ao eSocial',
+            'Exigência de contratante para início de atividades (LSPCP)',
+            'Fiscalização do MTE ou processo trabalhista com questionamento de adicional',
+            'Atualização de laudo existente por mudança nas condições de trabalho',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-l-4 border-l-orange-400 border-slate-100">
+              <Icon name="tabler:alert-triangle" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que a Triaxis entrega no laudo</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:clipboard-list', titulo: 'Levantamento dos agentes', desc: 'Identificação e avaliação qualitativa ou quantitativa dos agentes presentes.' },
+            { icon: 'tabler:chart-bar', titulo: 'Resultado da avaliação', desc: 'Conclusão técnica sobre exposição, grau e enquadramento legal.' },
+            { icon: 'tabler:file-report', titulo: 'Laudo técnico assinado', desc: 'Documento estruturado conforme legislação, assinado pelo profissional habilitado.' },
+            { icon: 'tabler:certificate', titulo: 'ART do responsável', desc: 'Anotação de Responsabilidade Técnica emitida junto ao laudo.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-0.5">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona a elaboração do laudo</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { num: '01', titulo: 'Identificação do laudo necessário', desc: 'Definição do tipo de laudo conforme atividade, agentes e exigência.' },
+          { num: '02', titulo: 'Coleta de dados', desc: 'Levantamento de informações sobre atividades, funções e agentes.' },
+          { num: '03', titulo: 'Visita técnica', desc: 'Inspeção do ambiente de trabalho e avaliação qualitativa dos agentes.' },
+          { num: '04', titulo: 'Avaliação quantitativa (se aplicável)', desc: 'Medições de ruído, calor, vibração ou agentes químicos conforme escopo.' },
+          { num: '05', titulo: 'Análise e conclusão', desc: 'Comparação com limites de tolerância e enquadramento legal.' },
+          { num: '06', titulo: 'Elaboração e entrega do laudo', desc: 'Documento técnico assinado com ART e orientações de uso.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre laudos técnicos</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'Qual a diferença entre LTCAT e Laudo de Insalubridade?', r: 'O LTCAT é exigido pela Previdência Social para comprovar condições especiais de trabalho para fins de aposentadoria especial. O Laudo de Insalubridade é trabalhista, para fins de pagamento do adicional previsto na CLT. São documentos distintos, com finalidades e embasamentos diferentes.' },
+          { p: 'Os laudos precisam de ART?', r: 'Sim. Os laudos elaborados pela Triaxis incluem ART do profissional responsável, conforme exigência legal e do conselho profissional.' },
+          { p: 'Com que frequência os laudos precisam ser atualizados?', r: 'Os laudos devem ser revisados sempre que houver mudança nas condições de trabalho (novo equipamento, nova função, novo processo ou nova planta). Também podem ter periodicidade definida pelo contratante ou pelo próprio laudo.' },
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras regiões de Minas Gerais, avaliamos a viabilidade conforme o tipo de laudo e o escopo.' },
+          { p: 'Quanto custa o laudo?', r: 'O valor depende do tipo de laudo, da necessidade de medições quantitativas, do número de funções avaliadas e da complexidade da operação. A proposta é enviada com escopo detalhado.' },
+          { p: 'O LTCAT é integrado ao eSocial?', r: 'Sim. As informações do LTCAT sobre agentes nocivos são enviadas ao eSocial por meio dos eventos de SST. A Triaxis orienta sobre o que enviar e como integrar o laudo ao eSocial.' },
+          { p: 'O laudo de insalubridade garante que o adicional será pago?', r: 'O laudo constata a exposição e define o enquadramento. O pagamento do adicional é uma obrigação trabalhista decorrente do enquadramento. A Triaxis elabora o laudo com embasamento técnico e legal para suportar essa decisão.' },
+          { p: 'A Triaxis faz medições de ruído para o LTCAT?', r: 'Sim, quando a medição quantitativa é necessária ao escopo do laudo. As medições são realizadas com equipamentos calibrados e metodologia conforme norma aplicável.' },
+          { p: 'O laudo pode ser contestado em processo trabalhista?', r: 'Laudos tecnicamente fundamentados, com metodologia correta, medições rastreáveis e ART têm maior robustez jurídica. A Triaxis elabora laudos defensáveis para uso em fiscalização e processos.' },
+          { p: 'Qual o prazo de entrega dos laudos?', r: 'Depende do tipo de laudo e da necessidade de medições. Laudos qualitativos: 5 a 15 dias. Laudos com medições quantitativas: 10 a 30 dias. Prazos confirmados na proposta.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Documentação técnica e defensável</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite o laudo técnico para sua empresa.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Laudo elaborado com metodologia correta, ART e rastreabilidade — pronto para eSocial, fiscalização e processos. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Preciso%20de%20Laudos%20Técnicos%20de%20SST.%20Empresa:%20____%20%7C%20Atividade:%20____%20%7C%20Laudo%20necessário:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar laudo técnico
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

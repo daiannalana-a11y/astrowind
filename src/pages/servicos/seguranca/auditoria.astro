@@ -1,15 +1,371 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Auditoria de SST | Triaxis Consultoria MG',
+  description:
+    'Auditoria técnica de Segurança e Saúde no Trabalho: avaliação de conformidade legal, identificação de não-conformidades e plano de ação para adequação às NRs.',
+};
+
+const whatsappMsg = encodeURIComponent(
+  'Olá! Tenho interesse na Auditoria de SST da Triaxis. Pode me passar mais informações sobre prazo e investimento?'
+);
+const whatsappHref = `https://wa.me/5531994915126?text=${whatsappMsg}`;
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-white border-b border-slate-200 px-4 py-2 text-sm text-slate-500">
+    <div class="max-w-6xl mx-auto flex items-center gap-2">
+      <a href="/" class="hover:text-[#3a8d44]">Início</a>
+      <span>/</span>
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44]">Segurança do Trabalho</a>
+      <span>/</span>
+      <span class="text-slate-800 font-medium">Auditoria de SST</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] text-white py-16 px-4 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#6fcf7f] text-sm font-semibold uppercase tracking-widest mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-5">
+        Auditoria de <span class="text-[#6fcf7f]">SST</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-3xl mb-7">
+        Avaliação sistemática e documentada da conformidade legal e técnica da sua empresa com as Normas
+        Regulamentadoras (NRs) e legislação de Segurança e Saúde no Trabalho. Identifique lacunas antes que o
+        fiscal identifique por você.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-8">
+        {['NR-1 a NR-38', 'Relatório de não-conformidades', 'Plano de ação', 'Auditoria interna ou externa', 'ART inclusa'].map((p) => (
+          <span class="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">{p}</span>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-6 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Auditoria
+        </a>
+        <a
+          href="#o-que-avaliamos"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+        >
+          Ver o que avaliamos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE AVALIAMOS -->
+  <section id="o-que-avaliamos" class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">O que a auditoria avalia</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">
+        A auditoria cobre os requisitos legais mais críticos, com foco nas NRs aplicáveis ao seu setor e porte.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { sigla: 'DOC', titulo: 'Documentação legal', desc: 'PGR, PCMSO, laudos, atas de CIPA, mapas de risco, CAT — existência, vigência e conformidade.' },
+          { sigla: 'EPI', titulo: 'Gestão de EPIs', desc: 'CA válido, fornecimento documentado, treinamento de uso correto e controle de entrega (ficha de EPI).' },
+          { sigla: 'TRE', titulo: 'Treinamentos', desc: 'Registros de treinamentos obrigatórios por NR (NR-10, NR-12, NR-35, NR-33, NR-20, etc.) com validade em dia.' },
+          { sigla: 'AMB', titulo: 'Ambiente de trabalho', desc: 'Condições físicas, ergonômicas, de higiene e organização conforme NR-17, NR-24 e demais aplicáveis.' },
+          { sigla: 'MÁQ', titulo: 'Máquinas e equipamentos', desc: 'Adequação à NR-12: proteções, dispositivos de segurança, manutenção documentada e sinalização.' },
+          { sigla: 'GES', titulo: 'Gestão e CIPA', desc: 'Funcionamento da CIPA ou designado, SIPAT, inspeções periódicas e comunicação de acidentes (CAT).' },
+        ].map(({ sigla, titulo, desc }) => (
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-[#3a8d44]/30 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{sigla}</span>
+              </div>
+              <h3 class="font-bold text-[#1a3044] text-base">{titulo}</h3>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOS DE AUDITORIA -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Tipos de auditoria disponíveis</h2>
+      <p class="text-slate-600 mb-10 max-w-2xl">Escolha o escopo que melhor atende à necessidade da sua empresa.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            tipo: 'Auditoria Completa',
+            badge: 'Mais contratado',
+            badgeColor: 'bg-[#3a8d44]',
+            desc: 'Avaliação de todos os requisitos de SST aplicáveis ao seu setor. Inclui visita técnica, análise documental e entrevistas com trabalhadores e gestores.',
+            items: ['Checklist com +120 itens', 'Relatório de não-conformidades', 'Plano de ação priorizado', 'Reunião de apresentação dos resultados'],
+          },
+          {
+            tipo: 'Auditoria Focada',
+            badge: 'Ágil',
+            badgeColor: 'bg-orange-500',
+            desc: 'Análise de uma NR específica ou de um setor/processo da empresa. Ideal quando há fiscalização iminente ou suspeita de não-conformidade pontual.',
+            items: ['Escopo definido pelo cliente', 'Relatório objetivo e direto', 'Prazo reduzido', 'Recomendações imediatas'],
+          },
+          {
+            tipo: 'Auditoria de Acompanhamento',
+            badge: 'Pós-adequação',
+            badgeColor: 'bg-[#1a3044]',
+            desc: 'Verificação se as ações corretivas do plano anterior foram implementadas corretamente. Fecha o ciclo de melhoria contínua.',
+            items: ['Checklist de fechamento', 'Atualização do relatório', 'Certificação de conformidade interna', 'Relatório de evolução'],
+          },
+          {
+            tipo: 'Auditoria Periódica',
+            badge: 'Preventivo',
+            badgeColor: 'bg-blue-600',
+            desc: 'Visitas programadas (semestral ou anual) para manter a conformidade contínua e prevenir autuações durante fiscalizações do MTE.',
+            items: ['Agenda fixa', 'Histórico comparativo', 'Identificação de novos riscos', 'Suporte contínuo'],
+          },
+        ].map(({ tipo, badge, badgeColor, desc, items }) => (
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 relative overflow-hidden">
+            <div class="absolute top-4 right-4">
+              <span class={`${badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full`}>{badge}</span>
+            </div>
+            <h3 class="font-bold text-[#1a3044] text-lg mb-3 pr-24">{tipo}</h3>
+            <p class="text-slate-600 text-sm mb-4 leading-relaxed">{desc}</p>
+            <ul class="space-y-1">
+              {items.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-slate-700">
+                  <Icon name="tabler:check" class="w-4 h-4 text-[#3a8d44] mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANDO CONTRATAR -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Quando contratar uma auditoria</h2>
+          <ul class="space-y-4">
+            {[
+              'Antes de receber uma fiscalização do Ministério do Trabalho e Emprego (MTE)',
+              'Após acidente de trabalho grave ou afastamento por doença ocupacional',
+              'Ao assumir a gestão de uma empresa que não tem histórico claro de SST',
+              'Antes de licitações e auditorias de clientes que exigem comprovação de conformidade',
+              'Quando a empresa cresce e novas NRs passam a ser aplicáveis',
+              'Como base para implantação de um Sistema de Gestão de SST (SGSST)',
+              'Anualmente como medida preventiva e de melhoria contínua',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-[#3a8d44]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#3a8d44]" />
+                </span>
+                <span class="text-slate-700 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O que você recebe</h2>
+          <div class="space-y-4">
+            {[
+              { titulo: 'Relatório técnico completo', desc: 'Documento formal com todas as conformidades e não-conformidades identificadas, com referência à NR correspondente.' },
+              { titulo: 'Plano de ação priorizado', desc: 'Matriz de prioridade (urgente / médio prazo / melhoria) com responsável sugerido e prazo estimado para cada ação.' },
+              { titulo: 'Checklist digital', desc: 'Arquivo editável para uso interno da empresa no monitoramento contínuo das ações.' },
+              { titulo: 'Reunião de entrega', desc: 'Apresentação dos resultados para gestores e técnicos de SST, com espaço para perguntas e alinhamento de prioridades.' },
+              { titulo: 'ART do profissional', desc: 'Anotação de Responsabilidade Técnica inclusa, garantindo respaldo legal ao documento.' },
+            ].map(({ titulo, desc }) => (
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-[#1a3044] flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon name="tabler:file-check" class="w-4 h-4 text-[#6fcf7f]" />
+                </div>
+                <div>
+                  <p class="font-semibold text-[#1a3044] text-sm">{titulo}</p>
+                  <p class="text-slate-600 text-sm">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-2">Como funciona</h2>
+      <p class="text-slate-300 mb-10">Da contratação ao relatório final — processo transparente e sem burocracia.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          { n: '01', titulo: 'Briefing inicial', desc: 'Reunião (presencial ou remota) para entender o setor, porte, histórico de SST e escopo da auditoria.' },
+          { n: '02', titulo: 'Levantamento documental', desc: 'Envio antecipado de documentos (PGR, PCMSO, laudos, fichas de EPI, registros de treinamentos) para análise prévia.' },
+          { n: '03', titulo: 'Visita técnica', desc: 'Inspeção presencial das instalações, postos de trabalho, máquinas, EPIs em uso e entrevistas com trabalhadores.' },
+          { n: '04', titulo: 'Análise e classificação', desc: 'Classificação das não-conformidades por gravidade: crítica (risco imediato), importante (prazo curto) e melhoria.' },
+          { n: '05', titulo: 'Elaboração do relatório', desc: 'Produção do relatório técnico com evidências fotográficas, referências normativas e plano de ação detalhado.' },
+          { n: '06', titulo: 'Reunião de entrega', desc: 'Apresentação dos resultados, esclarecimento de dúvidas e orientação sobre as próximas ações prioritárias.' },
+          { n: '07', titulo: 'Suporte pós-entrega', desc: 'Disponibilidade por 30 dias para esclarecimentos e orientações sobre a implementação das ações corretivas.' },
+        ].map(({ n, titulo, desc }) => (
+          <div class="flex items-start gap-4 bg-white/5 rounded-xl p-5">
+            <span class="text-[#6fcf7f] font-black text-2xl leading-none w-10 shrink-0">{n}</span>
+            <div>
+              <p class="font-bold text-white mb-1">{titulo}</p>
+              <p class="text-slate-300 text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS E NÃO INCLUI -->
+  <section class="py-16 px-4 bg-slate-50 tx-fade">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">Prazos estimados</h2>
+        <div class="space-y-4">
+          {[
+            { porte: 'Microempresa / MEI', prazo: '5 a 10 dias úteis', detalhe: 'Até 10 colaboradores, atividade de baixo risco.' },
+            { porte: 'Pequena empresa', prazo: '10 a 20 dias úteis', detalhe: 'Até 50 colaboradores, 1 a 2 setores auditados.' },
+            { porte: 'Média/grande empresa', prazo: '20 a 45 dias úteis', detalhe: 'Múltiplos setores, maior complexidade documental.' },
+          ].map(({ porte, prazo, detalhe }) => (
+            <div class="bg-white rounded-xl p-5 border border-slate-200">
+              <div class="flex items-start justify-between gap-4 mb-1">
+                <p class="font-bold text-[#1a3044]">{porte}</p>
+                <span class="text-[#3a8d44] font-bold text-sm shrink-0">{prazo}</span>
+              </div>
+              <p class="text-slate-500 text-sm">{detalhe}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-[#1a3044] mb-6">O serviço não inclui</h2>
+        <ul class="space-y-3">
+          {[
+            'Implementação das ações corretivas (pode ser contratada à parte)',
+            'Elaboração ou atualização dos documentos de SST (PGR, PCMSO, laudos)',
+            'Fornecimento ou substituição de EPIs',
+            'Representação perante autuações ou processos administrativos do MTE',
+            'Treinamentos dos colaboradores',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="tabler:x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
+              <span class="text-slate-600 text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <p class="text-amber-800 text-sm">
+            <strong>Dica:</strong> Se após a auditoria você precisar adequar a documentação ou implantar as correções,
+            a Triaxis oferece esses serviços de forma integrada com desconto para clientes de auditoria.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-4 bg-white tx-fade">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-3">Dúvidas frequentes</h2>
+      <p class="text-slate-500 mb-10">Perguntas que recebemos com mais frequência sobre auditoria de SST.</p>
+      <div class="space-y-3">
+        {[
+          {
+            p: 'A auditoria substitui o PGR ou o PCMSO?',
+            r: 'Não. A auditoria avalia se esses documentos existem, estão vigentes e estão sendo implementados corretamente. Não os substitui — são serviços complementares.',
+          },
+          {
+            p: 'A empresa precisa parar as atividades durante a auditoria?',
+            r: 'Não. A visita técnica é realizada durante o expediente normal, o que permite observar as condições reais de trabalho. O impacto na operação é mínimo.',
+          },
+          {
+            p: 'O relatório tem validade legal perante o MTE?',
+            r: 'O relatório é um documento técnico interno com ART, que demonstra que a empresa realizou uma avaliação proativa. Ele não substitui os documentos exigidos pela legislação, mas comprova boa-fé e diligência.',
+          },
+          {
+            p: 'Quais NRs são verificadas na auditoria completa?',
+            r: 'Todas as NRs aplicáveis ao setor e porte da empresa. As mais comuns são: NR-1 (PGR/PGAM), NR-5 (CIPA), NR-6 (EPIs), NR-7 (PCMSO), NR-9, NR-10, NR-12, NR-17, NR-24, NR-35. Para indústrias, NR-13 e NR-20 também costumam ser incluídas.',
+          },
+          {
+            p: 'Posso contratar a auditoria e só depois contratar os serviços de adequação?',
+            r: 'Sim, e é exatamente assim que a maioria das empresas trabalha. A auditoria identifica o que precisa ser feito; a implementação vem em seguida, com escopo e prioridade muito mais claros.',
+          },
+          {
+            p: 'A auditoria pode ser feita de forma remota?',
+            r: 'A análise documental pode ser feita remotamente. A inspeção das instalações, postos de trabalho e equipamentos exige visita presencial para garantir a qualidade e confiabilidade do laudo.',
+          },
+          {
+            p: 'Com que frequência devo fazer uma auditoria de SST?',
+            r: 'Recomendamos ao menos uma vez por ano. Empresas de médio e grande porte, com maior número de colaboradores e riscos mais complexos, se beneficiam de auditorias semestrais.',
+          },
+          {
+            p: 'O que acontece se forem encontradas não-conformidades críticas?',
+            r: 'Elas são destacadas no início do relatório e discutidas na reunião de entrega. Para riscos imediatos à vida ou saúde, a Triaxis orienta ação corretiva emergencial ainda durante a visita.',
+          },
+          {
+            p: 'A empresa pode ser autuada por não-conformidades encontradas na auditoria?',
+            r: 'A auditoria é um serviço privado e confidencial. O relatório pertence à empresa. O MTE só tem acesso se a empresa apresentar voluntariamente. A auditoria é uma ferramenta de prevenção, não de punição.',
+          },
+          {
+            p: 'Como é feita a auditoria em empresas com múltiplas unidades?',
+            r: 'Cada unidade é avaliada individualmente. Oferecemos pacotes para múltiplas unidades com escopo padronizado, o que reduz o custo total e garante consistência nos resultados.',
+          },
+        ].map(({ p, r }) => (
+          <details class="group border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+              <span class="font-semibold text-[#1a3044] text-sm">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-5 h-5 text-[#3a8d44] shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="px-5 pb-5 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">{r}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-16 px-4 bg-[#1a3044] text-white tx-fade">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Saiba onde sua empresa está antes que o MTE descubra</h2>
+      <p class="text-slate-300 mb-8 text-lg">
+        Nossa auditoria entrega um diagnóstico honesto, um plano de ação viável e o respaldo técnico de um profissional
+        habilitado. Tudo em um documento que demonstra que sua empresa leva SST a sério.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#3a8d44] hover:bg-[#2e7038] text-white font-bold px-8 py-3 rounded-xl transition-colors"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Auditoria
+        </a>
+        <a
+          href="/contato"
+          class="inline-flex items-center gap-2 border border-white/30 hover:border-white text-white font-semibold px-8 py-3 rounded-xl transition-colors"
+        >
+          Falar com consultor
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

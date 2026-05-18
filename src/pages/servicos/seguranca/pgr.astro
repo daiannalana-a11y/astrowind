@@ -1,15 +1,303 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'PGR: Programa de Gerenciamento de Riscos | NR-1 | Triaxis Consultoria MG',
+  description: 'Elaboração e implantação do PGR conforme NR-1. Inventário de riscos, plano de ação e documentação pronta para fiscalização do MTE. Atendemos Ouro Preto, Mariana, BH e MG. Triaxis Consultoria.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/seguranca" class="hover:text-[#3a8d44] transition-colors">Segurança do Trabalho</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">PGR</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Segurança do Trabalho</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        PGR: <span class="text-[#6fcf7f]">Programa de Gerenciamento de Riscos pronto para fiscalização do MTE</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Elaboração do PGR conforme NR-1 com inventário de riscos ocupacionais, plano de ação e documentação técnica defensável — obrigatório para todas as empresas com empregados CLT, independentemente do porte ou setor.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Inventário de riscos: físicos, químicos, biológicos, ergonômicos e acidentes',
+          'Plano de ação com medidas de controle priorizadas',
+          'ART emitida pelo profissional responsável',
+          'Documentação pronta para fiscalização do MTE',
+          'Integrado ao eSocial conforme exigência',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Preciso%20do%20PGR%20da%20minha%20empresa.%20Razão%20social:%20____%20%7C%20CNPJ:%20____%20%7C%20Atividade:%20____%20%7C%20Nº%20de%20funcionários:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar PGR
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20o%20PGR."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o PGR e por que é obrigatório</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O PGR (Programa de Gerenciamento de Riscos) é o documento exigido pela NR-1 que substitui o PPRA. Toda empresa que possui empregados registrados em CLT é obrigada a elaborar e manter o PGR atualizado, independentemente do porte, número de funcionários ou setor de atuação.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          O PGR é composto pelo inventário de riscos ocupacionais — que identifica e classifica os perigos presentes nos ambientes de trabalho — e pelo plano de ação, que define as medidas de controle, prazos e responsáveis para eliminar ou reduzir os riscos identificados.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Obrigatório para todas as empresas com empregados CLT (NR-1)',
+            'Substitui o PPRA a partir de 2021',
+            'Deve ser atualizado sempre que houver mudança nas condições de trabalho',
+            'Integrado ao eSocial para envio de informações de SST',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Grupos de riscos avaliados</p>
+        <div class="space-y-4">
+          {[
+            { sigla: 'FÍS', label: 'Físicos', desc: 'Ruído, calor, frio, vibração, radiações ionizantes e não ionizantes.' },
+            { sigla: 'QUI', label: 'Químicos', desc: 'Poeiras, fumos, névoas, vapores, gases e produtos químicos em geral.' },
+            { sigla: 'BIO', label: 'Biológicos', desc: 'Vírus, bactérias, fungos, parasitas e outros agentes biológicos.' },
+            { sigla: 'ERG', label: 'Ergonômicos', desc: 'Postura, esforço físico, repetitividade, jornada excessiva e fatores organizacionais.' },
+            { sigla: 'ACI', label: 'Acidentes', desc: 'Arranjo físico, máquinas sem proteção, incêndio, eletricidade e queda.' },
+          ].map(({ sigla, label, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{sigla}</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-1">{label}</p>
+                <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que a Triaxis entrega no PGR</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:map-2', titulo: 'Inventário de riscos ocupacionais', desc: 'Identificação e classificação de todos os perigos por posto de trabalho e função.' },
+            { icon: 'tabler:shield-check', titulo: 'Avaliação qualitativa e quantitativa', desc: 'Avaliação do nível de risco por probabilidade e severidade conforme NR-1.' },
+            { icon: 'tabler:timeline', titulo: 'Plano de ação', desc: 'Medidas de controle com prazo, responsável e hierarquia de controles.' },
+            { icon: 'tabler:file-report', titulo: 'Relatório técnico do PGR', desc: 'Documento estruturado e assinado pelo profissional habilitado (ART).' },
+            { icon: 'tabler:certificate', titulo: 'ART do responsável técnico', desc: 'Anotação de Responsabilidade Técnica emitida conforme exigência legal.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-0.5">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Segmentos atendidos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Para quem a Triaxis elabora o PGR</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:building-factory', text: 'Indústrias, metalúrgicas e serralherias' },
+            { icon: 'tabler:bulldozer', text: 'Construtoras, empreiteiras e obras de infraestrutura' },
+            { icon: 'tabler:car', text: 'Oficinas mecânicas, auto centers e lava-jatos' },
+            { icon: 'tabler:shovel', text: 'Empresas de mineração e prestadores de serviço' },
+            { icon: 'tabler:truck', text: 'Transportadoras e logística' },
+            { icon: 'tabler:building', text: 'Comércio, serviços e empresas de qualquer porte' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona a elaboração do PGR</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { num: '01', titulo: 'Alinhamento e coleta de dados', desc: 'Levantamento de atividades, quadro de funcionários, funções e layout.' },
+          { num: '02', titulo: 'Visita técnica', desc: 'Inspeção dos ambientes de trabalho, postos e rotinas operacionais.' },
+          { num: '03', titulo: 'Identificação de perigos', desc: 'Levantamento de todos os perigos por grupo de risco em cada posto.' },
+          { num: '04', titulo: 'Avaliação de riscos', desc: 'Classificação de probabilidade e severidade para priorização.' },
+          { num: '05', titulo: 'Definição de medidas de controle', desc: 'Hierarquia de controles: eliminação, substituição, engenharia, administrativo, EPI.' },
+          { num: '06', titulo: 'Elaboração do plano de ação', desc: 'Prazos, responsáveis e recursos definidos para cada medida de controle.' },
+          { num: '07', titulo: 'Elaboração do relatório do PGR', desc: 'Documento técnico estruturado com inventário, avaliação e plano.' },
+          { num: '08', titulo: 'Entrega e orientação', desc: 'Entrega do PGR assinado com orientações sobre atualização e eSocial.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do PGR</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            { prazo: '7 a 15 dias', desc: 'Empresa pequena, atividade de baixo risco e documentação disponível.' },
+            { prazo: '15 a 30 dias', desc: 'Empresa de porte médio ou atividade com riscos variados.' },
+            { prazo: 'Acima de 30 dias', desc: 'Operações complexas, múltiplas atividades ou plantas distintas.' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Medições quantitativas (ruído, calor, agentes químicos) — laudos separados',
+            'PCMSO (elaborado pelo médico do trabalho)',
+            'Implantação das medidas de controle de engenharia',
+            'Treinamentos de NR (podem ser contratados separadamente)',
+            'Gestão de EPI (pode ser contratada separadamente)',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre o PGR</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'O PGR é obrigatório para minha empresa?', r: 'Sim, para toda empresa que possui empregados registrados em CLT, independentemente do porte, número de funcionários ou atividade — inclusive MEI com empregado.' },
+          { p: 'O PGR substitui o PPRA?', r: 'Sim. A NR-1 atualizada em 2021 introduziu o PGR como documento que integra e substitui o PPRA (NR-9). Empresas que tinham PPRA precisam migrar para o PGR.' },
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras cidades de Minas Gerais, avaliamos a viabilidade conforme o porte e o escopo da empresa.' },
+          { p: 'Quanto custa o PGR?', r: 'O valor depende do número de funcionários, das atividades desenvolvidas, dos riscos presentes e da necessidade de visita técnica. A proposta é enviada com escopo detalhado.' },
+          { p: 'O PGR precisa ser atualizado?', r: 'Sim. O PGR deve ser revisado sempre que houver mudança nas condições de trabalho (novo processo, novo equipamento, nova função) e, no mínimo, periodicamente conforme a periodicidade definida no próprio documento.' },
+          { p: 'O PGR inclui o PCMSO?', r: 'Não. O PCMSO (Programa de Controle Médico de Saúde Ocupacional) é elaborado por médico do trabalho e é um documento separado. O PGR e o PCMSO são complementares e devem estar alinhados.' },
+          { p: 'É necessária visita técnica para elaborar o PGR?', r: 'Sim. A visita técnica é necessária para identificar os perigos reais nos ambientes de trabalho. Sem observação in loco, o inventário de riscos não reflete a realidade da operação.' },
+          { p: 'O PGR precisa de ART?', r: 'A NR-1 exige que o PGR seja elaborado por profissional legalmente habilitado. A Triaxis emite ART do profissional responsável como parte do escopo.' },
+          { p: 'O que acontece se a empresa não tiver o PGR?', r: 'A ausência do PGR sujeita a empresa a autuação e multa pelo MTE (Ministério do Trabalho e Emprego) em fiscalização. O PGR também é exigido em auditorias de contratantes e processos trabalhistas.' },
+          { p: 'O PGR é integrado ao eSocial?', r: 'Sim. As informações de SST do PGR são enviadas ao eSocial conforme obrigatoriedade. A Triaxis orienta sobre os eventos relevantes e o que deve ser registrado.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Obrigação legal, proteção real</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Regularize o PGR da sua empresa.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Empresa sem PGR está sujeita a multa, autuação e risco trabalhista. Com documentação correta, você protege os trabalhadores e a empresa ao mesmo tempo. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Preciso%20do%20PGR%20da%20minha%20empresa.%20Razão%20social:%20____%20%7C%20CNPJ:%20____%20%7C%20Atividade:%20____%20%7C%20Nº%20de%20funcionários:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar PGR
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>
