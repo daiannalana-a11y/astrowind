@@ -1,15 +1,339 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Diagnóstico Lean e Operacional | Mapeamento de Desperdícios e Gargalos | Triaxis',
+  description: 'Diagnóstico técnico da operação para identificar desperdícios, gargalos e oportunidades de melhoria com base em Lean Manufacturing. Relatório com plano de ação priorizado. Triaxis Consultoria.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <!-- BREADCRUMB -->
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/producao" class="hover:text-[#3a8d44] transition-colors">Engenharia de Produção</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Diagnóstico Lean</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia de Produção</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Diagnóstico Lean: <span class="text-[#6fcf7f]">mapeie desperdícios, gargalos e oportunidades reais da sua operação</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Diagnóstico técnico com base em Lean Manufacturing para identificar onde a operação perde tempo, recurso e capacidade — e o que priorizar para melhorar resultado com menos desperdício.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Mapeamento de fluxo e identificação de gargalos',
+          'Classificação dos 7 desperdícios Lean na sua operação',
+          'Relatório técnico com plano de ação priorizado',
+          'Visita técnica presencial ou remota',
+          'Base para projetos de melhoria contínua',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20Diagnóstico%20Lean%20da%20minha%20operação.%20Empresa:%20____%20%7C%20Setor:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Diagnóstico Lean
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20falar%20sobre%20melhoria%20operacional%20com%20a%20Triaxis."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o Diagnóstico Lean</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O Diagnóstico Lean é um levantamento técnico estruturado da operação com base nos princípios do Lean Manufacturing. Avalia fluxo de valor, ocupação de recursos, tempo de ciclo, setup, movimentação, estoques e qualidade do processo — para revelar onde a operação perde e o que pode ser melhorado com foco e método.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Não é uma consultoria genérica. É uma análise técnica aplicada à realidade da empresa, com entregáveis concretos e plano de ação com prioridade definida.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Identificação objetiva dos desperdícios que mais impactam resultado',
+            'Base técnica para priorizar investimentos em melhoria',
+            'Ponto de partida para 5S, VSM, Kaizen e projetos de eficiência',
+            'Clareza sobre o que mudar antes e o que pode esperar',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Os 7 desperdícios avaliados</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:clock-pause', label: 'Espera', desc: 'Tempo ocioso de máquinas, pessoas ou material entre etapas do processo.' },
+            { icon: 'tabler:arrows-move', label: 'Movimentação', desc: 'Deslocamento desnecessário de pessoas, ferramentas ou materiais.' },
+            { icon: 'tabler:package', label: 'Estoque', desc: 'Excesso de material em processo ou produto acabado além da demanda.' },
+            { icon: 'tabler:route', label: 'Transporte', desc: 'Movimentação excessiva de material entre etapas sem agregar valor.' },
+            { icon: 'tabler:tool', label: 'Superprocessamento', desc: 'Etapas ou esforços que vão além do que o cliente exige.' },
+            { icon: 'tabler:x', label: 'Defeitos', desc: 'Retrabalho, refugo e inspeção excessiva que consomem tempo e recurso.' },
+            { icon: 'tabler:trending-up', label: 'Superprodução', desc: 'Produzir mais, mais rápido ou antes do necessário.' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-xs font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Segmentos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Para quem o Diagnóstico Lean é indicado</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:building-factory', text: 'Indústrias de pequeno e médio porte com processo produtivo estruturado' },
+            { icon: 'tabler:tool', text: 'Empresas de manufatura com gargalos, retrabalho ou baixa produtividade' },
+            { icon: 'tabler:truck', text: 'Operações com logística, movimentação e fluxo interno complexo' },
+            { icon: 'tabler:chart-bar', text: 'Gestores que querem dados antes de decidir onde investir em melhoria' },
+            { icon: 'tabler:users', text: 'Empresas que querem estruturar cultura de melhoria contínua' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Situações comuns</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Sinais de que a operação precisa de diagnóstico</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            'Produção abaixo do esperado sem causa clara identificada',
+            'Retrabalho frequente ou qualidade inconsistente no processo',
+            'Gargalos que travam o fluxo e atrasam entregas',
+            'Equipe ocupada, mas resultado aquém do potencial',
+            'Dificuldade em escalar sem perder controle do processo',
+            'Antes de implantar qualquer ferramenta Lean sem base técnica',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-l-4 border-l-orange-400 border-slate-100">
+              <Icon name="tabler:alert-triangle" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">O que a empresa recebe no diagnóstico</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { icon: 'tabler:map-2', titulo: 'Mapeamento do fluxo atual', desc: 'Representação visual do fluxo de materiais e informações na operação.' },
+          { icon: 'tabler:list-check', titulo: 'Inventário de desperdícios', desc: 'Identificação e classificação dos desperdícios presentes no processo.' },
+          { icon: 'tabler:bottle', titulo: 'Análise de gargalos', desc: 'Identificação das restrições que limitam a capacidade e o fluxo.' },
+          { icon: 'tabler:clock', titulo: 'Levantamento de tempos', desc: 'Tempo de ciclo, setup, espera e tempo de valor agregado por etapa.' },
+          { icon: 'tabler:alert-triangle', titulo: 'Matriz de problemas', desc: 'Classificação por impacto, frequência e esforço de solução.' },
+          { icon: 'tabler:timeline', titulo: 'Plano de ação priorizado', desc: 'O que atacar primeiro: ações de curto, médio e longo prazo.' },
+          { icon: 'tabler:file-report', titulo: 'Relatório técnico', desc: 'Documento com constatações, análise e recomendações da consultoria.' },
+          { icon: 'tabler:presentation', titulo: 'Reunião de devolutiva', desc: 'Apresentação dos resultados com orientações sobre próximos passos.' },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center mb-3">
+              <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o Diagnóstico Lean</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { num: '01', titulo: 'Alinhamento inicial', desc: 'Entendimento do objetivo, contexto da operação e escopo do diagnóstico.' },
+          { num: '02', titulo: 'Coleta de dados preliminar', desc: 'Levantamento de informações, indicadores e layout da operação.' },
+          { num: '03', titulo: 'Visita técnica', desc: 'Observação do processo, entrevistas com equipe e cronoanálise.' },
+          { num: '04', titulo: 'Mapeamento do fluxo atual', desc: 'Construção do mapa de fluxo de valor com tempos e estoques.' },
+          { num: '05', titulo: 'Análise de desperdícios e gargalos', desc: 'Identificação e classificação das perdas por tipo, impacto e frequência.' },
+          { num: '06', titulo: 'Priorização técnica', desc: 'Definição das oportunidades por impacto, custo e esforço de implantação.' },
+          { num: '07', titulo: 'Elaboração do relatório', desc: 'Documentação das constatações, análise e plano de ação.' },
+          { num: '08', titulo: 'Reunião de devolutiva', desc: 'Apresentação dos resultados e orientação sobre os próximos passos.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS + NÃO INCLUI -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do diagnóstico</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            { prazo: '5 a 10 dias', desc: 'Operação simples, processo único e equipe pequena.' },
+            { prazo: '10 a 20 dias', desc: 'Operação de porte médio com múltiplos processos ou áreas.' },
+            { prazo: 'Acima de 20 dias', desc: 'Operações complexas com múltiplas linhas, turnos ou plantas.' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Implantação das melhorias identificadas',
+            'Projeto de novo layout ou redesenho de processos',
+            'Treinamentos de equipe (podem ser contratados separadamente)',
+            'Acompanhamento de indicadores após o diagnóstico',
+            'Serviços fora do escopo contratado',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para operações em outras regiões de Minas Gerais, parte do diagnóstico pode ser conduzida remotamente, com visita técnica conforme necessidade.' },
+          { p: 'É possível fazer o diagnóstico sem visita presencial?', r: 'Em parte. O mapeamento documental e a análise de indicadores podem ser feitos remotamente. A visita técnica é recomendada para observação do fluxo real, cronoAnálise e entrevistas com a equipe.' },
+          { p: 'Quanto custa o diagnóstico?', r: 'O valor depende do porte da operação, do número de processos, da necessidade de visita presencial e do escopo definido. A proposta é enviada com escopo e entregáveis detalhados.' },
+          { p: 'O diagnóstico é indicado para pequenas empresas?', r: 'Sim. O escopo é ajustado ao porte. Oficinas, pequenas indústrias e prestadores com processo estruturado se beneficiam do diagnóstico mesmo com equipe reduzida.' },
+          { p: 'A Triaxis implanta as melhorias identificadas?', r: 'Sim. A implantação pode ser contratada separadamente após o diagnóstico. Os projetos de 5S, VSM, layout e Kaizen partem do diagnóstico como base técnica.' },
+          { p: 'O diagnóstico usa metodologia reconhecida?', r: 'Sim. O diagnóstico é baseado nos princípios do Lean Manufacturing, com ferramentas como mapeamento de fluxo de valor (VSM), análise de desperdícios e cronoanálise.' },
+          { p: 'Preciso parar a produção para o diagnóstico?', r: 'Não. O diagnóstico é feito com a operação em andamento. A observação do processo real é parte fundamental da análise.' },
+          { p: 'Qual o próximo passo após o diagnóstico?', r: 'O plano de ação entregue indica os projetos prioritários. A Triaxis pode dar continuidade com implantação de 5S, redesenho de layout, VSM, Kaizen ou capacitação da equipe.' },
+          { p: 'O resultado do diagnóstico garante melhoria de produtividade?', r: 'O diagnóstico fornece o diagnóstico técnico e o caminho. O resultado depende da implementação das ações pela empresa, com ou sem acompanhamento da Triaxis.' },
+          { p: 'Quanto tempo levo para ver resultado após o diagnóstico?', r: 'As ações de curto prazo identificadas no plano costumam gerar resultado em semanas. Projetos estruturais levam mais tempo, mas o diagnóstico estabelece a sequência técnica correta para maximizar o retorno.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Antes de melhorar, entenda o que está acontecendo</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Agende o Diagnóstico Lean da sua operação.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Decisões de melhoria sem diagnóstico custam mais e entregam menos. Com base técnica, você prioriza onde o esforço gera resultado real. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20Diagnóstico%20Lean%20da%20minha%20operação.%20Empresa:%20____%20%7C%20Setor:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar Diagnóstico Lean
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

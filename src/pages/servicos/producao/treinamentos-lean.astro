@@ -1,15 +1,238 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Treinamentos Lean Manufacturing | Capacitação em Ferramentas Lean | Triaxis',
+  description: 'Treinamentos práticos em Lean Manufacturing para equipes industriais. 5S, VSM, Kaizen, Kanban, PDCA, setup rápido e gestão visual. Trilha personalizada por nível e área. Triaxis Consultoria MG.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/producao" class="hover:text-[#3a8d44] transition-colors">Engenharia de Produção</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Treinamentos Lean</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia de Produção</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Treinamentos Lean: <span class="text-[#6fcf7f]">capacitação prática em ferramentas de melhoria contínua para equipes industriais</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Treinamentos aplicados ao contexto real da empresa — não cursos genéricos. A Triaxis estrutura trilhas de capacitação por nível e área, com exercícios práticos, dinâmicas e material didático aplicável ao dia a dia da operação.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Trilha de treinamentos personalizada por nível e área',
+          'Conteúdo aplicado ao processo real da empresa',
+          'Formatos presencial, remoto ou híbrido',
+          'Material didático incluído',
+          'Dinâmicas práticas e exercícios aplicados',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20treinamentos%20Lean%20para%20minha%20equipe.%20Empresa:%20____%20%7C%20Área/Setor:%20____%20%7C%20Nº%20de%20pessoas:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar trilha de treinamentos
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20Treinamentos%20Lean."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Módulos disponíveis</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Ferramentas e temas dos treinamentos</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full mb-4"></div>
+        <p class="text-slate-500 text-sm max-w-2xl mx-auto">A trilha é montada conforme o nível da equipe, as ferramentas prioritárias e os objetivos da empresa.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { icon: 'tabler:sparkles', titulo: 'Lean Thinking — Introdução', desc: 'Princípios do Lean Manufacturing, os 7 desperdícios e a mentalidade de melhoria contínua.' },
+          { icon: 'tabler:home', titulo: 'Programa 5S', desc: 'Conceitos, aplicação prática dos sensos e auditoria. Ideal para operadores e líderes.' },
+          { icon: 'tabler:map-2', titulo: 'VSM — Mapeamento do Fluxo de Valor', desc: 'Como construir o mapa do estado atual e futuro para identificar desperdícios no fluxo.' },
+          { icon: 'tabler:zap', titulo: 'Kaizen e melhoria contínua', desc: 'Metodologia e prática de eventos Kaizen para melhoria rápida e participativa.' },
+          { icon: 'tabler:layout-kanban', titulo: 'Kanban e gestão visual', desc: 'Controle de fluxo por sinais visuais, gestão de filas e nivelamento da produção.' },
+          { icon: 'tabler:refresh', titulo: 'PDCA e solução de problemas', desc: 'Ciclo de melhoria aplicado a problemas reais da operação.' },
+          { icon: 'tabler:clock-bolt', titulo: 'Setup rápido (SMED)', desc: 'Técnicas para redução do tempo de setup e troca de ferramentas.' },
+          { icon: 'tabler:clock', titulo: 'OEE e indicadores de chão de fábrica', desc: 'Cálculo e uso do OEE, disponibilidade, desempenho e qualidade.' },
+          { icon: 'tabler:fish', titulo: 'Ferramentas da qualidade', desc: 'Pareto, Ishikawa, folha de verificação, histograma e CEP introdutório.' },
+        ].map(({ icon, titulo, desc }) => (
+          <div class="p-5 rounded-2xl border border-slate-100 bg-slate-50">
+            <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center mb-3">
+              <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+            </div>
+            <h3 class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Formatos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Como os treinamentos são estruturados</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:users', titulo: 'In company', desc: 'Treinamento realizado nas instalações da empresa, com exemplos do processo real. Mais indicado para equipes de operação e líderes.' },
+            { icon: 'tabler:video', titulo: 'Remoto', desc: 'Via videoconferência, com material interativo e exercícios práticos. Indicado para gestores e equipes distribuídas.' },
+            { icon: 'tabler:layout-grid', titulo: 'Híbrido', desc: 'Combinação de módulos teóricos remotos com workshop presencial aplicado ao chão de fábrica.' },
+            { icon: 'tabler:certificate', titulo: 'Com certificado', desc: 'Emissão de certificado de participação para todos os treinamentos concluídos.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="bg-white rounded-xl p-5 border border-slate-100 flex gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Para quem</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Públicos atendidos</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { nivel: 'Operadores', desc: 'Conteúdo prático com linguagem acessível e dinâmicas no chão de fábrica.' },
+            { nivel: 'Líderes e supervisores', desc: 'Ferramentas de gestão visual, liderança de Kaizen e acompanhamento de indicadores.' },
+            { nivel: 'Gestores e engenheiros', desc: 'Lean avançado, VSM, FMEA, análise de perdas e projetos de melhoria.' },
+            { nivel: 'Equipes mistas', desc: 'Módulos integrados com perspectivas por nível para alinhamento da visão.' },
+          ].map(({ nivel, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{nivel}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-5 bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-start gap-3">
+          <Icon name="tabler:info-circle" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+          <p class="text-xs text-amber-800 leading-relaxed">Os módulos são adaptados ao nível de conhecimento e ao processo real da empresa — não são cursos genéricos com exemplos de outros setores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona a contratação de treinamentos</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { num: '01', titulo: 'Levantamento de necessidades', desc: 'Entendimento do contexto, nível da equipe e objetivos do treinamento.' },
+          { num: '02', titulo: 'Definição da trilha', desc: 'Seleção dos módulos, carga horária, formato e sequência recomendada.' },
+          { num: '03', titulo: 'Adaptação do conteúdo', desc: 'Personalização com exemplos e exercícios do processo real da empresa.' },
+          { num: '04', titulo: 'Execução do treinamento', desc: 'Realização dos módulos no formato acordado (presencial, remoto ou híbrido).' },
+          { num: '05', titulo: 'Avaliação de aprendizagem', desc: 'Verificação do nível de absorção com exercícios práticos e discussão.' },
+          { num: '06', titulo: 'Relatório e certificados', desc: 'Entrega de relatório de participação e certificados para os concluintes.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre treinamentos Lean</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'É possível contratar apenas um módulo?', r: 'Sim. Os módulos podem ser contratados individualmente ou em trilha completa. A recomendação de sequência e combinação é feita conforme o objetivo e o nível da equipe.' },
+          { p: 'Qual a carga horária dos treinamentos?', r: 'Depende do módulo. Treinamentos introdutórios costumam ter 4 a 8 horas. Módulos avançados ou workshops aplicados podem ter 16 horas ou mais. A carga horária é definida na proposta.' },
+          { p: 'Os treinamentos são customizados para o setor da empresa?', r: 'Sim. O conteúdo é adaptado com exemplos, exercícios e casos aplicados ao processo real da empresa — não são materiais genéricos.' },
+          { p: 'Vocês atendem minha cidade?', r: 'Treinamentos presenciais são realizados em Ouro Preto, Mariana e Belo Horizonte. Para outras regiões de Minas Gerais, o formato remoto cobre todo o estado.' },
+          { p: 'Quanto custa o treinamento?', r: 'O valor depende do número de módulos, da carga horária, do número de participantes e do formato (presencial ou remoto). A proposta é enviada após levantamento das necessidades.' },
+          { p: 'Os treinamentos incluem material didático?', r: 'Sim. Material didático em formato digital é incluído nos treinamentos. Impressões e materiais físicos específicos podem ser acordados na proposta.' },
+          { p: 'É emitido certificado de participação?', r: 'Sim. Todos os participantes que concluem o treinamento recebem certificado de participação com carga horária e módulos cursados.' },
+          { p: 'Os treinamentos podem ser seguidos de implantação?', r: 'Sim. A Triaxis integra capacitação e implantação. O treinamento prepara a equipe e a implantação aplica as ferramentas no processo real, com acompanhamento técnico.' },
+          { p: 'Quantas pessoas podem participar por turma?', r: 'Turmas presenciais funcionam melhor com até 20 participantes para manter a dinâmica prática. Turmas maiores ou remotas são avaliadas caso a caso.' },
+          { p: 'Os treinamentos valem como horas de capacitação para RH?', r: 'Sim. Os certificados emitidos pela Triaxis registram carga horária e conteúdo, podendo ser usados para comprovação de horas de capacitação profissional.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Equipe capacitada, melhoria sustentada</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Monte a trilha de treinamentos Lean da sua equipe.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Ferramentas Lean só geram resultado quando a equipe sabe usá-las. Capacitação aplicada ao processo real é o que sustenta a melhoria no longo prazo. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20treinamentos%20Lean%20para%20minha%20equipe.%20Empresa:%20____%20%7C%20Área/Setor:%20____%20%7C%20Nº%20de%20pessoas:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar trilha de treinamentos
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

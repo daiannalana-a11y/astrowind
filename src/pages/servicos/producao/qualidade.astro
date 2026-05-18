@@ -1,15 +1,262 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'Gestão da Qualidade Industrial | Controle de Processos e Padronização | Triaxis',
+  description: 'Estruturação de sistema de gestão da qualidade para indústrias e empresas. Controle de processos, padronização, indicadores de qualidade e planos de ação. Triaxis Consultoria MG.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/producao" class="hover:text-[#3a8d44] transition-colors">Engenharia de Produção</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Gestão da Qualidade</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia de Produção</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Gestão da Qualidade: <span class="text-[#6fcf7f]">processos controlados, produto consistente e menos retrabalho</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Estruturação de sistema de gestão da qualidade aplicável à realidade da empresa — com diagnóstico do processo atual, padronização, indicadores e plano de ação para reduzir defeitos, retrabalho e custos de não-qualidade.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Diagnóstico do sistema de qualidade atual',
+          'Padronização de processos e instruções de trabalho',
+          'Indicadores de qualidade: defeitos, rejeição e retrabalho',
+          'Ferramentas da qualidade aplicadas ao processo',
+          'Plano de ação para redução de não-conformidades',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20estruturar%20a%20gestão%20da%20qualidade%20da%20minha%20empresa.%20Empresa:%20____%20%7C%20Setor:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Estruturar gestão da qualidade
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20Gestão%20da%20Qualidade."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é gestão da qualidade industrial</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Gestão da qualidade é o conjunto de práticas, controles e procedimentos que garantem que o produto ou serviço entregue atenda consistentemente aos requisitos do cliente — com o mínimo de variação, defeitos e retrabalho.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Não se trata de burocracia de ISO. É sobre controlar o processo para que ele produza resultado previsível, identificar desvios antes que cheguem ao cliente e agir com causa raiz — não apenas apagar incêndios.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Redução de defeitos, rejeições e devoluções de clientes',
+            'Padronização que permite resultado consistente independente do operador',
+            'Custo de não-qualidade identificado e atacado sistematicamente',
+            'Base para certificações de qualidade quando necessário',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Ferramentas aplicadas</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:fish', label: 'Diagrama de Ishikawa', desc: 'Análise de causa raiz de problemas de qualidade.' },
+            { icon: 'tabler:chart-bar', label: 'Gráfico de Pareto', desc: 'Priorização dos defeitos que representam maior impacto.' },
+            { icon: 'tabler:clipboard-list', label: 'Folha de verificação', desc: 'Registro estruturado de ocorrências e não-conformidades.' },
+            { icon: 'tabler:refresh', label: 'PDCA', desc: 'Ciclo de melhoria: Planejar, Fazer, Checar, Agir.' },
+            { icon: 'tabler:file-text', label: 'FMEA', desc: 'Análise de modos de falha e seus efeitos no processo e no produto.' },
+            { icon: 'tabler:list-check', label: 'POP / Instrução de trabalho', desc: 'Padronização do processo para resultado repetível.' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-xs font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que a Triaxis entrega no projeto de qualidade</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:stethoscope', titulo: 'Diagnóstico do sistema atual', desc: 'Avaliação das práticas de controle, registros e indicadores existentes.' },
+            { icon: 'tabler:file-text', titulo: 'Procedimentos e instruções de trabalho', desc: 'Documentação padronizada dos processos críticos para qualidade.' },
+            { icon: 'tabler:chart-bar', titulo: 'Indicadores de qualidade', desc: 'KPIs de defeitos, rejeição, retrabalho e custo de não-qualidade.' },
+            { icon: 'tabler:fish', titulo: 'Análise de causa raiz', desc: 'Investigação técnica dos problemas recorrentes com plano de ação.' },
+            { icon: 'tabler:timeline', titulo: 'Plano de ação', desc: 'Ações priorizadas para redução de não-conformidades e melhoria.' },
+            { icon: 'tabler:school', titulo: 'Treinamento da equipe', desc: 'Capacitação para uso das ferramentas e manutenção dos padrões.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-0.5">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Quando contratar</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Sinais de que a qualidade precisa de estruturação</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            'Alto índice de defeitos, refugo ou retrabalho sem causa identificada',
+            'Variação de qualidade entre operadores, turnos ou lotes',
+            'Devoluções e reclamações de clientes recorrentes',
+            'Falta de procedimentos documentados para os processos críticos',
+            'Custo de não-qualidade alto e não mensurado',
+            'Empresa em processo de certificação de qualidade',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-l-4 border-l-orange-400 border-slate-100">
+              <Icon name="tabler:alert-triangle" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o projeto de gestão da qualidade</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { num: '01', titulo: 'Alinhamento e escopo', desc: 'Definição dos objetivos, processos críticos e problemas prioritários.' },
+          { num: '02', titulo: 'Diagnóstico do processo atual', desc: 'Avaliação das práticas de controle, registros e indicadores existentes.' },
+          { num: '03', titulo: 'Mapeamento de não-conformidades', desc: 'Levantamento e categorização dos defeitos, causas e frequências.' },
+          { num: '04', titulo: 'Análise de causa raiz', desc: 'Aplicação de ferramentas da qualidade para investigar os problemas.' },
+          { num: '05', titulo: 'Padronização', desc: 'Elaboração de procedimentos e instruções de trabalho para os processos críticos.' },
+          { num: '06', titulo: 'Implantação de indicadores', desc: 'Definição e estruturação dos KPIs de qualidade e rotina de acompanhamento.' },
+          { num: '07', titulo: 'Treinamento', desc: 'Capacitação da equipe para uso dos padrões e ferramentas.' },
+          { num: '08', titulo: 'Acompanhamento', desc: 'Monitoramento dos resultados e ajustes do sistema implantado.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre gestão da qualidade</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'A Triaxis faz certificação ISO 9001?', r: 'A Triaxis estrutura o sistema de gestão da qualidade e prepara a operação para as práticas exigidas. A certificação formal é emitida por organismos certificadores independentes. A Triaxis pode preparar a empresa para o processo de certificação.' },
+          { p: 'O projeto de qualidade é indicado para empresas sem certificação?', r: 'Sim. A maioria das empresas atendidas não tem certificação e não tem interesse imediato nela. O objetivo é reduzir defeitos, padronizar processos e diminuir o custo de não-qualidade — independentemente de certificação.' },
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras regiões de Minas Gerais, parte do projeto pode ser feita remotamente.' },
+          { p: 'Quanto custa o projeto de gestão da qualidade?', r: 'O valor depende do número de processos, do porte da empresa e do escopo definido. A proposta é enviada com escopo e entregáveis detalhados.' },
+          { p: 'Quanto tempo leva para ver redução nos defeitos?', r: 'Ações de padronização e causa raiz em problemas já identificados costumam gerar resultado em semanas. A consolidação do sistema leva mais tempo, mas o impacto é progressivo e sustentável.' },
+          { p: 'A Triaxis faz análise de Pareto e Ishikawa?', r: 'Sim. Essas são ferramentas padrão do serviço de gestão da qualidade, aplicadas conforme os problemas identificados no diagnóstico.' },
+          { p: 'O projeto inclui treinamento da equipe?', r: 'Sim. O treinamento da equipe faz parte do escopo para garantir que os padrões e ferramentas sejam usados corretamente no dia a dia.' },
+          { p: 'O serviço é indicado para pequenas indústrias?', r: 'Sim. Empresas pequenas costumam ter problemas de qualidade ligados à falta de padronização e controle. O projeto é dimensionado para o porte e os recursos disponíveis.' },
+          { p: 'O projeto de qualidade pode ser integrado ao Lean?', r: 'Sim. Qualidade e Lean se complementam. A Triaxis integra os dois quando faz sentido ao escopo — eliminando desperdício e controlando qualidade ao mesmo tempo.' },
+          { p: 'A Triaxis faz FMEA?', r: 'Sim. O FMEA (Análise de Modos de Falha e Efeitos) é aplicado quando o projeto envolve análise preventiva de riscos de processo ou produto, especialmente em operações com requisitos de clientes industriais.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Processo controlado, resultado previsível</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Estruture a gestão da qualidade da sua operação.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Defeito e retrabalho têm custo duplo: o custo de fazer errado e o custo de fazer de novo. Controlar o processo reduz os dois. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20estruturar%20a%20gestão%20da%20qualidade%20da%20minha%20empresa.%20Empresa:%20____%20%7C%20Setor:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Estruturar gestão da qualidade
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>

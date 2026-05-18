@@ -1,15 +1,298 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
 
-const metadata = { title: 'Serviço em Detalhes | Triaxis' };
+const metadata = {
+  title: 'VSM: Mapeamento do Fluxo de Valor | Value Stream Mapping | Triaxis',
+  description: 'Mapeamento do Fluxo de Valor (VSM) para identificar desperdícios, lead time e oportunidades de melhoria no processo produtivo. Mapa do estado atual e futuro com plano de ação. Triaxis Consultoria MG.',
+};
 ---
 
 <Layout metadata={metadata}>
-  <Hero title="Página em Construção" subtitle="Estamos preparando o detalhamento técnico deste serviço para você." />
-  <CallToAction 
-    title="Quer saber mais agora?" 
-    actions={[{ variant:'primary', text: 'Falar com Especialista', href: '/contact' }]} 
-  />
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/producao" class="hover:text-[#3a8d44] transition-colors">Engenharia de Produção</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">VSM</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia de Produção</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        VSM: <span class="text-[#6fcf7f]">mapeie o fluxo de valor e enxergue onde a operação perde tempo e dinheiro</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        O Value Stream Mapping (VSM) é a ferramenta Lean mais eficiente para visualizar o fluxo completo de uma família de produtos — do pedido à entrega — e identificar onde estão os desperdícios, estoques e gargalos que aumentam o lead time sem agregar valor.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Mapa do estado atual com tempos e estoques reais',
+          'Identificação de desperdícios e gargalos no fluxo',
+          'Mapa do estado futuro com melhorias priorizadas',
+          'Plano de ação para transição ao estado futuro',
+          'Base para projetos Kaizen e Lean',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20fazer%20o%20VSM%20da%20minha%20operação.%20Empresa:%20____%20%7C%20Produto/Processo:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar VSM
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20VSM."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o VSM e para que serve</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O VSM (Value Stream Mapping) é uma ferramenta de visualização do fluxo de materiais e informações ao longo de toda a cadeia produtiva de uma família de produtos. Ele registra tempos de processamento, tempos de espera, estoques em processo e volumes de produção — revelando o que agrega valor e o que é desperdício.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Com o mapa em mãos, a empresa tem uma base técnica clara para priorizar projetos de melhoria, reduzir lead time e aumentar a capacidade sem necessariamente aumentar recursos.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Visão sistêmica do fluxo completo, não apenas de etapas isoladas',
+            'Lead time real versus tempo de valor agregado quantificados',
+            'Identificação de onde estão os estoques, esperas e gargalos',
+            'Direcionamento técnico para projetos Kaizen e Lean',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">O que o VSM revela</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:clock-pause', label: 'Esperas e filas', desc: 'Onde o material para e por quanto tempo fica parado entre etapas.' },
+            { icon: 'tabler:package', label: 'Estoques em processo', desc: 'Quantidade e localização de WIP que aumentam o lead time.' },
+            { icon: 'tabler:bottle', label: 'Gargalos', desc: 'Etapas que limitam o fluxo e condicionam o ritmo de toda a produção.' },
+            { icon: 'tabler:arrows-move', label: 'Movimentação excessiva', desc: 'Transporte interno de materiais que não agrega valor ao produto.' },
+            { icon: 'tabler:chart-line', label: 'Oportunidades de melhoria', desc: 'Onde concentrar os projetos Kaizen para máximo impacto no lead time.' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-xs font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Segmentos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Para quem o VSM é indicado</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:building-factory', text: 'Indústrias com processo produtivo contínuo ou por lotes' },
+            { icon: 'tabler:tool', text: 'Empresas com lead time alto e necessidade de reduzir tempo de entrega' },
+            { icon: 'tabler:chart-bar', text: 'Operações com gargalos conhecidos, mas sem clareza de onde atacar' },
+            { icon: 'tabler:users', text: 'Equipes de melhoria contínua que querem embasar projetos Kaizen' },
+            { icon: 'tabler:trending-up', text: 'Empresas em crescimento que precisam escalar o processo sem perder controle' },
+          ].map(({ icon, text }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">O que a Triaxis entrega</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:map-2', titulo: 'Mapa do estado atual (VSM atual)', desc: 'Fluxo real com tempos, estoques, operadores e informações de controle.' },
+            { icon: 'tabler:map-pin', titulo: 'Análise de desperdícios', desc: 'Identificação e quantificação do que não agrega valor no fluxo.' },
+            { icon: 'tabler:map-2', titulo: 'Mapa do estado futuro (VSM futuro)', desc: 'Fluxo redesenhado com as melhorias priorizadas e o lead time alvo.' },
+            { icon: 'tabler:timeline', titulo: 'Plano de ação Kaizen', desc: 'Projetos prioritários para transição do estado atual ao futuro.' },
+            { icon: 'tabler:file-report', titulo: 'Relatório técnico', desc: 'Documentação com análise, indicadores e recomendações.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o VSM na prática</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { num: '01', titulo: 'Definição da família de produtos', desc: 'Seleção do fluxo a ser mapeado com base em volume, impacto e estratégia.' },
+          { num: '02', titulo: 'Coleta de dados em campo', desc: 'Levantamento de tempos de ciclo, setup, lead time e estoques no chão de fábrica.' },
+          { num: '03', titulo: 'Mapa do estado atual', desc: 'Construção do VSM atual com fluxo de material e informação.' },
+          { num: '04', titulo: 'Análise de desperdícios', desc: 'Identificação do que não agrega valor e quantificação das perdas.' },
+          { num: '05', titulo: 'Definição do estado futuro', desc: 'Redesenho do fluxo com aplicação dos princípios Lean.' },
+          { num: '06', titulo: 'Plano de transição', desc: 'Definição dos projetos Kaizen para alcançar o estado futuro.' },
+          { num: '07', titulo: 'Relatório e apresentação', desc: 'Documentação dos mapas, análise e plano de ação com prioridades.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do VSM</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            { prazo: '5 a 10 dias', desc: 'Processo simples, fluxo único e dados disponíveis.' },
+            { prazo: '10 a 20 dias', desc: 'Processo com múltiplas etapas, famílias de produtos ou dados a levantar.' },
+            { prazo: 'Acima de 20 dias', desc: 'Operações complexas com vários fluxos ou plantas.' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Implantação dos projetos Kaizen identificados',
+            'Redesenho de layout físico (pode ser contratado separadamente)',
+            'Treinamento de equipe em ferramentas Lean',
+            'Acompanhamento de indicadores após o VSM',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre VSM</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'O VSM serve para qualquer tipo de produção?', r: 'O VSM é mais eficaz em processos com fluxo repetitivo e família de produtos definida. Para processos de projeto único ou alta variabilidade, pode ser necessário adaptar a metodologia.' },
+          { p: 'Preciso parar a produção para fazer o VSM?', r: 'Não. O VSM é feito com a operação em andamento. A coleta de dados em campo é feita por observação direta, sem interrupção do fluxo produtivo.' },
+          { p: 'Qual a diferença entre VSM e diagnóstico Lean?', r: 'O diagnóstico Lean é mais amplo e avalia toda a operação. O VSM é focado no fluxo de valor de uma família de produtos, com mapeamento visual detalhado de tempos e estoques. Os dois se complementam.' },
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras regiões de Minas Gerais, parte do trabalho pode ser feita remotamente.' },
+          { p: 'Quanto custa o VSM?', r: 'O valor depende da complexidade do processo, do número de famílias de produtos e da necessidade de coleta de dados em campo. A proposta é enviada com escopo detalhado.' },
+          { p: 'O VSM inclui o estado futuro?', r: 'Sim, o escopo padrão inclui mapa do estado atual, análise de desperdícios, mapa do estado futuro e plano de transição com projetos Kaizen prioritários.' },
+          { p: 'A Triaxis implanta as melhorias do VSM?', r: 'Sim. Os projetos Kaizen identificados podem ser implantados pela Triaxis em contratação separada, com o VSM como base técnica.' },
+          { p: 'O VSM é obrigatório para implantar Lean?', r: 'Não é obrigatório, mas é altamente recomendado como ponto de partida. Sem mapeamento do fluxo, as melhorias tendem a ser pontuais e sem impacto sistêmico.' },
+          { p: 'Quanto tempo leva para ver resultado após o VSM?', r: 'Os projetos Kaizen de curto prazo identificados no plano de transição costumam gerar resultado em semanas. A redução estrutural de lead time depende da implantação do estado futuro.' },
+          { p: 'O VSM funciona para empresas pequenas?', r: 'Sim. Empresas de pequeno porte costumam ter retorno rápido com o VSM, pois o fluxo é mais simples e as melhorias têm impacto imediato no tempo de entrega e na capacidade.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Enxergue o fluxo antes de melhorá-lo</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Agende o VSM da sua operação.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Com o mapa do fluxo de valor em mãos, você sabe exatamente onde o tempo e o dinheiro estão sendo desperdiçados — e o que priorizar para mudar isso. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20fazer%20o%20VSM%20da%20minha%20operação.%20Empresa:%20____%20%7C%20Produto/Processo:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar VSM
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
 </Layout>
