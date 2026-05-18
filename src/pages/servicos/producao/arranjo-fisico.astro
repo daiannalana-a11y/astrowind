@@ -1,0 +1,297 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Layout Industrial e Arranjo Físico | Projeto de Instalações Produtivas | Triaxis',
+  description: 'Projeto e redesenho de layout industrial para reduzir movimentação, distância e lead time. Arranjo físico de máquinas, fluxo de materiais e áreas de suporte. Triaxis Consultoria MG.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/services" class="hover:text-[#3a8d44] transition-colors">Serviços</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/producao" class="hover:text-[#3a8d44] transition-colors">Engenharia de Produção</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Layout Industrial</span>
+    </div>
+  </nav>
+
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia de Produção</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Layout Industrial: <span class="text-[#6fcf7f]">arranjo físico que reduz movimentação, distância e tempo de produção</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Projeto e redesenho do arranjo físico de instalações produtivas com base em fluxo de materiais, ergonomia, segurança e eficiência operacional — para que o espaço trabalhe a favor da produção.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Análise do layout atual e mapeamento de fluxo',
+          'Proposta de novo arranjo físico com justificativa técnica',
+          'Redução de movimentação e lead time',
+          'Integrável ao VSM e ao Diagnóstico Lean',
+          'Planta baixa e memorial descritivo',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20projeto%20de%20Layout%20Industrial.%20Empresa:%20____%20%7C%20Setor:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar projeto de layout
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20uma%20proposta%20para%20Layout%20Industrial."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Solicitar proposta (24h)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é o projeto de layout industrial</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          O layout industrial define o posicionamento de máquinas, equipamentos, postos de trabalho, estoques, corredores e áreas de suporte dentro de uma instalação produtiva. Um arranjo físico bem projetado reduz a movimentação de materiais e pessoas, diminui o lead time, melhora a comunicação entre etapas e aumenta a segurança operacional.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          O redesenho de layout é necessário sempre que a operação cresce, muda de processo ou identifica que o espaço está gerando desperdício de tempo e movimentação.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Redução da distância percorrida por materiais e operadores',
+            'Fluxo produtivo mais limpo, com menos cruzamentos e retornos',
+            'Melhor aproveitamento do espaço disponível',
+            'Base para projetos de segurança, ergonomia e 5S',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Tipos de layout tratados</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:route', label: 'Layout por produto (linha)', desc: 'Máquinas organizadas na sequência do processo. Ideal para produção em série.' },
+            { icon: 'tabler:grid-4x4', label: 'Layout por processo (funcional)', desc: 'Agrupamento por tipo de operação. Indicado para produções variadas.' },
+            { icon: 'tabler:layout-grid', label: 'Layout celular', desc: 'Células de manufatura agrupadas por família de produtos. Equilibra flexibilidade e eficiência.' },
+            { icon: 'tabler:building-warehouse', label: 'Layout de posição fixa', desc: 'Produto fixo e recursos que se movem até ele. Usado em grandes estruturas e projetos.' },
+          ].map(({ icon, label, desc }) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-xs font-bold text-[#1a3044]">{label}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Quando contratar</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Situações que indicam necessidade de novo layout</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            'Instalação nova ou mudança de endereço da operação',
+            'Crescimento do volume e falta de espaço para expansão',
+            'Movimentação excessiva de materiais e operadores',
+            'Fluxo cruzado com riscos de colisão e acidentes',
+            'Gargalos gerados por posicionamento inadequado de máquinas',
+            'Implantação de novas linhas, células ou processos',
+            'Antes de investir em automação ou novos equipamentos',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border-l-4 border-l-orange-400 border border-slate-100">
+              <Icon name="tabler:alert-triangle" class="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-4">O que a Triaxis entrega</p>
+        <div class="space-y-4">
+          {[
+            { icon: 'tabler:map-2', titulo: 'Análise do layout atual', desc: 'Levantamento do arranjo físico existente com fluxo de materiais e distâncias.' },
+            { icon: 'tabler:chart-dots', titulo: 'Diagrama de relacionamentos', desc: 'Mapeamento da interdependência entre áreas para embasar o novo arranjo.' },
+            { icon: 'tabler:blueprint', titulo: 'Proposta de novo layout', desc: 'Planta baixa com o arranjo proposto, corredores, postos e áreas de suporte.' },
+            { icon: 'tabler:file-text', titulo: 'Memorial descritivo', desc: 'Justificativa técnica das decisões de projeto com critérios e premissas.' },
+            { icon: 'tabler:presentation', titulo: 'Reunião de apresentação', desc: 'Discussão da proposta com gestores e equipe operacional.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-5 h-5 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-1">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como funciona o projeto de layout</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { num: '01', titulo: 'Alinhamento e escopo', desc: 'Definição dos objetivos, restrições físicas e premissas do projeto.' },
+          { num: '02', titulo: 'Levantamento do estado atual', desc: 'Medição do espaço, posicionamento de máquinas e fluxo de materiais.' },
+          { num: '03', titulo: 'Análise de fluxo e relacionamentos', desc: 'Mapeamento do fluxo de materiais e da interdependência entre áreas.' },
+          { num: '04', titulo: 'Geração de alternativas', desc: 'Desenvolvimento de opções de arranjo com avaliação técnica comparativa.' },
+          { num: '05', titulo: 'Elaboração do layout proposto', desc: 'Projeto detalhado do arranjo selecionado com planta baixa.' },
+          { num: '06', titulo: 'Memorial e justificativa', desc: 'Documentação das decisões de projeto com critérios e premissas.' },
+          { num: '07', titulo: 'Apresentação e ajustes', desc: 'Reunião com gestores, ajustes e validação final do projeto.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico do projeto de layout</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            { prazo: '10 a 20 dias', desc: 'Área única, planta pequena e processo simples.' },
+            { prazo: '20 a 40 dias', desc: 'Instalação de porte médio com múltiplas áreas e fluxos.' },
+            { prazo: 'Acima de 40 dias', desc: 'Plantas complexas, múltiplas linhas ou integração com projetos civis.' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Execução da mudança física do layout',
+            'Projeto civil, elétrico ou de utilidades',
+            'Aquisição ou reposicionamento de equipamentos',
+            'Simulação computacional de fluxo (pode ser contratada separadamente)',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre layout industrial</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'A Triaxis executa a mudança física do layout?', r: 'O projeto de layout é o escopo padrão da Triaxis. A execução física da mudança (mover máquinas, construir paredes, instalar elétrica) fica por conta da empresa ou de terceiros especializados.' },
+          { p: 'Preciso de planta baixa da instalação para contratar?', r: 'Ajuda, mas não é obrigatório. A Triaxis faz o levantamento das dimensões e do arranjo atual durante a visita técnica.' },
+          { p: 'O projeto inclui projeto elétrico ou civil?', r: 'Não. O projeto de layout foca no arranjo físico operacional. Projetos civis, elétricos e de utilidades são elaborados por profissionais específicos e não fazem parte do escopo.' },
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras regiões de Minas Gerais, avaliamos a viabilidade conforme o escopo.' },
+          { p: 'O projeto de layout pode ser feito remotamente?', r: 'A visita técnica para levantamento é essencial para projetos de layout. Parte da análise e do projeto pode ser feita remotamente com plantas e fotos fornecidas pela empresa.' },
+          { p: 'Quanto custa o projeto de layout?', r: 'O valor depende do tamanho da instalação, da complexidade do processo e do número de alternativas a desenvolver. A proposta é enviada após alinhamento do escopo.' },
+          { p: 'O projeto de layout pode ser integrado ao VSM?', r: 'Sim. O VSM identifica desperdícios no fluxo e o layout industrial atua sobre o arranjo físico que os gera. A integração dos dois projetos é recomendada para resultados mais consistentes.' },
+          { p: 'O layout inclui análise de ergonomia?', r: 'Considerações ergonômicas básicas fazem parte do projeto (altura de bancadas, distâncias de operação, circulação). Laudos ergonômicos específicos são um serviço distinto, integrado à área de Segurança do Trabalho.' },
+          { p: 'A Triaxis faz simulação computacional do layout?', r: 'A simulação computacional pode ser contratada separadamente para projetos que exigem validação quantitativa antes da implementação.' },
+          { p: 'O projeto é válido para alvará ou licença?', r: 'O projeto de layout da Triaxis é focado na eficiência operacional. Para fins de alvará, licença ambiental ou regularização, são necessários documentos específicos que envolvem projetos legalizados por profissionais habilitados.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Espaço que trabalha pela produção</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite o projeto de layout industrial da sua operação.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Um layout bem projetado reduz movimentação, melhora fluxo e aumenta capacidade sem necessariamente aumentar espaço ou equipe. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20um%20projeto%20de%20Layout%20Industrial.%20Empresa:%20____%20%7C%20Setor:%20____%20%7C%20Cidade:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar projeto de layout
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
+</Layout>
