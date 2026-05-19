@@ -1,3 +1,16 @@
 ---
-return Astro.redirect('/servicos/producao/arranjo-fisico', 301);
+// Página movida para /servicos/producao/arranjo-fisico
+const redirectUrl = '/servicos/producao/arranjo-fisico';
 ---
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+    <link rel="canonical" href={redirectUrl} />
+    <title>Redirecionando...</title>
+  </head>
+  <body>
+    <p>Redirecionando... <a href={redirectUrl}>Clique aqui se não for redirecionado automaticamente.</a></p>
+  </body>
+</html>
