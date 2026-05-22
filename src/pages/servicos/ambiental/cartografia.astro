@@ -1,0 +1,315 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { headerData, footerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Cartografia e Geoprocessamento Ambiental | Mapas Temáticos e SIG/GIS | Triaxis MG',
+  description: 'Elaboração de mapas temáticos georreferenciados, interpretação de imagens de satélite e Sistema de Informações Geográficas (SIG/GIS) aplicados a estudos ambientais, licenciamento e diagnóstico territorial. Ouro Preto, Mariana, BH e MG. Triaxis Consultoria.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Header {...headerData} isSticky />
+
+  <nav class="bg-slate-100 border-b border-slate-200 px-4 py-2.5">
+    <div class="max-w-5xl mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
+      <a href="/" class="hover:text-[#3a8d44] transition-colors">Início</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <a href="/servicos/ambiental" class="hover:text-[#3a8d44] transition-colors">Engenharia Ambiental</a>
+      <Icon name="tabler:chevron-right" class="w-3 h-3 text-slate-400" />
+      <span class="text-[#1a3044] font-semibold">Cartografia e Geoprocessamento</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-[#1a3044] py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Engenharia Ambiental</p>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-5">
+        Cartografia e Geoprocessamento: <span class="text-[#6fcf7f]">mapas temáticos e análise espacial para estudos ambientais</span>
+      </h1>
+      <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
+      <p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+        A Triaxis elabora mapas temáticos georreferenciados, realiza interpretação de imagens de satélite e aplica técnicas de SIG/GIS para subsidiar licenciamento ambiental, estudos de impacto, diagnósticos territoriais e planejamento de uso do solo.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-8">
+        {[
+          'Mapas temáticos georreferenciados',
+          'Interpretação de imagens de satélite',
+          'SIG/GIS com softwares especializados',
+          'Aplicado a licenciamento e EIA/RIMA',
+          'Entrega em formatos digitais (SHP, KML, PDF)',
+        ].map(item => (
+          <span class="inline-flex items-center gap-2 bg-white/10 text-slate-200 text-xs font-medium px-4 py-2 rounded-full border border-white/20">
+            <Icon name="tabler:check" class="w-3.5 h-3.5 text-[#6fcf7f]" />
+            {item}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20orçamento%20para%20Cartografia%20e%20Geoprocessamento.%0A%0A1)%20Empresa:%20____%0A2)%20Cidade/UF:%20____%0A3)%20Área%20de%20estudo%20(localização):%20____%0A4)%20Finalidade%20(licenciamento/EIA/PRAD/outro):%20____%0A5)%20Mapas%20necessários:%20____%0A6)%20Prazo%20desejado:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar orçamento
+        </a>
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20falar%20com%20a%20Triaxis%20sobre%20Cartografia%20e%20Geoprocessamento."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full transition-colors">
+          Falar com a Triaxis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Definição</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-4">O que é Cartografia e Geoprocessamento</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Cartografia é a ciência de representação do território por meio de mapas técnicos e temáticos. Geoprocessamento é o conjunto de técnicas computacionais que permitem coletar, processar, analisar e visualizar dados georreferenciados de forma integrada.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Na engenharia ambiental, essas ferramentas são indispensáveis: caracterizar uma área de estudo, delimitar APP e Reserva Legal, identificar uso e ocupação do solo, mapear riscos e definir zonas de influência são atividades que dependem de dados espaciais confiáveis.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          O Sistema de Informações Geográficas (SIG/GIS) integra todas essas informações em um banco de dados geoespacial estruturado, permitindo análises cruzadas, sobreposições temáticas e geração de produtos cartográficos em diferentes escalas e formatos.
+        </p>
+        <div class="space-y-3">
+          {[
+            'Dados espaciais com precisão e rastreabilidade metodológica',
+            'Integração com estudos ambientais: EIA, PRAD, PGRS e licenciamento',
+            'Entrega em formatos digitais prontos para uso técnico e legal',
+            'Análise por imagens de satélite, fotografias aéreas e dados vetoriais',
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="tabler:check" class="w-3 h-3 text-[#3a8d44]" />
+              </div>
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <p class="text-sm font-bold text-[#1a3044] uppercase tracking-wider mb-6">Tipos de mapas temáticos elaborados</p>
+        <div class="space-y-4">
+          {[
+            { sigla: 'GEO', label: 'Geológico e Geomorfológico', desc: 'Caracterização das unidades de rocha, relevo, formas do terreno e dinâmica geológica da área de estudo.' },
+            { sigla: 'PED', label: 'Pedológico', desc: 'Identificação e classificação dos tipos de solo presentes, com aptidão agrícola e susceptibilidade à erosão.' },
+            { sigla: 'VEG', label: 'Vegetação e Uso do Solo', desc: 'Mapeamento da cobertura vegetal, fitofisionomias, APP, Reserva Legal e uso e ocupação da terra.' },
+            { sigla: 'DEC', label: 'Isodeclividade', desc: 'Classificação do terreno em faixas de declividade para subsidiar análises de risco, erosão e aptidão de uso.' },
+            { sigla: 'HID', label: 'Recursos Hídricos', desc: 'Delimitação de bacias hidrográficas, rede de drenagem, corpos d\'água e áreas de influência hídrica.' },
+          ].map(({ sigla, label, desc }) => (
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-[#1a3044] flex items-center justify-center flex-shrink-0">
+                <span class="text-[#6fcf7f] font-black text-xs">{sigla}</span>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-1">{label}</p>
+                <p class="text-xs text-slate-500 leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS + QUANDO CONTRATAR -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Entregáveis</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que a Triaxis entrega</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            { icon: 'tabler:map', titulo: 'Mapas temáticos georreferenciados', desc: 'Produtos cartográficos em escala adequada ao estudo, com legenda, escala gráfica, norte e referência de projeção.' },
+            { icon: 'tabler:photo', titulo: 'Imagens de satélite interpretadas', desc: 'Mosaico e classificação de imagens com identificação de classes de cobertura e uso do solo.' },
+            { icon: 'tabler:database', titulo: 'Banco de dados geoespacial', desc: 'Arquivos vetoriais (SHP) e rasters organizados por camadas temáticas, prontos para reutilização.' },
+            { icon: 'tabler:file-report', titulo: 'Relatório técnico metodológico', desc: 'Descrição das fontes de dados, softwares utilizados, datas de imagens, premissas e limitações.' },
+            { icon: 'tabler:certificate', titulo: 'ART quando aplicável', desc: 'Anotação de Responsabilidade Técnica emitida pelo profissional responsável pelo produto cartográfico.' },
+          ].map(({ icon, titulo, desc }) => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-slate-100">
+              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                <Icon name={icon} class="w-4 h-4 text-[#3a8d44]" />
+              </div>
+              <div>
+                <p class="text-sm font-bold text-[#1a3044] mb-0.5">{titulo}</p>
+                <p class="text-xs text-slate-500">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Aplicações</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Quando contratar</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-5"></div>
+        <div class="space-y-3">
+          {[
+            'Licenciamento ambiental — caracterização territorial e diagnóstico do meio físico e biótico',
+            'EIA/RIMA — mapeamento de áreas de influência direta e indireta',
+            'PRAD — delimitação e monitoramento de área degradada a recuperar',
+            'Diagnóstico de conformidade — verificação de APP e Reserva Legal',
+            'Planejamento de uso e ocupação do solo em propriedades rurais',
+            'Monitoramento de cobertura vegetal ao longo do tempo por imagens de satélite',
+            'Subsidiar planos de gestão ambiental e relatórios técnicos periódicos',
+            'Atender exigências de órgãos ambientais (SUPRAM, SEMAD, IBAMA)',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:map-pin" class="w-4 h-4 text-[#3a8d44] flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-600">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-4xl mx-auto tx-fade">
+      <div class="text-center mb-12">
+        <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-2">Processo</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Como desenvolvemos os produtos cartográficos</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          { num: '01', titulo: 'Definição de escopo e área de estudo', desc: 'Alinhamento sobre os mapas necessários, escala, projeção, finalidade e prazo.' },
+          { num: '02', titulo: 'Levantamento de dados e imagens', desc: 'Coleta de imagens de satélite, bases cartográficas, cartas IBGE, dados ANEEL, ANA e outras fontes.' },
+          { num: '03', titulo: 'Processamento e georreferenciamento', desc: 'Registro e correção geométrica das imagens, importação de dados vetoriais e rasters no SIG.' },
+          { num: '04', titulo: 'Classificação e análise espacial', desc: 'Interpretação de cobertura e uso do solo, cruzamentos temáticos e análise de dados geoespaciais.' },
+          { num: '05', titulo: 'Elaboração dos mapas temáticos', desc: 'Composição cartográfica com simbologia, legenda, escala, norte, dados de projeção e layout técnico.' },
+          { num: '06', titulo: 'Relatório técnico e entrega', desc: 'Documento com metodologia, fontes e limitações. Entrega em PDF + arquivos digitais SHP/KML.' },
+        ].map(({ num, titulo, desc }) => (
+          <div class="bg-white/10 rounded-2xl p-5 border border-white/10 flex gap-4">
+            <span class="text-2xl font-black text-[#3a8d44] opacity-50 flex-shrink-0 leading-none">{num}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">{titulo}</h3>
+              <p class="text-slate-300 text-xs leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAZOS + NÃO INCLUI -->
+  <section class="bg-slate-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 tx-fade">
+      <div>
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Prazos</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">Prazo típico de entrega</h2>
+        <div class="w-12 h-1 bg-[#3a8d44] rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            { prazo: '5 a 10 dias', desc: 'Mapa único com área pequena, dados disponíveis e sem necessidade de levantamento de campo.' },
+            { prazo: '10 a 20 dias', desc: 'Conjunto de mapas temáticos para estudo ambiental com área de médio porte.' },
+            { prazo: '20 a 45 dias', desc: 'Projeto completo com múltiplos mapas, imagens de satélite, banco de dados e relatório técnico para EIA ou licenciamento complexo.' },
+          ].map(({ prazo, desc }) => (
+            <div class="bg-white rounded-xl p-4 border border-slate-100">
+              <p class="text-sm font-bold text-[#1a3044] mb-1">{prazo}</p>
+              <p class="text-xs text-slate-500">{desc}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+          <Icon name="tabler:info-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+          <p class="text-xs text-amber-800 leading-relaxed">
+            Prazos dependem da disponibilidade de imagens de satélite com qualidade adequada para a área e data desejada, e da necessidade de levantamento de campo complementar.
+          </p>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm text-orange-500 font-bold tracking-widest uppercase mb-2">Transparência</p>
+        <h2 class="text-xl md:text-2xl font-bold text-[#1a3044] mb-4">O que não está incluso</h2>
+        <div class="w-12 h-1 bg-orange-500 rounded-full mb-6"></div>
+        <div class="space-y-3">
+          {[
+            'Levantamento topográfico com equipamento de campo (RTK, estação total) — serviço separado',
+            'Drone e voo fotogramétrico — pode ser integrado mediante escopo específico',
+            'Laudos de vegetação com identificação florística in situ — serviço separado',
+            'Relatórios de diagnóstico ambiental completos (podem ser contratados junto)',
+            'Regularização fundiária ou georreferenciamento de imóvel rural (INCRA)',
+          ].map(item => (
+            <div class="flex items-start gap-3 bg-white rounded-xl p-3 border border-slate-100">
+              <Icon name="tabler:x" class="w-4 h-4 text-slate-300 flex-shrink-0 mt-0.5" />
+              <p class="text-sm text-slate-500">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-16 px-4">
+    <div class="max-w-3xl mx-auto tx-fade">
+      <div class="text-center mb-10">
+        <p class="text-sm text-[#3a8d44] font-bold tracking-widest uppercase mb-2">Dúvidas</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-[#1a3044] mb-2">Perguntas frequentes sobre Cartografia e Geoprocessamento</h2>
+        <div class="w-16 h-1 bg-[#3a8d44] mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        {[
+          { p: 'Para que serve o geoprocessamento em estudos ambientais?', r: 'O geoprocessamento permite analisar e visualizar dados espaciais com precisão: onde estão as APPs, qual a cobertura vegetal atual, qual o uso do solo histórico, onde há risco de erosão. Essas análises embasam licenciamentos, EIA, PRAD e estudos de impacto de forma técnica e defensável.' },
+          { p: 'Quais softwares são utilizados?', r: 'A Triaxis utiliza softwares especializados em SIG, como QGIS, ArcGIS e ferramentas complementares de sensoriamento remoto, conforme o escopo do projeto.' },
+          { p: 'O mapa precisa de ART?', r: 'Depende da finalidade. Quando o mapa é parte de um estudo técnico apresentado a órgão ambiental ou exigido em processo de licenciamento, a ART do profissional responsável é necessária. A Triaxis informa sobre a necessidade no escopo e inclui quando aplicável.' },
+          { p: 'Vocês fazem interpretação de imagens de satélite para monitoramento de vegetação?', r: 'Sim. A interpretação de imagens permite acompanhar evolução de cobertura vegetal, identificar supressão, verificar regeneração em PRAD e subsidiar relatórios de monitoramento de condicionantes de licenças ambientais.' },
+          { p: 'Em quais formatos os mapas são entregues?', r: 'Os mapas são entregues em PDF com layout técnico completo (escala, norte, legenda, fonte, datum e projeção) e, quando aplicável, em formatos digitais editáveis como Shapefile (.SHP), KML/KMZ e GeoTIFF, prontos para uso em outros SIG.' },
+          { p: 'Qual escala é usada nos mapas?', r: 'A escala depende da área de estudo e da finalidade do mapa. Para estudos de licenciamento, escalas entre 1:10.000 e 1:50.000 são comuns. Para propriedades menores ou detalhamentos, escalas maiores podem ser usadas. Definimos a escala mais adequada no escopo.' },
+          { p: 'Os mapas podem ser usados em processos de licenciamento ambiental?', r: 'Sim. Os produtos cartográficos elaborados pela Triaxis seguem padrões técnicos adequados para embasar estudos ambientais apresentados ao SUPRAM, SEMAD, IBAMA e outros órgãos licenciadores.' },
+          { p: 'A Triaxis também faz o diagnóstico ambiental completo?', r: 'Sim. Os mapas e produtos de geoprocessamento podem ser contratados de forma integrada ao diagnóstico de conformidade ambiental, PRAD ou outros estudos, ou como produto independente para complementar estudos já em andamento.' },
+          { p: 'Vocês atendem minha cidade?', r: 'O atendimento presencial cobre Ouro Preto, Mariana e Belo Horizonte. Para outras cidades de Minas Gerais, avaliamos a viabilidade conforme o escopo. Produtos que não exigem levantamento de campo podem ser desenvolvidos remotamente para qualquer localidade.' },
+          { p: 'Qual a diferença entre cartografia e topografia?', r: 'Cartografia produz representações temáticas do território a partir de dados já existentes (imagens de satélite, bases cartográficas, sensoriamento remoto). Topografia envolve levantamento métrico de campo com equipamentos (estação total, RTK, nível) para obter curvas de nível e coordenadas precisas. São serviços complementares.' },
+        ].map(({ p, r }) => (
+          <details class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden group">
+            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+              <span class="text-sm font-bold text-[#1a3044]">{p}</span>
+              <Icon name="tabler:chevron-down" class="w-4 h-4 text-slate-400 flex-shrink-0 group-open:rotate-180 transition-transform" />
+            </summary>
+            <div class="px-5 pb-5">
+              <p class="text-sm text-slate-600 leading-relaxed">{r}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#1a3044] py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center tx-fade">
+      <p class="text-sm text-[#6fcf7f] font-bold tracking-widest uppercase mb-3">Dados espaciais confiáveis</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Solicite os mapas e análises geoespaciais para seu estudo ambiental.
+      </h2>
+      <p class="text-slate-300 mb-8 leading-relaxed">
+        Da interpretação de imagem ao produto cartográfico final — com metodologia clara, rastreabilidade e entrega nos formatos exigidos. Atendemos Ouro Preto, Mariana, Belo Horizonte e Minas Gerais.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/5531994915126?text=Olá!%20Quero%20orçamento%20para%20Cartografia%20e%20Geoprocessamento.%0A%0A1)%20Empresa:%20____%0A2)%20Cidade/UF:%20____%0A3)%20Área%20de%20estudo%20(localização):%20____%0A4)%20Finalidade%20(licenciamento/EIA/PRAD/outro):%20____%0A5)%20Mapas%20necessários:%20____%0A6)%20Prazo%20desejado:%20____"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors shadow-md">
+          <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+          Solicitar orçamento
+        </a>
+        <a href="/contact"
+          class="inline-flex items-center gap-2 border-2 border-white/40 hover:border-white text-white font-bold px-8 py-3.5 rounded-full text-base transition-colors">
+          Enviar mensagem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer {...footerData} />
+</Layout>
