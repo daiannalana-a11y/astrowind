@@ -1,0 +1,33 @@
+name: Monitoramentos APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ["apps/monitoramento/**"]
+
+defaults:
+  run:
+    working-directory: apps/monitoramento
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: apps/monitoramento/package-lock.json }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - run: npm ci
+      - run: npm test
+      - name: Build web e sincronizar com Android
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: npm run cap:sync
+      - name: APK de depuração (instalável direto)
+        run: cd android && ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monitoramentos-debug-apk
+          path: apps/monitoramento/android/app/build/outputs/apk/debug/app-debug.apk
