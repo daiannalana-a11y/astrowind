@@ -208,3 +208,92 @@ dialog h2 { margin: 0 0 10px; }
 .checks input { width: 18px; height: 18px; min-height: 0; }
 @media (prefers-reduced-motion: no-preference) { .btn, .nav, .tile { transition: border-color .15s, color .15s, background .15s, filter .15s; } }
 @media print { .rail, .top, .bottom { display: none; } }
+
+/* =====================================================================
+   Ajustes de usabilidade (celular primeiro)
+   ===================================================================== */
+:root { --top-safe: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)); --bot-safe: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px)); }
+body { font-size: 16px; line-height: 1.5; }
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=date], input[type=datetime-local], input[type=url], select, textarea { font-size: 16px; min-height: 52px; border-radius: 12px; }
+input.num { font-size: 1.35rem; min-height: 58px; }
+label, .lbl { font-size: .86rem; margin-top: 18px; }
+.btn { min-height: 50px; font-size: 1rem; border-radius: 12px; padding: 10px 18px; }
+.btn.sm { min-height: 44px; font-size: .9rem; padding: 6px 14px; }
+.btn.big { min-height: 60px; font-size: 1.08rem; border-radius: 16px; }
+.iconbtn { width: 44px; height: 44px; border-radius: 12px; }
+h2 { font-size: 1.2rem; margin: 28px 0 12px; }
+.sub { font-size: .9rem; }
+.top { padding-top: calc(var(--top-safe) + 10px); }
+.chipst { min-height: 38px; padding: 6px 12px; font-size: .82rem; }
+.only-m { display: grid; }
+.only-d { display: none; }
+@media (min-width: 900px) { .only-m { display: none; } .only-d { display: block; } }
+
+/* Cartões dos pontos: uma coluna no celular, estado em cores e texto */
+.tiles { grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); } }
+.tile { position: relative; min-height: 0; padding: 16px 64px 14px 18px; gap: 6px; border-left: 6px solid var(--line); border-radius: 16px; }
+.tile .tn { font-size: 1.2rem; }
+.tile .tv { font-size: .95rem; gap: 2px; }
+.tile .td { font-size: .85rem; margin-top: 4px; }
+.tile .go { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+.tile.good { border-left-color: var(--good); } .tile.warn { border-left-color: #e0a030; } .tile.crit { border-left-color: var(--bad); } .tile.ok { border-left-color: var(--good); background: var(--good-soft); } .tile.off { border-left-color: var(--muted); }
+.tag { font-size: .78rem; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: var(--surface2); color: var(--muted); }
+.tag.good, .tag.ok { background: var(--good-soft); color: var(--good); } .tag.warn { background: var(--warn-soft); color: var(--warn); } .tag.crit { background: var(--bad-soft); color: var(--bad); }
+.hero { padding: 22px 18px 20px; }
+.hero h2 { font-size: 1.4rem; }
+
+/* Navegação inferior maior */
+.nav { font-size: .78rem; padding: 10px 2px 8px; gap: 3px; min-height: 62px; }
+.nav .badge { top: 4px; }
+.app.foco .bottom { display: none; }
+.app.foco main { padding-bottom: 24px; }
+
+/* Barra de ações fixa no registro */
+.barra { position: sticky; bottom: 0; z-index: 15; display: grid; gap: 10px; margin: 20px -16px -16px; padding: 12px 16px calc(12px + var(--bot-safe)); background: var(--surface); border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; }
+@media (max-width: 859px) { .barra { position: fixed; left: 0; right: 0; bottom: 0; margin: 0; border-radius: 0; box-shadow: 0 -6px 20px rgba(0,0,0,.08); } .app.foco main { padding-bottom: 190px; } }
+
+/* Filtros e seções recolhíveis */
+details.fdet, details.rec { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0; }
+.card:has(> #filtros) { padding: 0; }
+details summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; min-height: 52px; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: ""; width: 10px; height: 10px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); flex: none; transition: transform .15s; }
+details[open] summary::after { transform: rotate(-135deg); }
+.fs-t { font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; }
+.fs-r { color: var(--muted); font-size: .82rem; margin-left: auto; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 55%; }
+details .filtros, details .rapidos, details .lista { padding: 0 16px 16px; }
+details.rec .lista { padding-top: 4px; }
+.exp { padding: 0 16px 16px; }
+.exp .btn { flex: 1 1 140px; }
+section.card:has(.exp) { padding: 0; }
+
+/* Dashboard e histórico mais legíveis no celular */
+@media (max-width: 640px) {
+  main { padding-inline: 14px; }
+  .kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpi { padding: 12px; } .kpi .v { font-size: 1.3rem; } .kpi .k { font-size: .78rem; }
+  .graficos { grid-template-columns: 1fr; }
+  .chartbox { height: 260px; } .chartbox.sm { height: 230px; }
+  .card.gc { padding: 14px; }
+  .pagehead h1 { font-size: 1.6rem; }
+  .item { padding: 14px; border-radius: 14px; } .item .vals { font-size: 1rem; }
+  .item .l1 { font-size: 1.05rem; }
+  .top .brand-m b { font-size: 1.05rem; }
+  .chipst .t { display: none; } .chipst { width: 44px; height: 44px; padding: 0; justify-content: center; border-radius: 12px; }
+  .campos { grid-template-columns: 1fr; }
+  .login .card { padding: 22px 18px; }
+}
+.th { width: 84px; height: 84px; border-radius: 12px; }
+.th button { width: 30px; height: 30px; top: 4px; right: 4px; }
+.campos label, .campos > div > label:first-child { margin-top: 18px; }
+.barra .btn.big { min-height: 56px; }
+.barra .btn:not(.big) { min-height: 46px; }
+@media (max-width: 859px) { .app.foco main { padding-bottom: 170px; } }
+.app { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .app { grid-template-columns: 232px minmax(0, 1fr); } }
+.app > div, main { min-width: 0; }
+.card > #filtros > details.fdet, section.card:has(.exp) details.fdet { border: 0; background: transparent; }
+.item .vals { flex-wrap: wrap; }
+.tbl { max-width: 100%; }
+#filtros > details.fdet { border: 0; background: transparent; }

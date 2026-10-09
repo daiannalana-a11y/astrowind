@@ -46,22 +46,34 @@ export function regsFiltro(): Reading[] {
 }
 
 /* ---- barra de filtros compartilhada (dashboard e histórico) ---- */
+let filtrosAbertos = false;
+function resumoFiltros(): string {
+  const un = unidadesVisiveis().find((u) => u.id === F.un)?.nome ?? "Todas as unidades";
+  const pt = pontosVisiveis().find((p) => p.id === F.pt)?.nome ?? (F.g ? GRUPOS[F.g as keyof typeof GRUPOS].rot : "Todos os pontos");
+  const fmtD = (s: string) => (s ? s.split("-").reverse().join("/") : "…");
+  return `${fmtD(F.ini)} a ${fmtD(F.fim)} · ${un} · ${pt}`;
+}
+
 export function filtrosHtml(): string {
   const pts = pontosVisiveis().filter((p) => (!F.un || p.unit_id === F.un) && (!F.g || p.grupo === F.g));
   const sel = (id: string, rot: string, opts: string) => `<div><label for="${id}">${rot}</label><select id="${id}">${opts}</select></div>`;
   const op = (v: string, t: string, cur: string) => `<option value="${esc(v)}"${cur === v ? " selected" : ""}>${esc(t)}</option>`;
-  return `<div class="filtros">
+  return `<details class="fdet" id="fl-det"${filtrosAbertos ? " open" : ""}><summary><span class="fs-t">Filtros</span><span class="fs-r">${esc(resumoFiltros())}</span></summary><div class="filtros">
     ${sel("fl-un", "Unidade", op("", "Todas", F.un) + unidadesVisiveis().map((u) => op(u.id, u.nome, F.un)).join(""))}
     ${sel("fl-g", "Categoria", op("", "Todas", F.g) + GRUPO_KEYS.map((g) => op(g, GRUPOS[g].rot, F.g)).join(""))}
     ${sel("fl-pt", "Ponto", op("", "Todos", F.pt) + pts.map((p) => op(p.id, p.nome, F.pt)).join(""))}
     <div><label for="fl-ini">Data inicial</label><input type="date" id="fl-ini" value="${esc(F.ini)}"></div>
     <div><label for="fl-fim">Data final</label><input type="date" id="fl-fim" value="${esc(F.fim)}"></div>
   </div>
-  <div class="rapidos"><button type="button" class="btn sm" data-rp="mes">Este mês</button><button type="button" class="btn sm" data-rp="7">Últimos 7 dias</button><button type="button" class="btn sm" data-rp="30">Últimos 30 dias</button><button type="button" class="btn sm" data-rp="tudo">Todo o período</button></div>`;
+  <div class="rapidos"><button type="button" class="btn sm" data-rp="mes">Este mês</button><button type="button" class="btn sm" data-rp="7">Últimos 7 dias</button><button type="button" class="btn sm" data-rp="30">Últimos 30 dias</button><button type="button" class="btn sm" data-rp="tudo">Todo o período</button></div></details>`;
 }
 
 /** Liga os filtros ao elemento raiz. `aoMudar` deve redesenhar a tela (inclusive a barra). */
 export function ligarFiltros(el: HTMLElement, aoMudar: () => void): void {
+  el.addEventListener("toggle", (e) => {
+    const t = e.target as HTMLElement;
+    if (t.id === "fl-det") filtrosAbertos = (t as HTMLDetailsElement).open;
+  }, true);
   el.addEventListener("change", (e) => {
     const m = /^fl-(un|g|pt|ini|fim)$/.exec((e.target as HTMLElement).id);
     if (!m) return;

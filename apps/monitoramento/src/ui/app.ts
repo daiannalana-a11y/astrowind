@@ -66,12 +66,12 @@ function navHtml(): string {
 }
 
 function statusHtml(): string {
-  if (state.mode === "local") return `<span class="chipst warn" title="Os dados ficam só neste aparelho">${icon("cloudOff", 14)}Modo local</span>`;
-  if (!state.online) return `<button class="chipst warn" data-sync>${icon("cloudOff", 14)}Offline${state.pending ? ` · ${state.pending} pendente${state.pending > 1 ? "s" : ""}` : ""}</button>`;
-  if (state.syncing) return `<span class="chipst">${icon("refresh", 14, "spin")}Sincronizando</span>`;
-  if (state.syncError || state.failed) return `<button class="chipst bad" data-sync title="${esc(state.syncError ?? "")}">${icon("alert", 14)}Erro de envio</button>`;
-  if (state.pending) return `<button class="chipst warn" data-sync>${icon("cloud", 14)}${state.pending} a enviar</button>`;
-  return `<button class="chipst" data-sync title="${state.lastSync ? "Atualizado em " + dtFmt(state.lastSync) : ""}">${icon("cloud", 14)}Sincronizado</button>`;
+  if (state.mode === "local") return `<span class="chipst warn" title="Os dados ficam só neste aparelho">${icon("cloudOff", 16)}<span class="t">Modo local</span></span>`;
+  if (!state.online) return `<button class="chipst warn" data-sync>${icon("cloudOff", 16)}<span class="t">Offline${state.pending ? ` · ${state.pending} pendente${state.pending > 1 ? "s" : ""}` : ""}</span></button>`;
+  if (state.syncing) return `<span class="chipst">${icon("refresh", 16, "spin")}<span class="t">Sincronizando</span></span>`;
+  if (state.syncError || state.failed) return `<button class="chipst bad" data-sync title="${esc(state.syncError ?? "")}">${icon("alert", 16)}<span class="t">Erro de envio</span></button>`;
+  if (state.pending) return `<button class="chipst warn" data-sync>${icon("cloud", 16)}<span class="t">${state.pending} a enviar</span></button>`;
+  return `<button class="chipst" data-sync title="${state.lastSync ? "Atualizado em " + dtFmt(state.lastSync) : ""}">${icon("cloud", 16)}<span class="t">Sincronizado</span></button>`;
 }
 
 function montarShell(): void {
@@ -194,6 +194,7 @@ function navegar(): void {
   atual.render(root);
   hidratarFotos(root);
   atualizarShell();
+  document.querySelector(".app")?.classList.toggle("foco", ["registro", "editar", "novo", "fim"].includes(r.nome));
   window.scrollTo(0, 0);
 }
 

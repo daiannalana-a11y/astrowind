@@ -1,6 +1,6 @@
 import { calcAlertas } from "../../domain/calc";
 import { CAMPOS, GRUPOS, GRUPO_KEYS } from "../../domain/config";
-import { dtFmt, esc, fmt } from "../../domain/format";
+import { esc, fmt, haQuanto } from "../../domain/format";
 import { pontosVisiveis, state } from "../../data/store";
 import type { Point } from "../../domain/types";
 import { F } from "../filtros";
@@ -30,10 +30,14 @@ export function tilesHtml(): string {
         const u = state.index.last(p.id);
         const feito = sessao.some((x) => x.point_id === p.id);
         const lv = alertas.get(p.id);
-        return `<button type="button" class="tile${p.inativo ? " off" : ""}${feito ? " ok" : ""}" data-ponto="${esc(p.id)}">
-          <span class="tn">${esc(p.nome)}${lv && lv !== "info" ? `<span class="dot${lv === "atencao" ? " warn" : ""}" title="Alerta"></span>` : ""}</span>
-          ${feito ? '<span class="chip ok">Registrado agora</span>' : p.inativo ? '<span class="chip">Fora de operação</span>' : ""}
-          <span class="tv">${resumoPonto(p)}</span><span class="td">${u ? "Última: " + dtFmt(u.ts) : ""}</span></button>`;
+        const estado = feito ? "ok" : p.inativo ? "off" : lv === "critico" ? "crit" : lv === "atencao" ? "warn" : u ? "good" : "none";
+        const rotulo = feito ? "Registrado agora" : p.inativo ? "Fora de operação" : lv === "critico" ? "Atrasado" : lv === "atencao" ? "Atenção" : u ? "Em dia" : "Sem leituras";
+        return `<button type="button" class="tile ${estado}" data-ponto="${esc(p.id)}">
+          <span class="tn">${esc(p.nome)}</span>
+          <span class="tag ${estado}">${rotulo}</span>
+          ${u ? `<span class="tv">${resumoPonto(p)}</span>` : ""}
+          <span class="td">${u ? "Última leitura " + haQuanto(u.ts) : "Toque para registrar a primeira"}</span>
+          <span class="go">${icon("plus", 20)}</span></button>`;
       })
       .join("")}</div>`;
   }).join("");
@@ -46,11 +50,11 @@ export function viewHome(): View {
     const pts = pontosVisiveis().filter((p) => !F.un || p.unit_id === F.un);
     const al = calcAlertas(state.index, pts).filter((a) => a.level !== "info");
     const crit = al.some((a) => a.level === "critico");
-    el.innerHTML = `<div class="pagehead"><div><h1>Início</h1><span class="sub">${pts.length} ponto${pts.length === 1 ? "" : "s"} de monitoramento</span></div></div>
-      <section class="card hero"><h2>Inserir novo monitoramento</h2><p>Registre as medições em campo. Funciona sem internet e envia quando houver sinal.</p>
+    el.innerHTML = `
+      <section class="card hero"><h2>Novo monitoramento</h2><p>Registre as medições em campo. Funciona sem internet.</p>
         <a class="btn pri big" href="#/novo">${icon("plus", 22)}Iniciar monitoramento</a></section>
       ${al.length ? `<a class="resumo-alertas${crit ? " critico" : ""}" href="#/alertas" style="margin-top:14px">${icon("alert", 22)}<span>${al.length} alerta${al.length > 1 ? "s" : ""} ativo${al.length > 1 ? "s" : ""}. Toque para ver.</span></a>` : ""}
-      <h2>Pontos de monitoramento</h2>${tilesHtml()}`;
+      <h2>Pontos <span class="sub">(${pts.length})</span></h2>${tilesHtml()}`;
   };
   return {
     render(el) {

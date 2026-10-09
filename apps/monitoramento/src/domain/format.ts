@@ -51,6 +51,17 @@ export function parseNum(input: unknown, milhar = false): number | null {
   return neg ? -n : n;
 }
 
+/** "agora", "há 3 h", "há 2 dias" */
+export function haQuanto(ts: number, agora = Date.now()): string {
+  const m = Math.max(0, Math.round((agora - ts) / 60000));
+  if (m < 2) return "agora";
+  if (m < 60) return `há ${m} min`;
+  const h = Math.round(m / 60);
+  if (h < 24) return `há ${h} h`;
+  const d = Math.round(h / 24);
+  return d === 1 ? "ontem" : `há ${d} dias`;
+}
+
 export function uid(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
   return "id-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);

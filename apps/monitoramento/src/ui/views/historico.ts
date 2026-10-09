@@ -33,10 +33,32 @@ export function viewHistorico(): View {
     el.querySelector("#h-cont")!.textContent = `${rs.length} ${rs.length === 1 ? "leitura" : "leituras"}`;
     el.querySelectorAll<HTMLButtonElement>("[data-exp]").forEach((b) => (b.disabled = !rs.length || ocupado));
     const tabela = el.querySelector("#hist")!;
+    const cards = el.querySelector("#hist-cards")!;
     if (!rs.length) {
       tabela.innerHTML = "<tbody><tr><td>Não há leituras para os filtros selecionados.</td></tr></tbody>";
+      cards.innerHTML = '<div class="vazio">Não há leituras para os filtros selecionados.</div>';
       return;
     }
+    cards.innerHTML = rs
+      .slice(0, 100)
+      .map((r) => {
+        const p = pm.get(r.point_id);
+        const vals = p
+          ? GRUPOS[p.grupo].campos
+              .filter((k) => r.v[k] != null)
+              .map((k) => {
+                const d = CAMPOS[k].cum ? state.index.delta(r, k) : null;
+                return `<span>${esc(CAMPOS[k].rot)}: <b>${r.v[k]!.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 3 })} ${CAMPOS[k].un}</b>${d != null ? ` <span class="sub">(+${d.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })})</span>` : ""}</span>`;
+              })
+              .join("")
+          : "";
+        return `<div class="item"><div class="l1"><span>${esc(p?.nome ?? r.point_id)}</span><span>${dtFmt(r.ts)}</span></div><div class="vals">${vals}</div>
+          ${r.obs ? `<div class="meta">${esc(r.obs)}</div>` : ""}<div class="meta">${r.resp ? esc(r.resp) : ""}</div>
+          ${r.photos.length ? `<div class="thumbs" style="margin:0">${r.photos.map((f) => miniFoto(f)).join("")}</div>` : ""}
+          ${podeEditarLeitura(r) ? `<div class="ac"><a class="btn sm" href="#/editar/${r.id}">${icon("edit", 16)}Editar</a><button type="button" class="btn sm dang" data-del="${r.id}">${icon("trash", 16)}Excluir</button></div>` : ""}</div>`;
+      })
+      .join("") + (rs.length > 100 ? `<p class="nota">Mostrando as 100 mais recentes. Use a exportação para ver todas.</p>` : "");
+    hidratarFotos(cards);
     tabela.innerHTML = `<thead><tr><th>Data e hora</th><th>Ponto</th><th>Medições</th><th>Responsável</th><th>Observações</th><th>Fotos</th><th></th></tr></thead><tbody>${rs
       .slice(0, 500)
       .map((r) => {
@@ -90,7 +112,7 @@ export function viewHistorico(): View {
             <span class="nota" id="x-nota" style="margin:0"></span>
           </div></section>
         <div class="sec-tit"><h2>Histórico de leituras</h2><span class="sub" id="h-cont"></span></div>
-        <div class="tbl"><table id="hist"></table></div>`;
+        <div id="hist-cards" class="lista only-m"></div><div class="tbl only-d"><table id="hist"></table></div>`;
       ligarFiltros(el, draw);
       el.addEventListener("click", (e) => {
         const t = e.target as HTMLElement;

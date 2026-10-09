@@ -259,13 +259,13 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
           <label for="f-obs">Observações</label><textarea id="f-obs" placeholder="Ex.: equipamento em manutenção, condição do local">${esc(editando?.obs ?? "")}</textarea>
           <label for="f-resp">Responsável</label><input type="text" id="f-resp" autocomplete="off" placeholder="Quem realizou a medição" value="${esc(editando?.resp ?? respPadrao)}">
           <div id="avisos"></div>
-          <div class="acoes col">
-            <button type="button" class="btn pri big" id="btn-sn">${editando ? "Salvar alterações" : "Salvar e inserir novo ponto"}</button>
-            ${editando ? "" : '<button type="button" class="btn big" id="btn-sf">Salvar e finalizar monitoramento</button>'}
+          <div class="barra">
+            <button type="button" class="btn pri big" id="btn-sn">${editando ? "Salvar alterações" : "Salvar e ir para o próximo ponto"}</button>
+            ${editando ? "" : '<button type="button" class="btn" id="btn-sf">Salvar e finalizar</button>'}
             ${editando && isGestor() ? `<button type="button" class="btn big dang" id="btn-del">${icon("trash", 18)}Excluir leitura</button>` : ""}
           </div>
         </div>
-        <div><div class="sec-tit"><h2 style="margin-top:0">Últimas leituras</h2><span class="sub" id="rec-sub"></span></div><div class="lista" id="recentes"></div></div></div>`;
+        <details class="rec" ${window.matchMedia("(min-width: 860px)").matches ? "open" : ""}><summary><span class="fs-t">Últimas leituras</span><span class="fs-r" id="rec-sub"></span></summary><div class="lista" id="recentes"></div></details></div>`;
       renderThumbs(el);
       atualizarInfo(el);
       atualizarRecentes(el);
