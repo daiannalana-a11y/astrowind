@@ -205,3 +205,15 @@ insert into public.points (id, unit_id, grupo, nome, info, prof, inativo, ordem)
   ('sjlp-cava',  'sjlp', 'po',  'Cava', 'Hidrômetro Itron (bombeamento) e horímetro BB-BA05 (bomba d''água da cava).', null, false, 10),
   ('sjlp-ete',   'sjlp', 'ete', 'ETE', 'Horímetro 1: mostrador superior. Horímetro 2: mostrador inferior.', null, false, 11)
 on conflict (id) do nothing;
+
+-- ---------------------------------------------------------------- permissões da API
+-- Funcionam com ou sem a opção "Automatically expose new tables" do Supabase.
+-- O acesso real continua limitado pelas regras de segurança por linha (RLS) acima.
+grant usage on schema public to authenticated;
+grant select, update on public.profiles to authenticated;
+grant select, insert, update on public.units to authenticated;
+grant select, insert, update on public.points to authenticated;
+grant select, insert, update on public.readings to authenticated;
+grant select on public.audit_log to authenticated;
+grant execute on function public.app_role_of_user() to authenticated;
+grant execute on function public.has_unit(text) to authenticated;
