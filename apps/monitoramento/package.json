@@ -1,0 +1,42 @@
+{
+  "name": "monitoramentos-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Monitoramentos: app de campo (PWA + APK) para piezômetros, poços, cava e ETE.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "cap:sync": "npm run build && cap sync android",
+    "android:debug": "npm run cap:sync && cd android && ./gradlew assembleDebug",
+    "android:release": "npm run cap:sync && cd android && ./gradlew assembleRelease"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.4",
+    "@capacitor/share": "^8.0.3",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@supabase/supabase-js": "^2.117.3",
+    "chart.js": "^4.5.1",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "xlsx": "^0.18.5"
+  }
+}
