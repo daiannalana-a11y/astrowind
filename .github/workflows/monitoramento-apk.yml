@@ -5,6 +5,9 @@ on:
   push:
     paths: ["apps/monitoramento/**"]
 
+permissions:
+  contents: write
+
 defaults:
   run:
     working-directory: apps/monitoramento
@@ -31,3 +34,12 @@ jobs:
         with:
           name: monitoramentos-debug-apk
           path: apps/monitoramento/android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Publicar APK em uma Release (link de download direto)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: monitoramentos-latest
+          name: Monitoramentos (APK mais recente)
+          body: "Baixe o arquivo app-debug.apk, abra no Android e instale. Gerado automaticamente."
+          prerelease: true
+          target_commitish: ${{ github.sha }}
+          files: apps/monitoramento/android/app/build/outputs/apk/debug/app-debug.apk
