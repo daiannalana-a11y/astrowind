@@ -191,6 +191,30 @@ export async function resetPassword(email: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
+/** Troca a senha de quem já está logado. */
+export async function alterarSenha(nova: string): Promise<void> {
+  const sb = supabase();
+  if (!sb) throw new Error("Servidor não configurado.");
+  if (nova.length < 8) throw new Error("Use pelo menos 8 caracteres.");
+  const { error } = await sb.auth.updateUser({ password: nova });
+  if (error) throw new Error(error.message);
+}
+
+/** Conclui a recuperação: valida o código de 6 dígitos enviado por e-mail e define a senha nova. */
+export async function recuperarComCodigo(email: string, codigo: string, nova: string): Promise<void> {
+  const sb = supabase();
+  if (!sb) throw new Error("Servidor não configurado.");
+  if (nova.length < 8) throw new Error("Use pelo menos 8 caracteres.");
+  const { error } = await sb.auth.verifyOtp({ email: email.trim(), token: codigo.trim(), type: "recovery" });
+  if (error) throw new Error("Código inválido ou vencido. Peça um novo.");
+  const up = await sb.auth.updateUser({ password: nova });
+  if (up.error) throw new Error(up.error.message);
+  await carregarPerfil();
+  if (!state.user) throw new Error("Seu usuário ainda não tem perfil de acesso. Peça ao administrador.");
+  await sync();
+  notify();
+}
+
 export async function signOut(): Promise<void> {
   const sb = supabase();
   if (sb) await sb.auth.signOut();

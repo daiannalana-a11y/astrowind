@@ -1,8 +1,10 @@
 import { BRAND } from "../../domain/config";
 import { esc } from "../../domain/format";
 import { getServerConfig, setServerConfig } from "../../data/remote";
-import { resetPassword, signIn, state } from "../../data/store";
+import { recuperarComCodigo, resetPassword, signIn, state } from "../../data/store";
 import { LOGO_SVG } from "../icons";
+
+let mailGuardado = "";
 
 export function viewLogin(root: HTMLElement, aoEntrar: () => void): void {
   const semServidor = !getServerConfig();
@@ -49,13 +51,41 @@ export function viewLogin(root: HTMLElement, aoEntrar: () => void): void {
   });
   root.querySelector("#l-reset")?.addEventListener("click", async () => {
     if (!val("l-email")) return erro("Digite seu e-mail e toque novamente em \"Esqueci a senha\".");
+    mailGuardado = val("l-email");
     try {
       await resetPassword(val("l-email"));
-      msg.innerHTML = '<div class="okmsg">Enviamos um link para redefinir a senha, se o e-mail estiver cadastrado.</div>';
+      mostrarCodigo();
     } catch (err) {
       erro((err as Error).message);
     }
   });
+  function mostrarCodigo(): void {
+    const f = root.querySelector<HTMLElement>("#f-login")!;
+    f.innerHTML = `<div class="logo">${LOGO_SVG}<div><h1>Nova senha</h1><span class="sub">${esc(val("l-email") || "")}</span></div></div>
+      <div class="okmsg" style="margin-top:0">Enviamos um e-mail com um <b>código de 6 dígitos</b>. Digite o código e escolha a nova senha. Pode demorar alguns minutos; olhe também o spam.</div>
+      <label for="r-cod">Código do e-mail</label><input type="text" id="r-cod" inputmode="numeric" autocomplete="one-time-code" maxlength="8">
+      <label for="r-nova">Nova senha (mínimo 8 caracteres)</label><input type="password" id="r-nova" autocomplete="new-password">
+      <div id="r-msg" role="alert"></div>
+      <div class="acoes col"><button type="submit" class="btn pri big" id="r-ok">Salvar nova senha</button><button type="button" class="btn" id="r-voltar">Voltar</button></div>`;
+    const email = (root.querySelector<HTMLInputElement>("#l-email")?.value ?? mailGuardado).trim();
+    mailGuardado = email;
+    f.onsubmit = async (e) => {
+      e.preventDefault();
+      const m = root.querySelector<HTMLElement>("#r-msg")!;
+      const b = root.querySelector<HTMLButtonElement>("#r-ok")!;
+      b.disabled = true;
+      b.textContent = "Salvando...";
+      try {
+        await recuperarComCodigo(email, root.querySelector<HTMLInputElement>("#r-cod")!.value, root.querySelector<HTMLInputElement>("#r-nova")!.value);
+        aoEntrar();
+      } catch (err) {
+        m.innerHTML = `<div class="erro">${esc((err as Error).message)}</div>`;
+        b.disabled = false;
+        b.textContent = "Salvar nova senha";
+      }
+    };
+    root.querySelector("#r-voltar")!.addEventListener("click", () => viewLogin(root, aoEntrar));
+  }
   root.querySelector("#l-srv")?.addEventListener("click", () => {
     if (window.confirm("Remover a configuração de servidor deste aparelho?")) {
       setServerConfig(null);

@@ -5,7 +5,7 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import { calcAlertas } from "../domain/calc";
 import { BRAND } from "../domain/config";
 import { esc, dtFmt } from "../domain/format";
-import { init, isAdmin, isGestor, leiturasVisiveis, pontosVisiveis, signOut, state, subscribe, sync, unidadesVisiveis } from "../data/store";
+import { alterarSenha, init, isAdmin, isGestor, leiturasVisiveis, pontosVisiveis, signOut, state, subscribe, sync, unidadesVisiveis } from "../data/store";
 import { setServerConfig, getServerConfig } from "../data/remote";
 import { $, abrirFoto, hidratarFotos, toast, type View } from "./dom";
 import { F, iniciarFiltros } from "./filtros";
@@ -127,6 +127,7 @@ function abrirMenu(): void {
     <div style="margin-top:14px">
       ${state.mode === "server" ? `<button class="menu-row" data-sync>${icon("refresh", 20)}<span>Sincronizar agora<br><span class="sub">${state.lastSync ? "Última: " + dtFmt(state.lastSync) : "Ainda não sincronizado"}${state.pending ? " · " + state.pending + " pendente(s)" : ""}</span></span></button>` : ""}
       ${state.mode === "local" ? `<button class="menu-row" data-servidor>${icon("server", 20)}<span>Conectar a um servidor<br><span class="sub">Sincronize e use vários aparelhos</span></span></button>` : `<div class="menu-row" style="cursor:default">${icon("server", 20)}<span class="sub">${esc(cfg?.url ?? "")}</span></div>`}
+      ${state.mode === "server" ? `<button class="menu-row" data-senha>${icon("shield", 20)}<span>Alterar minha senha</span></button>` : ""}
       ${state.mode === "server" ? `<button class="menu-row" data-sair>${icon("logout", 20)}<span>Sair</span></button>` : ""}
     </div>
     <div class="acoes"><button class="btn" data-fechar style="margin-left:auto">Fechar</button></div>
@@ -233,6 +234,22 @@ function eventos(): void {
     }
     if (t.closest("[data-sync]")) {
       void sync().then(() => toast(state.syncError ? state.syncError : "Sincronizado."));
+      return;
+    }
+    if (t.closest("[data-senha]")) {
+      const dlg = $<HTMLDialogElement>("dlg-menu");
+      dlg.innerHTML = `<form class="dlg" id="f-senha"><h2>Alterar senha</h2>
+        <label for="s-nova">Nova senha (mínimo 8 caracteres)</label><input type="password" id="s-nova" autocomplete="new-password">
+        <label for="s-rep">Repita a nova senha</label><input type="password" id="s-rep" autocomplete="new-password">
+        <div id="s-msg" role="alert"></div>
+        <div class="acoes"><button type="button" class="btn" data-fechar>Cancelar</button><button type="submit" class="btn pri" style="margin-left:auto">Salvar</button></div></form>`;
+      dlg.querySelector<HTMLFormElement>("#f-senha")!.onsubmit = (ev) => {
+        ev.preventDefault();
+        const a = dlg.querySelector<HTMLInputElement>("#s-nova")!.value;
+        const m = dlg.querySelector<HTMLElement>("#s-msg")!;
+        if (a !== dlg.querySelector<HTMLInputElement>("#s-rep")!.value) return void (m.innerHTML = '<div class="erro">As senhas não são iguais.</div>');
+        alterarSenha(a).then(() => { dlg.close(); toast("Senha alterada."); }).catch((err: Error) => (m.innerHTML = `<div class="erro">${esc(err.message)}</div>`));
+      };
       return;
     }
     if (t.closest("[data-sair]")) {
