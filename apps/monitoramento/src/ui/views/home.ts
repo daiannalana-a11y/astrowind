@@ -5,7 +5,7 @@ import { pontosVisiveis, state } from "../../data/store";
 import type { Point } from "../../domain/types";
 import { F } from "../filtros";
 import { icon } from "../icons";
-import { sessao } from "./registro";
+import { iniciarSessao, sessao } from "./registro";
 import type { View } from "../dom";
 
 export function resumoPonto(p: Point): string {
@@ -52,7 +52,7 @@ export function viewHome(): View {
     const crit = al.some((a) => a.level === "critico");
     el.innerHTML = `
       <section class="card hero"><h2>Novo monitoramento</h2><p>Registre as medições em campo. Funciona sem internet.</p>
-        <a class="btn pri big" href="#/novo">${icon("plus", 22)}Iniciar monitoramento</a></section>
+        <a class="btn pri big" href="#/novo" id="btn-iniciar">${icon("plus", 22)}Iniciar monitoramento</a></section>
       ${al.length ? `<a class="resumo-alertas${crit ? " critico" : ""}" href="#/alertas" style="margin-top:14px">${icon("alert", 22)}<span>${al.length} alerta${al.length > 1 ? "s" : ""} ativo${al.length > 1 ? "s" : ""}. Toque para ver.</span></a>` : ""}
       <h2>Pontos <span class="sub">(${pts.length})</span></h2>${tilesHtml()}`;
   };
@@ -63,10 +63,11 @@ export function viewHome(): View {
       handler = (e) => {
         const b = (e.target as HTMLElement).closest<HTMLElement>("[data-ponto]");
         if (!b) return;
-        sessao.length = 0;
+        iniciarSessao();
         location.hash = "#/registro/" + b.dataset.ponto;
       };
       el.addEventListener("click", handler);
+      el.querySelector("#btn-iniciar")?.addEventListener("click", () => iniciarSessao());
     }
   };
 }

@@ -1,6 +1,6 @@
 import { avisosDeLeitura } from "../../domain/calc";
 import { CAMPOS, GRUPOS } from "../../domain/config";
-import { dtFmt, dtLocal, esc, fmt, fmtIn, parseNum, uid } from "../../domain/format";
+import { dFmt, dIso, dtFmt, dtLocal, esc, fmt, fmtIn, pad, parseNum, uid } from "../../domain/format";
 import type { Point, Reading, Valores } from "../../domain/types";
 import { excluirLeitura, isGestor, pontosVisiveis, podeEditarLeitura, salvarLeitura, state } from "../../data/store";
 import { icon } from "../icons";
@@ -9,6 +9,20 @@ import { tilesHtml } from "./home";
 
 /** Pontos registrados no monitoramento em andamento (passo a passo). */
 export const sessao: Reading[] = [];
+
+/** Dia do monitoramento em andamento (AAAA-MM-DD): definido ao iniciar e igual para todos os pontos da série. A hora é de cada ponto. */
+export const serie: { dia: string | null } = { dia: null };
+
+const horaAgora = (): string => {
+  const d = new Date();
+  return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+};
+
+/** Começa um monitoramento novo: limpa os pontos já registrados e fixa o dia de hoje. */
+export function iniciarSessao(): void {
+  sessao.length = 0;
+  serie.dia = dIso(Date.now());
+}
 
 function itemSessao(x: Reading, pm: Map<string, Point>): string {
   const r = state.readings.find((y) => y.id === x.id && !y.deleted) ?? x;
@@ -41,13 +55,21 @@ function ligarExclusaoSessao(el: HTMLElement, redesenhar: () => void): void {
 export function viewNovo(): View {
   return {
     render(el) {
+      if (serie.dia == null) serie.dia = dIso(Date.now());
       el.innerHTML = `<div class="passo"><a class="btn sm" href="#/">${icon("back", 16)}Voltar</a><span class="sub">Passo 1 de 2</span></div>
         <h1 style="font-size:1.4rem">Selecione o ponto</h1>
+        <div class="card" style="margin-bottom:14px"><label for="n-dia" style="margin-top:0">Dia do monitoramento</label>
+          <input type="date" id="n-dia" value="${serie.dia ?? dIso(Date.now())}">
+          <div class="nota" style="margin-top:6px">O dia vale para todos os pontos deste monitoramento. A hora de cada ponto é a do momento do registro.</div></div>
         <p class="sub">${sessao.length ? `${sessao.length} ponto${sessao.length > 1 ? "s" : ""} registrado${sessao.length > 1 ? "s" : ""} neste monitoramento. Escolha o próximo ou finalize.` : "Toque no quadro do ponto que deseja registrar."}</p>
         ${sessao.length ? `<div class="acoes col" style="margin-top:0"><a class="btn pri big" href="#/fim">${icon("check", 22)}Finalizar monitoramento</a></div>
         <h2>Registrado neste monitoramento</h2><div class="lista" id="sess-lista">${sessao.map((x) => itemSessao(x, new Map(state.points.map((p) => [p.id, p])))).join("")}</div>` : ""}
         <div id="tiles">${tilesHtml()}</div>`;
       ligarExclusaoSessao(el, () => viewNovo().render(el));
+      el.querySelector<HTMLInputElement>("#n-dia")!.addEventListener("change", (e) => {
+        const v = (e.target as HTMLInputElement).value;
+        if (v) serie.dia = v;
+      });
       el.querySelector("#tiles")!.addEventListener("click", (e) => {
         const b = (e.target as HTMLElement).closest<HTMLElement>("[data-ponto]");
         if (b) location.hash = "#/registro/" + b.dataset.ponto;
@@ -66,7 +88,7 @@ export function viewFim(): View {
         <div class="lista">${sessao.map((x) => itemSessao(x, pm)).join("")}</div>
         ${sessao.length ? `<div class="acoes col"><button type="button" class="btn pri big" id="btn-comp">${icon("file", 22)}Gerar comprovante (PDF)</button><div class="nota" id="comp-nota" style="margin:0"></div></div>` : ""}
         <div class="acoes col"><a class="btn big" href="#/novo" id="outro">${icon("plus", 22)}Iniciar outro monitoramento</a><a class="btn big" href="#/historico">Ver histórico</a></div></section>`;
-      el.querySelector("#outro")!.addEventListener("click", () => (sessao.length = 0));
+      el.querySelector("#outro")!.addEventListener("click", () => iniciarSessao());
       ligarExclusaoSessao(el, () => viewFim().render(el));
       el.querySelector("#btn-comp")?.addEventListener("click", async (ev) => {
         const b = ev.currentTarget as HTMLButtonElement;
@@ -120,6 +142,7 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
   let ponto: Point | undefined;
   let fotos: FotoRasc[] = [];
   let dhTocado = false;
+  let horaTocada = false;
   let salvando = false;
 
   const q = <T extends HTMLElement>(el: HTMLElement, s: string) => el.querySelector<T>(s)!;
@@ -185,7 +208,7 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
       fotos.push({ kind: "new", blob, url: URL.createObjectURL(blob) });
     }
     const primeira = lista[0];
-    if (primeira && !dhTocado && primeira.lastModified && Math.abs(Date.now() - primeira.lastModified) > 60000) q<HTMLInputElement>(el, "#f-dh").value = dtLocal(primeira.lastModified);
+    if (editando && primeira && !dhTocado && primeira.lastModified && Math.abs(Date.now() - primeira.lastModified) > 60000) q<HTMLInputElement>(el, "#f-dh").value = dtLocal(primeira.lastModified);
     renderThumbs(el);
   }
 
@@ -202,7 +225,14 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
       else v[k] = n;
     }
     if (!erro && !Object.keys(v).length) erro = "Informe ao menos uma medição.";
-    const dh = q<HTMLInputElement>(el, "#f-dh").value;
+    let dh: string;
+    if (editando) dh = q<HTMLInputElement>(el, "#f-dh").value;
+    else {
+      const dia = q<HTMLInputElement>(el, "#f-dia").value;
+      // Hora não alterada à mão e dia de hoje: vale a hora do momento em que salva.
+      const hora = !horaTocada && dia === dIso(Date.now()) ? horaAgora() : q<HTMLInputElement>(el, "#f-hora").value;
+      dh = dia && hora ? `${dia}T${hora}` : "";
+    }
     if (!erro && !dh) erro = "Informe a data e a hora da leitura.";
     return { v, ts: dh ? new Date(dh).getTime() : 0, erro };
   }
@@ -293,7 +323,13 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
           <label for="f-ponto">Ponto de monitoramento</label>
           <select id="f-ponto" ${editando ? "disabled" : ""}>${irmaos.map((p) => `<option value="${esc(p.id)}" ${p.id === ponto!.id ? "selected" : ""}>${esc(p.nome + (p.inativo ? " (fora de operação)" : ""))}</option>`).join("")}</select>
           <div class="info" id="info"></div>
-          <label for="f-dh">Data e hora da leitura</label><input type="datetime-local" id="f-dh" value="${dtLocal(editando?.ts ?? Date.now())}">
+          ${
+            editando
+              ? `<label for="f-dh">Data e hora da leitura</label><input type="datetime-local" id="f-dh" value="${dtLocal(editando.ts)}">`
+              : `<div class="info" id="dia-box" style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span>Dia do monitoramento: <b id="dia-txt">${dFmt(new Date(`${serie.dia ?? dIso(Date.now())}T12:00`).getTime())}</b></span><button type="button" class="btn sm" id="dia-alt">Alterar dia</button></div>
+                 <input type="date" id="f-dia" value="${serie.dia ?? dIso(Date.now())}" hidden>
+                 <label for="f-hora">Hora da leitura</label><input type="time" id="f-hora" value="${horaAgora()}">`
+          }
           <div class="campos">${grupo.campos
             .map(
               (k) => `<div><label for="c-${k}">${esc(CAMPOS[k].rot)} <span class="sub">(${CAMPOS[k].un})</span></label><input type="text" class="num" id="c-${k}" inputmode="decimal" autocomplete="off" placeholder="0,00" value="${editando?.v[k] != null ? fmtIn(editando.v[k]) : ""}"></div>`
@@ -328,6 +364,11 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
           if (f?.kind === "new") URL.revokeObjectURL(f.url);
           return renderThumbs(el);
         }
+        if (t.closest("#dia-alt")) {
+          const inp = q<HTMLInputElement>(el, "#f-dia");
+          inp.hidden = !inp.hidden;
+          return;
+        }
         if (t.closest("#btn-sn")) return void salvar(el, false, editando ? "edit" : "novo");
         if (t.closest("#btn-sf")) return void salvar(el, false, "fim");
         if ((b = t.closest("#btn-forcar"))) return void salvar(el, true, b.dataset.modo as "novo" | "fim" | "edit");
@@ -343,6 +384,12 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
         if (t.id === "f-ponto") {
           location.hash = "#/registro/" + t.value;
         } else if (t.id === "f-dh") dhTocado = true;
+        else if (t.id === "f-hora") horaTocada = true;
+        else if (t.id === "f-dia" && t.value) {
+          serie.dia = t.value;
+          const tx = el.querySelector<HTMLElement>("#dia-txt");
+          if (tx) tx.textContent = dFmt(new Date(`${t.value}T12:00`).getTime());
+        }
         else if (t.id === "f-cam" || t.id === "f-gal") void adicionar(el, t.files).then(() => (t.value = ""));
       });
       el.addEventListener("input", (e) => (e.target as HTMLElement).classList.remove("sug"));
