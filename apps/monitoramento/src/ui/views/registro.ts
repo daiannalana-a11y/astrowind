@@ -10,6 +10,33 @@ import { tilesHtml } from "./home";
 /** Pontos registrados no monitoramento em andamento (passo a passo). */
 export const sessao: Reading[] = [];
 
+function itemSessao(x: Reading, pm: Map<string, Point>): string {
+  const r = state.readings.find((y) => y.id === x.id && !y.deleted) ?? x;
+  const p = pm.get(r.point_id);
+  const vals = p
+    ? GRUPOS[p.grupo].campos
+        .filter((k) => r.v[k] != null)
+        .map((k) => `<span>${esc(CAMPOS[k].rot)}: <b>${fmt(r.v[k])} ${CAMPOS[k].un}</b></span>`)
+        .join("")
+    : "";
+  return `<div class="item"><div class="l1"><span>${esc(p?.nome ?? r.point_id)}</span><span>${dtFmt(r.ts)}</span></div><div class="vals">${vals}</div>
+    ${podeEditarLeitura(r) ? `<div class="ac"><a class="btn sm" href="#/editar/${r.id}">${icon("edit", 16)}Editar</a><button type="button" class="btn sm dang" data-del-sess="${r.id}">${icon("trash", 16)}Excluir</button></div>` : ""}</div>`;
+}
+
+function ligarExclusaoSessao(el: HTMLElement, redesenhar: () => void): void {
+  el.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLElement>("[data-del-sess]");
+    if (!b || !confirmar("Excluir esta leitura? A ação fica registrada na auditoria.")) return;
+    const id = b.dataset.delSess!;
+    void excluirLeitura(id).then(() => {
+      const i = sessao.findIndex((s) => s.id === id);
+      if (i >= 0) sessao.splice(i, 1);
+      toast("Leitura excluída.");
+      redesenhar();
+    });
+  });
+}
+
 /* ------------------------------------------------------------ passo 1: escolher o ponto */
 export function viewNovo(): View {
   return {
@@ -17,8 +44,10 @@ export function viewNovo(): View {
       el.innerHTML = `<div class="passo"><a class="btn sm" href="#/">${icon("back", 16)}Voltar</a><span class="sub">Passo 1 de 2</span></div>
         <h1 style="font-size:1.4rem">Selecione o ponto</h1>
         <p class="sub">${sessao.length ? `${sessao.length} ponto${sessao.length > 1 ? "s" : ""} registrado${sessao.length > 1 ? "s" : ""} neste monitoramento. Escolha o próximo ou finalize.` : "Toque no quadro do ponto que deseja registrar."}</p>
-        <div id="tiles">${tilesHtml()}</div>
-        ${sessao.length ? `<div class="acoes col"><a class="btn pri big" href="#/fim">${icon("check", 22)}Finalizar monitoramento</a></div>` : ""}`;
+        ${sessao.length ? `<div class="acoes col" style="margin-top:0"><a class="btn pri big" href="#/fim">${icon("check", 22)}Finalizar monitoramento</a></div>
+        <h2>Registrado neste monitoramento</h2><div class="lista" id="sess-lista">${sessao.map((x) => itemSessao(x, new Map(state.points.map((p) => [p.id, p])))).join("")}</div>` : ""}
+        <div id="tiles">${tilesHtml()}</div>`;
+      ligarExclusaoSessao(el, () => viewNovo().render(el));
       el.querySelector("#tiles")!.addEventListener("click", (e) => {
         const b = (e.target as HTMLElement).closest<HTMLElement>("[data-ponto]");
         if (b) location.hash = "#/registro/" + b.dataset.ponto;
@@ -34,17 +63,35 @@ export function viewFim(): View {
       const pm = new Map(state.points.map((p) => [p.id, p]));
       el.innerHTML = `<section class="card"><h1 style="font-size:1.4rem">Monitoramento finalizado</h1>
         <p class="sub">${sessao.length ? `${sessao.length} ponto${sessao.length > 1 ? "s" : ""} registrado${sessao.length > 1 ? "s" : ""} neste monitoramento.` : "Nenhum ponto foi registrado neste monitoramento."}</p>
-        <div class="lista">${sessao
-          .map((x) => {
-            const p = pm.get(x.point_id)!;
-            return `<div class="item"><div class="l1"><span>${esc(p.nome)}</span><span>${dtFmt(x.ts)}</span></div><div class="vals">${GRUPOS[p.grupo].campos
-              .filter((k) => x.v[k] != null)
-              .map((k) => `<span>${esc(CAMPOS[k].rot)}: <b>${fmt(x.v[k])} ${CAMPOS[k].un}</b></span>`)
-              .join("")}</div></div>`;
-          })
-          .join("")}</div>
-        <div class="acoes col"><a class="btn pri big" href="#/novo" id="outro">${icon("plus", 22)}Iniciar outro monitoramento</a><a class="btn big" href="#/historico">Ver histórico</a></div></section>`;
+        <div class="lista">${sessao.map((x) => itemSessao(x, pm)).join("")}</div>
+        ${sessao.length ? `<div class="acoes col"><button type="button" class="btn pri big" id="btn-comp">${icon("file", 22)}Gerar comprovante (PDF)</button><div class="nota" id="comp-nota" style="margin:0"></div></div>` : ""}
+        <div class="acoes col"><a class="btn big" href="#/novo" id="outro">${icon("plus", 22)}Iniciar outro monitoramento</a><a class="btn big" href="#/historico">Ver histórico</a></div></section>`;
       el.querySelector("#outro")!.addEventListener("click", () => (sessao.length = 0));
+      ligarExclusaoSessao(el, () => viewFim().render(el));
+      el.querySelector("#btn-comp")?.addEventListener("click", async (ev) => {
+        const b = ev.currentTarget as HTMLButtonElement;
+        const nota = el.querySelector<HTMLElement>("#comp-nota")!;
+        b.disabled = true;
+        nota.textContent = "Gerando comprovante...";
+        try {
+          const [{ gerarComprovante }, { entregarArquivo }] = await Promise.all([import("../../export/comprovante"), import("../../export/arquivos")]);
+          const atuais = sessao.map((s) => state.readings.find((r) => r.id === s.id && !r.deleted) ?? s);
+          const out = await gerarComprovante({
+            leituras: atuais,
+            pontos: state.points,
+            unidades: state.units,
+            ix: state.index,
+            responsavel: atuais.find((r) => r.resp)?.resp || state.user?.nome || "",
+            pendentes: state.pending,
+            modoLocal: state.mode === "local"
+          });
+          nota.textContent = `${await entregarArquivo(out.nome, out.blob)} Código ${out.codigo}.`;
+        } catch (e) {
+          nota.textContent = `Não foi possível gerar o comprovante (${(e as Error).message || "erro"}).`;
+        } finally {
+          b.disabled = false;
+        }
+      });
     }
   };
 }
@@ -198,6 +245,8 @@ export function viewRegistro(opts: { pontoId: string; editarId: string | null })
         editando
       );
       if (editando) {
+        const i = sessao.findIndex((s) => s.id === r.id);
+        if (i >= 0) sessao[i] = r;
         toast("Alterações salvas.");
         history.back();
         return;

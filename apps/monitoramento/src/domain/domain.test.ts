@@ -83,3 +83,17 @@ describe("alertas", () => {
     expect(calcAlertas(ix, [pz], t0 + DIA).some((a) => a.level === "critico" && /nível acima/.test(a.titulo))).toBe(true);
   });
 });
+
+import { codigoComprovante } from "./comprovante";
+
+describe("código do comprovante", () => {
+  const a = leitura("sjlp-poco3", 0, { hid: 1000 });
+  const b = leitura("sjlp-pz01", 0, { nivel: 30.2 });
+  it("é estável e não depende da ordem", async () => {
+    expect(await codigoComprovante([a, b])).toBe(await codigoComprovante([b, a]));
+    expect(await codigoComprovante([a, b])).toMatch(/^[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}$/);
+  });
+  it("muda se um valor muda", async () => {
+    expect(await codigoComprovante([a])).not.toBe(await codigoComprovante([{ ...a, v: { hid: 1001 } }]));
+  });
+});
